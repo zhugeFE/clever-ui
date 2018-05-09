@@ -1,0 +1,42 @@
+@import "../../../assets/styles/constants"
+.zg-dialog
+  min-width: 420px
+  min-height: 210px
+  border: 1px solid $color-border-normal
+  border-radius: $border-radius
+  background: $color-white
+
+  display: flex
+  flex-direction: column
+
+  position: fixed
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  z-index: $z-index-max
+  .zg-dialog-head
+    height: 58px
+    line-height: 58px
+    padding: 0 20px
+    font-size: $size-font-subtitle-lagre
+    color: $color-brand-black
+    border-bottom: 1px solid $color-border-normal
+    flex: none
+  .zg-dialog-content
+    padding: 20px
+    flex: 1 1 auto
+  .zg-dialog-foot
+    padding: 20px
+    flex: none
+    .zg-dialog-cancel, .zg-dialog-confirm
+      float: right
+    .zg-dialog-cancel
+      margin-right: 10px
+.zg-dialog-layer
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: $layer
+  z-index: $z-index-max

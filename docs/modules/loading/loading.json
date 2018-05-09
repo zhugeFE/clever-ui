@@ -1,0 +1,1 @@
+[{"name":"size","type":"[String,Number]","required":false,"default":"'normal'","description":"默认：normal,支持normal、medium、small"},{"name":"tip","type":"String","required":false,"default":"'loading...'","description":"loading的提示文本"},{"name":"showTip","type":"Boolean","required":false,"default":"true","description":"是否显示提示文本"}]

@@ -1,0 +1,27 @@
+@import "../../../assets/styles/constants"
+.zg-message
+  position: fixed
+  top: 50px
+  left: 50%
+  margin-left: -230px
+  width: 460px
+  height: 50px
+  line-height: 50px
+  padding: 0 20px
+  color: $color-white
+  border-radius: $border-radius
+  box-shadow: $shadow-normal
+  font-size: $size-font-content
+  z-index: $z-index-max
+  .zg-icon
+    margin-right: 10px
+  &.zg-success
+    background: $color-success
+  &.zg-error
+    background: $color-danger
+  &.zg-info
+    background: $color-info
+
+  .zg-close
+    float: right
+    cursor: pointer

@@ -1,0 +1,18 @@
+@import "../../../assets/styles/constants"
+.zg-radio-button
+  display: inline-block
+  .zg-radio-item
+    border-radius: 0 !important
+    position: relative
+    margin-left: -1px
+    &:first-child
+      border-top-left-radius: $border-radius
+      border-bottom-left-radius: $border-radius
+    &:last-child
+      border-right-width: 1px
+      border-top-right-radius: $border-radius
+      border-bottom-right-radius: $border-radius
+    &:hover,&.zg-checked
+      z-index: 100
+    &.zg-disable,&.zg-disable:hover
+      z-index: 99

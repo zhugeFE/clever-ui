@@ -1,0 +1,160 @@
+@import "../../../assets/styles/constants"
+.zg-button
+  display: inline-block
+  cursor: pointer
+  padding: 0 1.5em
+  height: 32px
+  line-height: 32px
+  font-size: 14px
+  border-radius: 3px
+  white-space: nowrap
+  text-align: center
+  user-select: none
+  .zg-icon
+    margin-right: .5em
+  &.zg-button-icon
+    padding: 0 0.5em!important
+    .zg-icon
+      margin: 0
+  &.zg-button-size-small
+    font-size: $size-font-tip
+    height: 24px
+    line-height: 24px
+    padding: 0 1em
+  &.zg-button-size-large
+    font-size: $size-font-subtitle-small
+    height: 36px
+    line-height: 36px
+    padding: 0 3em
+
+  &.zg-button-normal-normal
+    border: 1px solid $color-border-normal
+    color: $color-brand-black
+    background: $color-action-normal-default
+    &:hover
+      background: $color-action-normal-hover
+    &:active,&.zg-checked
+      background: $color-action-normal-active
+
+  &.zg-button-normal-primary
+    color: $color-white
+    border: 1px solid $color-action-primary-default
+    background: $color-action-primary-default
+    &:hover
+      border-color: $color-action-primary-hover
+      background: $color-action-primary-hover
+    &:active,&.zg-checked
+      border-color: $color-action-primary-active
+      background: $color-action-primary-active
+
+  &.zg-button-normal-danger
+    color: $color-white
+    border: 1px solid $color-action-danger-default
+    background: $color-action-danger-default
+    &:hover
+      border-color: $color-action-danger-hover
+      background: $color-action-danger-hover
+    &:active,&.zg-checked
+      border-color: $color-action-danger-active
+      background: $color-action-danger-active
+
+  &.zg-button-normal-secondary
+    color: $color-white
+    border: 1px solid $color-action-secondary-default
+    background: $color-action-secondary-default
+    &:hover
+      border-color: $color-action-secondary-hover
+      background: $color-action-secondary-hover
+    &:active,&.zg-checked
+      border-color: $color-action-secondary-active
+      background: $color-action-secondary-active
+
+  &.zg-button-normal-success
+    color: $color-white
+    border: 1px solid $color-action-success-default
+    background: $color-action-success-default
+    &:hover
+      border-color: $color-action-success-hover
+      background: $color-action-success-hover
+    &:active,&.zg-checked
+      border-color: $color-action-success-active
+      background: $color-action-success-active
+
+  &.zg-button-normal-warning
+    color: $color-white
+    border: 1px solid $color-action-warning-default
+    background: $color-action-warning-default
+    &:hover
+      border-color: $color-action-warning-hover
+      background: $color-action-warning-hover
+    &:active,&.zg-checked
+      border-color: $color-action-warning-active
+      background: $color-action-warning-active
+
+  &.zg-button-border-normal
+    border: 1px solid $color-border-normal
+    color: $color-brand-black
+    background: $color-white
+    &:hover
+      color: $color-font-brand
+      border-color: $color-brand
+      background: $color-white
+    &:active,&.zg-checked
+      color: $color-font-brand
+      border-color: $color-brand
+      background: $btn-border-active
+
+  &.zg-button-border-primary
+    color: $color-font-brand
+    border: 1px solid $color-brand
+    background: $color-white
+    &:hover
+      background: $color-brand-light
+    &:active,&.zg-checked
+      background: $btn-border-primary-bg-active
+
+  &.zg-button-border-danger
+    color: $color-action-danger-default
+    border: 1px solid $color-danger
+    background: $color-white
+    &:hover
+      background: $color-danger-light
+    &:active,&.zg-checked
+      background: $btn-border-danger-bg-active
+
+  &.zg-button-border-secondary
+    color: $color-secondary
+    border: 1px solid $color-secondary
+    background: $color-white
+    &:hover
+      background: $color-secondary-light
+    &:active,&.zg-checked
+      background: $btn-border-secondary-bg-active
+
+  &.zg-button-border-success
+    color: $color-success
+    border: 1px solid $color-success
+    background: $color-white
+    &:hover
+      background: $color-success-light
+    &:active,&.zg-checked
+      background: $btn-border-success-bg-active
+
+  &.zg-button-border-warning
+    color: $color-warning
+    border: 1px solid $color-warning
+    background: $color-white
+    &:hover
+      background: $color-warning-light
+    &:active,&.zg-checked
+      background: $btn-border-warning-bg-active
+
+  &.zg-disable
+    border-color: $color-action-disabled-default
+    color: $color-white
+    background: $color-action-disabled-default
+    cursor: not-allowed
+    &:hover,&:active
+      background: $color-action-disabled-default
+      color: $color-white
+      border-color: $color-action-disabled-default

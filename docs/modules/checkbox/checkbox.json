@@ -1,0 +1,1 @@
+[{"name":"value","type":"Boolean","required":false,"default":"false","description":"默认选中状态,使用时，通过v-model的形式"},{"name":"label","type":"String","required":false,"default":null,"description":"展示文本"},{"name":"disable","type":"Boolean","required":false,"default":"false","description":"禁用"}]

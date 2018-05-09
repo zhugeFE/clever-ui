@@ -1,0 +1,39 @@
+@import "../../../assets/styles/constants"
+.zg-select
+  min-height: 30px
+  line-height: 28px
+  display: inline-block
+  font-size: $size-font-content
+  position: relative
+  .zg-drop-panel
+    position: absolute
+    z-index: $z-index-base
+    border: 1px solid $color-border-normal
+    border-radius: $border-radius
+    margin-top: 7px
+
+    min-width: 100%
+    max-height: 325px
+    width: auto
+    background: $color-white
+    box-shadow: $shadow-normal
+
+    display: flex
+    flex-direction: column
+    .zg-fixed
+      flex: none
+      padding: 5px
+    .zg-content
+      flex: 1 1 auto
+      overflow-y: auto
+      .zg-error
+        color: $color-font-disabled
+        cursor: default
+        width: 150px
+        padding: 0 10px
+    .zg-clear
+      border-bottom: 1px solid $color-border-normal
+      a
+        font-size: $size-font-tip
+        color: $color-info
+        margin-left: 10px

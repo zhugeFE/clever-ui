@@ -1,0 +1,30 @@
+@import "../../../assets/styles/constants"
+.zg-checkbox
+  display: inline-block
+  color: $color-font-title
+  cursor: pointer
+  white-space: nowrap
+  font-size: $size-font-content
+  &.checked .zg-box
+    background: $color-brand
+    color: $color-white
+    border-color: $color-brand
+  &.disable
+    color: $color-font-disabled
+    cursor: not-allowed
+    .zg-box
+      border: 1px solid $color-action-disabled-default
+      background: $color-background-light
+  &.disable.checked .zg-box
+    border: none
+    background: $color-action-disabled-default
+  .zg-box
+    display: inline-block
+    vertical-align: middle
+    width: 16px
+    height: 16px
+    line-height: 16px
+    border: 1px solid $color-border-normal
+    text-align: center
+    margin-right: 5px
+    border-radius: $border-radius

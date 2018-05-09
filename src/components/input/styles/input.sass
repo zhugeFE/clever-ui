@@ -1,0 +1,63 @@
+@import "../../../assets/styles/constants"
+.zg-input
+  display: inline-block
+  border: 1px solid $color-border-normal
+  border-radius: $border-radius
+
+  font-size: $size-font-content
+  height: 28px
+  line-height: 28px
+  overflow: hidden
+  position: relative
+  vertical-align: middle
+  .temp
+    font-size: inherit
+    line-height: inherit
+    padding: 0
+    position: absolute
+    visibility: hidden
+    top: -999px
+    white-space: nowrap
+  .zg-tooltip-trigger
+    width: 100%
+    height: 100%
+    vertical-align: top
+    .zg-input-input
+      font-size: inherit
+      display: block
+      width: 100%
+      height: 100%
+      line-height: inherit
+      border: none
+      border-radius: $border-radius
+  &.zg-active
+    border-color: $color-action-primary-active
+  &.zg-error
+    border-color: $color-danger
+  &.zg-size-small
+    height: 24px
+    line-height: 24px
+  &.zg-size-medium
+    height: 28px
+    line-height: 28px
+  &.zg-size-normal
+    height: 32px
+    line-height: 32px
+  &.zg-size-big
+    height: 36px
+    line-height: 36px
+  .zg-input-icon,.zg-input-clear
+    font-size: $size-font-tip
+    color: $color-font-assist
+    position: absolute
+    top: 0
+  .zg-input-icon
+    left: 8px
+  .zg-input-clear
+    right: 8px
+    cursor: pointer
+.zg-tooltip-error
+  background: $color-danger!important
+  color: $color-white!important
+  &:after
+    background: $color-danger!important

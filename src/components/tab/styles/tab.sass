@@ -1,0 +1,58 @@
+@import "../../../assets/styles/constants"
+.zg-tabs
+  .zg-tab-bar
+    display: inline-block
+    .zg-tab
+      display: inline-block
+      height: 36px
+      line-height: 36px
+      font-size: $size-font-content
+      text-align: center
+      i
+        margin-right: .5em
+    &.zg-tab-card
+      .zg-tab
+        background: $color-white
+        color: $color-brand-black
+        border: 1px solid $color-border-normal
+        border-right: none
+        padding: 0 1.5em
+        &:hover
+          cursor: pointer
+        &:first-child
+          border-top-left-radius: $border-radius
+          border-bottom-left-radius: $border-radius
+        &:last-child
+          border-right: 1px solid $color-border-normal
+          border-top-right-radius: $border-radius
+          border-bottom-right-radius: $border-radius
+        &.zg-checked
+          background: $color-brand
+          color: $color-white
+          border-color: $color-brand
+          &:hover
+            cursor: default
+          & + .zg-tab
+            border-left-color: $color-brand
+    &.zg-tab-normal
+      & ~ .zg-tab-panel
+        border-top: 1px solid $color-border-normal
+      .zg-tab
+        color: $color-brand-black
+        position: relative
+        top: 1px
+        & + .zg-tab
+          margin-left: 22px
+        &:hover
+          cursor: pointer
+        &.zg-checked
+          color: $color-brand
+          border-bottom: 2px solid $color-brand
+    &.zg-center
+      position: relative
+      left: 50%
+      transform: translateX(-50%)
+    &.zg-right
+      position: relative
+      left: 100%
+      transform: translateX(-100%)
