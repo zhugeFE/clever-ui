@@ -10,7 +10,7 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "version": "npm run build-lib;git add -A",
-    "postversion": "git push;git push --tags;npm publish;cnpm sync zhugeview",
+    "postversion": "git push;git push --tags;npm publish;cnpm sync clever-ui",
     "lint": "eslint --ext .js,.vue src test/unit/specs"
   },
   "main": "lib/main.js",
