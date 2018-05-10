@@ -513,6 +513,7 @@
                               splitStr={this.splitStr}
                               splitStrFormat={this.splitStrFormat}
                               width={this.width}
+                              size={this.size}
                               maxWidth={this.maxWidth}
                               active={this.showOptions}
                               keyField={this.keyField}
