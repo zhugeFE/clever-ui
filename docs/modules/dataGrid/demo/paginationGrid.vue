@@ -8,7 +8,7 @@
                         :width="130"
                         sort-able
                         @clickCell="onClickFirstColumn">
-          <template scope="scope">
+          <template slot-scope="scope">
             自定义展示：{{scope.data[scope.field]}}
           </template>
         </zg-grid-column>

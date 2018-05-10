@@ -2,7 +2,7 @@
   <div>
     <demo-panel subtitle="radioButton">
       <zg-radio-button :store="store" v-model="value">
-        <template scope="scope">
+        <template slot-scope="scope">
           <zg-button type="normal"
                      theme="border"
                      size="large"

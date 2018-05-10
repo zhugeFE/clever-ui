@@ -7,7 +7,7 @@
                         :width="130"
                         fix="left"
                         sortAble>
-          <template scope="scope">
+          <template slot-scope="scope">
             自定义展示：{{scope.data[scope.field]}}
           </template>
         </zg-grid-column>
@@ -15,7 +15,7 @@
                         title="aaa"
                         :width="130"
                         sortAble>
-          <template scope="scope">
+          <template slot-scope="scope">
             ~~~
           </template>
         </zg-grid-column>
@@ -24,21 +24,21 @@
           <zg-grid-column field="label0"
                           title="column1"
                           sortAble>
-            <template scope="scope">
+            <template slot-scope="scope">
               column1：{{scope.data[scope.field]}}
             </template>
           </zg-grid-column>
           <zg-grid-column field="label0"
                           title="column2"
                           sortAble>
-            <template scope="scope">
+            <template slot-scope="scope">
               column2：{{scope.data[scope.field]}}
             </template>
           </zg-grid-column>
           <zg-grid-column v-if="showColumn3" field="label3"
                           title="column3"
                           sortAble>
-            <template scope="scope">
+            <template slot-scope="scope">
               column3：{{scope.data[scope.field]}}
             </template>
           </zg-grid-column>
@@ -47,7 +47,7 @@
         <zg-grid-column v-if="showColumn4" field="label4"
                         title="column4"
                         sortAble>
-          <template scope="scope">
+          <template slot-scope="scope">
             column4：{{scope.data[scope.field]}}
           </template>
         </zg-grid-column>

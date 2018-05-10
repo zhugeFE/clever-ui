@@ -1,7 +1,7 @@
 <template>
   <div>
     <parent>
-      <template slot="option" scope="scope">
+      <template slot="option" slot-scope="scope">
         <<{{scope.data.label}}>>
       </template>
     </parent>

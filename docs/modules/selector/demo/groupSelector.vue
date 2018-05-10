@@ -6,11 +6,11 @@
                    :store="store"
                    label-field="label"
                    children-field="children">
-        <template scope="scope">
+        <template slot-scope="scope">
           <span>自定义展示{{scope.data.label}}</span>
         </template>
 
-        <template slot="header" scope="scope">
+        <template slot="header" slot-scope="scope">
           自定义header: {{scope.data.label}}
         </template>
       </zg-selector>

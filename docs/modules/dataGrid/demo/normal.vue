@@ -7,10 +7,10 @@
                         :width="130"
                         sort-able
                         @clickCell="onClickFirstColumn">
-          <template scope="data" slot="header">
+          <template slot-scope="data" slot="header">
             自定义展示表头{{data.title}}
           </template>
-          <template scope="scope">
+          <template slot-scope="scope">
             自定义展示：{{scope.data[scope.field]}}
           </template>
         </zg-grid-column>
