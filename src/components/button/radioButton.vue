@@ -66,6 +66,7 @@
     },
     watch: {
       value (value) {
+        this.checked = null
         this.store.forEach(item => {
           if (item.value === value) {
             this.checked = item
