@@ -35,6 +35,13 @@
        */
       tabWidth: {
         type: Number
+      },
+      /**
+       * @description 切换标签页时，采用v-show还是v-if，true为v-if
+       */
+      cleanMode: {
+        type: Boolean,
+        default: false
       }
     },
     data () {
@@ -93,10 +100,14 @@
             })}
           </div>
           {this.tabs.map((tab, index) => {
-            if (index === this.activeIndex) {
-              return (
-                <div class="zg-tab-panel">{tab.slot}</div>
-              )
+            if (this.cleanMode) {
+              if (index === this.activeIndex) {
+                return (
+                  <div class="zg-tab-panel">{tab.slot}</div>
+                )
+              }
+            } else {
+              return (<div v-show={index === this.activeIndex} class="zg-tab-panel">{tab.slot}</div>)
             }
           })}
         </div>
