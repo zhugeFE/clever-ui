@@ -50,9 +50,7 @@
       /**
        * @description value
        */
-      value: {
-        type: String
-      },
+      value: null,
       /**
        * @description 提示文本内容
        */
