@@ -32,7 +32,7 @@ export default {
      */
     size: {
       type: String,
-      default: 'normal',
+      default: 'small',
       validator (value) {
         return ['small', 'normal', 'large'].includes(value)
       }
