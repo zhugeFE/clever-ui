@@ -1,7 +1,7 @@
 <template>
   <div>
     <demo-panel title="dataGrid" subtitle="普通表格" jsFiddleName="0v4vs2je">
-      <zg-data-grid :store="store" @click-cell="onClickCell" show-index indexTitle="序列">
+      <zg-data-grid :store="[]" @click-cell="onClickCell" show-index indexTitle="序列">
         <zg-grid-column field="label0"
                         title="首列"
                         :width="130"
