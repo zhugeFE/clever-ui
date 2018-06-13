@@ -102,13 +102,7 @@
               if (this.customRender) {
                 return this.customRender
               } else {
-                return [this.content, (() => {
-                  if (!this.autoHide) {
-                    return (
-                      <a href="javascript:void(0);" class="zg-tooltip-close" onClick={this.hide}>知道了</a>
-                    )
-                  }
-                })()]
+                return this.content
               }
             })()}
           </span>
