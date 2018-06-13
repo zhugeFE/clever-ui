@@ -41,8 +41,8 @@
             }
             return (
               <li class={itemClass} onClick={this.onClickRadio(item)}>
-                <span class="zg-cycle"></span>
-                <zg-radio-label data={item} scopedSlots={{default: this.$scopedSlots.default}}></zg-radio-label>
+                <span class="zg-cycle">
+                </span><zg-radio-label data={item} scopedSlots={{default: this.$scopedSlots.default}}></zg-radio-label>
               </li>
             )
           })}
