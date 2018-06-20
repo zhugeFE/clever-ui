@@ -16,9 +16,9 @@
                    key-field="value"
                    label-field="label"></zg-selector>
       <span class="zg-cld-day-control">
-        <zg-button size="normal" icon="zgicon-arrow-left"></zg-button>
+        <zg-button size="normal" icon="zgicon-arrow-left" @click="onPreDay"></zg-button>
         <zg-button size="normal" @click="onClickDay(new Date())">今天</zg-button>
-        <zg-button size="normal" icon="zgicon-arrow-right1"></zg-button>
+        <zg-button size="normal" icon="zgicon-arrow-right1" @click="onNextDay"></zg-button>
       </span>
     </div>
     <table class="zg-cld">
@@ -192,6 +192,12 @@ export default {
       this.days = this.getDays(day)
       this.currentDay = day
       this.$emit('input', day)
+    },
+    onNextDay () {
+      this.onClickDay(new Date(this.currentDay.getTime() + util.dayTime))
+    },
+    onPreDay () {
+      this.onClickDay(new Date(this.currentDay.getTime() - util.dayTime))
     }
   }
 }
