@@ -75,8 +75,8 @@
     methods: {
       onClickTab (tab) {
         this.activeIndex = tab.index
-        this.$emit('change', tab)
         this.$emit('input', tab.index)
+        this.$emit('change', tab)
       },
       addTab (tab) {
         tab.index = this.tabs.length

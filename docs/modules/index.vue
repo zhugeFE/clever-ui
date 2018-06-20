@@ -27,6 +27,7 @@ export default {
         'radio',
         'select',
         'grid',
+        'calendar',
         'tooltip',
         'badge',
         'loading',

@@ -1,4 +1,5 @@
 let util = {
+  dayTime: 24 * 60 * 60 * 1000,
   type (obj) {
     return Object.prototype.toString.call(obj)
   },
@@ -22,6 +23,49 @@ let util = {
   },
   equal (a, b) {
     return JSON.stringify(a) === JSON.stringify(b)
+  },
+  /**
+   * 为单数前补0
+   * @param num
+   * @returns {string}
+   */
+  toDoubleNumber (num) {
+    num += ''
+    return num > 9 ? num : ('0' + num)
+  },
+  /**
+   * 日期格式化
+   * @param date
+   * @param formatter
+   * @returns {string}
+   */
+  dateFormat (date = new Date(), formatter = 'yyyy-mm-dd') {
+    return formatter.replace('yyyy', date.getFullYear())
+      .replace('mm', this.toDoubleNumber(date.getMonth() + 1))
+      .replace('dd', this.toDoubleNumber(date.getDate()))
+  },
+  /**
+   * 日期格式化
+   * @param date
+   * @param formatter
+   * @returns {string}
+   */
+  timeFormat (date = new Date(), formatter = 'hh:mm:ss') {
+    if (this.isDate(date)) {
+      return formatter.replace('hh', this.toDoubleNumber(date.getHours()))
+        .replace('mm', this.toDoubleNumber(date.getMinutes()))
+        .replace('ss', this.toDoubleNumber(date.getSeconds()))
+    } else if (this.isNumber(date)) {
+      // formatter 格式化规则 如:{s:'秒', h:'小时', m: '分钟'}
+      let s = parseInt((parseFloat(date) / 1000).toFixed(0))
+      let m = parseInt(s / 60)
+      let h = parseInt(m / 60)
+      s = s - m * 60
+      m = m - h * 60
+      return formatter.replace('hh', this.toDoubleNumber(h))
+        .replace('mm', this.toDoubleNumber(m))
+        .replace('ss', this.toDoubleNumber(s))
+    }
   },
   /**
    * 获取指定范围的随机数

@@ -1,0 +1,53 @@
+@import "../../../assets/styles/constants"
+.zg-calendar-container
+  background: $color-background-normal
+  .zg-cld-toolbar
+    text-align: center
+    .zg-cld-year
+      float: left
+    .zg-cld-month-selector
+    .zg-cld-day-control
+      float: right
+  .zg-cld
+    border-collapse: collapse
+    .zg-cld-title
+      td
+        padding: 10px 5px
+        text-align: right
+    .zg-cld-body
+      font-size: $size-font-content
+      color: $color-font-content
+      .zg-cld-day
+        border: 1px solid $color-border-normal
+        vertical-align: top
+        padding: 5px
+        color: $color-font-subtitle
+        &:hover
+          background: $color-action-normal-active
+          cursor: pointer
+        .zg-cld-day-container
+          width: 100%
+          height: 100%
+          display: flex
+          flex-direction: column
+          .zg-cld-label
+            text-align: right
+            flex: none
+          .zg-cld-task-list
+            flex: 1
+          .zg-cld-task
+        &.zg-cld-today
+          .zg-day-num
+            display: inline-block
+            width: 25px
+            height: 25px
+            line-height: 25px
+            text-align: center
+            border-radius: 100%
+            background: $color-brand
+            margin-right: 5px
+            color: $color-white
+        &.zg-cld-active
+          background: $color-action-normal-active
+    .zg-cld-secondary
+      color: $color-font-assist!important

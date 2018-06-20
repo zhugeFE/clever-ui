@@ -18,6 +18,7 @@ import radio from '../modules/radio/index'
 import scroll from '../modules/scroll/index'
 import tag from '../modules/tag/index'
 import overview from '../modules/overview/index'
+import calendar from '../modules/calendar/index'
 
 Vue.use(Router)
 
@@ -63,6 +64,11 @@ export default new Router({
           path: '/grid',
           name: 'grid',
           component: grid
+        },
+        {
+          path: '/calendar',
+          name: 'calendar',
+          component: calendar
         },
         {
           path: '/tooltip',
