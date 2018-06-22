@@ -4,9 +4,17 @@
       <div class="zg-cld-label">
         <span class="zg-day-num">{{dateFormat(day)}}</span>日
       </div>
-      <div class="zg-cld-task-list">
-
-      </div>
+      <ul class="zg-cld-task-list">
+        <template v-for="(task, i) in taskList">
+          <li class="zg-cld-task"
+              v-if="isValidTask(task)"
+              @click="onClickTask(task)"
+              :key="task.name + '_' + i">
+            <!--<span class="zg-cld-task-dot"></span>-->
+            <span class="zg-cld-task-name" :title="task.desc">{{task.desc}}</span>
+          </li>
+        </template>
+      </ul>
     </div>
   </td>
 </template>
@@ -22,7 +30,16 @@ export default {
     currentDay: {
       type: Date
     },
-    currentMonth: null
+    currentMonth: null,
+    /**
+     * @description 任务列表，任务属性：名称、开始时间、结束时间、描述、onClick
+     */
+    taskList: {
+      type: Array,
+      default () {
+        return []
+      }
+    }
   },
   data () {
     return {
@@ -49,11 +66,24 @@ export default {
     },
     onClickDay () {
       this.$emit('click', this.day)
+    },
+    isValidTask (task) {
+      let flag = true
+      if ((task.beginDate.getTime() - this.day.getTime()) / util.dayTime > 1 ||
+        (task.endDate.getTime() - this.day.getTime()) / util.dayTime < 0) {
+        flag = false
+      }
+      return flag
+    },
+    onClickTask (task) {
+      if (util.isFunction(task.onClick)) {
+        task.onClick(task)
+      }
     }
   }
 }
 </script>
 
 <style lang="sass">
-
+@import "styles/day"
 </style>

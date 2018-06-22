@@ -41,6 +41,7 @@
                 :currentDay="currentDay"
                 :currentMonth="currentMonth"
                 :style="dayStyle"
+                :taskList="taskList"
                 @click="onClickDay"/>
       </tr>
       </tbody>
@@ -94,6 +95,13 @@ export default {
   },
   data () {
     let currentDay = this.value || new Date()
+    console.log(util.clone(this.taskList.map(task => {
+      return {
+        ...task,
+        beginDate: task.beginDate.toLocaleDateString(),
+        endDate: task.endDate.toLocaleDateString()
+      }
+    })))
     return {
       days: this.getDays(currentDay),
       dayWidth: 50,
@@ -192,6 +200,7 @@ export default {
       this.days = this.getDays(day)
       this.currentDay = day
       this.$emit('input', day)
+      this.$emit('selectDay', day)
     },
     onNextDay () {
       this.onClickDay(new Date(this.currentDay.getTime() + util.dayTime))
