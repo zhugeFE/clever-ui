@@ -16,6 +16,7 @@ import {scrollContainer, scrollLazyPanel} from './components/scroll'
 import {charts} from './components/echarts'
 import tag from './components/tag'
 import {calendar} from './components/calendar'
+import {util} from './utils'
 
 import msg from './components/message'
 
@@ -61,6 +62,7 @@ const install = function (Vue) {
 
   // plugins
   Vue.prototype.$message = msg
+  Vue.prototype.util = util
 }
 /* istanbul ignore if */
 if (typeof window !== 'undefined' && window.Vue) {
