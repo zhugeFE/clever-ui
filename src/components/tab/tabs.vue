@@ -106,8 +106,8 @@
                   <div class="zg-tab-panel">{tab.slot}</div>
                 )
               }
-            } else {
-              return (<div v-show={index === this.activeIndex} class="zg-tab-panel">{tab.slot}</div>)
+            } else if (index === this.activeIndex) {
+              return (<div class="zg-tab-panel">{tab.slot}</div>)
             }
           })}
         </div>
