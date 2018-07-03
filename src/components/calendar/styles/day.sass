@@ -12,35 +12,25 @@
     height: 100%
     display: flex
     flex-direction: column
-    overflow: auto
+    overflow: visible
     .zg-cld-label
       text-align: right
       flex: none
     .zg-cld-task-list
       flex: 1
-      overflow: auto
     .zg-cld-task
       font-size: $size-font-tip
       height: 18px
       line-height: 18px
-      display: flex
-      flex-direction: row
       border-radius: $border-radius
       background: $color-action-primary-default
       margin-bottom: 5px
       color: $color-white
       padding: 0 5px
-      .zg-cld-task-dot
-        flex: none
-        display: inline-block
-        background: $color-secondary
-        width: 5px
-        height: 5px
-        margin: 5px 5px 0 0
-        border-radius: 100%
-      .zg-cld-task-name
-        flex: 1
-        overflow: hidden
+      text-overflow: ellipsis
+      overflow: hidden
+      white-space: nowrap
+      word-break: keep-all
       &:hover
         background: $color-action-primary-hover
   &.zg-cld-today

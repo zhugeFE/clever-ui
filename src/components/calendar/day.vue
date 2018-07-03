@@ -7,11 +7,12 @@
       <ul class="zg-cld-task-list">
         <template v-for="(task, i) in taskList">
           <li class="zg-cld-task"
+              :style="taskStyle"
+              :title="task.desc"
               v-if="isValidTask(task)"
               @click="onClickTask(task)"
               :key="task.name + '_' + i">
-            <!--<span class="zg-cld-task-dot"></span>-->
-            <span class="zg-cld-task-name" :title="task.desc">{{task.desc}}</span>
+            {{task.desc}}
           </li>
         </template>
       </ul>
@@ -26,6 +27,9 @@ export default {
   props: {
     day: {
       type: Date
+    },
+    width: {
+      type: Number
     },
     currentDay: {
       type: Date
@@ -57,6 +61,11 @@ export default {
         'zg-cld-secondary': !week || week === 6 || isOtherMonth,
         'zg-cld-today': isToday,
         'zg-cld-active': isCurrent
+      }
+    },
+    taskStyle () {
+      return {
+        width: `${this.width - 10}px`
       }
     }
   },

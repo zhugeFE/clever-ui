@@ -38,6 +38,7 @@
         <zg-day v-for="day of week"
                 :key="day.toLocaleString()"
                 :day="day"
+                :width="dayWidth"
                 :currentDay="currentDay"
                 :currentMonth="currentMonth"
                 :style="dayStyle"
@@ -95,13 +96,6 @@ export default {
   },
   data () {
     let currentDay = this.value || new Date()
-    console.log(util.clone(this.taskList.map(task => {
-      return {
-        ...task,
-        beginDate: task.beginDate.toLocaleDateString(),
-        endDate: task.endDate.toLocaleDateString()
-      }
-    })))
     return {
       days: this.getDays(currentDay),
       dayWidth: 50,
