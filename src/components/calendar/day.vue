@@ -1,29 +1,26 @@
 <template>
-  <td :class="dayClass" @click="onClickDay">
+  <td :class="dayClass" :style="style" @click="onClickDay">
     <div class="zg-cld-day-container">
       <div class="zg-cld-label">
         <span class="zg-day-num">{{dateFormat(day)}}</span>日
       </div>
-      <ul class="zg-cld-task-list">
-        <template v-for="(task, i) in taskList">
-          <li class="zg-cld-task"
-              :style="taskStyle"
-              :title="task.desc"
-              v-if="isValidTask(task)"
-              @click="onClickTask(task)"
-              :key="task.name + '_' + i">
-            {{task.desc}}
-          </li>
+      <div class="zg-cld-task-panel">
+        <template v-for="task in taskList">
+          <zg-calendar-task :task="task"
+                            :width="width"
+                            :day="day" :key="task.name"></zg-calendar-task>
         </template>
-      </ul>
+      </div>
     </div>
   </td>
 </template>
 
 <script>
 import {util} from '../../utils'
+import ZgCalendarTask from './task'
 export default {
   name: 'zgDay',
+  components: {ZgCalendarTask},
   props: {
     day: {
       type: Date
@@ -45,11 +42,6 @@ export default {
       }
     }
   },
-  data () {
-    return {
-      msg: 'day'
-    }
-  },
   computed: {
     dayClass () {
       let week = this.day.getDay()
@@ -61,6 +53,12 @@ export default {
         'zg-cld-secondary': !week || week === 6 || isOtherMonth,
         'zg-cld-today': isToday,
         'zg-cld-active': isCurrent
+      }
+    },
+    style () {
+      return {
+        width: this.width + 'px',
+        height: this.width / 4 * 3 + 'px'
       }
     },
     taskStyle () {

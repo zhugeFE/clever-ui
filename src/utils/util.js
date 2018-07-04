@@ -68,6 +68,34 @@ let util = {
     }
   },
   /**
+   * 判断两个日期是否是同一天
+   * @param day1
+   * @param day2
+   * @returns {boolean}
+   */
+  isOneDay (day1, day2) {
+    return this.dateFormat(day1) === this.dateFormat(day2)
+  },
+  /**
+   * 获取两个日期的时差天数
+   * @param day1
+   * @param day2
+   * @returns {number}
+   */
+  getTimeLong (day1, day2) {
+    return Math.ceil(Math.abs((day1.getTime() - day2.getTime()) / this.dayTime)) + 1
+  },
+  /**
+   * 比较两个日期大小，并返回天数差
+   * @param day1
+   * @param day2
+   * @returns {number}
+   */
+  compareDays (day1, day2) {
+    let res = (day1.getTime() - day2.getTime()) / this.dayTime
+    return this.getTimeLong(day1, day2) * (res > 0 ? 1 : -1)
+  },
+  /**
    * 获取指定范围的随机数
    * @param min
    * @param max

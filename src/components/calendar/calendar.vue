@@ -41,7 +41,6 @@
                 :width="dayWidth"
                 :currentDay="currentDay"
                 :currentMonth="currentMonth"
-                :style="dayStyle"
                 :taskList="taskList"
                 @click="onClickDay"/>
       </tr>
@@ -125,14 +124,6 @@ export default {
         }
         return list
       })()
-    }
-  },
-  computed: {
-    dayStyle () {
-      return {
-        width: this.dayWidth + 'px',
-        height: this.dayWidth / 4 * 3 + 'px'
-      }
     }
   },
   mounted () {

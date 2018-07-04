@@ -13,26 +13,31 @@
     display: flex
     flex-direction: column
     overflow: visible
+    position: relative
     .zg-cld-label
       text-align: right
       flex: none
+    .zg-cld-task-panel
+      flex: 1
+      overflow: visible
+      position: relative
     .zg-cld-task-list
       flex: 1
-    .zg-cld-task
-      font-size: $size-font-tip
-      height: 18px
-      line-height: 18px
-      border-radius: $border-radius
-      background: $color-action-primary-default
-      margin-bottom: 5px
-      color: $color-white
-      padding: 0 5px
-      text-overflow: ellipsis
-      overflow: hidden
-      white-space: nowrap
-      word-break: keep-all
-      &:hover
-        background: $color-action-primary-hover
+      .zg-cld-task
+        font-size: $size-font-tip
+        height: 18px
+        line-height: 18px
+        border-radius: $border-radius
+        background: $color-action-primary-default
+        margin-bottom: 5px
+        color: $color-white
+        padding: 0 5px
+        text-overflow: ellipsis
+        overflow: hidden
+        white-space: nowrap
+        word-break: keep-all
+        &:hover
+          background: $color-action-primary-hover
   &.zg-cld-today
     .zg-day-num
       display: inline-block
