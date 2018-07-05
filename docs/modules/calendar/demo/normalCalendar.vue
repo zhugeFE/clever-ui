@@ -21,7 +21,7 @@ export default {
       taskList: (() => {
         let list = []
         let today = new Date()
-        for (let i = 0; i < 1; i++) {
+        for (let i = 0; i < 5; i++) {
           let beginDate = new Date(today.getTime() + util.random(-3, 3) * util.dayTime)
           let endDate = new Date(beginDate.getTime() + util.random(0, 3) * util.dayTime)
           list.push({

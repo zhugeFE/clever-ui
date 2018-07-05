@@ -41,7 +41,7 @@
                 :width="dayWidth"
                 :currentDay="currentDay"
                 :currentMonth="currentMonth"
-                :taskList="taskList"
+                :taskList="_taskList"
                 @click="onClickDay"/>
       </tr>
       </tbody>
@@ -124,6 +124,15 @@ export default {
         }
         return list
       })()
+    }
+  },
+  computed: {
+    _taskList () {
+      let list = this.taskList.map(item => item)
+      list.sort((a, b) => {
+        return a.beginDate.getTime() - b.beginDate.getTime()
+      })
+      return list
     }
   },
   mounted () {

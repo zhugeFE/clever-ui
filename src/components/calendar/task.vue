@@ -1,5 +1,5 @@
 <template>
-  <div class="zg-cld-task" :style="style" v-if="showAble">
+  <div class="zg-cld-task" :style="style">
     {{task.name}}
   </div>
 </template>

@@ -93,7 +93,7 @@ let util = {
    */
   compareDays (day1, day2) {
     let res = (day1.getTime() - day2.getTime()) / this.dayTime
-    return this.getTimeLong(day1, day2) * (res > 0 ? 1 : -1)
+    return (this.getTimeLong(day1, day2) - 1) * (res > 0 ? 1 : -1)
   },
   /**
    * 获取指定范围的随机数
