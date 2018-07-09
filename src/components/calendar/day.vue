@@ -10,7 +10,7 @@
                             :width="width"
                             :day="day"
                             :style="{top: `${getTopVal(task, i)}px`}"
-                            :key="task.name"></zg-calendar-task>
+                            :key="task.name + id"></zg-calendar-task>
         </template>
       </div>
     </div>
@@ -42,6 +42,11 @@ export default {
       default () {
         return []
       }
+    }
+  },
+  data () {
+    return {
+      id: util.guid()
     }
   },
   computed: {

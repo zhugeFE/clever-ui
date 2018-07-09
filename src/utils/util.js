@@ -24,6 +24,14 @@ let util = {
   equal (a, b) {
     return JSON.stringify(a) === JSON.stringify(b)
   },
+  guid () {
+    function s4 () {
+      return Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1)
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4()
+  },
   /**
    * 为单数前补0
    * @param num
