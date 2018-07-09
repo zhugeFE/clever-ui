@@ -62,7 +62,7 @@ const install = function (Vue) {
 
   // plugins
   Vue.prototype.$message = msg
-  Vue.prototype.util = util
+  Vue.prototype.$util = util
 }
 /* istanbul ignore if */
 if (typeof window !== 'undefined' && window.Vue) {
