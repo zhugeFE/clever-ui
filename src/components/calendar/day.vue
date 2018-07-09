@@ -129,7 +129,6 @@ export default {
           })
         }
       })
-      console.log('>>.', util.dateFormat(this.day), util.clone(positionList))
       return positionList
     }
   },

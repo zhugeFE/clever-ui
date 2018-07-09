@@ -29,7 +29,7 @@ export default {
             endDate,
             name: `任务${i}`,
             desc: beginDate.toLocaleDateString() + '-' + endDate.toLocaleDateString(),
-            onClick: null
+            color: util.colors[util.random(0, 10)]
           })
         }
         return list

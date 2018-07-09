@@ -1,10 +1,10 @@
 <template>
-  <div class="zg-cld-task" :style="style">
+  <div class="zg-cld-task" :style="style" @click.stop="onClick">
     {{task.name}}
   </div>
 </template>
 
-<script>
+<script type="text/jsx">
 import {util} from '../../utils'
 export default {
   name: 'zg-calendar-task',
@@ -15,11 +15,6 @@ export default {
     },
     width: {
       type: Number
-    }
-  },
-  data () {
-    return {
-      msg: 'task'
     }
   },
   computed: {
@@ -45,7 +40,15 @@ export default {
         dayCount = Math.min(util.getTimeLong(this.day, this.task.endDate) - 1, 7)
       }
       return {
-        width: `${dayCount * this.width - 10}px`
+        width: `${dayCount * this.width - 10}px`,
+        background: this.task.color || util.colors[0]
+      }
+    }
+  },
+  methods: {
+    onClick () {
+      if (util.isFunction(this.task.onClick)) {
+        this.task.onClick(this.task)
       }
     }
   }

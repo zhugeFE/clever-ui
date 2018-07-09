@@ -84,7 +84,7 @@ export default {
       }
     },
     /**
-     * @description 任务列表，任务属性：名称、开始时间、结束时间、描述、onClick
+     * @description 任务列表，任务属性：名称、开始时间、结束时间、描述、onClick、color
      */
     taskList: {
       type: Array,

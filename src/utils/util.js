@@ -1,5 +1,11 @@
 let util = {
   dayTime: 24 * 60 * 60 * 1000,
+  colors: [
+    '#00a0e9', '#f4b93b', '#85bd41', '#f29c9f', '#8f82bc',
+    '#0068b7', '#f29b76', '#13b5b1', '#ea68a2', '#fff100',
+    '#1ec0ff', '#f9a11b', '#8cd790', '#40ccca', '#aaabd3',
+    '#2b90d9', '#ec7a4a', '#f29b76', '#ea68a2', '#ffdd38'
+  ],
   type (obj) {
     return Object.prototype.toString.call(obj)
   },
