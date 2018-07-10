@@ -1,5 +1,6 @@
 <template>
-  <div class="zg-cld-task" :style="style" @click.stop="onClick">
+  <div class="zg-cld-task" :style="style" :title="task.name" @click.stop="onClick">
+    <span class="zg-cld-mark" v-if="task.mark"></span>
     {{task.name}}
   </div>
 </template>
@@ -9,7 +10,22 @@ import {util} from '../../utils'
 export default {
   name: 'zg-calendar-task',
   props: {
-    task: null,
+    /**
+     * @description 名称、开始时间、结束时间、描述、onClick
+     */
+    task: {
+      type: Object,
+      default () {
+        return {
+          name: '',
+          beginDate: new Date(),
+          endDate: new Date(),
+          color: '', // 背景颜色
+          mark: false, // 是否标记
+          onClick: null // 点击回调
+        }
+      }
+    },
     day: {
       type: Date
     },
@@ -73,4 +89,11 @@ export default {
   word-break: keep-all
   &:hover
     background: $color-action-primary-hover
+  .zg-cld-mark
+    display: inline-block
+    width: 8px
+    height: 8px
+    border-radius: 50%
+    border: 2px solid $color-white
+    background: $color-danger
 </style>
