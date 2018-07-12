@@ -6,4 +6,4 @@ let app = new Koa()
 app.use(serve({
   rootDir: path.resolve(__dirname, '../dist')
 }))
-app.listen(3000)
+app.listen(80)
