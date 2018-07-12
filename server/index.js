@@ -1,7 +1,8 @@
 let serve = require('koa-static-server')
-let app = require('koa')()
+let Koa = require('koa')
 let path = require('path')
 
+let app = new Koa()
 app.use(serve({
   rootDir: path.resolve(__dirname, '../dist')
 }))
