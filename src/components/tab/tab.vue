@@ -1,10 +1,4 @@
-<template>
-  <span :class="clazz" :style="style" @click="onClick">
-    <i v-show="tab.icon" :class="tab.icon"></i>{{tab.title}}
-  </span>
-</template>
-
-<script>
+<script type="text/jsx">
   export default {
     name: 'tab',
     props: {
@@ -40,6 +34,19 @@
         if (this.activeIndex === this.index) return
         this.$emit('click', this.tab)
       }
+    },
+    render (h) {
+      return (
+        <span class={this.clazz} style={this.style} onClick={this.onClick}>
+          {(() => {
+            if (this.$slots.default) {
+              return this.$slots.default
+            } else {
+              return <span><i v-show={this.tab.icon} class={this.tab.icon}></i>{this.tab.title}</span>
+            }
+          })()}
+        </span>
+      )
     }
   }
 </script>

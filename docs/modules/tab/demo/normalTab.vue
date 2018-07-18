@@ -6,6 +6,9 @@
         <zg-tab-panel title="center" icon="zgicon-add">
           <zg-tabs placement="center">
             <zg-tab-panel title="tab1">
+              <span slot="title">
+                tab1的title
+              </span>
               this is tab1
             </zg-tab-panel>
             <zg-tab-panel title="tab2">
@@ -56,13 +59,13 @@
     name: 'normalTab',
     data () {
       return {
-        chosenIndex: 1
+        chosenIndex: 0
       }
     },
     mounted () {
-      setTimeout(() => {
-        this.chosenIndex = 1
-      }, 1000)
+      // setTimeout(() => {
+      //   this.chosenIndex = 0
+      // }, 1000)
     }
   }
 </script>

@@ -24,16 +24,20 @@
         templateData: {
           title: this.title,
           icon: this.icon,
-          slot: this.$slots.default
+          slots: {
+            default: this.$slots.default,
+            title: this.$slots.title
+          }
         }
       }
     },
-    created () {
+    mounted () {
       const parent = this.parent('zgTabs')
       parent.addTab(this.templateData)
     },
     render (h) {
-      Vue.set(this.templateData, 'slot', this.$slots.default)
+      Vue.set(this.templateData.slots, 'slot', this.$slots.default)
+      Vue.set(this.templateData.slots, 'title', this.$slots.title)
       return ''
     }
   }

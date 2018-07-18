@@ -95,7 +95,7 @@
                         tab={tab}
                         width={this.tabWidth}
                         onClick={this.onClickTab}
-                ></zg-tab>
+                >{tab.slots.title}</zg-tab>
               )
             })}
           </div>
@@ -103,11 +103,11 @@
             if (this.cleanMode) {
               if (index === this.activeIndex) {
                 return (
-                  <div class="zg-tab-panel">{tab.slot}</div>
+                  <div class="zg-tab-panel">{tab.slots.default}</div>
                 )
               }
             } else if (index === this.activeIndex) {
-              return (<div class="zg-tab-panel">{tab.slot}</div>)
+              return (<div class="zg-tab-panel">{tab.slots.default}</div>)
             }
           })}
         </div>
