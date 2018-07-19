@@ -42,6 +42,13 @@
       cleanMode: {
         type: Boolean,
         default: false
+      },
+      /**
+       * @description 具有添加tab按钮
+       */
+      addAble: {
+        type: Boolean,
+        default: false
       }
     },
     data () {
