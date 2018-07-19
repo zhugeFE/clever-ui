@@ -1,7 +1,7 @@
 <template>
   <div>
     <demo-panel title="tab" subtitle="them is card" jsFiddleName="zj6dsfq2">
-      <zg-tabs theme="card">
+      <zg-tabs theme="card" showAdd>
         <zg-tab-panel title="center">
           <zg-tabs placement="center" theme="card" :tabWidth="100">
             <zg-tab-panel title="tab1">

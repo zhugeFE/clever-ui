@@ -46,7 +46,7 @@
       /**
        * @description 具有添加tab按钮
        */
-      addAble: {
+      showAdd: {
         type: Boolean,
         default: false
       }
@@ -88,6 +88,9 @@
       addTab (tab) {
         tab.index = this.tabs.length
         this.tabs.push(tab)
+      },
+      onAdd () {
+        this.$emit('add')
       }
     },
     render (h) {
@@ -105,6 +108,13 @@
                 >{tab.slots.title}</zg-tab>
               )
             })}
+            {(() => {
+              if (this.showAdd) {
+                return <span class="zg-tab" onClick={this.onAdd}>
+                  <i class="zgicon-add" style="margin: 0"/>
+                </span>
+              }
+            })()}
           </div>
           {this.tabs.map((tab, index) => {
             if (this.cleanMode) {
