@@ -2,7 +2,11 @@
   <div>
     <demo-panel title="tab" subtitle="them is normal" jsFiddleName="fnp7n0hd">
       {{chosenIndex}}
-      <zg-tabs :tabWidth="150" v-model="chosenIndex" @add="onAddTab" showAdd>
+      <zg-tabs :tabWidth="150"
+               v-model="chosenIndex"
+               @add="onAddTab"
+               vertical
+               showAdd>
         <zg-tab-panel title="center" icon="zgicon-add">
           <zg-tabs placement="center">
             <zg-tab-panel title="tab1">

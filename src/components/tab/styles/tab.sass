@@ -56,3 +56,16 @@
       position: relative
       left: 100%
       transform: translateX(-100%)
+  &.zg-tab-vertical
+    display: flex
+    flex-direction: row
+    .zg-tab-bar
+      flex: none
+      .zg-tab
+        display: block
+        margin-left: 0!important
+    .zg-tab-panel
+      flex: 1
+      border-top: none!important
+      border-left: 1px solid $color-border-normal
+      padding-left: 20px

@@ -21,6 +21,13 @@
         }
       },
       /**
+       * @description 是否纵向排列
+       */
+      vertical: {
+        type: Boolean,
+        default: false
+      },
+      /**
        * @description 主题类型
        */
       theme: {
@@ -66,6 +73,12 @@
           'zg-right': this.placement === 'right',
           'zg-center': this.placement === 'center'
         }
+      },
+      clazz () {
+        return {
+          'zg-tabs': true,
+          'zg-tab-vertical': this.vertical
+        }
       }
     },
     watch: {
@@ -95,7 +108,7 @@
     },
     render (h) {
       return (
-        <div class="zg-tabs">
+        <div class={this.clazz}>
           <div style="display: none">{this.$slots.default}</div>
           <div class={this.tabBarClass}>
             {this.tabs.map((tab, index) => {
