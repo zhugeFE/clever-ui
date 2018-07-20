@@ -5,6 +5,7 @@
       <zg-tabs :tabWidth="150"
                v-model="chosenIndex"
                @add="onAddTab"
+               @remove="onRemove"
                vertical
                showAdd>
         <zg-tab-panel title="center" icon="zgicon-add">
@@ -45,7 +46,7 @@
             </zg-tab-panel>
           </zg-tabs>
         </zg-tab-panel>
-        <zg-tab-panel v-for="tab in tabs" :key="tab.id" :title="tab.name">
+        <zg-tab-panel v-for="tab in tabs" :key="tab.id" :title="tab.name" closeAble>
           {{tab.name}}
         </zg-tab-panel>
       </zg-tabs>
@@ -70,16 +71,18 @@
         chosenIndex: 0
       }
     },
-    mounted () {
-      // setTimeout(() => {
-      //   this.chosenIndex = 0
-      // }, 1000)
-    },
     methods: {
       onAddTab () {
         this.tabs.push({
           id: Math.random().toString().split('.')[1],
           name: 'tab' + this.tabs.length
+        })
+      },
+      onRemove (tab) {
+        this.tabs.forEach((item, i) => {
+          if (item.name === tab) {
+            this.tabs.splice(i, 1)
+          }
         })
       }
     }

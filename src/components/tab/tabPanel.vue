@@ -17,6 +17,10 @@
        */
       icon: {
         type: String
+      },
+      closeAble: {
+        type: Boolean,
+        default: false
       }
     },
     data () {
@@ -24,6 +28,7 @@
         templateData: {
           title: this.title,
           icon: this.icon,
+          closeAble: this.closeAble,
           slots: {
             default: this.$slots.default,
             title: this.$slots.title
@@ -34,6 +39,10 @@
     mounted () {
       const parent = this.parent('zgTabs')
       parent.addTab(this.templateData)
+    },
+    beforeDestroy () {
+      const parent = this.parent('zgTabs')
+      parent.remove(this.templateData)
     },
     render (h) {
       Vue.set(this.templateData.slots, 'slot', this.$slots.default)

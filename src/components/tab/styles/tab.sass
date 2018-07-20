@@ -8,8 +8,17 @@
       line-height: 36px
       font-size: $size-font-content
       text-align: center
-      i
+      .zg-tab-icon
         margin-right: .5em
+      .zg-tab-close
+        visibility: hidden
+        cursor: pointer
+        float: right
+        &:hover
+          color: $color-action-danger-active
+      &:hover
+        .zg-tab-close
+          visibility: visible
     &.zg-tab-card
       .zg-tab
         background: $color-white

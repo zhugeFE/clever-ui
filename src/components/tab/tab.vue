@@ -33,6 +33,9 @@
       onClick () {
         if (this.activeIndex === this.index) return
         this.$emit('click', this.tab)
+      },
+      onRemove () {
+        this.$emit('remove', this.tab)
       }
     },
     render (h) {
@@ -42,7 +45,15 @@
             if (this.$slots.default) {
               return this.$slots.default
             } else {
-              return <span><i v-show={this.tab.icon} class={this.tab.icon}></i>{this.tab.title}</span>
+              let iconClass = {'zg-tab-icon': true}
+              iconClass[this.tab.icon] = true
+              return <span>
+                <i v-show={this.tab.icon} class={iconClass}></i>
+                {this.tab.title}
+                <i v-show={this.tab.closeAble}
+                   onClick={this.onRemove}
+                   class="zg-tab-close zgicon-delete-little1"></i>
+                </span>
             }
           })()}
         </span>

@@ -104,6 +104,16 @@
       },
       onAdd () {
         this.$emit('add')
+      },
+      remove (tab) {
+        this.tabs.forEach((item, i) => {
+          if (item === tab) {
+            this.tabs.splice(i, 1)
+          }
+        })
+      },
+      onRemove (tab) {
+        this.$emit('remove', tab.title)
       }
     },
     render (h) {
@@ -117,6 +127,7 @@
                         index={index}
                         tab={tab}
                         width={this.tabWidth}
+                        onRemove={this.onRemove}
                         onClick={this.onClickTab}
                 >{tab.slots.title}</zg-tab>
               )
