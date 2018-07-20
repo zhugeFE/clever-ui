@@ -21,6 +21,22 @@
           // 结构为：{value: '', label: '', disable: false}
           return []
         }
+      },
+      direction: {
+        type: String,
+        default: 'column',
+        validator (val) {
+          return ['row', 'column'].includes(val)
+        }
+      }
+    },
+    computed: {
+      clazz () {
+        return {
+          'zg-radio-list': true,
+          'zg-radio-row': this.direction === 'row',
+          'zg-radio-column': this.direction === 'column'
+        }
       }
     },
     methods: {
@@ -32,7 +48,7 @@
     },
     render (h) {
       return (
-        <ul class="zg-radio-list">
+        <ul class={this.clazz}>
           {this.store.map(item => {
             let itemClass = {
               'zg-radio-item': true,
