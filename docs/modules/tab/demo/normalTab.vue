@@ -5,7 +5,6 @@
       <zg-tabs v-model="chosenIndex"
                @add="onAddTab"
                @remove="onRemove"
-               vertical
                showAdd>
         <!--<zg-tab-panel title="center" icon="zgicon-add">-->
           <!--<zg-tabs placement="center">-->
