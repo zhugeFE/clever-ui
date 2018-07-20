@@ -111,6 +111,11 @@
             this.tabs.splice(i, 1)
           }
         })
+        let index = this.activeIndex >= this.tabs.length ? 0 : this.activeIndex
+        this.tabs.forEach((tab, i) => {
+          tab.index = i
+        })
+        if (this.tabs[index]) this.onClickTab(this.tabs[index])
       },
       onRemove (tab) {
         this.$emit('remove', tab.title)
@@ -127,6 +132,7 @@
                         index={index}
                         tab={tab}
                         width={this.tabWidth}
+                        closeAble={tab.closeAble && this.tabs.length > 1}
                         onRemove={this.onRemove}
                         onClick={this.onClickTab}
                 >{tab.slots.title}</zg-tab>

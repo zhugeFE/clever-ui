@@ -14,6 +14,10 @@
       activeIndex: {
         type: Number,
         required: true
+      },
+      closeAble: {
+        type: Boolean,
+        default: false
       }
     },
     computed: {
@@ -34,8 +38,9 @@
         if (this.activeIndex === this.index) return
         this.$emit('click', this.tab)
       },
-      onRemove () {
+      onRemove (event) {
         this.$emit('remove', this.tab)
+        event.stopPropagation()
       }
     },
     render (h) {
@@ -50,7 +55,7 @@
               return <span>
                 <i v-show={this.tab.icon} class={iconClass}></i>
                 {this.tab.title}
-                <i v-show={this.tab.closeAble}
+                <i v-show={this.closeAble}
                    onClick={this.onRemove}
                    class="zg-tab-close zgicon-delete-little1"></i>
                 </span>

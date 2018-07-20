@@ -8,14 +8,16 @@
       line-height: 36px
       font-size: $size-font-content
       text-align: center
-      .zg-tab-icon
-        margin-right: .5em
+      position: relative
       .zg-tab-close
         visibility: hidden
         cursor: pointer
         float: right
+        color: $color-font-icon-normal
         &:hover
           color: $color-action-danger-active
+      .zg-tab-icon
+        margin-right: .5em
       &:hover
         .zg-tab-close
           visibility: visible
@@ -26,6 +28,9 @@
         border: 1px solid $color-border-normal
         border-right: none
         padding: 0 1.5em
+        .zg-tab-close
+          position: absolute
+          right: 3px
         &:hover
           cursor: pointer
         &:first-child
@@ -41,6 +46,8 @@
           border-color: $color-brand
           &:hover
             cursor: default
+          .zg-tab-close
+            color: $color-white
           & + .zg-tab
             border-left-color: $color-brand
     &.zg-tab-normal
@@ -48,8 +55,10 @@
         border-top: 1px solid $color-border-normal
       .zg-tab
         color: $color-brand-black
-        position: relative
         top: 1px
+        .zg-tab-close
+          position: absolute
+          right: -15px
         & + .zg-tab
           margin-left: 22px
         &:hover
@@ -75,7 +84,9 @@
         margin-left: 0!important
         left: 1px
         top: 0
-        padding-right: 10px
+        padding-right: 20px
+        .zg-tab-close
+          right: 5px
         &.zg-checked
           border-right: 2px solid $color-brand
           border-bottom: none

@@ -2,50 +2,49 @@
   <div>
     <demo-panel title="tab" subtitle="them is normal" jsFiddleName="fnp7n0hd">
       {{chosenIndex}}
-      <zg-tabs :tabWidth="150"
-               v-model="chosenIndex"
+      <zg-tabs v-model="chosenIndex"
                @add="onAddTab"
                @remove="onRemove"
                vertical
                showAdd>
-        <zg-tab-panel title="center" icon="zgicon-add">
-          <zg-tabs placement="center">
-            <zg-tab-panel title="tab1">
-              <span slot="title">
-                tab1的title
-              </span>
-              this is tab1
-            </zg-tab-panel>
-            <zg-tab-panel title="tab2">
-              <div style="height: 50px; background: lightpink">
-                this is tab2
-              </div>
-            </zg-tab-panel>
-            <zg-tab-panel title="tab3">
-              <div style="height: 50px; background: lightcoral">
-                this is tab3
-              </div>
-            </zg-tab-panel>
-          </zg-tabs>
-        </zg-tab-panel>
+        <!--<zg-tab-panel title="center" icon="zgicon-add">-->
+          <!--<zg-tabs placement="center">-->
+            <!--<zg-tab-panel title="tab1">-->
+              <!--<span slot="title">-->
+                <!--tab1的title-->
+              <!--</span>-->
+              <!--this is tab1-->
+            <!--</zg-tab-panel>-->
+            <!--<zg-tab-panel title="tab2">-->
+              <!--<div style="height: 50px; background: lightpink">-->
+                <!--this is tab2-->
+              <!--</div>-->
+            <!--</zg-tab-panel>-->
+            <!--<zg-tab-panel title="tab3">-->
+              <!--<div style="height: 50px; background: lightcoral">-->
+                <!--this is tab3-->
+              <!--</div>-->
+            <!--</zg-tab-panel>-->
+          <!--</zg-tabs>-->
+        <!--</zg-tab-panel>-->
 
-        <zg-tab-panel title="right">
-          <zg-tabs placement="right">
-            <zg-tab-panel title="tab1">
-              this is tab1
-            </zg-tab-panel>
-            <zg-tab-panel title="tab2">
-              <div style="height: 50px; background: lightpink">
-                this is tab2
-              </div>
-            </zg-tab-panel>
-            <zg-tab-panel title="tab3">
-              <div style="height: 50px; background: lightcoral">
-                this is tab3
-              </div>
-            </zg-tab-panel>
-          </zg-tabs>
-        </zg-tab-panel>
+        <!--<zg-tab-panel title="right">-->
+          <!--<zg-tabs placement="right">-->
+            <!--<zg-tab-panel title="tab1">-->
+              <!--this is tab1-->
+            <!--</zg-tab-panel>-->
+            <!--<zg-tab-panel title="tab2">-->
+              <!--<div style="height: 50px; background: lightpink">-->
+                <!--this is tab2-->
+              <!--</div>-->
+            <!--</zg-tab-panel>-->
+            <!--<zg-tab-panel title="tab3">-->
+              <!--<div style="height: 50px; background: lightcoral">-->
+                <!--this is tab3-->
+              <!--</div>-->
+            <!--</zg-tab-panel>-->
+          <!--</zg-tabs>-->
+        <!--</zg-tab-panel>-->
         <zg-tab-panel v-for="tab in tabs" :key="tab.id" :title="tab.name" closeAble>
           {{tab.name}}
         </zg-tab-panel>

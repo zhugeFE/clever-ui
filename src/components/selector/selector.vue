@@ -381,6 +381,7 @@
       }
     },
     updated () {
+      if (this._isBeingDestroyed || this._isDestroyed) return
       const dropPanel = this.$refs.dropPanel
       const panelRect = dropPanel.getBoundingClientRect()
       const bottomHeight = window.innerHeight - panelRect.top - 7
