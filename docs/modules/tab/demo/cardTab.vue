@@ -9,7 +9,7 @@
             </zg-tab-panel>
             <zg-tab-panel title="tab2">
               <div style="height: 50px; background: lightpink">
-                this is tab2
+                <zg-button>this is tab2</zg-button>
               </div>
             </zg-tab-panel>
             <zg-tab-panel title="tab3">

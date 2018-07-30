@@ -153,8 +153,8 @@
                   <div class="zg-tab-panel">{tab.slots.default}</div>
                 )
               }
-            } else if (index === this.activeIndex) {
-              return (<div class="zg-tab-panel">{tab.slots.default}</div>)
+            } else {
+              return (<div v-show={index === this.activeIndex} class="zg-tab-panel">{tab.slots.default}</div>)
             }
           })}
         </div>

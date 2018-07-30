@@ -178,6 +178,15 @@
         default (series) {
           return series
         }
+      },
+      /**
+       * @description option包装器，用来完全自定义option选项
+       */
+      optionWrapper: {
+        type: Function,
+        default (option) {
+          return option
+        }
       }
     },
     data () {
@@ -275,6 +284,9 @@
           },
           yAxis: this.getYAxis(),
           series: this.getSeries()
+        }
+        if (this.optionWrapper) {
+          option = this.optionWrapper(option)
         }
         return option
       }

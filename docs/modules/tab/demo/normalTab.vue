@@ -45,7 +45,7 @@
           <!--</zg-tabs>-->
         <!--</zg-tab-panel>-->
         <zg-tab-panel v-for="tab in tabs" :key="tab.id" :title="tab.name" closeAble>
-          {{tab.name}}
+          <zg-button>{{tab.name}}</zg-button>
         </zg-tab-panel>
       </zg-tabs>
     </demo-panel>
