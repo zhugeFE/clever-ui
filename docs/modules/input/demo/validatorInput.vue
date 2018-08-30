@@ -1,7 +1,7 @@
 <template>
   <div>
     <demo-panel subtitle="带有校验功能">
-      <zg-input icon="zgicon-list"
+      <c-input icon="cicon-list"
                 v-if="show"
                 clear-able
                 placeholder="不能为空且不能含有数字"
@@ -9,20 +9,20 @@
                 :validator="validator"
                 :message="message"
                 v-model="val">
-      </zg-input>
+      </c-input>
       <span style="margin-left: 15px">: {{val}}</span>
       <br>
       {{message}}
-      <zg-checkbox v-model="show">显示</zg-checkbox>
+      <c-checkbox v-model="show">显示</c-checkbox>
     </demo-panel>
   </div>
 </template>
 
 <script>
-  import ZgInput from '../../../../src/components/input/input'
+  import CInput from '../../../../src/components/input/input'
 
   export default {
-    components: {ZgInput},
+    components: {CInput},
     name: 'validatorInput',
     data () {
       return {

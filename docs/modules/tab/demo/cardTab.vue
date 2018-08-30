@@ -1,58 +1,58 @@
 <template>
   <div>
     <demo-panel title="tab" subtitle="them is card" jsFiddleName="zj6dsfq2">
-      <zg-tabs theme="card" showAdd>
-        <zg-tab-panel title="center">
-          <zg-tabs placement="center" theme="card" :tabWidth="100">
-            <zg-tab-panel title="tab1">
+      <c-tabs theme="card" showAdd>
+        <c-tab-panel title="center">
+          <c-tabs placement="center" theme="card" :tabWidth="100">
+            <c-tab-panel title="tab1">
               this is tab1
-            </zg-tab-panel>
-            <zg-tab-panel title="tab2">
+            </c-tab-panel>
+            <c-tab-panel title="tab2">
               <div style="height: 50px; background: lightpink">
-                <zg-button>this is tab2</zg-button>
+                <c-button>this is tab2</c-button>
               </div>
-            </zg-tab-panel>
-            <zg-tab-panel title="tab3">
+            </c-tab-panel>
+            <c-tab-panel title="tab3">
               <div style="height: 50px; background: lightcoral">
                 this is tab3
               </div>
-            </zg-tab-panel>
-          </zg-tabs>
-        </zg-tab-panel>
+            </c-tab-panel>
+          </c-tabs>
+        </c-tab-panel>
 
-        <zg-tab-panel title="right">
-          <zg-tabs placement="right">
-            <zg-tab-panel title="tab1">
+        <c-tab-panel title="right">
+          <c-tabs placement="right">
+            <c-tab-panel title="tab1">
               this is tab1
-            </zg-tab-panel>
-            <zg-tab-panel title="tab2">
+            </c-tab-panel>
+            <c-tab-panel title="tab2">
               <div style="height: 50px; background: lightpink">
                 this is tab2
               </div>
-            </zg-tab-panel>
-            <zg-tab-panel title="tab3">
+            </c-tab-panel>
+            <c-tab-panel title="tab3">
               <div style="height: 50px; background: lightcoral">
                 this is tab3
               </div>
-            </zg-tab-panel>
-          </zg-tabs>
-        </zg-tab-panel>
-      </zg-tabs>
+            </c-tab-panel>
+          </c-tabs>
+        </c-tab-panel>
+      </c-tabs>
     </demo-panel>
   </div>
 </template>
 
 <script>
-  import ZgTabs from '../../../../src/components/tab/tabs.vue'
-  import ZgTabPanel from '../../../../src/components/tab/tabPanel.vue'
+  import CTabs from '../../../../src/components/tab/tabs.vue'
+  import CTabPanel from '../../../../src/components/tab/tabPanel.vue'
   import DemoPanel from '../../../components/demoPanel/index.vue'
 
   export default {
     name: 'cardTab',
     components: {
       DemoPanel,
-      ZgTabPanel,
-      ZgTabs},
+      CTabPanel,
+      CTabs},
     data () {
       return {
         msg: 'cardTab'

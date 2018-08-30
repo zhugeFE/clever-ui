@@ -1,34 +1,34 @@
 <template>
 <div>
   <div class="scroll-demo">
-    <zg-scroll-container>
+    <c-scroll-container>
       <div>
-        <zg-scroll-lazy-panel class="handle-area" @show="status1 = true" @hide="status1 = false" :once="once">
+        <c-scroll-lazy-panel class="handle-area" @show="status1 = true" @hide="status1 = false" :once="once">
           <div class="child">1</div>
-        </zg-scroll-lazy-panel>
+        </c-scroll-lazy-panel>
       </div>
       <div class="child">2</div>
       <div class="child">3</div>
       <div class="child">4</div>
-      <zg-scroll-lazy-panel class="margin-panel handle-area"  @show="status5 = true" @hide="status5 = false" :once="once">
+      <c-scroll-lazy-panel class="margin-panel handle-area"  @show="status5 = true" @hide="status5 = false" :once="once">
         <div class="child">5</div>
-      </zg-scroll-lazy-panel>
-      <zg-scroll-lazy-panel class="handle-area"  @show="status6 = true" @hide="status6 = false" :once="once">
+      </c-scroll-lazy-panel>
+      <c-scroll-lazy-panel class="handle-area"  @show="status6 = true" @hide="status6 = false" :once="once">
         <div class="child">6</div>
-      </zg-scroll-lazy-panel>
+      </c-scroll-lazy-panel>
       <div class="child">7</div>
       <div class="child">8</div>
-      <zg-scroll-container class="inner-container">
-        <zg-scroll-lazy-panel class="handle-area"  @show="status9 = true" @hide="status9 = false" :once="once">
+      <c-scroll-container class="inner-container">
+        <c-scroll-lazy-panel class="handle-area"  @show="status9 = true" @hide="status9 = false" :once="once">
           <div class="child">9</div>
-        </zg-scroll-lazy-panel>
-      </zg-scroll-container>
-    </zg-scroll-container>
+        </c-scroll-lazy-panel>
+      </c-scroll-container>
+    </c-scroll-container>
     <div>
       <br>
       <p>handle滚动事件的<span class="handle-area">元素</span></p>
       <br>
-      <zg-radio :store="store" v-model="radioValue"></zg-radio>
+      <c-radio :store="store" v-model="radioValue"></c-radio>
       <br><br>
       <p>1 当前是否在可视区域：{{status1}}</p>
       <p>5 当前是否在可视区域：{{status5}}</p>

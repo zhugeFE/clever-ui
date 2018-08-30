@@ -2,30 +2,30 @@
   <div class="overview">
     <div class="line-panel">
       <span>普通文本</span>
-      <zg-selector :store="[]" labelField="label" keyField="id"></zg-selector>
-      <zg-button>button</zg-button>
-      <zg-button size="small">button</zg-button>
-      <zg-button size="large">button</zg-button>
-      <zg-input></zg-input>
-      <zg-checkbox>fdfd</zg-checkbox>
-      <zg-radio :store="radioStore" v-model="radio"></zg-radio>
-      <zg-tag>tag</zg-tag>
+      <c-selector :store="[]" labelField="label" keyField="id"></c-selector>
+      <c-button>button</c-button>
+      <c-button size="small">button</c-button>
+      <c-button size="large">button</c-button>
+      <c-input></c-input>
+      <c-checkbox>fdfd</c-checkbox>
+      <c-radio :store="radioStore" v-model="radio"></c-radio>
+      <c-tag>tag</c-tag>
     </div>
   </div>
 </template>
 
 <script>
-  import ZgSelector from '../../../src/components/selector/selector'
-  import ZgButton from '../../../src/components/button/button'
-  import ZgCheckbox from '../../../src/components/checkbox/checkbox'
-  import ZgRadio from '../../../src/components/radio/radio'
+  import CSelector from '../../../src/components/selector/selector'
+  import CButton from '../../../src/components/button/button'
+  import CCheckbox from '../../../src/components/checkbox/checkbox'
+  import CRadio from '../../../src/components/radio/radio'
 
   export default {
     components: {
-      ZgRadio,
-      ZgCheckbox,
-      ZgButton,
-      ZgSelector},
+      CRadio,
+      CCheckbox,
+      CButton,
+      CSelector},
     name: 'index',
     data () {
       return {

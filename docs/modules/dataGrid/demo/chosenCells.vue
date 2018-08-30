@@ -1,29 +1,29 @@
 <template>
   <div>
     <demo-panel subtitle="选中单元格区域" jsFiddleName="d1104ff7">
-      <zg-data-grid :store="store" :chosenCells="chosenCells">
-        <zg-grid-column v-for="column in columns"
+      <c-data-grid :store="store" :chosenCells="chosenCells">
+        <c-grid-column v-for="column in columns"
                         :field="column.field"
                         :key="column.title"
                         :fix="column.fix"
                         :title="column.title"
                         :width="column.width"
-        ></zg-grid-column>
-      </zg-data-grid>
+        ></c-grid-column>
+      </c-data-grid>
     </demo-panel>
   </div>
 </template>
 
 <script>
-  import ZgDataGrid from '../../../../src/components/dataGrid/dataGrid.vue'
-  import ZgGridColumn from '../../../../src/components/dataGrid/gridColumn.vue'
+  import CDataGrid from '../../../../src/components/dataGrid/dataGrid.vue'
+  import CGridColumn from '../../../../src/components/dataGrid/gridColumn.vue'
   import DemoPanel from '../../../components/demoPanel/index.vue'
   import {util} from '../../../../src/utils'
   export default {
     components: {
       DemoPanel,
-      ZgGridColumn,
-      ZgDataGrid},
+      CGridColumn,
+      CDataGrid},
     name: 'chosenCells',
     data () {
       return {

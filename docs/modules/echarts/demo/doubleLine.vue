@@ -1,7 +1,7 @@
 <template>
   <div>
     <demo-panel subtitle="doubleY: line">
-      <zg-charts :store="json" type="line" doubleY :yAxisRule="yAxisRule" :markLine="markLine"></zg-charts>
+      <c-charts :store="json" type="line" doubleY :yAxisRule="yAxisRule" :markLine="markLine"></c-charts>
     </demo-panel>
   </div>
 </template>
@@ -9,10 +9,10 @@
 <script>
   import json from './json/doubleLine.json'
   import DemoPanel from '../../../components/demoPanel/index.vue'
-  import ZgCharts from '../../../../src/components/echarts/charts.vue'
+  import CCharts from '../../../../src/components/echarts/charts.vue'
   export default {
     components: {
-      ZgCharts,
+      CCharts,
       DemoPanel},
     name: 'doubleLine',
     data () {

@@ -1,9 +1,9 @@
 <script type="text/jsx">
-  import ZgButton from './button'
+  import CButton from './button'
 
   export default {
-    components: {ZgButton},
-    name: 'zgRadioButton',
+    components: {CButton},
+    name: 'cRadioButton',
     props: {
       /**
        * @description value
@@ -83,11 +83,11 @@
     },
     render (h) {
       return (
-        <div class="zg-radio-button">
+        <div class="c-radio-button">
           {this.store.map(item => {
             let className = {
-              'zg-checked': this.checked === item,
-              'zg-radio-item': true
+              'c-checked': this.checked === item,
+              'c-radio-item': true
             }
             if (this.$scopedSlots.default) {
               return this.$scopedSlots.default({
@@ -99,7 +99,7 @@
               })
             } else {
               return (
-                <zg-button class={className}
+                <c-button class={className}
                            key={item.value}
                            theme={this.theme}
                            size={this.size}
@@ -110,7 +110,7 @@
                            }}
                            icon={item.icon}>
                   {item.label}
-                </zg-button>
+                </c-button>
               )
             }
           })}

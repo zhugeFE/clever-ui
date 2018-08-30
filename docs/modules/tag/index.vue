@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import ZgTag from '../../../src/components/tag/tag'
+  import CTag from '../../../src/components/tag/tag'
   import NormalTag from './demo/normal'
   import CloseableTag from './demo/closeableTag'
 
@@ -14,7 +14,7 @@
     components: {
       CloseableTag,
       NormalTag,
-      ZgTag},
+      CTag},
     name: 'index',
     data () {
       return {

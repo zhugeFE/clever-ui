@@ -1,16 +1,16 @@
 <template>
   <td :class="dayClass" :style="style" @click="onClickDay">
-    <div class="zg-cld-day-container">
-      <div class="zg-cld-label">
-        <span class="zg-day-num">{{dateFormat(day)}}</span>日
+    <div class="c-cld-day-container">
+      <div class="c-cld-label">
+        <span class="c-day-num">{{dateFormat(day)}}</span>日
       </div>
-      <div class="zg-cld-task-panel">
+      <div class="c-cld-task-panel">
         <template v-for="(task, i) in validTaskList">
-          <zg-calendar-task :task="task"
+          <c-calendar-task :task="task"
                             :width="width"
                             :day="day"
                             :style="{top: `${getTopVal(task, i)}px`}"
-                            :key="task.name + id"></zg-calendar-task>
+                            :key="task.name + id"></c-calendar-task>
         </template>
       </div>
     </div>
@@ -19,10 +19,10 @@
 
 <script>
 import {util} from '../../utils'
-import ZgCalendarTask from './task'
+import CCalendarTask from './task'
 export default {
-  name: 'zgDay',
-  components: {ZgCalendarTask},
+  name: 'cDay',
+  components: {CCalendarTask},
   props: {
     day: {
       type: Date
@@ -56,10 +56,10 @@ export default {
       let isToday = util.dateFormat(new Date()) === util.dateFormat(this.day)
       let isCurrent = util.dateFormat(this.currentDay) === util.dateFormat(this.day)
       return {
-        'zg-cld-day': true,
-        'zg-cld-secondary': !week || week === 6 || isOtherMonth,
-        'zg-cld-today': isToday,
-        'zg-cld-active': isCurrent
+        'c-cld-day': true,
+        'c-cld-secondary': !week || week === 6 || isOtherMonth,
+        'c-cld-today': isToday,
+        'c-cld-active': isCurrent
       }
     },
     style () {

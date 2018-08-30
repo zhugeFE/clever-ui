@@ -1,24 +1,24 @@
 <template>
   <div>
     <demo-panel title="dialog" jsFiddleName="0kxve2g3">
-      <zg-dialog title="dialog" v-show="show" @confirm="onConfirm" @cancel="onCancel">
+      <c-dialog title="dialog" v-show="show" @confirm="onConfirm" @cancel="onCancel">
         this is dialog
-      </zg-dialog>
-      <zg-button @click="onClick">显示弹窗</zg-button>
+      </c-dialog>
+      <c-button @click="onClick">显示弹窗</c-button>
     </demo-panel>
   </div>
 </template>
 
 <script>
-  import ZgDialog from '../../../../src/components/dialog/dialog.vue'
-  import ZgButton from '../../../../src/components/button/button.vue'
+  import CDialog from '../../../../src/components/dialog/dialog.vue'
+  import CButton from '../../../../src/components/button/button.vue'
   import DemoPanel from '../../../components/demoPanel/index.vue'
 
   export default {
     components: {
       DemoPanel,
-      ZgButton,
-      ZgDialog},
+      CButton,
+      CDialog},
     name: 'normalDialog',
     data () {
       return {

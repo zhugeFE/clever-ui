@@ -1,13 +1,13 @@
 <template>
-  <div class="zg-tag" :style="style" v-if="!closed">
+  <div class="c-tag" :style="style" v-if="!closed">
     <slot></slot>
-    <i v-show="closeable" class="zg-icon zgicon-delete-little1" @click="onClose"></i>
+    <i v-show="closeable" class="c-icon cicon-delete-little1" @click="onClose"></i>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'zgTag',
+  name: 'cTag',
   props: {
     closeable: {
       type: Boolean,

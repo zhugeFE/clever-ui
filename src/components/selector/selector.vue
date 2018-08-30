@@ -1,20 +1,20 @@
 <script type="text/jsx">
-  import ZgOption from './option.vue'
-  import ZgCheckbox from '../checkbox/checkbox.vue'
-  import ZgOptGroup from './optGroup.vue'
+  import COption from './option.vue'
+  import CCheckbox from '../checkbox/checkbox.vue'
+  import COptGroup from './optGroup.vue'
   import {util} from '../../utils'
-  import ZgScrollContainer from '../scroll/scrollContainer'
-  import ZgSelectorHandle from './handle'
-  import ZgLoading from '../loading/loading'
+  import CScrollContainer from '../scroll/scrollContainer'
+  import CSelectorHandle from './handle'
+  import CLoading from '../loading/loading'
   export default {
     components: {
-      ZgLoading,
-      ZgScrollContainer,
-      ZgOptGroup,
-      ZgCheckbox,
-      ZgOption,
-      ZgSelectorHandle},
-    name: 'zgSelector',
+      CLoading,
+      CScrollContainer,
+      COptGroup,
+      CCheckbox,
+      COption,
+      CSelectorHandle},
+    name: 'cSelector',
     props: {
       /**
        * @description 选项唯一标识字段
@@ -261,9 +261,9 @@
         return this.innerStore.length === 0
       },
       filterClass () {
-        let clazz = ['zg-select-search']
+        let clazz = ['c-select-search']
         if (this.filter) {
-          clazz.push('zg-active')
+          clazz.push('c-active')
         }
         return clazz.join(' ')
       },
@@ -505,8 +505,8 @@
     },
     render (h) {
       return (
-        <div class="zg-select" style={this.selectStyle} v-click-outside={this.onClickOutside}>
-          <zg-selector-handle value={this.chosenList}
+        <div class="c-select" style={this.selectStyle} v-click-outside={this.onClickOutside}>
+          <c-selector-handle value={this.chosenList}
                               theme={this.theme}
                               placeholder={this.placeholder}
                               labelField={this.labelField}
@@ -524,33 +524,33 @@
                               onDelete={this.onDelete}
                               onClick={this.onClickHandle}>
             {this.$slots.default}
-          </zg-selector-handle>
+          </c-selector-handle>
 
           <transition enter-active-class="animated slideInDown">
-            <ul v-show={this.showOptions} class="zg-drop-panel" ref="dropPanel">
-              <div class="zg-fixed" v-show={this.theme !== 'tag'}>
+            <ul v-show={this.showOptions} class="c-drop-panel" ref="dropPanel">
+              <div class="c-fixed" v-show={this.theme !== 'tag'}>
                 {(() => {
                   if (this.filterOption) {
                     return (
-                      <zg-input icon="zgicon-search"
+                      <c-input icon="cicon-search"
                                 width="100%"
                                 class={this.filterClass}
                                 clear-able
-                                ref="optionFilter" onInput={this.onFilter}></zg-input>
+                                ref="optionFilter" onInput={this.onFilter}></c-input>
                     )
                   }
                 })()}
-                <li v-show={this.multiple && this.chosenList.length && this.clearAble} class="zg-clear">
+                <li v-show={this.multiple && this.chosenList.length && this.clearAble} class="c-clear">
                   <a href="javascript:void(0)" onClick={this.clean}>清空</a>
                 </li>
               </div>
 
-              <zg-scroll-container class="zg-content" ref="options" onBottom={this.onBottom}>
-                <zg-loading v-show={this.loading} size="small" tip="loading"></zg-loading>
+              <c-scroll-container class="c-content" ref="options" onBottom={this.onBottom}>
+                <c-loading v-show={this.loading} size="small" tip="loading"></c-loading>
                 {this.renderStore.map(option => {
                   if (this.childrenField) {
                     return (
-                      <zg-opt-group key={option[this.keyField]}
+                      <c-opt-group key={option[this.keyField]}
                                     store={option[this.childrenField]}
                                     showMap={this.showMap}
                                     groupData={option}
@@ -568,11 +568,11 @@
                                       default: this.$scopedSlots.default,
                                       header: this.$scopedSlots.header
                                     }}
-                      ></zg-opt-group>
+                      ></c-opt-group>
                     )
                   } else {
                     return (
-                      <zg-option key={option[this.keyField]}
+                      <c-option key={option[this.keyField]}
                                  checked={this.checkedMap[option[this.keyField]]}
                                  disable={this.disableOptions.indexOf(option[this.keyField]) > -1}
                                  data={option}
@@ -582,17 +582,17 @@
                                  multiple={this.multiple}
                                  theme={this.theme}
                                  onClick={this.onClickOption}
-                                 scopedSlots={{default: this.$scopedSlots.default}}></zg-option>
+                                 scopedSlots={{default: this.$scopedSlots.default}}></c-option>
                     )
                   }
                 })}
-                <li v-show={this.noData} class="zg-option zg-error">
+                <li v-show={this.noData} class="c-option c-error">
                   {this.noDataText}
                 </li>
-                <li v-show={!this.noData && this.noMatch} class="zg-option zg-error">
+                <li v-show={!this.noData && this.noMatch} class="c-option c-error">
                   {this.noMatchText}
                 </li>
-              </zg-scroll-container>
+              </c-scroll-container>
             </ul>
           </transition>
           <div style="display: none">{this.showMap.count}</div>

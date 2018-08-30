@@ -2,57 +2,57 @@
   <div>
     <demo-panel title="tooltip" subtitle="普通应用" jsFiddleName="8xn7yac5">
       <div class="top row">
-        <zg-tooltip content="placement is top-left" placement="top-left">
+        <c-tooltip content="placement is top-left" placement="top-left">
           <span class="span">上左</span>
-        </zg-tooltip>
+        </c-tooltip>
 
-        <zg-tooltip content="placement is top" placement="top">
+        <c-tooltip content="placement is top" placement="top">
           <span class="span">上</span>
-        </zg-tooltip>
+        </c-tooltip>
 
-        <zg-tooltip content="placement is top-right" placement="top-right">
+        <c-tooltip content="placement is top-right" placement="top-right">
           <span class="span">上右</span>
-        </zg-tooltip>
+        </c-tooltip>
       </div>
       <div class="center-top row">
-        <zg-tooltip content="placement is left-top" placement="left-top">
+        <c-tooltip content="placement is left-top" placement="left-top">
           <span class="span">左上</span>
-        </zg-tooltip>
+        </c-tooltip>
 
-        <zg-tooltip content="placement is right-top" placement="right-top">
+        <c-tooltip content="placement is right-top" placement="right-top">
           <span class="span">右上</span>
-        </zg-tooltip>
+        </c-tooltip>
       </div>
       <div class="center row">
-        <zg-tooltip content="placement is left" placement="left">
+        <c-tooltip content="placement is left" placement="left">
           <span class="span">左</span>
-        </zg-tooltip>
+        </c-tooltip>
 
-        <zg-tooltip content="placement is right" placement="right">
+        <c-tooltip content="placement is right" placement="right">
           <span class="span">右</span>
-        </zg-tooltip>
+        </c-tooltip>
       </div>
       <div class="center-bottom row">
-        <zg-tooltip content="placement is left-bottom" placement="left-bottom">
+        <c-tooltip content="placement is left-bottom" placement="left-bottom">
           <span class="span">左下</span>
-        </zg-tooltip>
+        </c-tooltip>
 
-        <zg-tooltip content="placement is right-bottom" placement="right-bottom">
+        <c-tooltip content="placement is right-bottom" placement="right-bottom">
           <span class="span">右下</span>
-        </zg-tooltip>
+        </c-tooltip>
       </div>
       <div class="bottom row">
-        <zg-tooltip content="placement is bottom-left" placement="bottom-left">
+        <c-tooltip content="placement is bottom-left" placement="bottom-left">
           <span class="span">下左</span>
-        </zg-tooltip>
+        </c-tooltip>
 
-        <zg-tooltip content="placement is bottom" placement="bottom">
+        <c-tooltip content="placement is bottom" placement="bottom">
           <span class="span">下</span>
-        </zg-tooltip>
+        </c-tooltip>
 
-        <zg-tooltip content="placement is bottom-right" placement="bottom-right">
+        <c-tooltip content="placement is bottom-right" placement="bottom-right">
           <span class="span">下右</span>
-        </zg-tooltip>
+        </c-tooltip>
       </div>
     </demo-panel>
   </div>

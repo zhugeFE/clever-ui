@@ -1,7 +1,7 @@
 <template>
-  <div class="zg-charts" :style="style" v-resize="onResize">
-    <div class="zg-charts-main" ref="toChart"></div>
-    <div v-show="!chartStore.series.length" :style="{'line-height': height + 'px'}" class="zg-charts-empty">暂无数据</div>
+  <div class="c-charts" :style="style" v-resize="onResize">
+    <div class="c-charts-main" ref="toChart"></div>
+    <div v-show="!chartStore.series.length" :style="{'line-height': height + 'px'}" class="c-charts-empty">暂无数据</div>
   </div>
 </template>
 
@@ -9,7 +9,7 @@
   import echarts from 'echarts'
   import {util} from '../../utils'
   export default {
-    name: 'zgCharts',
+    name: 'cCharts',
     props: {
       /**
        * @description 图表宽度，默认自适应

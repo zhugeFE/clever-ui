@@ -1,13 +1,13 @@
 <template>
   <div>
     <demo-panel title="charts" subtitle="bar">
-      <zg-charts :store="json" :height="270" :stack="stackConfig"></zg-charts>
+      <c-charts :store="json" :height="270" :stack="stackConfig"></c-charts>
     </demo-panel>
   </div>
 </template>
 
 <script>
-  import ZgCharts from '../../../../src/components/echarts/charts.vue'
+  import CCharts from '../../../../src/components/echarts/charts.vue'
   import json from './json/stackBar.json'
   import DemoPanel from '../../../components/demoPanel/index.vue'
   import {util} from '../../../../src/utils'
@@ -15,7 +15,7 @@
   export default {
     components: {
       DemoPanel,
-      ZgCharts},
+      CCharts},
     name: 'stackBarChart',
     data () {
       let store = json.app_data

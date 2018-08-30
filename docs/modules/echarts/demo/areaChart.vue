@@ -1,17 +1,17 @@
 <template>
   <div>
     <demo-panel subtitle="区域图">
-      <zg-charts :store="json" type="area" :markLine="markLine" :series-wrapper="customSeries"></zg-charts>
+      <c-charts :store="json" type="area" :markLine="markLine" :series-wrapper="customSeries"></c-charts>
     </demo-panel>
   </div>
 </template>
 
 <script>
   import json from './json/area.json'
-  import ZgCharts from '../../../../src/components/echarts/charts'
+  import CCharts from '../../../../src/components/echarts/charts'
   import {util} from '../../../../src/utils'
   export default {
-    components: {ZgCharts},
+    components: {CCharts},
     name: 'areaChart',
     data () {
       let store = json.app_data

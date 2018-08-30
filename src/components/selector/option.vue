@@ -1,23 +1,23 @@
 <template>
-  <li class="zg-option" :class="className" @click="onClick" v-show="theme !== 'tag' || !active">
+  <li class="c-option" :class="className" @click="onClick" v-show="theme !== 'tag' || !active">
     <slot v-if="!multiple || theme == 'tag'" :data="data" :active="active" :disable="disable">
       <i v-if="iconField" :class="iconClass"></i><span>{{data[aliasField] || data[labelField]}}</span>
     </slot>
 
-    <zg-checkbox v-else @change="onClick" v-model="active" :disable="disable">
+    <c-checkbox v-else @change="onClick" v-model="active" :disable="disable">
       <slot :data="data" :active="active" :disable="disable">
         <i v-if="iconField" :class="iconClass"></i><span>{{data[aliasField] || data[labelField]}}</span>
       </slot>
-    </zg-checkbox>
+    </c-checkbox>
   </li>
 </template>
 
 <script>
-  import ZgCheckbox from '../checkbox/checkbox.vue'
+  import CCheckbox from '../checkbox/checkbox.vue'
   import emitter from '../../mixins/emitter'
   export default {
-    components: {ZgCheckbox},
-    name: 'ZgOption',
+    components: {CCheckbox},
+    name: 'COption',
     mixins: [emitter],
     props: {
       /**
@@ -94,7 +94,7 @@
       },
       iconClass () {
         let clazz = {
-          'zg-icon': true
+          'c-icon': true
         }
         clazz[this.data[this.iconField]] = true
         return clazz

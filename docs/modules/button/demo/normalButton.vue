@@ -1,24 +1,24 @@
 <template>
   <div>
     <demo-panel title="button" subtitle="普通按钮，theme为normal（默认值）" jsFiddleName="fe9L2wkn">
-      <zg-button>normal</zg-button>
-      <zg-button type="primary">primary</zg-button>
-      <zg-button type="danger">danger</zg-button>
-      <zg-button type="secondary">secondary</zg-button>
-      <zg-button type="warning">warning</zg-button>
-      <zg-button type="success">success</zg-button>
-      <zg-button type="primary" :show-loading="showLoading" @click="onLoad">loading</zg-button>
+      <c-button>normal</c-button>
+      <c-button type="primary">primary</c-button>
+      <c-button type="danger">danger</c-button>
+      <c-button type="secondary">secondary</c-button>
+      <c-button type="warning">warning</c-button>
+      <c-button type="success">success</c-button>
+      <c-button type="primary" :show-loading="showLoading" @click="onLoad">loading</c-button>
     </demo-panel>
   </div>
 </template>
 
 <script>
   import DemoPanel from '../../../components/demoPanel/index.vue'
-  import ZgButton from '../../../../src/components/button/button.vue'
+  import CButton from '../../../../src/components/button/button.vue'
 
   export default {
     components: {
-      ZgButton,
+      CButton,
       DemoPanel},
     name: 'normalButton',
     data () {

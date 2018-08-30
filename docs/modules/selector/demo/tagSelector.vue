@@ -1,8 +1,8 @@
 <template>
   <div>
     <demo-panel subtitle="tag模式">
-      <zg-selector :store="[]" labelField="label" keyField="key"></zg-selector>
-      <zg-selector keyField="id"
+      <c-selector :store="[]" labelField="label" keyField="key"></c-selector>
+      <c-selector keyField="id"
                    :store="store"
                    placeholder="单选"
                    labelField="label"
@@ -13,15 +13,19 @@
                    :search="onSearch"
                    :maxWidth="450"
                    v-model="result">
-      </zg-selector>
+      </c-selector>
     </demo-panel>
   </div>
 </template>
 
 <script>
   import {util} from '../../../../src/utils'
+  import CSelector from '../../../../src/components/selector/selector.vue'
   export default {
     name: 'tagSelector',
+    components: {
+      CSelector
+    },
     data () {
       return {
         store: (() => {
@@ -30,7 +34,7 @@
             store.push({
               id: i,
               label: 'option_' + i,
-              icon: 'zgicon-edit'
+              icon: 'cicon-edit'
             })
           }
           return store
@@ -46,7 +50,7 @@
             store.push({
               id: Math.random().toString().split('.')[1],
               label: 'option_' + util.random(0, 1000),
-              icon: 'zgicon-edit'
+              icon: 'cicon-edit'
             })
           }
           this.store = store

@@ -1,21 +1,21 @@
 <template>
   <div>
     <demo-panel title="message" subtitle="自动消失的消息提醒" jsFiddleName="2mvd4ydh">
-      <zg-button @click="onSuccess">成功提示</zg-button>
-      <zg-button @click="onError">失败提示</zg-button>
-      <zg-button @click="onCustomIcon">自定义icon</zg-button>
+      <c-button @click="onSuccess">成功提示</c-button>
+      <c-button @click="onError">失败提示</c-button>
+      <c-button @click="onCustomIcon">自定义icon</c-button>
     </demo-panel>
   </div>
 </template>
 
 <script>
-  import ZgButton from '../../../../src/components/button/button.vue'
+  import CButton from '../../../../src/components/button/button.vue'
   import DemoPanel from '../../../components/demoPanel/index.vue'
 
   export default {
     components: {
       DemoPanel,
-      ZgButton},
+      CButton},
     name: 'normalMessage',
     data () {
       return {
@@ -36,7 +36,7 @@
       },
       onCustomIcon () {
         this.$message({
-          icon: 'zgicon-message',
+          icon: 'cicon-message',
           message: '自定义icon的提示'
         })
       }

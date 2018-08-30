@@ -1,23 +1,23 @@
 <template>
   <div>
     <demo-panel title="badge" subtitle="count" jsFiddleName="u5zxdv4z">
-      <zg-badge mode="count" :count="count">
-        <zg-button>button</zg-button>
-      </zg-badge>
+      <c-badge mode="count" :count="count">
+        <c-button>button</c-button>
+      </c-badge>
     </demo-panel>
   </div>
 </template>
 
 <script>
-  import ZgBadge from '../../../../src/components/badge/badge.vue'
-  import ZgButton from '../../../../src/components/button/button.vue'
+  import CBadge from '../../../../src/components/badge/badge.vue'
+  import CButton from '../../../../src/components/button/button.vue'
   import DemoPanel from '../../../components/demoPanel/index.vue'
 
   export default {
     components: {
       DemoPanel,
-      ZgButton,
-      ZgBadge},
+      CButton,
+      CBadge},
     name: 'countBadge',
     data () {
       return {

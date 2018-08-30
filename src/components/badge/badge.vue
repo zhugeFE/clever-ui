@@ -1,9 +1,9 @@
 <script type="text/jsx">
-  import ZgTooltip from '../tooltip/tooltip.vue'
+  import CTooltip from '../tooltip/tooltip.vue'
 
   export default {
-    components: {ZgTooltip},
-    name: 'zgBadge',
+    components: {CTooltip},
+    name: 'cBadge',
     props: {
       /**
        * @description 徽标类型：count、dot、shine（闪烁状态，没有数字标识）
@@ -60,28 +60,28 @@
     computed: {
       dotClass () {
         return {
-          'zg-badge-dot': this.mode === 'dot',
-          'zg-badge-count': this.mode === 'count',
-          'zg-badge-shine': this.mode === 'shine'
+          'c-badge-dot': this.mode === 'dot',
+          'c-badge-count': this.mode === 'count',
+          'c-badge-shine': this.mode === 'shine'
         }
       }
     },
     render (h) {
       return (
-        <span class="zg-badge">
+        <span class="c-badge">
           {(() => {
             if (this.disable || this.mode !== 'shine' || !this.useTip) {
               return this.$slots.default
             } else {
               return (
-                <zg-tooltip ref="tooltip" content={this.tip} placement="top-right" autoHide={this.autoHideTip}>
+                <c-tooltip ref="tooltip" content={this.tip} placement="top-right" autoHide={this.autoHideTip}>
                   {this.$slots.default}
                   {(() => {
                     if (this.$slots.tooltip) {
                       return <div slot="tooltip">{this.$slots.tooltip}</div>
                     }
                   })()}
-                </zg-tooltip>
+                </c-tooltip>
               )
             }
           })()}

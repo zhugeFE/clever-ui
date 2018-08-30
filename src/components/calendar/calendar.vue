@@ -1,41 +1,41 @@
 <template>
-  <div class="zg-calendar-container" ref="main" v-resize="onResize">
-    <div class="zg-cld-toolbar">
-      <zg-selector :store="yearList"
+  <div class="c-calendar-container" ref="main" v-resize="onResize">
+    <div class="c-cld-toolbar">
+      <c-selector :store="yearList"
                    :width="100"
-                   class="zg-cld-year"
+                   class="c-cld-year"
                    @change="onChangeYear"
                    v-model="currentYear"
                    key-field="value"
-                   label-field="label"></zg-selector>
-      <zg-selector :store="monthList"
+                   label-field="label"></c-selector>
+      <c-selector :store="monthList"
                    :width="100"
                    @change="onChangeMonth"
-                   class="zg-cld-month-selector"
+                   class="c-cld-month-selector"
                    v-model="currentMonth"
                    key-field="value"
-                   label-field="label"></zg-selector>
-      <span class="zg-cld-day-control">
-        <zg-button size="normal" icon="zgicon-arrow-left" @click="onPreDay"></zg-button>
-        <zg-button size="normal" @click="onClickDay(new Date())">今天</zg-button>
-        <zg-button size="normal" icon="zgicon-arrow-right1" @click="onNextDay"></zg-button>
+                   label-field="label"></c-selector>
+      <span class="c-cld-day-control">
+        <c-button size="normal" icon="cicon-arrow-left" @click="onPreDay"></c-button>
+        <c-button size="normal" @click="onClickDay(new Date())">今天</c-button>
+        <c-button size="normal" icon="cicon-arrow-right1" @click="onNextDay"></c-button>
       </span>
     </div>
-    <table class="zg-cld">
-      <thead class="zg-cld-title">
+    <table class="c-cld">
+      <thead class="c-cld-title">
       <tr>
-        <td class="zg-cld-secondary">周日</td>
+        <td class="c-cld-secondary">周日</td>
         <td>周一</td>
         <td>周二</td>
         <td>周三</td>
         <td>周四</td>
         <td>周五</td>
-        <td class="zg-cld-secondary">周六</td>
+        <td class="c-cld-secondary">周六</td>
       </tr>
       </thead>
-      <tbody class="zg-cld-body">
+      <tbody class="c-cld-body">
       <tr v-for="(week, i) of days" :key="i">
-        <zg-day v-for="day of week"
+        <c-day v-for="day of week"
                 :key="day.toLocaleString()"
                 :day="day"
                 :width="dayWidth"
@@ -51,10 +51,10 @@
 
 <script>
 import {util} from '../../utils'
-import ZgDay from './day'
+import CDay from './day'
 export default {
-  name: 'zgCalendar',
-  components: {ZgDay},
+  name: 'cCalendar',
+  components: {CDay},
   props: {
     /**
      * @description v-model绑定值，选定的日期
@@ -152,10 +152,10 @@ export default {
       let isToday = util.dateFormat(new Date()) === util.dateFormat(day)
       let isCurrent = util.dateFormat(this.currentDay) === util.dateFormat(day)
       return {
-        'zg-cld-day': true,
-        'zg-cld-secondary': !week || week === 6 || isOtherMonth,
-        'zg-cld-today': isToday,
-        'zg-cld-active': isCurrent
+        'c-cld-day': true,
+        'c-cld-secondary': !week || week === 6 || isOtherMonth,
+        'c-cld-today': isToday,
+        'c-cld-active': isCurrent
       }
     },
     getDays (currentDay) {

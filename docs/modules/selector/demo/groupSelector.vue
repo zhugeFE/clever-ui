@@ -1,7 +1,7 @@
 <template>
   <div>
     <demo-panel title="分组下拉框" subtitle="单选" jsFiddleName="77pqa1vk">
-      <zg-selector key-field="id"
+      <c-selector key-field="id"
                    v-model="groupValue"
                    :store="store"
                    label-field="label"
@@ -13,30 +13,30 @@
         <template slot="header" slot-scope="scope">
           自定义header: {{scope.data.label}}
         </template>
-      </zg-selector>
+      </c-selector>
       <span>选中值：</span>{{groupValue}}
     </demo-panel>
 
     <demo-panel subtitle="多选" jsFiddleName="77pqa1vk">
-      <zg-selector key-field="id"
+      <c-selector key-field="id"
                    :store="multipleStore"
                    children-field="children"
                    v-model="multipleValue"
                    multiple
-                   label-field="label"></zg-selector>
+                   label-field="label"></c-selector>
       <span>选中值：</span>{{multipleValue.map(item => item.label)}}
     </demo-panel>
   </div>
 </template>
 
 <script>
-  import ZgSelector from '../../../../src/components/selector/selector.vue'
+  import CSelector from '../../../../src/components/selector/selector.vue'
   import DemoPanel from '../../../components/demoPanel/index.vue'
 
   export default {
     components: {
       DemoPanel,
-      ZgSelector},
+      CSelector},
     name: 'groupSelector',
     data () {
       return {

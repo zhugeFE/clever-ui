@@ -1,7 +1,7 @@
 <template>
   <div>
     <demo-panel subtitle="宽度自适应">
-      <zg-input v-model="msg" width="auto" clearAble :max-width="400" :min-width="14"></zg-input>
+      <c-input v-model="msg" width="auto" clearAble :max-width="400" :min-width="14"></c-input>
       <div>
         {{msg}}
       </div>
@@ -10,10 +10,10 @@
 </template>
 
 <script>
-  import ZgInput from '../../../../src/components/input/input'
+  import CInput from '../../../../src/components/input/input'
 
   export default {
-    components: {ZgInput},
+    components: {CInput},
     name: 'autoWidthInput',
     data () {
       return {

@@ -1,9 +1,9 @@
 <template>
   <div>
     <demo-panel title="Radio" subtitle="normal radio">
-      <zg-radio :store="store" v-model="value">
+      <c-radio :store="store" v-model="value">
         <template slot-scope="scope">->>>  {{scope.data.label}}</template>
-      </zg-radio>
+      </c-radio>
       <div>
         {{value}}
       </div>
@@ -12,10 +12,10 @@
 </template>
 
 <script>
-  import ZgRadio from '../../../../src/components/radio/radio'
+  import CRadio from '../../../../src/components/radio/radio'
 
   export default {
-    components: {ZgRadio},
+    components: {CRadio},
     name: 'normalRadio',
     data () {
       return {

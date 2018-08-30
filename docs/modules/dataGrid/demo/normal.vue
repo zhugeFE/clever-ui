@@ -1,8 +1,8 @@
 <template>
   <div>
     <demo-panel title="dataGrid" subtitle="普通表格" jsFiddleName="0v4vs2je">
-      <zg-data-grid :store="[]" @click-cell="onClickCell" show-index indexTitle="序列">
-        <zg-grid-column field="label0"
+      <c-data-grid :store="[]" @click-cell="onClickCell" show-index indexTitle="序列">
+        <c-grid-column field="label0"
                         title="首列"
                         :width="130"
                         sort-able
@@ -13,12 +13,12 @@
           <template slot-scope="scope">
             自定义展示：{{scope.data[scope.field]}}
           </template>
-        </zg-grid-column>
-        <zg-grid-column v-for="column in columns"
+        </c-grid-column>
+        <c-grid-column v-for="column in columns"
                         :field="column.field"
                         :key="column.title"
-                        :title="column.title"></zg-grid-column>
-      </zg-data-grid>
+                        :title="column.title"></c-grid-column>
+      </c-data-grid>
     </demo-panel>
   </div>
 </template>

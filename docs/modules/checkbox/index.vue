@@ -3,16 +3,16 @@
     <demo-panel title="checkbox" jsFiddleName="dpd0q8Ls">
       <ul class="list">
         <li>
-          <zg-checkbox v-model="a">默认不选中</zg-checkbox><span class="result">选中结果：{{a}}</span>
+          <c-checkbox v-model="a">默认不选中</c-checkbox><span class="result">选中结果：{{a}}</span>
         </li>
         <li>
-          <zg-checkbox v-model="b">默认选中</zg-checkbox><span class="result">选中结果：{{b}}</span>
+          <c-checkbox v-model="b">默认选中</c-checkbox><span class="result">选中结果：{{b}}</span>
         </li>
         <li>
-          <zg-checkbox v-model="c" disable>禁用</zg-checkbox><span class="result">选中结果：{{c}}</span>
+          <c-checkbox v-model="c" disable>禁用</c-checkbox><span class="result">选中结果：{{c}}</span>
         </li>
         <li>
-          <zg-checkbox v-model="d" disable>禁用</zg-checkbox><span class="result">选中结果：{{d}}</span>
+          <c-checkbox v-model="d" disable>禁用</c-checkbox><span class="result">选中结果：{{d}}</span>
         </li>
       </ul>
     </demo-panel>
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-  import ZgCheckbox from '../../../src/components/checkbox/checkbox.vue'
+  import CCheckbox from '../../../src/components/checkbox/checkbox.vue'
   import DemoPanel from '../../components/demoPanel/index.vue'
   import DocMarkdown from '../../components/docMarkdown/index.vue'
   import api from './checkbox.json'
@@ -29,7 +29,7 @@
     components: {
       DocMarkdown,
       DemoPanel,
-      ZgCheckbox},
+      CCheckbox},
     name: 'index',
     data () {
       return {

@@ -1,14 +1,14 @@
 <script type="text/jsx">
   import {dom, util} from '../../utils/index'
 
-  import ZgGridHeader from './gridHeader.vue'
-  import ZgGridCell from './gridCell.vue'
+  import CGridHeader from './gridHeader.vue'
+  import CGridCell from './gridCell.vue'
 
   export default {
-    name: 'zgGrid',
+    name: 'cGrid',
     components: {
-      ZgGridCell,
-      ZgGridHeader
+      CGridCell,
+      CGridHeader
     },
     props: {
       /**
@@ -118,58 +118,58 @@
     },
     methods: {
       onHoverRow (rowIndex) {
-        let hoverColor = document.querySelector('.zg-grid-hover-color')
+        let hoverColor = document.querySelector('.c-grid-hover-color')
         if (hoverColor) {
           hoverColor = window.getComputedStyle(hoverColor)['background-color']
         }
-        dom.addStyleSheet(`zgDataGridHover${this.gridId}`, [
-          [`.zg-row-${this.gridId}-${rowIndex}`, [
+        dom.addStyleSheet(`cDataGridHover${this.gridId}`, [
+          [`.c-row-${this.gridId}-${rowIndex}`, [
             'background', hoverColor || '#F0FAFF', true
           ]]
         ])
       },
       onMouseLeave () {
-        dom.removeStyleSheet(`zgDataGridHover${this.gridId}`)
+        dom.removeStyleSheet(`cDataGridHover${this.gridId}`)
       }
     },
     render (h) {
       const listeners = this.$listeners
       return (
-        <table class="zg-grid">
-          <thead class="zg-grid-header">
+        <table class="c-grid">
+          <thead class="c-grid-header">
           {this.structureParser.headStructure.map((row, rowIndex) => {
             if (!row.length) return
             return (
-              <tr class="zg-grid-header-row">
+              <tr class="c-grid-header-row">
                 {(() => {
                   if (this.showIndex && rowIndex === 0) {
                     return (
-                      <zg-grid-header
+                      <c-grid-header
                         title={this.indexTitle}
                         column={{}}
                         rowspan={this.headerRowspan}>
-                      </zg-grid-header>
+                      </c-grid-header>
                     )
                   }
                 })()}
                 {row.map(column => {
                   const rowspan = (rowIndex === 0 && !column.children) ? this.headerRowspan : 1
                   return (
-                    <zg-grid-header title={column.title}
+                    <c-grid-header title={column.title}
                                     sortAble={column.sortAble}
                                     column={column}
                                     width={column.width}
                                     rowspan={rowspan}
                                     colspan={column.colspan}
                                     scopedSlots={{default: column.headFormatter}}
-                                    onSort={listeners.sort}></zg-grid-header>
+                                    onSort={listeners.sort}></c-grid-header>
                   )
                 })}
               </tr>
             )
           })}
           </thead>
-          <tbody class="zg-grid-body">
+          <tbody class="c-grid-body">
           {
             this.store.map((item, i) => {
               if (this.pagination) {
@@ -179,30 +179,30 @@
                 if (i < startIndex || i >= endIndex) return
               }
               let rowClass = {
-                'zg-grid-row': true
+                'c-grid-row': true
               }
-              rowClass[`zg-row-${this.gridId}-${i}`] = true
+              rowClass[`c-row-${this.gridId}-${i}`] = true
               return (
                 <tr class={rowClass} onMouseover={() => {this.onHoverRow(i)}}
                     onMouseleave={() => {this.onMouseLeave(i)}}>
                   {(() => {
                     if (this.showIndex) {
                       return (
-                        <zg-grid-cell store={{index: i}}
+                        <c-grid-cell store={{index: i}}
                                       labelField="index"
                                       index={i}
                                       chosenCells={this.chosenCells}
                                       column={this.startColumnIndex + -1}
-                        ></zg-grid-cell>
+                        ></c-grid-cell>
                       )
                     }
                   })()}
                   {this.structureParser.bodyStructure.map((column, j) => {
                     let clazz = {
-                      'zg-click-able': column.clickCell
+                      'c-click-able': column.clickCell
                     }
                     return (
-                      <zg-grid-cell store={item}
+                      <c-grid-cell store={item}
                                     labelField={column.field}
                                     width={column.width}
                                     index={i}
@@ -211,7 +211,7 @@
                                     chosenCells={this.chosenCells}
                                     scopedSlots={{default: column.cellFormatter}}
                                     onClick={column.clickCell || listeners.clickCell}
-                      ></zg-grid-cell>
+                      ></c-grid-cell>
                     )
                   })
                   }</tr>

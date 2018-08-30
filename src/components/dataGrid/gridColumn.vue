@@ -2,7 +2,7 @@
   import {emitter} from '../../mixins/main'
   import {util} from '../../utils'
   export default {
-    name: 'zgGridColumn',
+    name: 'cGridColumn',
     mixins: [emitter],
     props: {
       /**
@@ -45,7 +45,7 @@
       }
     },
     mounted () {
-      let structure = this.parent('zgDataGrid').$data.structure[this.fix]
+      let structure = this.parent('cDataGrid').$data.structure[this.fix]
       if (this.$slots.default) {
         let colspanColumn = {
           field: this.field,
@@ -55,7 +55,7 @@
           children: []
         }
         this.$slots.default.forEach(slot => {
-          if (!slot.tag || slot.componentOptions.tag !== 'zg-grid-column') return
+          if (!slot.tag || slot.componentOptions.tag !== 'c-grid-column') return
           const props = slot.componentOptions.propsData
           const listeners = slot.componentOptions.listeners
           colspanColumn.children.push({
@@ -86,7 +86,7 @@
     },
     // todo 子组实现逻辑需要优化，好用于监测子组的增减
     beforeDestroy () {
-      let structure = this.parent('zgDataGrid').$data.structure[this.fix]
+      let structure = this.parent('cDataGrid').$data.structure[this.fix]
       const field = this.field
       let hasDel = false
       structure.forEach((column, i) => {

@@ -1,6 +1,6 @@
 <template>
-  <div class="zg-cld-task" :style="style" :title="task.name" @click.stop="onClick">
-    <span class="zg-cld-mark" v-if="task.mark"></span>
+  <div class="c-cld-task" :style="style" :title="task.name" @click.stop="onClick">
+    <span class="c-cld-mark" v-if="task.mark"></span>
     {{task.name}}
   </div>
 </template>
@@ -8,7 +8,7 @@
 <script type="text/jsx">
 import {util} from '../../utils'
 export default {
-  name: 'zg-calendar-task',
+  name: 'c-calendar-task',
   props: {
     /**
      * @description 名称、开始时间、结束时间、描述、onClick
@@ -73,7 +73,7 @@ export default {
 
 <style lang="sass">
 @import "../../assets/styles/constants"
-.zg-cld-task
+.c-cld-task
   position: absolute
   font-size: $size-font-tip
   height: 18px
@@ -89,7 +89,7 @@ export default {
   word-break: keep-all
   &:hover
     background: $color-action-primary-hover
-  .zg-cld-mark
+  .c-cld-mark
     display: inline-block
     width: 8px
     height: 8px

@@ -1,7 +1,7 @@
 <script type="text/jsx">
   import Tooltip from './_tooltip.vue'
   export default {
-    name: 'zgTooltip',
+    name: 'cTooltip',
     props: {
       /**
        * @description 提示文本
@@ -120,7 +120,7 @@
     },
     render (h) {
       return (
-        <span class="zg-tooltip-trigger" ref="trigger"
+        <span class="c-tooltip-trigger" ref="trigger"
               onMouseover={this.onHoverTrigger}
               onMouseleave={this.onMouseLeave}
         >{this.$slots.default}</span>

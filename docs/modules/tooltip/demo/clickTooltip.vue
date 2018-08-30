@@ -1,24 +1,24 @@
 <template>
   <div>
     <demo-panel subtitle="autoHide为false时，必须通过tooltip实例的show和hide方法控制显示隐藏" jsFiddleName="h1qcofxd">
-      <zg-button @click="onClick">显示tooltip</zg-button>
-      <zg-tooltip content="出来了~，但是这段文本有点长啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊"
+      <c-button @click="onClick">显示tooltip</c-button>
+      <c-tooltip content="出来了~，但是这段文本有点长啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊"
                   ref="tooltip"
                   :width="200"
                   :autoHide="false" @hide="onHide">
-        <zg-button>触发区</zg-button>
-      </zg-tooltip>
+        <c-button>触发区</c-button>
+      </c-tooltip>
     </demo-panel>
   </div>
 </template>
 
 <script>
   import DemoPanel from '../../../components/demoPanel/index.vue'
-  import ZgTooltip from '../../../../src/components/tooltip/tooltip.vue'
+  import CTooltip from '../../../../src/components/tooltip/tooltip.vue'
 
   export default {
     components: {
-      ZgTooltip,
+      CTooltip,
       DemoPanel},
     name: 'clickTooltip',
     data () {

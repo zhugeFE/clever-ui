@@ -1,10 +1,10 @@
 <script type="text/jsx">
   import {emitter} from '../../mixins/main'
-  import zgTab from './tab.vue'
+  import cTab from './tab.vue'
   export default {
-    name: 'zgTabs',
+    name: 'cTabs',
     mixins: [emitter],
-    components: {zgTab},
+    components: {cTab},
     props: {
       value: {
         type: Number,
@@ -67,17 +67,17 @@
     computed: {
       tabBarClass () {
         return {
-          'zg-tab-bar': true,
-          'zg-tab-normal': this.theme === 'normal',
-          'zg-tab-card': this.theme === 'card',
-          'zg-right': this.placement === 'right',
-          'zg-center': this.placement === 'center'
+          'c-tab-bar': true,
+          'c-tab-normal': this.theme === 'normal',
+          'c-tab-card': this.theme === 'card',
+          'c-right': this.placement === 'right',
+          'c-center': this.placement === 'center'
         }
       },
       clazz () {
         return {
-          'zg-tabs': true,
-          'zg-tab-vertical': this.vertical
+          'c-tabs': true,
+          'c-tab-vertical': this.vertical
         }
       }
     },
@@ -87,7 +87,7 @@
       }
     },
     mounted () {
-      const tabs = this.children('zgTabPanel')
+      const tabs = this.children('cTabPanel')
       if (tabs.length) {
         tabs[this.activeIndex].$data.show = true
       }
@@ -128,20 +128,20 @@
           <div class={this.tabBarClass}>
             {this.tabs.map((tab, index) => {
               return (
-                <zg-tab activeIndex={this.activeIndex}
+                <c-tab activeIndex={this.activeIndex}
                         index={index}
                         tab={tab}
                         width={this.tabWidth}
                         closeAble={tab.closeAble && this.tabs.length > 1}
                         onRemove={this.onRemove}
                         onClick={this.onClickTab}
-                >{tab.slots.title}</zg-tab>
+                >{tab.slots.title}</c-tab>
               )
             })}
             {(() => {
               if (this.showAdd) {
-                return <span class="zg-tab" onClick={this.onAdd}>
-                  <i class="zgicon-add" style="margin: 0"/>
+                return <span class="c-tab" onClick={this.onAdd}>
+                  <i class="cicon-add" style="margin: 0"/>
                 </span>
               }
             })()}
@@ -150,11 +150,11 @@
             if (this.cleanMode) {
               if (index === this.activeIndex) {
                 return (
-                  <div class="zg-tab-panel">{tab.slots.default}</div>
+                  <div class="c-tab-panel">{tab.slots.default}</div>
                 )
               }
             } else {
-              return (<div v-show={index === this.activeIndex} class="zg-tab-panel">{tab.slots.default}</div>)
+              return (<div v-show={index === this.activeIndex} class="c-tab-panel">{tab.slots.default}</div>)
             }
           })}
         </div>

@@ -37,9 +37,9 @@
           'bottom-left', 'bottom', 'bottom-right'
         ]
         let clazz = {}
-        clazz[`zg-tooltip-` + this.theme] = true
+        clazz[`c-tooltip-` + this.theme] = true
         rules.forEach(placement => {
-          clazz[`zg-${placement}`] = this.placement === placement
+          clazz[`c-${placement}`] = this.placement === placement
         })
         clazz[this.customClass] = true
         return clazz

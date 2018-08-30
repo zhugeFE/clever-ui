@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: 'zgGridCell',
+    name: 'cGridCell',
     props: {
       store: {
         type: Object,
@@ -74,7 +74,7 @@
         return res
       },
       clazz () {
-        let clazz = ['zg-grid-cell']
+        let clazz = ['c-grid-cell']
         this.chosenRules.forEach(rule => {
           clazz.push(rule.className)
         })

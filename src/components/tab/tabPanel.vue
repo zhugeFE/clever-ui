@@ -2,7 +2,7 @@
   import Vue from 'vue'
   import {emitter} from '../../mixins/main'
   export default {
-    name: 'zgTabPanel',
+    name: 'cTabPanel',
     mixins: [emitter],
     props: {
       /**
@@ -37,11 +37,11 @@
       }
     },
     mounted () {
-      const parent = this.parent('zgTabs')
+      const parent = this.parent('cTabs')
       parent.addTab(this.templateData)
     },
     beforeDestroy () {
-      const parent = this.parent('zgTabs')
+      const parent = this.parent('cTabs')
       parent.remove(this.templateData)
     },
     render (h) {

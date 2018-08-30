@@ -5,24 +5,24 @@
       subtitle="普通输入框"
       jsFiddleName="Lqxvqar4"
     >
-      <zg-input icon="zgicon-list"
+      <c-input icon="cicon-list"
                 clear-able
                 placeholder="有清除有icon"
                 @blur="onBlur"
                 @focus="onFocus"
                 v-model="value">
-      </zg-input>
-      <zg-input type="password" clear-able></zg-input>
+      </c-input>
+      <c-input type="password" clear-able></c-input>
       <span>输入值：{{value}}</span>
     </demo-panel>
   </div>
 </template>
 
 <script>
-  import ZgInput from '../../../../src/components/input/input'
+  import CInput from '../../../../src/components/input/input'
 
   export default {
-    components: {ZgInput},
+    components: {CInput},
     name: 'normalInput',
     data () {
       return {

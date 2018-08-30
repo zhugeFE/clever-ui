@@ -1,22 +1,22 @@
 <template>
   <div>
     <demo-panel subtitle="dot" jsFiddleName="9xkqy9e6">
-      <zg-badge mode="dot">
-        <zg-button>message</zg-button>
-      </zg-badge>
+      <c-badge mode="dot">
+        <c-button>message</c-button>
+      </c-badge>
     </demo-panel>
   </div>
 </template>
 
 <script>
   import DemoPanel from '../../../components/demoPanel/index.vue'
-  import ZgBadge from '../../../../src/components/badge/badge.vue'
-  import ZgButton from '../../../../src/components/button/button.vue'
+  import CBadge from '../../../../src/components/badge/badge.vue'
+  import CButton from '../../../../src/components/button/button.vue'
 
   export default {
     components: {
-      ZgButton,
-      ZgBadge,
+      CButton,
+      CBadge,
       DemoPanel},
     name: 'dotBadge',
     data () {

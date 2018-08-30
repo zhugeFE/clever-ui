@@ -1,29 +1,29 @@
 <template>
   <div>
     <demo-panel subtitle="shine" jsFiddleName="ygLhbxkd">
-      <zg-badge mode="shine" useTip tip="this is message">
-        <zg-button>message</zg-button>
-      </zg-badge>
+      <c-badge mode="shine" useTip tip="this is message">
+        <c-button>message</c-button>
+      </c-badge>
 
-      <zg-badge mode="shine" useTip tip="this is message" :disable="disable">
-        <zg-button @click="onClick">{{content}}</zg-button>
+      <c-badge mode="shine" useTip tip="this is message" :disable="disable">
+        <c-button @click="onClick">{{content}}</c-button>
         <template slot="tooltip">
           这是自定义<span style="color: lightskyblue; margin: 0 5px">tip</span>文本
         </template>
-      </zg-badge>
+      </c-badge>
     </demo-panel>
   </div>
 </template>
 
 <script>
   import DemoPanel from '../../../components/demoPanel/index.vue'
-  import ZgBadge from '../../../../src/components/badge/badge.vue'
-  import ZgButton from '../../../../src/components/button/button.vue'
+  import CBadge from '../../../../src/components/badge/badge.vue'
+  import CButton from '../../../../src/components/button/button.vue'
 
   export default {
     components: {
-      ZgButton,
-      ZgBadge,
+      CButton,
+      CBadge,
       DemoPanel},
     name: 'shineBadge',
     data () {

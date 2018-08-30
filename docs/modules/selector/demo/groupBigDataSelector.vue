@@ -1,16 +1,16 @@
 <template>
   <div>
     <demo-panel title="分组大数据下拉框" subtitle="单选" jsFiddleName="b21m1LzL">
-      <zg-selector key-field="id" v-model="value"
+      <c-selector key-field="id" v-model="value"
                    :store="store" label-field="label"
-                   children-field="children" filter-option></zg-selector>
+                   children-field="children" filter-option></c-selector>
       <span>选中值：{{value}}</span>
     </demo-panel>
 
     <demo-panel subtitle="多选" jsFiddleName="b21m1LzL">
-      <zg-selector key-field="id" v-model="multipleValue"
+      <c-selector key-field="id" v-model="multipleValue"
                    :store="multipleStore" label-field="label"
-                   children-field="children" multiple filter-option></zg-selector>
+                   children-field="children" multiple filter-option></c-selector>
       <span>选中值：{{multipleValue}}</span>
     </demo-panel>
   </div>
@@ -18,11 +18,11 @@
 
 <script>
   import DemoPanel from '../../../components/demoPanel/index.vue'
-  import ZgSelector from '../../../../src/components/selector/selector.vue'
+  import CSelector from '../../../../src/components/selector/selector.vue'
 
   export default {
     components: {
-      ZgSelector,
+      CSelector,
       DemoPanel},
     name: 'groupBigDataSelector',
     data () {

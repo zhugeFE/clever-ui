@@ -4,17 +4,17 @@
       <div style="margin-bottom: 10px">
         选中日期：{{currentDay.toLocaleDateString()}}
       </div>
-      <zg-calendar v-model="currentDay" :task-list="taskList"></zg-calendar>
+      <c-calendar v-model="currentDay" :task-list="taskList"></c-calendar>
     </demo-panel>
   </div>
 </template>
 
 <script>
-import ZgCalendar from '../../../../src/components/calendar/calendar'
+import CCalendar from '../../../../src/components/calendar/calendar'
 import {util} from '../../../../src/utils'
 export default {
   name: 'normalCalendar',
-  components: {ZgCalendar},
+  components: {CCalendar},
   data () {
     return {
       currentDay: new Date(),

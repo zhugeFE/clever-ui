@@ -1,55 +1,55 @@
 @import "./constants"
-.zg-data-grid
+.c-data-grid
   border: 1px solid $color-border-normal
   border-radius: $border-radius
   color: $color-brand-black
   overflow-x: auto
-  .zg-grid-container
+  .c-grid-container
     display: flex
     flex-direction: row
     position: relative
-    .zg-grid-left
+    .c-grid-left
       flex: none
       position: relative
       border-right: 1px solid $color-border-normal
       z-index: $z-index-base + 1
-    .zg-grid-right
+    .c-grid-right
       flex: none
       position: relative
       border-left: 1px solid $color-border-normal
       box-shadow: -6px 0 6px -4px rgba(0,0,0,.2)
       z-index: $z-index-base + 1
-      .zg-grid-cell:first-child,.zg-grid-header-cell:first-child
+      .c-grid-cell:first-child,.c-grid-header-cell:first-child
         text-align: right
-    .zg-grid-center
+    .c-grid-center
       flex: 1 1 auto
       position: relative
       z-index: $z-index-base
       overflow-x: auto
-      .zg-grid-cell:first-child,.zg-grid-header-cell:first-child
+      .c-grid-cell:first-child,.c-grid-header-cell:first-child
         text-align: right
-    .zg-grid
+    .c-grid
       width: auto
       min-width: 100%
       border-collapse: collapse
       font-size: $size-font-content
-      .zg-grid-header
-        .zg-grid-header-row
+      .c-grid-header
+        .c-grid-header-row
           background: $color-background-dark
-      .zg-grid-body
-        .zg-grid-row
+      .c-grid-body
+        .c-grid-row
           background: $color-background-normal
           &:nth-child(2n)
             background: $color-background-light
           &:hover
             background: $color-action-normal-hover
-          &:last-child .zg-grid-cell
+          &:last-child .c-grid-cell
             border-bottom: none
-  .zg-hidden-structure
+  .c-hidden-structure
     display: none
-    .zg-grid-hover-color
+    .c-grid-hover-color
       background: $color-action-normal-active
-  .zg-grid-empty
+  .c-grid-empty
     height: 50px
     line-height: 50px
     text-align: center

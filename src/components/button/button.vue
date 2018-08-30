@@ -4,17 +4,17 @@
     :type="nativeType"
     :disabled="disable"
     :class="buttonClass">
-    <i class="zg-icon" :class="icon" v-if="icon"></i>
-    <zg-loading v-show="showLoading" size="small" :showTip="false"></zg-loading>
+    <i class="c-icon" :class="icon" v-if="icon"></i>
+    <c-loading v-show="showLoading" size="small" :showTip="false"></c-loading>
     <span><slot></slot></span>
   </button>
 </template>
 <script>
-import ZgLoading from '../loading/loading'
+import CLoading from '../loading/loading'
 
 export default {
-  components: {ZgLoading},
-  name: 'ZgButton',
+  components: {CLoading},
+  name: 'CButton',
   props: {
     /**
      * @description 可选值为：normal、primary、danger、secondary、success
@@ -81,12 +81,12 @@ export default {
   computed: {
     buttonClass () {
       let clazz = {
-        'zg-button': true,
-        'zg-disable': this.disable,
-        'zg-button-icon': this.icon && !this.$slots.default
+        'c-button': true,
+        'c-disable': this.disable,
+        'c-button-icon': this.icon && !this.$slots.default
       }
-      clazz[`zg-button-${this.theme}-${this.type}`] = true
-      clazz[`zg-button-size-${this.size}`] = this.size !== 'normal'
+      clazz[`c-button-${this.theme}-${this.type}`] = true
+      clazz[`c-button-size-${this.size}`] = this.size !== 'normal'
 
       return clazz
     }

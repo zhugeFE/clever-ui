@@ -3,14 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import zhugeView from '../src'
+import cleverUi from '../src'
 import demoPanel from './components/demoPanel'
 import docMarkdown from './components/docMarkdown'
 import VueMarkdown from 'vue-markdown'
 
 Vue.config.productionTip = false
 Vue.config.devtools = true
-Vue.use(zhugeView)
+Vue.use(cleverUi)
 Vue.component('vue-markdown', VueMarkdown)
 Vue.component('doc-markdown', docMarkdown)
 Vue.component('demo-panel', demoPanel)

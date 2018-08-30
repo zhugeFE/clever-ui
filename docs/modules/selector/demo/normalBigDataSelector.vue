@@ -1,17 +1,17 @@
 <template>
   <div>
     <demo-panel title="大数据量普通下拉" subtitle="单选" jsFiddleName="udt2nfjs">
-      <zg-selector key-field="id" v-model="value"
-                   :store="store" label-field="label" filter-option></zg-selector>
+      <c-selector key-field="id" v-model="value"
+                   :store="store" label-field="label" filter-option></c-selector>
       <span>所选值：</span>{{value}}
     </demo-panel>
 
     <demo-panel subtitle="多选" jsFiddleName="udt2nfjs">
-      <zg-selector key-field="id" v-model="multipleValue"
+      <c-selector key-field="id" v-model="multipleValue"
                    :store="multipleStore"
                    label-field="label"
                    filter-option
-                   multiple></zg-selector>
+                   multiple></c-selector>
       <span>所选值：</span>{{multipleValue}}
     </demo-panel>
   </div>
@@ -19,11 +19,11 @@
 
 <script>
   import DemoPanel from '../../../components/demoPanel/index.vue'
-  import ZgSelector from '../../../../src/components/selector/selector.vue'
+  import CSelector from '../../../../src/components/selector/selector.vue'
 
   export default {
     components: {
-      ZgSelector,
+      CSelector,
       DemoPanel},
     name: 'normalBigDataSelector',
     data () {

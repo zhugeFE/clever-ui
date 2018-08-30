@@ -14,17 +14,17 @@
     computed: {
       messageClass () {
         let clazz = {
-          'zg-message': true
+          'c-message': true
         }
-        clazz[`zg-${this.type}`] = true
+        clazz[`c-${this.type}`] = true
         return clazz
       },
       iconClass () {
-        if (this.icon) return ['zg-icon', this.icon]
+        if (this.icon) return ['c-icon', this.icon]
         return {
-          'zg-icon': true,
-          'zgicon-error_filled': this.type === 'error',
-          'zgicon-check_filled': this.type === 'success'
+          'c-icon': true,
+          'cicon-error_filled': this.type === 'error',
+          'cicon-check_filled': this.type === 'success'
         }
       }
     },
@@ -48,11 +48,11 @@
       return (
         <div class={this.messageClass}>
           <i class={this.iconClass}></i>
-          <span class="zg-msg-content">{this.message}</span>
+          <span class="c-msg-content">{this.message}</span>
           {(() => {
             if (!this.autoHide) {
               return (
-                <i onClick={this.close} class="zg-close zgicon-delete-little1"></i>
+                <i onClick={this.close} class="c-close cicon-delete-little1"></i>
               )
             }
           })()}

@@ -1,20 +1,20 @@
 <template>
   <div>
     <demo-panel title="charts" subtitle="bar">
-      <zg-charts :store="json" :height="270"></zg-charts>
+      <c-charts :store="json" :height="270"></c-charts>
     </demo-panel>
   </div>
 </template>
 
 <script>
-  import ZgCharts from '../../../../src/components/echarts/charts.vue'
+  import CCharts from '../../../../src/components/echarts/charts.vue'
   import json from './json/bar.json'
   import DemoPanel from '../../../components/demoPanel/index.vue'
 
   export default {
     components: {
       DemoPanel,
-      ZgCharts},
+      CCharts},
     name: 'barChart',
     data () {
       return {

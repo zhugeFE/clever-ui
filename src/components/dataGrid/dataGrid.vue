@@ -2,18 +2,18 @@
   import {util, dom} from '../../utils/index'
   import {emitter} from '../../mixins/main'
 
-  import ZgGridHeader from './gridHeader.vue'
-  import ZgGridCell from './gridCell.vue'
-  import ZgGrid from './grid.vue'
+  import CGridHeader from './gridHeader.vue'
+  import CGridCell from './gridCell.vue'
+  import CGrid from './grid.vue'
   /**
    * clickCell，以列上注册的事件优先
    */
   export default {
     components: {
-      ZgGrid,
-      ZgGridCell,
-      ZgGridHeader},
-    name: 'zgDataGrid',
+      CGrid,
+      CGridCell,
+      CGridHeader},
+    name: 'cDataGrid',
     mixins: [emitter],
     props: {
       /**
@@ -140,7 +140,7 @@
 
           if (i < startIndex || i >= endIndex) return
         }
-        const className = `.zg-row-${this._uid}-${i}`
+        const className = `.c-row-${this._uid}-${i}`
         const rows = document.querySelectorAll(className)
         let heights = []
         rows.forEach(row => {
@@ -170,7 +170,7 @@
           }
         })
       }
-      dom.addStyleSheet(`zgDataGrid_${this._uid}`, styleSheet)
+      dom.addStyleSheet(`cDataGrid_${this._uid}`, styleSheet)
     },
     methods: {
       /**
@@ -178,7 +178,7 @@
        * @param column
        */
       onSort (status, column) {
-        const headerList = this.children('zgGridHeader')
+        const headerList = this.children('cGridHeader')
         headerList.forEach(header => {
           if (header.$props.column !== column) {
             header.$data.sortStatus = 0
@@ -209,17 +209,17 @@
     render (h) {
       const listeners = this.$listeners
       return (
-        <div class="zg-data-grid" style={this.gridStyle} ref="main">
-          <div class="zg-hidden-structure">
+        <div class="c-data-grid" style={this.gridStyle} ref="main">
+          <div class="c-hidden-structure">
             {this.$slots.default}
-            <span class="zg-grid-hover-color"></span>
+            <span class="c-grid-hover-color"></span>
           </div>
-          <div class="zg-grid-container">
+          <div class="c-grid-container">
             {(() => {
               if (this.structure.left.length) {
                 return (
-                  <div class="zg-grid-left" ref="left">
-                    <zg-grid gridId={this._uid}
+                  <div class="c-grid-left" ref="left">
+                    <c-grid gridId={this._uid}
                              structure={this.structure.left}
                              store={this.store}
                              showIndex={this.showIndex}
@@ -231,7 +231,7 @@
                              onSort={this.onSort}
                              chosenCells={this.chosenCells}
                              onClickCell={listeners.clickCell || (() => {})}
-                    ></zg-grid>
+                    ></c-grid>
                   </div>
                 )
               }
@@ -239,8 +239,8 @@
             {(() => {
               if (this.structure.center.length) {
                 return (
-                  <div class="zg-grid-center" onScroll={this.onScroll} ref="center">
-                    <zg-grid gridId={this._uid}
+                  <div class="c-grid-center" onScroll={this.onScroll} ref="center">
+                    <c-grid gridId={this._uid}
                              structure={this.structure.center}
                              store={this.store}
                              showIndex={this.showIndex && !this.structure.left.length}
@@ -253,7 +253,7 @@
                              startColumnIndex={this.structure.left.length}
                              onSort={this.onSort}
                              onClickCell={listeners.clickCell || (() => {})}
-                    ></zg-grid>
+                    ></c-grid>
                   </div>
                 )
               }
@@ -261,8 +261,8 @@
             {(() => {
               if (this.structure.right.length) {
                 return (
-                  <div class="zg-grid-right" ref="right">
-                    <zg-grid gridId={this._uid}
+                  <div class="c-grid-right" ref="right">
+                    <c-grid gridId={this._uid}
                              structure={this.structure.right}
                              store={this.store}
                              showIndex={this.showIndex && !this.structure.left.length && !this.structure.center.length}
@@ -274,13 +274,13 @@
                              startColumnIndex={this.structure.left.length + this.structure.center.length}
                              onSort={this.onSort}
                              onClickCell={listeners.clickCell || (() => {})}
-                    ></zg-grid>
+                    ></c-grid>
                   </div>
                 )
               }
             })()}
           </div>
-          <div v-show={!this.store.length} class="zg-grid-empty">暂无数据</div>
+          <div v-show={!this.store.length} class="c-grid-empty">暂无数据</div>
         </div>
       )
     }

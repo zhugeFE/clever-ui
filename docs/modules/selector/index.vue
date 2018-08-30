@@ -13,33 +13,32 @@
 </template>
 
 <script>
+import DocMarkdown from '../../components/docMarkdown/index.vue'
 
-  import DocMarkdown from '../../components/docMarkdown/index.vue'
-
-  import NormalSelector from './demo/normalSelector.vue'
-  import GroupSelector from './demo/groupSelector.vue'
-  import NormalBigDataSelector from './demo/normalBigDataSelector.vue'
-  import GroupBigDataSelector from './demo/groupBigDataSelector.vue'
-  import selectApi from './selector.json'
-  import TagSelector from './demo/tagSelector'
-  export default {
-    components: {
-      TagSelector,
-      GroupBigDataSelector,
-      NormalBigDataSelector,
-      GroupSelector,
-      NormalSelector,
-      DocMarkdown},
-    name: 'index',
-    data() {
-      let data = {
-        api: {
-          select: selectApi
-        }
+import NormalSelector from './demo/normalSelector.vue'
+import GroupSelector from './demo/groupSelector.vue'
+import NormalBigDataSelector from './demo/normalBigDataSelector.vue'
+import GroupBigDataSelector from './demo/groupBigDataSelector.vue'
+import selectApi from './selector.json'
+import TagSelector from './demo/tagSelector'
+export default {
+  components: {
+    TagSelector,
+    GroupBigDataSelector,
+    NormalBigDataSelector,
+    GroupSelector,
+    NormalSelector,
+    DocMarkdown},
+  name: 'index',
+  data () {
+    let data = {
+      api: {
+        select: selectApi
       }
-      return data
     }
+    return data
   }
+}
 </script>
 
 <style lang="sass">

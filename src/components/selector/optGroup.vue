@@ -1,9 +1,13 @@
 <script type="text/jsx">
   import emitter from '../../mixins/emitter'
-  import ZgGroupHeader from './groupHeader.vue'
+  import CGroupHeader from './groupHeader.vue'
+  import COption from './option'
   export default {
-    components: {ZgGroupHeader},
-    name: 'ZgOptGroup',
+    components: {
+      CGroupHeader,
+      COption
+    },
+    name: 'COptGroup',
     mixins: [emitter],
     props: {
       groupData: {
@@ -74,15 +78,15 @@
     },
     render (h) {
       return (
-        <ul class="zg-opt-group" v-show={this.show}>
-          <zg-group-header groupData={this.groupData}
+        <ul class="c-opt-group" v-show={this.show}>
+          <c-group-header groupData={this.groupData}
                            labelField={this.labelField}
                            show={!this.hideHead}
-                           scopedSlots={{default: this.$scopedSlots.header}}></zg-group-header>
+                           scopedSlots={{default: this.$scopedSlots.header}}></c-group-header>
           {this.store.map(option => {
             if (this.showMap[option[this.keyField]]) {
               return (
-                <zg-option key={option[this.keyField]}
+                <c-option key={option[this.keyField]}
                            checked={this.checkedMap[option[this.keyField]]}
                            disable={this.disableOptions.indexOf(option[this.keyField]) > -1}
                            data={option}
@@ -93,7 +97,7 @@
                            theme={this.theme}
                            onClick={this.onClickOption}
                            scopedSlots={{default: this.$scopedSlots.default}}
-                ></zg-option>
+                ></c-option>
               )
             }
           })}

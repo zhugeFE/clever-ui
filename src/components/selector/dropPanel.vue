@@ -5,7 +5,7 @@
 
 <script>
   export default {
-    name: 'zgSelectDropPanel',
+    name: 'cSelectDropPanel',
     data () {
       return {
         msg: 'dropPanel'

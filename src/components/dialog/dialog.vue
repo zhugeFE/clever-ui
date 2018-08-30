@@ -1,19 +1,19 @@
 <template>
   <div>
-    <div class="zg-dialog-layer"></div>
-    <div class="zg-dialog">
-      <div v-if="showHead" class="zg-dialog-head">
+    <div class="c-dialog-layer"></div>
+    <div class="c-dialog">
+      <div v-if="showHead" class="c-dialog-head">
         <slot name="header">{{title}}</slot>
       </div>
 
-      <div class="zg-dialog-content">
+      <div class="c-dialog-content">
         <slot></slot>
       </div>
 
-      <div v-if="showFoot" class="zg-dialog-foot">
+      <div v-if="showFoot" class="c-dialog-foot">
         <slot name="footer">
-          <zg-button class="zg-dialog-confirm" type="primary" @click="onConfirm">{{confirmLabel}}</zg-button>
-          <zg-button class="zg-dialog-cancel" @click="onCancel">{{cancelLabel}}</zg-button>
+          <c-button class="c-dialog-confirm" type="primary" @click="onConfirm">{{confirmLabel}}</c-button>
+          <c-button class="c-dialog-cancel" @click="onCancel">{{cancelLabel}}</c-button>
         </slot>
       </div>
     </div>
@@ -21,11 +21,11 @@
 </template>
 
 <script>
-  import ZgButton from '../button/button.vue'
+  import CButton from '../button/button.vue'
 
   export default {
-    components: {ZgButton},
-    name: 'zgDialog',
+    components: {CButton},
+    name: 'cDialog',
     props: {
       title: {
         type: String

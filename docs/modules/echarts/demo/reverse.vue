@@ -1,17 +1,17 @@
 <template>
   <div>
     <demo-panel subtitle="重置x轴">
-      <zg-charts :store="store" :showList="showList" type="bar" seriesName="点击次数。。。" reverseXAxis></zg-charts>
+      <c-charts :store="store" :showList="showList" type="bar" seriesName="点击次数。。。" reverseXAxis></c-charts>
     </demo-panel>
   </div>
 </template>
 
 <script>
   import json from './json/eventList'
-  import ZgCharts from '../../../../src/components/echarts/charts'
+  import CCharts from '../../../../src/components/echarts/charts'
 
   export default {
-    components: {ZgCharts},
+    components: {CCharts},
     name: 'reverse',
     data () {
       return {

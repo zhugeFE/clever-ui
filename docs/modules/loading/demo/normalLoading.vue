@@ -3,18 +3,18 @@
     <demo-panel title="loading" jsFiddleName="8j6aaegk">
       <div class="loading-container">
         normal
-        <zg-button size="small" @click="showLoading">showLoading</zg-button>
-        <zg-loading v-show="show"></zg-loading>
+        <c-button size="small" @click="showLoading">showLoading</c-button>
+        <c-loading v-show="show"></c-loading>
       </div>
 
       <div class="loading-container">
         medium
-        <zg-loading size="medium"></zg-loading>
+        <c-loading size="medium"></c-loading>
       </div>
 
       <div class="loading-container">
         small
-        <zg-loading size="small"></zg-loading>
+        <c-loading size="small"></c-loading>
       </div>
     </demo-panel>
   </div>

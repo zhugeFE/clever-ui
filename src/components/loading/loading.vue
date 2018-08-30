@@ -1,14 +1,14 @@
 <template>
-  <div class="zg-loading" ref="loading">
-    <div class="zg-circle" :style="circleStyle" ref="circle"></div>
-    <span v-if="showTip" class="zg-loading-desc" ref="desc">{{tip}}</span>
+  <div class="c-loading" ref="loading">
+    <div class="c-circle" :style="circleStyle" ref="circle"></div>
+    <span v-if="showTip" class="c-loading-desc" ref="desc">{{tip}}</span>
   </div>
 </template>
 
 <script>
   import {dom, util} from '../../utils/index'
   export default {
-    name: 'zgLoading',
+    name: 'cLoading',
     props: {
       /**
        * @description 默认：normal,支持normal、medium、small

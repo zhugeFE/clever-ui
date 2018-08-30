@@ -1,5 +1,5 @@
 <template>
-  <div class="zg-upload">
+  <div class="c-upload">
   </div>
 </template>
 

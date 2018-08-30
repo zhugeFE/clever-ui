@@ -1,16 +1,16 @@
 <template>
   <div>
     <demo-panel subtitle="可关闭的tag">
-      <zg-tag closable="">tag</zg-tag>
+      <c-tag closable="">tag</c-tag>
     </demo-panel>
   </div>
 </template>
 
 <script>
-  import ZgTag from '../../../../src/components/tag/tag'
+  import CTag from '../../../../src/components/tag/tag'
 
   export default {
-    components: {ZgTag},
+    components: {CTag},
     name: 'closeableTag',
     data () {
       return {

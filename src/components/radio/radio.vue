@@ -1,10 +1,10 @@
 <script type="text/jsx">
-  import ZgRadioLabel from './radioLabel'
+  import CRadioLabel from './radioLabel'
 
   export default {
     components: {
-      ZgRadioLabel},
-    name: 'zgRadio',
+      CRadioLabel},
+    name: 'cRadio',
     props: {
       /**
        * @description value
@@ -33,9 +33,9 @@
     computed: {
       clazz () {
         return {
-          'zg-radio-list': true,
-          'zg-radio-row': this.direction === 'row',
-          'zg-radio-column': this.direction === 'column'
+          'c-radio-list': true,
+          'c-radio-row': this.direction === 'row',
+          'c-radio-column': this.direction === 'column'
         }
       }
     },
@@ -51,14 +51,14 @@
         <ul class={this.clazz}>
           {this.store.map(item => {
             let itemClass = {
-              'zg-radio-item': true,
-              'zg-disable': item.disable,
-              'zg-checked': item.value === this.value
+              'c-radio-item': true,
+              'c-disable': item.disable,
+              'c-checked': item.value === this.value
             }
             return (
               <li class={itemClass} onClick={this.onClickRadio(item)}>
-                <span class="zg-cycle">
-                </span><zg-radio-label data={item} scopedSlots={{default: this.$scopedSlots.default}}></zg-radio-label>
+                <span class="c-cycle">
+                </span><c-radio-label data={item} scopedSlots={{default: this.$scopedSlots.default}}></c-radio-label>
               </li>
             )
           })}

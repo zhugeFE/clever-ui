@@ -10,7 +10,7 @@
 
 <script>
   import DemoPanel from "../../components/demoPanel/index.vue";
-  import ZgInput from "../../../src/components/input/input.vue";
+  import CInput from "../../../src/components/input/input.vue";
   import json from './input.json'
   import DocMarkdown from '../../components/docMarkdown/index.vue'
   import ValidatorInput from './demo/validatorInput'
@@ -23,7 +23,7 @@
       AutoWidthInput,
       ValidatorInput,
       DocMarkdown,
-      ZgInput,
+      CInput,
       DemoPanel},
     data () {
       return {

@@ -2,20 +2,20 @@
   <div>
     <demo-panel title="reload" subtitle="normal">
       <div style="height: 300px; background: lightpink">
-        <zg-reload></zg-reload>
+        <c-reload></c-reload>
       </div>
     </demo-panel>
   </div>
 </template>
 
 <script>
-  import ZgReload from '../../../../src/components/reload/reload.vue'
+  import CReload from '../../../../src/components/reload/reload.vue'
   import DemoPanel from '../../../components/demoPanel/index.vue'
 
   export default {
     components: {
       DemoPanel,
-      ZgReload},
+      CReload},
     name: 'normalReload',
     data () {
       return {

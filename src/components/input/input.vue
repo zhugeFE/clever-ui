@@ -1,7 +1,7 @@
 <template>
-  <span class="zg-input" :class="clazz" :style="style" @click="_onClick">
-    <i class="zg-input-icon" :class="icon"></i>
-    <zg-tooltip :placement="placement"
+  <span class="c-input" :class="clazz" :style="style" @click="_onClick">
+    <i class="c-input-icon" :class="icon"></i>
+    <c-tooltip :placement="placement"
                 :autoHide="false"
                 :width="tipWidth"
                 :customClass="tipClazz"
@@ -10,7 +10,7 @@
         <slot name="tooltip">{{message}}</slot>
       </template>
       <input ref="input" v-if="type === 'text'"
-             class="zg-input-input"
+             class="c-input-input"
              type="text"
              :style="inputStyle"
              :placeholder="placeholder"
@@ -21,7 +21,7 @@
              @keydown="_onKey"/>
 
       <input ref="input" v-if="type === 'password'"
-             class="zg-input-input"
+             class="c-input-input"
              type="password"
              :style="inputStyle"
              :placeholder="placeholder"
@@ -30,11 +30,11 @@
              @focus="_onFocus"
              @blur="_onBlur"
              @keydown="_onKey"/>
-      
+
       <span class="temp" ref="temp">{{inputValue}}</span>
-    </zg-tooltip>
+    </c-tooltip>
     <i v-if="clearAble && inputValue"
-       class="zg-input-clear zgicon-delete-little1"
+       class="c-input-clear cicon-delete-little1"
        @click="_onClear"
     ></i>
   </span>
@@ -42,10 +42,10 @@
 
 <script>
   import {util} from '../../utils/index'
-  import ZgTooltip from '../tooltip/tooltip'
+  import CTooltip from '../tooltip/tooltip'
   export default {
-    components: {ZgTooltip},
-    name: 'ZgInput',
+    components: {CTooltip},
+    name: 'CInput',
     props: {
       /**
        * @description value
@@ -211,10 +211,10 @@
     computed: {
       clazz () {
         let clazz = {
-          'zg-active': this.active,
-          'zg-error': this.invalid
+          'c-active': this.active,
+          'c-error': this.invalid
         }
-        clazz['zg-size-' + this.size] = true
+        clazz['c-size-' + this.size] = true
         return clazz
       },
       style () {
@@ -235,7 +235,7 @@
       },
       tipClazz () {
         let style = []
-        if (this.invalid) style.push('zg-tooltip-error')
+        if (this.invalid) style.push('c-tooltip-error')
         if (this.tipClass) style.push(this.tipClass)
         return style.join(' ')
       }

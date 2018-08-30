@@ -23,8 +23,8 @@
     computed: {
       clazz () {
         return {
-          'zg-tab': true,
-          'zg-checked': this.activeIndex === this.index
+          'c-tab': true,
+          'c-checked': this.activeIndex === this.index
         }
       },
       style () {
@@ -50,14 +50,14 @@
             if (this.$slots.default) {
               return this.$slots.default
             } else {
-              let iconClass = {'zg-tab-icon': true}
+              let iconClass = {'c-tab-icon': true}
               iconClass[this.tab.icon] = true
               return <span>
                 <i v-show={this.tab.icon} class={iconClass}></i>
                 {this.tab.title}
                 <i v-show={this.closeAble}
                    onClick={this.onRemove}
-                   class="zg-tab-close zgicon-delete-little1"></i>
+                   class="c-tab-close cicon-delete-little1"></i>
                 </span>
             }
           })()}

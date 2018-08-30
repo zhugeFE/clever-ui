@@ -1,18 +1,18 @@
 <template>
   <div>
     <demo-panel subtitle="line">
-      <zg-charts type="line" :store="json" :showList="showList" :markLine="markLine"></zg-charts>
+      <c-charts type="line" :store="json" :showList="showList" :markLine="markLine"></c-charts>
     </demo-panel>
   </div>
 </template>
 
 <script>
   import DemoPanel from '../../../components/demoPanel/index.vue'
-  import ZgCharts from '../../../../src/components/echarts/charts.vue'
+  import CCharts from '../../../../src/components/echarts/charts.vue'
   import json from './json/line.json'
   export default {
     components: {
-      ZgCharts,
+      CCharts,
       DemoPanel},
     name: 'lineChart',
     data () {

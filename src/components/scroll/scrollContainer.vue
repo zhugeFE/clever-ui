@@ -1,5 +1,5 @@
 <template>
-  <div class="zg-scroll-container" @scroll="onScroll" v-resize="onScroll" ref="panel">
+  <div class="c-scroll-container" @scroll="onScroll" v-resize="onScroll" ref="panel">
     <slot></slot>
   </div>
 </template>
@@ -8,7 +8,7 @@ import {util} from '../../utils'
 import {emitter} from '../../mixins/main'
 let timer = null
 export default {
-  name: 'zgScrollContainer',
+  name: 'cScrollContainer',
   mixins: [emitter],
   props: {
     /**
@@ -30,7 +30,7 @@ export default {
         clearTimeout(timer)
       }
       timer = setTimeout(() => {
-        let lazyPanels = this.children('zgScrollLazyPanel')
+        let lazyPanels = this.children('cScrollLazyPanel')
         lazyPanels.forEach && lazyPanels.forEach(item => {
           if (item && item.$el && util.isFunction(item.updateStatus)) {
             item.updateStatus()
@@ -58,7 +58,7 @@ export default {
 }
 </script>
 <style lang="sass">
-.zg-scroll-container
+.c-scroll-container
   position: relative
   height: 100%
   overflow: auto

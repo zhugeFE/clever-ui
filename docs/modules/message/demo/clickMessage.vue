@@ -1,18 +1,18 @@
 <template>
   <div>
     <demo-panel subtitle="点击关闭" jsFiddleName="0tqzn10s">
-      <zg-button @click="onClick">弹出提示</zg-button>
+      <c-button @click="onClick">弹出提示</c-button>
     </demo-panel>
   </div>
 </template>
 
 <script>
   import DemoPanel from '../../../components/demoPanel/index.vue'
-  import ZgButton from '../../../../src/components/button/button.vue'
+  import CButton from '../../../../src/components/button/button.vue'
 
   export default {
     components: {
-      ZgButton,
+      CButton,
       DemoPanel},
     name: 'clickMessage',
     methods: {

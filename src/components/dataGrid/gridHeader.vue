@@ -3,16 +3,16 @@
     <slot :title="title">
       {{title}}
     </slot>
-    <span class="zg-sort-icon" v-if="sortAble">
-      <i class="zgicon-sort-left" :class="{'zg-active': sortStatus === -1}"></i>
-      <i class="zgicon-sort-right" :class="{'zg-active': sortStatus === 1}"></i>
+    <span class="c-sort-icon" v-if="sortAble">
+      <i class="cicon-sort-left" :class="{'c-active': sortStatus === -1}"></i>
+      <i class="cicon-sort-right" :class="{'c-active': sortStatus === 1}"></i>
     </span>
   </th>
 </template>
 
 <script>
   export default {
-    name: 'zgGridHeader',
+    name: 'cGridHeader',
     props: {
       title: {
         type: String,
@@ -56,8 +56,8 @@
       },
       clazz () {
         return {
-          'zg-grid-header-cell': true,
-          'zg-sort-able': this.sortAble
+          'c-grid-header-cell': true,
+          'c-sort-able': this.sortAble
         }
       }
     },

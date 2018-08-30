@@ -1,15 +1,15 @@
 <template>
   <div>
     <demo-panel subtitle="radioButton">
-      <zg-radio-button :store="store" v-model="value">
+      <c-radio-button :store="store" v-model="value">
         <template slot-scope="scope">
-          <zg-button type="normal"
+          <c-button type="normal"
                      theme="border"
                      size="large"
                      :class="scope.className"
-                     :icon="scope.data.icon" @click="scope.onClick"></zg-button>
+                     :icon="scope.data.icon" @click="scope.onClick"></c-button>
         </template>
-      </zg-radio-button>
+      </c-radio-button>
       <br>
       {{value}}
     </demo-panel>
@@ -17,13 +17,13 @@
 </template>
 
 <script>
-  import ZgRadio from '../../../../src/components/radio/radio'
-  import ZgRadioButton from '../../../../src/components/button/radioButton'
+  import CRadio from '../../../../src/components/radio/radio'
+  import CRadioButton from '../../../../src/components/button/radioButton'
 
   export default {
     components: {
-      ZgRadioButton,
-      ZgRadio},
+      CRadioButton,
+      CRadio},
     name: 'radioButton',
     data () {
       return {
@@ -31,20 +31,20 @@
         store: [
           {
             value: 1,
-            icon: 'zgicon-add'
+            icon: 'cicon-add'
           },
           {
             value: 2,
             disable: false,
-            icon: 'zgicon-fullscreen'
+            icon: 'cicon-fullscreen'
           },
           {
             value: 3,
-            icon: 'zgicon-exit'
+            icon: 'cicon-exit'
           },
           {
             value: 4,
-            icon: 'zgicon-edit'
+            icon: 'cicon-edit'
           }
         ]
       }

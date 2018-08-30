@@ -2,7 +2,7 @@
   <div>
     <demo-panel title="普通下拉框" subtitle="单选" jsFiddleName="s5rjhjwj">
 
-      <zg-selector keyField="id"
+      <c-selector keyField="id"
                    :store="store"
                    placeholder="单选"
                    labelField="label"
@@ -10,32 +10,32 @@
                    filterOption
                    icon-field="icon"
                    v-model="result">
-      </zg-selector>
+      </c-selector>
 
       <span>选中值</span>{{result}}<br>
     </demo-panel>
     <demo-panel subtitle="多选" jsFiddleName="s5rjhjwj">
-      <zg-selector v-model="multipleResult"
+      <c-selector v-model="multipleResult"
                    theme="noborder"
                    keyField="id"
                    :store="multipleStore"
                    labelField="label"
-                   placeholder="多选" multiple></zg-selector>
+                   placeholder="多选" multiple></c-selector>
       <span>选中值</span>{{multipleResult}}<br>
     </demo-panel>
   </div>
 </template>
 
 <script>
-  import ZgSelector from '../../../../src/components/selector/selector.vue'
+  import CSelector from '../../../../src/components/selector/selector.vue'
   import DemoPanel from '../../../components/demoPanel/index.vue'
-  import ZgButton from '../../../../src/components/button/button.vue'
+  import CButton from '../../../../src/components/button/button.vue'
 
   export default {
     components: {
-      ZgButton,
+      CButton,
       DemoPanel,
-      ZgSelector},
+      CSelector},
     name: 'normalSelector',
     data () {
       return {
@@ -45,7 +45,7 @@
             store.push({
               id: i,
               label: 'option_' + i,
-              icon: 'zgicon-edit'
+              icon: 'cicon-edit'
             })
           }
           return store
