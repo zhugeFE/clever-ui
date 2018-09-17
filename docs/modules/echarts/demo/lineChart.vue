@@ -1,7 +1,7 @@
 <template>
   <div>
     <demo-panel subtitle="line">
-      <c-charts type="line" :store="json" :showList="showList" :markLine="markLine"></c-charts>
+      <c-charts :echarts="echarts" type="line" :store="json" :showList="showList" :markLine="markLine"></c-charts>
     </demo-panel>
   </div>
 </template>
@@ -10,6 +10,7 @@
   import DemoPanel from '../../../components/demoPanel/index.vue'
   import CCharts from '../../../../src/components/echarts/charts.vue'
   import json from './json/line.json'
+  import echarts from 'echarts'
   export default {
     components: {
       CCharts,
@@ -17,6 +18,7 @@
     name: 'lineChart',
     data () {
       return {
+        echarts,
         json: json.app_data,
         showList: ['新增用户'],
         markLine: [

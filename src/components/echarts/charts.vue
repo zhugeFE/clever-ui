@@ -6,11 +6,13 @@
 </template>
 
 <script>
-  import echarts from 'echarts'
   import {util} from '../../utils'
   export default {
     name: 'cCharts',
     props: {
+      echarts: {
+        required: true
+      },
       /**
        * @description 图表宽度，默认自适应
        */
@@ -297,7 +299,7 @@
       }
     },
     mounted () {
-      this.chart = echarts.init(this.$refs.toChart)
+      this.chart = this.echarts.init(this.$refs.toChart)
       this.setOption(this.option)
     },
     beforeDestroy () {

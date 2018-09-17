@@ -1,7 +1,7 @@
 <template>
   <div>
     <demo-panel subtitle="doubleY: line&bar">
-      <c-charts :store="json" doubleY :yAxisRule="yAxisRule" :markLine="markLine"></c-charts>
+      <c-charts :echarts="echarts" :store="json" doubleY :yAxisRule="yAxisRule" :markLine="markLine"></c-charts>
     </demo-panel>
   </div>
 </template>
@@ -10,6 +10,7 @@
   import json from './json/multiple.json'
   import DemoPanel from '../../../components/demoPanel/index.vue'
   import CCharts from '../../../../src/components/echarts/charts.vue'
+  import echarts from 'echarts'
 
   export default {
     name: 'multipleChart',
@@ -18,6 +19,7 @@
       DemoPanel},
     data () {
       return {
+        echarts,
         json: json.app_data,
         yAxisRule: {
           '曝光': {

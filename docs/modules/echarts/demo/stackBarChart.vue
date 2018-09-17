@@ -1,7 +1,7 @@
 <template>
   <div>
     <demo-panel title="charts" subtitle="bar">
-      <c-charts :store="json" :height="270" :stack="stackConfig"></c-charts>
+      <c-charts :echarts="echarts" :store="json" :height="270" :stack="stackConfig"></c-charts>
     </demo-panel>
   </div>
 </template>
@@ -10,7 +10,7 @@
   import CCharts from '../../../../src/components/echarts/charts.vue'
   import json from './json/stackBar.json'
   import DemoPanel from '../../../components/demoPanel/index.vue'
-  import {util} from '../../../../src/utils'
+  import echarts from 'echarts'
 
   export default {
     components: {
@@ -37,6 +37,7 @@
       })
       store.series = seriesList
       return {
+        echarts,
         json: store,
         stackConfig: [
           {

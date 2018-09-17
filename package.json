@@ -50,6 +50,7 @@
     "cross-env": "^5.0.1",
     "css-loader": "^0.28.0",
     "cssnano": "^3.10.0",
+    "echarts": "^4.1.0",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^6.2.1",
     "eslint-friendly-formatter": "^3.0.0",
@@ -117,7 +118,5 @@
     "url": "https://github.com/struggling-bird/clever-ui/issues"
   },
   "homepage": "https://github.com/struggling-bird/clever-ui#readme",
-  "dependencies": {
-    "echarts": "^4.0.2"
-  }
+  "dependencies": {}
 }

@@ -8,7 +8,7 @@
 <script type="text/jsx">
 import {util} from '../../utils'
 export default {
-  name: 'c-calendar-task',
+  name: 'cCalendarTask',
   props: {
     /**
      * @description 名称、开始时间、结束时间、描述、onClick

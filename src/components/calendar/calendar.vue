@@ -52,9 +52,13 @@
 <script>
 import {util} from '../../utils'
 import CDay from './day'
+import CSelector from '../selector/selector'
 export default {
   name: 'cCalendar',
-  components: {CDay},
+  components: {
+    CDay,
+    CSelector
+  },
   props: {
     /**
      * @description v-model绑定值，选定的日期

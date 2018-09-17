@@ -1,7 +1,7 @@
 <template>
   <div>
     <demo-panel subtitle="区域图">
-      <c-charts :store="json" type="area" :markLine="markLine" :series-wrapper="customSeries"></c-charts>
+      <c-charts :echarts="echarts" :store="json" type="area" :markLine="markLine" :series-wrapper="customSeries"></c-charts>
     </demo-panel>
   </div>
 </template>
@@ -10,6 +10,7 @@
   import json from './json/area.json'
   import CCharts from '../../../../src/components/echarts/charts'
   import {util} from '../../../../src/utils'
+  import echarts from 'echarts'
   export default {
     components: {CCharts},
     name: 'areaChart',
@@ -32,6 +33,7 @@
         store.series[2].values.push(three)
       })
       return {
+        echarts,
         json: store,
         markLine: ['2017-11-19', '2017-11-20', '2017-11-22']
       }
