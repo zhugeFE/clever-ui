@@ -1,9 +1,9 @@
 import './assets/styles/reset.sass'
 import './assets/icons/iconfont.css'
 import {button, radioButton} from './components/button/index.js'
-import ZgInput from './components/input/index'
-import ZgCheckbox from './components/checkbox/index'
-import {zgSelector, ZgOption, ZgOptGroup} from './components/selector/index'
+import input from './components/input/index'
+import checkbox from './components/checkbox/index'
+import {selector, option, optGroup} from './components/selector/index'
 import {dataGrid, gridColumn} from './components/dataGrid/index'
 import tooltip from './components/tooltip/index'
 import badge from './components/badge/index'
@@ -25,11 +25,11 @@ import directives from './directives/main'
 const components = [
   button,
   radioButton,
-  ZgInput,
-  zgSelector,
-  ZgOption,
-  ZgOptGroup,
-  ZgCheckbox,
+  input,
+  selector,
+  option,
+  optGroup,
+  checkbox,
   dataGrid,
   gridColumn,
   tooltip,

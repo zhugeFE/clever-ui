@@ -4,10 +4,10 @@
  * @author yqdong
  *
  */
-import ZgInput from './input.vue'
+import input from './input.vue'
 
-ZgInput.install = function (Vue) {
-  Vue.component(ZgInput.name, ZgInput)
+input.install = function (Vue) {
+  Vue.component(input.name, input)
 }
 
-export default ZgInput
+export default input

@@ -4,23 +4,24 @@
  * @author yqdong
  *
  */
-import ZgOptGroup from './optGroup.vue'
-import ZgOption from './option.vue'
-import zgSelector from './selector.vue'
+import optGroup from './optGroup.vue'
+import option from './option.vue'
+import selector from './selector.vue'
 
-let components = {
-  ZgOptGroup,
-  ZgOption,
-  zgSelector
-}
+let components = [
+  optGroup,
+  option,
+  selector
+]
 
-for (const key in components) {
-  components[key].install = function (Vue) {
-    Vue.component(key, components[key])
+components.forEach(component => {
+  component.install = function (Vue) {
+    Vue.component(component.name, component)
   }
-}
+})
+
 export {
-  ZgOption,
-  ZgOptGroup,
-  zgSelector
+  optGroup,
+  option,
+  selector
 }

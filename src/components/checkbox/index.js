@@ -4,10 +4,10 @@
  * @author yqdong
  *
  */
-import ZgCheckbox from './checkbox.vue'
+import checkbox from './checkbox.vue'
 
-ZgCheckbox.install = (Vue) => {
-  Vue.component(ZgCheckbox.name, ZgCheckbox)
+checkbox.install = (Vue) => {
+  Vue.component(checkbox.name, checkbox)
 }
 
-export default ZgCheckbox
+export default checkbox
