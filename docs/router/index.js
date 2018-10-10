@@ -19,6 +19,7 @@ import scroll from '../modules/scroll/index'
 import tag from '../modules/tag/index'
 import overview from '../modules/overview/index'
 import calendar from '../modules/calendar/index'
+import pagination from '../modules/pagination/index'
 
 Vue.use(Router)
 
@@ -64,6 +65,11 @@ export default new Router({
           path: '/grid',
           name: 'grid',
           component: grid
+        },
+        {
+          path: '/pagination',
+          name: 'pagination',
+          component: pagination
         },
         {
           path: '/calendar',

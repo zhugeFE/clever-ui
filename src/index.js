@@ -16,6 +16,7 @@ import {scrollContainer, scrollLazyPanel} from './components/scroll'
 import {charts} from './components/echarts'
 import tag from './components/tag'
 import {calendar} from './components/calendar'
+import pagination from './components/pagination'
 import {util} from './utils'
 
 import msg from './components/message'
@@ -44,6 +45,7 @@ const components = [
   scrollLazyPanel,
   tag,
   calendar,
+  pagination,
 
   charts
 ]

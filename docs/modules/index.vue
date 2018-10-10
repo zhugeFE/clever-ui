@@ -13,8 +13,6 @@
   </div>
 </template>
 <script>
-import button from './button'
-import select from './selector'
 export default {
   name: 'index',
   data () {
@@ -27,6 +25,7 @@ export default {
         'radio',
         'select',
         'grid',
+        'pagination',
         'calendar',
         'tooltip',
         'badge',
