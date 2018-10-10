@@ -380,14 +380,28 @@
         this.$emit('input', this.chosenList[0])
       }
     },
+    /**
+     * @description 处理选项框左右及上下位置布局
+     */
     updated () {
       if (this._isBeingDestroyed || this._isDestroyed) return
       const dropPanel = this.$refs.dropPanel
+      const handleRect = this.$refs.select.getBoundingClientRect()
       const panelRect = dropPanel.getBoundingClientRect()
-      const bottomHeight = window.innerHeight - panelRect.top - 7
-      dropPanel.style.maxHeight = Math.min(325, bottomHeight) + 'px'
+      // 左右排列
       if ((panelRect.width + panelRect.left) > window.innerWidth) {
         dropPanel.style.right = '0px'
+      }
+      let margin = 7
+      let maxHeightOfTop = handleRect.top - margin
+      let maxHeightOfBottom = window.innerHeight - handleRect.top - handleRect.height - margin
+      if (panelRect.height > maxHeightOfBottom) { // 向下展开越界了
+        if (maxHeightOfBottom > maxHeightOfTop) { // 下面空间大，那就还向下展开
+          dropPanel.style.maxHeight = maxHeightOfBottom + 'px'
+        } else { // 向上展开
+          dropPanel.style.maxHeight = maxHeightOfTop + 'px'
+          dropPanel.style.bottom = this.$refs.handle.$el.getBoundingClientRect().height + margin + 'px'
+        }
       }
     },
     methods: {
@@ -505,8 +519,9 @@
     },
     render (h) {
       return (
-        <div class="c-select" style={this.selectStyle} v-click-outside={this.onClickOutside}>
+        <div class="c-select" ref="select" style={this.selectStyle} v-click-outside={this.onClickOutside}>
           <c-selector-handle value={this.chosenList}
+                              ref="handle"
                               theme={this.theme}
                               placeholder={this.placeholder}
                               labelField={this.labelField}
