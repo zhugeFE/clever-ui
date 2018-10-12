@@ -108,9 +108,11 @@ export default {
     },
     onPre () {
       this.pageNum = {v: this.pageNum.v - 1}
+      this.onChange()
     },
     onNext () {
       this.pageNum = {v: this.pageNum.v + 1}
+      this.onChange()
     }
   }
 }
