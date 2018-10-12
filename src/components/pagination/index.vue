@@ -13,8 +13,14 @@
                 :width="108"
                 key-field="v"
                 label-field="label"></c-selector>
-    <c-button class="c-pg-pre" size="normal" icon="cicon-pagination-prev"></c-button>
-    <c-button class="c-pg-next" size="normal" icon="cicon-pagination-next"></c-button>
+    <c-button class="c-pg-pre" @click="onPre"
+              :disable="pageNum.v <= 1"
+              size="normal"
+              icon="cicon-pagination-prev"></c-button>
+    <c-button class="c-pg-next" @click="onNext"
+              :disable="pageNum.v >= pageNumList.length"
+              size="normal"
+              icon="cicon-pagination-next"></c-button>
     <slot name="right"></slot>
   </div>
 </template>
@@ -99,6 +105,12 @@ export default {
         pageSize: this.pageSize.v,
         pageNum: this.pageNum.v
       })
+    },
+    onPre () {
+      this.pageNum = {v: this.pageNum.v - 1}
+    },
+    onNext () {
+      this.pageNum = {v: this.pageNum.v + 1}
     }
   }
 }
