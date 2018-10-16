@@ -4,9 +4,10 @@
     :type="nativeType"
     :disabled="disable"
     :class="buttonClass">
-    <i class="c-icon" :class="icon" v-if="icon"></i>
+    <i class="c-icon" :class="icon" v-if="icon && iconPosition === 'left'"></i>
     <c-loading v-show="showLoading" size="small" :showTip="false"></c-loading>
     <span><slot></slot></span>
+    <i class="c-icon" :class="icon" v-if="icon && iconPosition === 'right'"></i>
   </button>
 </template>
 <script>
@@ -76,6 +77,16 @@ export default {
     showLoading: {
       type: Boolean,
       default: false
+    },
+    /**
+     * @description icon位置
+     */
+    iconPosition: {
+      type: String,
+      default: 'left',
+      validator (v) {
+        return ['left', 'right'].includes(v)
+      }
     }
   },
   computed: {

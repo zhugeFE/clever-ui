@@ -17,7 +17,7 @@
       store: {
         type: Array,
         default () {
-          // 结构为：{value: '', label: '', disable: false, icon: ''}
+          // 结构为：{value: '', label: '', disable: false, icon: '', iconPosition: 'left'}
           return []
         }
       },
@@ -108,6 +108,7 @@
                            onClick={() => {
                              this.onClickItem(item)
                            }}
+                           iconPosition={item.iconPosition || 'left'}
                            icon={item.icon}>
                   {item.label}
                 </c-button>

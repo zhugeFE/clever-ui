@@ -54,12 +54,26 @@ export default {
     align: {
       type: String,
       default: 'right'
+    },
+    /**
+     * @description 默认的页码
+     */
+    defaultPageNum: {
+      type: Number,
+      default: 1
+    },
+    /**
+     * @description 默认的页大小
+     */
+    defaultPageSize: {
+      type: Number,
+      default: 5
     }
   },
   data () {
     return {
-      pageSize: {v: 5},
-      pageNum: {v: 1}
+      pageSize: {v: this.defaultPageSize},
+      pageNum: {v: this.defaultPageNum}
     }
   },
   computed: {

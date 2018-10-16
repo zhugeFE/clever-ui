@@ -5,7 +5,7 @@
       <c-button icon='cicon-add' size="small">add</c-button>
 
       <c-button icon='cicon-add'></c-button>
-      <c-button icon='cicon-add'>add</c-button>
+      <c-button icon='cicon-add' icon-position="right">add</c-button>
 
       <c-button icon='cicon-add' size="large"></c-button>
       <c-button icon='cicon-add' size="large">add</c-button>

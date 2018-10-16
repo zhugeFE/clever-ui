@@ -1,6 +1,6 @@
 <template>
   <div>
-    <c-pagination class="test-pg" :total="30" @change="onChange"></c-pagination>
+    <c-pagination class="test-pg" :total="30" :default-page-num="2" @change="onChange"></c-pagination>
   </div>
 </template>
 
