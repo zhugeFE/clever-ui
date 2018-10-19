@@ -105,9 +105,7 @@ export default {
   watch: {
     pageSize (size, preSize) {
       if (size.v === preSize.v) return
-      let prePosition = Math.min(preSize.v * this.pageNum.v, this.total)
-      let pageNum = Math.ceil(prePosition / size.v)
-      this.pageNum = {v: pageNum}
+      this.pageNum = {v: 1}
       this.$nextTick(() => {
         this.onChange()
       })
