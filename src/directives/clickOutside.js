@@ -12,7 +12,7 @@ const mouseDownHandle = function (event) {
   const target = event.target
   for (let item of nodeList) {
     if (!item.node.contains(target)) {
-      item.handle.call(item.context)
+      item.handle.call(item.context, target)
     }
   }
 }
