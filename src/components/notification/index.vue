@@ -41,7 +41,7 @@ const Notification = Vue.extend({
   },
   mounted () {
     if (this.duration) {
-      // this.timeout()
+      this.timeout()
     }
   },
   render (h) {
