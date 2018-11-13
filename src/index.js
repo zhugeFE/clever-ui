@@ -20,6 +20,7 @@ import pagination from './components/pagination'
 import {util} from './utils'
 
 import msg from './components/message'
+import notification from './components/notification'
 
 import directives from './directives/main'
 
@@ -64,6 +65,7 @@ const install = function (Vue) {
 
   // plugins
   Vue.prototype.$message = msg
+  Vue.prototype.$notification = notification
   Vue.prototype.$util = util
 }
 /* istanbul ignore if */

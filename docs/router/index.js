@@ -20,6 +20,7 @@ import tag from '../modules/tag/index'
 import overview from '../modules/overview/index'
 import calendar from '../modules/calendar/index'
 import pagination from '../modules/pagination/index'
+import notification from '../modules/notification/index'
 
 Vue.use(Router)
 
@@ -105,6 +106,11 @@ export default new Router({
           path: '/message',
           name: 'message',
           component: message
+        },
+        {
+          path: '/notification',
+          name: 'notification',
+          component: notification
         },
         {
           path: '/dialog',

@@ -33,6 +33,7 @@ export default {
         'tab',
         'tag',
         'message',
+        'notification',
         'dialog',
         'charts',
         'reload',
