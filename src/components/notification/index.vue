@@ -1,6 +1,10 @@
 <script type="text/jsx">
 import Vue from 'vue'
+import CButton from '../button/button'
 const Notification = Vue.extend({
+  components: {
+    CButton
+  },
   data () {
     return {
       className: '', // 自定义class
