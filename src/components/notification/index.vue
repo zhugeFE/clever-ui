@@ -35,7 +35,7 @@ const Notification = Vue.extend({
     close () {
       this.$destroy()
       this.$el.remove()
-      this.$emit('close')
+      this.onClose()
     },
     timeout () {
       setTimeout(() => {
