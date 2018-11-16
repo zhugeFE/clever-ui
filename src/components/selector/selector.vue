@@ -263,7 +263,7 @@
       showNoMatch () {
         return (!this.noData && this.noMatch) ||
           (this.theme === 'tag' &&
-            this.innerStore.length === this.chosenList.length)
+            this.innerStore.length === this.chosenList.length && !this.noData)
       },
       filterClass () {
         let clazz = ['c-select-search']
