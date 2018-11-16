@@ -399,12 +399,14 @@
       }
       let margin = 7
       let maxHeightOfTop = handleRect.top - margin
+      let pageHeight = (this.pageSize - 2) * 34 // 34是一个选项的高度, 减2是为了出滚动条
       let maxHeightOfBottom = window.innerHeight - handleRect.top - handleRect.height - margin
       if (panelRect.height > maxHeightOfBottom) { // 向下展开越界了
         if (maxHeightOfBottom > maxHeightOfTop) { // 下面空间大，那就还向下展开
-          dropPanel.style.maxHeight = maxHeightOfBottom + 'px'
+          // 最大高度，不得高于pageSize的总高度，否则会造成无法滚动
+          dropPanel.style.maxHeight = Math.min(maxHeightOfBottom, pageHeight) + 'px'
         } else { // 向上展开
-          dropPanel.style.maxHeight = maxHeightOfTop + 'px'
+          dropPanel.style.maxHeight = Math.min(maxHeightOfTop, pageHeight) + 'px'
           dropPanel.style.bottom = this.$refs.handle.$el.getBoundingClientRect().height + margin + 'px'
         }
       }
@@ -565,7 +567,9 @@
                 </li>
               </div>
 
-              <c-scroll-container class="c-content" ref="options" onBottom={this.onBottom}>
+              <c-scroll-container class="c-content"
+                                  ref="options"
+                                  onBottom={this.onBottom}>
                 <c-loading v-show={this.loading} size="small" tip="loading"></c-loading>
                 {this.renderStore.map(option => {
                   if (this.childrenField) {
