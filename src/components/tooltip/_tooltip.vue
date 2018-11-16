@@ -49,8 +49,10 @@
       this.$nextTick(() => {
         if (!this.trigger) return
         const triggerRect = this.trigger.getBoundingClientRect()
-        const tipRect = this.$refs.tooltip.getBoundingClientRect()
-
+        const tipRect = {
+          width: this.$refs.tooltip.offsetWidth,
+          height: this.$refs.tooltip.offsetHeight
+        }
         const placement = this.placement.split('-')
         placement.forEach((position, i) => {
           if (i > 0)return
