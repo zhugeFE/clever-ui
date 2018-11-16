@@ -260,6 +260,11 @@
       noData () {
         return this.innerStore.length === 0
       },
+      showNoMatch () {
+        return (!this.noData && this.noMatch) ||
+          (this.theme === 'tag' &&
+            this.innerStore.length === this.chosenList.length)
+      },
       filterClass () {
         let clazz = ['c-select-search']
         if (this.filter) {
@@ -604,7 +609,7 @@
                 <li v-show={this.noData} class="c-option c-error">
                   {this.noDataText}
                 </li>
-                <li v-show={!this.noData && this.noMatch} class="c-option c-error">
+                <li v-show={this.showNoMatch} class="c-option c-error">
                   {this.noMatchText}
                 </li>
               </c-scroll-container>
