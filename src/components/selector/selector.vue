@@ -438,11 +438,16 @@
             if (this.childrenField) {
               option[this.childrenField].forEach(children => {
                 this.$set(this.checkedMap, children[this.keyField], children[this.keyField] === data[this.keyField])
-                if (children[this.keyField] === data[this.keyField] && !this.chosenList.length) this.chosenList.push(children)
+                if (children[this.keyField] === data[this.keyField] && !this.chosenList.length) {
+                  this.chosenList.push(children)
+                }
               })
             } else {
               this.$set(this.checkedMap, option[this.keyField], option[this.keyField] === data[this.keyField])
-              if (option[this.keyField] === data[this.keyField] && !this.chosenList.length) this.chosenList.push(option)
+              // 如果当前项与点击项相同，并且没有已选项，则选中当前项
+              if (option[this.keyField] === data[this.keyField] && !this.chosenList.length) {
+                this.chosenList.push(option)
+              }
             }
           })
           this.showOptions = false
@@ -521,7 +526,16 @@
             }
           })
         }
-        this.onClickOption(false, option)
+        // 如果是单选
+        if (!this.multiple) {
+          this.chosenList.forEach((item, i) => {
+            if (item === option) {
+              this.chosenList.splice(i, 1)
+            }
+          })
+          this.$emit('input', null)
+          this.$emit('change', null, this)
+        }
       }
     },
     render (h) {
