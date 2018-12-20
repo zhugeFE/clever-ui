@@ -8,6 +8,7 @@ import badge from './badge.vue'
 
 badge.install = function (Vue) {
   Vue.component(badge.name, badge)
+  Vue.component(badge.name.replace(/c|C/, 'zg'), badge)
 }
 
 export default badge

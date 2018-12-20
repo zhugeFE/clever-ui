@@ -219,8 +219,8 @@
         let item = {
           temp: true // 表明选项为临时选项，删除时，从store中彻底删除
         }
-        item[this.keyField] = this.search
-        item[this.labelField] = this.search
+        item[this.keyField] = this.search.trim()
+        item[this.labelField] = this.search.trim()
         this.$emit('enter', this.search ? item : null)
         this.search = ''
       },

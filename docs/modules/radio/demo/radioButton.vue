@@ -6,6 +6,7 @@
           <c-button type="normal"
                      theme="border"
                      size="large"
+                    :disable="scope.data.disable"
                      :class="scope.className"
                      :icon="scope.data.icon" @click="scope.onClick"></c-button>
         </template>
@@ -35,7 +36,7 @@
           },
           {
             value: 2,
-            disable: false,
+            disable: true,
             icon: 'cicon-fullscreen'
           },
           {

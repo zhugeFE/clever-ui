@@ -8,7 +8,8 @@
         message: '',
         autoHide: true,
         duration: 3000,
-        icon: ''
+        icon: '',
+        style: {}
       }
     },
     computed: {
@@ -46,7 +47,7 @@
     },
     render (h) {
       return (
-        <div class={this.messageClass}>
+        <div class={this.messageClass} style={this.style}>
           <i class={this.iconClass}></i>
           <span class="c-msg-content">{this.message}</span>
           {(() => {

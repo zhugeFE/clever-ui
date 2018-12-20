@@ -12,6 +12,7 @@ const components = [tabs, tabPanel]
 components.forEach(component => {
   component.install = function (Vue) {
     Vue.component(component.name, component)
+    Vue.component(component.name.replace(/c|C/, 'zg'), component)
   }
 })
 

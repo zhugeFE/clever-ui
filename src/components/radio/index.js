@@ -7,6 +7,7 @@
 import radio from './radio'
 radio.install = function (Vue) {
   Vue.component(radio.name, radio)
+  Vue.component(radio.name.replace(/c|C/, 'zg'), radio)
 }
 
 export default radio

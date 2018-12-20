@@ -116,6 +116,10 @@
           return label
         }
       },
+      legendShow: {
+        type: Boolean,
+        default: true
+      },
       /**
        * @description 显示数据项（从store中过滤），对应series中的names字段
        * @格式[['group', 'item1'], ['group', 'item2']]或['item1', 'item2']
@@ -193,7 +197,8 @@
     },
     data () {
       return {
-        chart: null
+        chart: null,
+        resizeTimer: null
       }
     },
     computed: {
@@ -304,6 +309,9 @@
     },
     beforeDestroy () {
       if (!this.chart) return
+      if (this.resizeTimer) {
+        clearTimeout(this.resizeTimer)
+      }
       this.chart.dispose()
       this.chart = null
     },
@@ -422,7 +430,7 @@
           borderColor: 'red',
           borderWidth: 0,
           width: '60%',
-          show: legendList.length > 1,
+          show: this.legendShow && legendList.length > 1,
           formatter: this.legendFormatter
         }
       },
@@ -569,6 +577,18 @@
       },
       onResize () {
         if (!this.chart) return
+        // 当图表被隐藏时发生resize事件后会导致图表渲染异常，需要延时矫正
+        let rect = this.$refs.toChart.getBoundingClientRect()
+        if (!rect.width || !rect.height) {
+          if (this.resizeTimer) {
+            clearTimeout(this.resizeTimer)
+          }
+          this.resizeTimer = setTimeout(() => {
+            this.onResize(false)
+          }, 300)
+          return
+        }
+        this.chart.resize()
         this.setOption(this.option)
         this.$nextTick(() => {
           this.chart.resize()

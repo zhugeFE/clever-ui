@@ -18,6 +18,7 @@
              :readonly="readOnly"
              @focus="_onFocus"
              @blur="_onBlur"
+             @input="_onInput"
              @keydown="_onKey"/>
 
       <input ref="input" v-if="type === 'password'"
@@ -29,6 +30,7 @@
              :readonly="readOnly"
              @focus="_onFocus"
              @blur="_onBlur"
+             @input="_onInput"
              @keydown="_onKey"/>
 
       <span class="temp" ref="temp">{{inputValue}}</span>
@@ -193,6 +195,13 @@
       autoValid: {
         type: Boolean,
         default: true
+      },
+      /**
+       * @description 在输入过程中和失去焦点后进行校验
+       */
+      inputValid: {
+        type: Boolean,
+        default: false
       }
     },
     data () {
@@ -200,7 +209,8 @@
         inputValue: this.value,
         active: this.autoFocus,
         invalid: false,
-        realWidth: this.minWidth
+        realWidth: this.minWidth,
+        oldInput: ''
       }
     },
     mounted () {
@@ -279,13 +289,33 @@
       _onKey (event) {
         this.$emit('key', event)
       },
+      _onInput (event) {
+        if (this.inputValid && this.$refs.tip && this.inputValue) {
+          if (this.validator(this.inputValue)) {
+            this.$refs.tip.hide()
+            this.invalid = false
+            this.oldInput = this.inputValue
+          } else {
+            let newInput = event.data || this.inputValue.replace(this.oldInput, '') || ''
+            this.inputValue = this.inputValue.replace(newInput, '')
+            this.$refs.tip.show()
+            this.invalid = true
+          }
+        }
+      },
       _onFocus () {
         this.active = true
         this.$emit('focus')
       },
       _onBlur () {
+        if (this.inputValid && this.$refs.tip) {
+          this.$refs.tip.hide()
+          this.invalid = false
+          this.validate()
+        } else if (this.autoValid) {
+          this.validate()
+        }
         this.active = false
-        if (this.autoValid) this.validate()
         this.$emit('blur')
       },
       focus () {
@@ -293,7 +323,7 @@
       },
       validate () {
         if (this._isBeingDestroyed || this._isDestroyed) return false
-        const flag = this.validator()
+        const flag = this.validator(this.inputValue)
         this.invalid = !flag
         this.$nextTick(() => {
           if (this._isBeingDestroyed || this._isDestroyed) return false
@@ -301,7 +331,10 @@
             this.$refs.tip.hide()
           } else {
             this.$refs.tip.show()
-            this.focus()
+            // todo 待优化，此处不应该使用自动获取焦点
+            if (this.autoValid) {
+              this.focus()
+            }
           }
         })
         return flag

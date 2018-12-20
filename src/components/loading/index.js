@@ -8,6 +8,7 @@ import loading from './loading.vue'
 
 loading.install = function (Vue) {
   Vue.component(loading.name, loading)
+  Vue.component(loading.name.replace(/c|C/, 'zg'), loading)
 }
 
 export default loading

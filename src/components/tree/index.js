@@ -4,10 +4,10 @@
  * @author yqdong
  *
  */
-import charts from './charts.vue'
+import tree from './tree.vue'
 
 const components = [
-  charts
+  tree
 ]
 components.forEach(component => {
   component.install = function (Vue) {
@@ -16,6 +16,5 @@ components.forEach(component => {
   }
 })
 
-export {
-  charts
-}
+export default tree
+
