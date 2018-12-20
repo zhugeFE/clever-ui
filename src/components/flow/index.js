@@ -4,10 +4,10 @@
  * @author yqdong
  *
  */
-import charts from './charts.vue'
+import flow from './flow.vue'
 
 const components = [
-  charts
+  flow
 ]
 components.forEach(component => {
   component.install = function (Vue) {
@@ -16,6 +16,4 @@ components.forEach(component => {
   }
 })
 
-export {
-  charts
-}
+export default flow

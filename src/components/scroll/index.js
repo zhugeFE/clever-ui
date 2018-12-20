@@ -14,6 +14,7 @@ let components = {
 for (const key in components) {
   components[key].install = function (Vue) {
     Vue.component(components[key].name, components[key])
+    Vue.component(components[key].name.replace(/c|C/, 'zg'), components[key])
   }
 }
 export {

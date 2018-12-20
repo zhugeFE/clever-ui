@@ -8,6 +8,7 @@ import reload from './reload.vue'
 
 reload.install = function (Vue) {
   Vue.component(reload.name, reload)
+  Vue.component(reload.name.replace(/c|C/, 'zg'), reload)
 }
 
 export default reload

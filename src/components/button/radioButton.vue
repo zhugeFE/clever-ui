@@ -53,30 +53,8 @@
         }
       }
     },
-    data () {
-      let checked = null
-      this.store.forEach(item => {
-        if (item.value === this.value) {
-          checked = item
-        }
-      })
-      return {
-        checked
-      }
-    },
-    watch: {
-      value (value) {
-        this.checked = null
-        this.store.forEach(item => {
-          if (item.value === value) {
-            this.checked = item
-          }
-        })
-      }
-    },
     methods: {
       onClickItem (item) {
-        this.checked = item
         this.$emit('input', item.value)
         this.$emit('change', item)
       }
@@ -86,7 +64,7 @@
         <div class="c-radio-button">
           {this.store.map(item => {
             let className = {
-              'c-checked': this.checked === item,
+              'c-checked': this.value === item.value,
               'c-radio-item': true
             }
             if (this.$scopedSlots.default) {

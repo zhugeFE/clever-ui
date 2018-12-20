@@ -289,7 +289,7 @@
         let maxCount = (this.pageNum + 1) * this.pageSize
         let totalCount = 0
         let filter = this.filter
-        this.renderStore = []
+        let renderStore = []
         this.innerStore.forEach(item => {
           // 有分组
           if (this.childrenField) {
@@ -305,18 +305,19 @@
               }
               if (!filter || this.filterData(child)) totalCount++
             })
-            if (haveChildren) this.renderStore.push(item)
+            if (haveChildren) renderStore.push(item)
             map[item[this.keyField]] = haveChildren
           } else { // 没分组
             let flag = map.count < maxCount
             if (flag && ((!filter || this.filterData(item)))) {
               map[item[this.keyField]] = flag
               map.count++
-              this.renderStore.push(item)
+              renderStore.push(item)
             }
             if (!filter || this.filterData(item)) totalCount++
           }
         })
+        this.renderStore = renderStore
         this.totalCount = totalCount
         this.noMatch = filter && totalCount === 0
         return map
@@ -415,7 +416,7 @@
       filterData (data) {
         let filterReg = util.getRegExp(this.filter.toLowerCase())
         let flag = true
-        flag = filterReg.test((data[this.aliasField] || data[this.labelField]).toLowerCase())
+        flag = filterReg.test((data[this.aliasField] || data[this.labelField] || '').toLowerCase())
         return flag
       },
       onClickOutside () {

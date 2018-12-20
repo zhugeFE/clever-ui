@@ -16,6 +16,10 @@
     components: {CButton},
     name: 'cReload',
     props: {
+      /**
+       * @description reload图标的大小尺寸
+       * @tip 可选值为 'normal' 、'bigger'
+       */
       size: {
         type: String,
         default: 'normal',
