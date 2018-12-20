@@ -307,6 +307,9 @@
       this.chart = this.echarts.init(this.$refs.toChart)
       this.setOption(this.option)
     },
+    updated () {
+      this.onResize()
+    },
     beforeDestroy () {
       if (!this.chart) return
       if (this.resizeTimer) {
