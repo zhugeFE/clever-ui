@@ -1,9 +1,9 @@
 <script type="text/jsx">
-  import CButton from './button'
+  import ZgButton from './button'
 
   export default {
-    components: {CButton},
-    name: 'cRadioButton',
+    components: {ZgButton},
+    name: 'zgRadioButton',
     props: {
       /**
        * @description value
@@ -17,7 +17,7 @@
       store: {
         type: Array,
         default () {
-          // 结构为：{value: '', label: '', disable: false, icon: '', iconPosition: 'left'}
+          // 结构为：{value: '', label: '', disable: false, icon: ''}
           return []
         }
       },
@@ -53,41 +53,19 @@
         }
       }
     },
-    data () {
-      let checked = null
-      this.store.forEach(item => {
-        if (item.value === this.value) {
-          checked = item
-        }
-      })
-      return {
-        checked
-      }
-    },
-    watch: {
-      value (value) {
-        this.checked = null
-        this.store.forEach(item => {
-          if (item.value === value) {
-            this.checked = item
-          }
-        })
-      }
-    },
     methods: {
       onClickItem (item) {
-        this.checked = item
         this.$emit('input', item.value)
         this.$emit('change', item)
       }
     },
     render (h) {
       return (
-        <div class="c-radio-button">
+        <div class="zg-radio-button">
           {this.store.map(item => {
             let className = {
-              'c-checked': this.checked === item,
-              'c-radio-item': true
+              'zg-checked': this.value === item.value,
+              'zg-radio-item': true
             }
             if (this.$scopedSlots.default) {
               return this.$scopedSlots.default({
@@ -99,7 +77,7 @@
               })
             } else {
               return (
-                <c-button class={className}
+                <zg-button class={className}
                            key={item.value}
                            theme={this.theme}
                            size={this.size}
@@ -108,10 +86,9 @@
                            onClick={() => {
                              this.onClickItem(item)
                            }}
-                           iconPosition={item.iconPosition || 'left'}
                            icon={item.icon}>
                   {item.label}
-                </c-button>
+                </zg-button>
               )
             }
           })}

@@ -1,14 +1,17 @@
 <template>
-  <div class="c-scroll-lazy-panel">
+  <div class="zg-scroll-lazy-panel">
     <slot></slot>
   </div>
 </template>
 <script>
 import {emitter} from '../../mixins/main'
 export default {
-  name: 'cScrollLazyPanel',
+  name: 'zgScrollLazyPanel',
   mixins: [emitter],
   props: {
+    /**
+     * @description 仅触发进入可视区域一次
+     */
     once: {
       type: Boolean,
       default: true
@@ -21,7 +24,7 @@ export default {
   },
   methods: {
     checkInView () {
-      let fatcherRect = this.parent('cScrollContainer').$el.getBoundingClientRect()
+      let fatcherRect = this.parent('zgScrollContainer').$el.getBoundingClientRect()
       let childRect = this.$el.getBoundingClientRect()
 
       let topInView = childRect.top <= fatcherRect.bottom && childRect.top >= fatcherRect.top
@@ -51,7 +54,7 @@ export default {
 }
 </script>
 <style lang="sass">
-.c-scroll-lazy-panel
+.zg-scroll-lazy-panel
   position: relative
   display: inline-block
 </style>

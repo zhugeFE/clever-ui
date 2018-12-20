@@ -1,5 +1,5 @@
 @import "../../../assets/styles/constants"
-.c-select-handle
+.zg-select-handle
   min-width: 50px
   height: 100%
   cursor: pointer
@@ -10,42 +10,42 @@
   display: flex
   flex-direction: row
   position: relative
-  &.c-size-small
+  &.zg-size-small
     height: 24px
     line-height: 24px
-  &.c-size-medium
+  &.zg-size-medium
     height: 28px
     line-height: 28px
-  &.c-size-normal
+  &.zg-size-normal
     height: 32px
     line-height: 32px
-  &.c-size-big
+  &.zg-size-big
     height: 36px
     line-height: 36px
-  .c-select-label
+  .zg-select-label
     display: inline-block
     width: 100%
     white-space: nowrap
     overflow: hidden
     text-overflow: ellipsis
-    flex: 1 1 auto
-  .c-placeholder
+    flex: 0 1 auto
+  .zg-placeholder
     color: $color-font-placeholder
-  .c-count
+  .zg-count
     width: 20px
     flex: none
-  &.c-theme-noborder
+  &.zg-theme-noborder
     border-color: rgba(0, 0, 0, 0)
-    &+.c-drop-panel
+    &+.zg-drop-panel
       margin: 0
-  &.c-theme-tag
+  &.zg-theme-tag
     display: inline-block
     height: auto
     min-height: 32px
     line-height: normal
     vertical-align: top
     padding-top: 5px
-    .c-tag
+    .zg-tag
       flex: none
       line-height: initial
       margin: 0 5px 3px 0
@@ -53,19 +53,19 @@
       border: none
       font-size: $size-font-tip
       height: 20px
-    .c-temp
+    .zg-temp
       position: absolute
       font-size: $size-font-tip
       top: -999999px
   &.disable
     border-color: $color-action-disabled-default
     color: $color-font-disabled
-  .c-select-chosen input[type='text']
+  .zg-select-chosen input[type='text']
     padding-right: 20px !important
     cursor: pointer
-  .c-select-arrow
+  .zg-select-arrow
     position: absolute
     top: 0
     right: 5px
-  &.active .c-select-arrow
+  &.active .zg-select-arrow
     transform: rotate(180deg)

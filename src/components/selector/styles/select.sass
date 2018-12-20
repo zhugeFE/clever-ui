@@ -1,11 +1,13 @@
 @import "../../../assets/styles/constants"
-.c-select
+.zg-select
+  min-height: 30px
+  line-height: 28px
   display: inline-block
   font-size: $size-font-content
   position: relative
-  .c-drop-panel
+  .zg-drop-panel
     position: absolute
-    z-index: $z-index-max
+    z-index: $z-index-base
     border: 1px solid $color-border-normal
     border-radius: $border-radius
     margin-top: 7px
@@ -18,18 +20,18 @@
 
     display: flex
     flex-direction: column
-    .c-fixed
+    .zg-fixed
       flex: none
       padding: 5px
-    .c-content
-      flex: 1 1 auto
+    .zg-content
+      flex: 0 1 auto
       overflow-y: auto
-      .c-error
+      .zg-error
         color: $color-font-disabled
         cursor: default
         width: 150px
         padding: 0 10px
-    .c-clear
+    .zg-clear
       border-bottom: 1px solid $color-border-normal
       a
         font-size: $size-font-tip

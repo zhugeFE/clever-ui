@@ -8,6 +8,7 @@ import tag from './tag'
 
 tag.install = function (Vue) {
   Vue.component(tag.name, tag)
+  Vue.component(tag.name.replace(/c|C/, 'zg'), tag)
 }
 
 export default tag

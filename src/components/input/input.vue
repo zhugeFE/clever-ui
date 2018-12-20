@@ -1,7 +1,7 @@
 <template>
-  <span class="c-input" :class="clazz" :style="style" @click="_onClick">
-    <i class="c-input-icon" :class="icon"></i>
-    <c-tooltip :placement="placement"
+  <span class="zg-input" :class="clazz" :style="style" @click="_onClick">
+    <i class="zg-input-icon" :class="icon"></i>
+    <zg-tooltip :placement="placement"
                 :autoHide="false"
                 :width="tipWidth"
                 :customClass="tipClazz"
@@ -10,7 +10,7 @@
         <slot name="tooltip">{{message}}</slot>
       </template>
       <input ref="input" v-if="type === 'text'"
-             class="c-input-input"
+             class="zg-input-input"
              type="text"
              :style="inputStyle"
              :placeholder="placeholder"
@@ -18,10 +18,11 @@
              :readonly="readOnly"
              @focus="_onFocus"
              @blur="_onBlur"
+             @input="_onInput"
              @keydown="_onKey"/>
 
       <input ref="input" v-if="type === 'password'"
-             class="c-input-input"
+             class="zg-input-input"
              type="password"
              :style="inputStyle"
              :placeholder="placeholder"
@@ -29,12 +30,13 @@
              :readonly="readOnly"
              @focus="_onFocus"
              @blur="_onBlur"
+             @input="_onInput"
              @keydown="_onKey"/>
-
+      
       <span class="temp" ref="temp">{{inputValue}}</span>
-    </c-tooltip>
+    </zg-tooltip>
     <i v-if="clearAble && inputValue"
-       class="c-input-clear cicon-delete-little1"
+       class="zg-input-clear zgicon-delete-little1"
        @click="_onClear"
     ></i>
   </span>
@@ -42,15 +44,17 @@
 
 <script>
   import {util} from '../../utils/index'
-  import CTooltip from '../tooltip/tooltip'
+  import ZgTooltip from '../tooltip/tooltip'
   export default {
-    components: {CTooltip},
-    name: 'CInput',
+    components: {ZgTooltip},
+    name: 'ZgInput',
     props: {
       /**
        * @description value
        */
-      value: null,
+      value: {
+        type: String
+      },
       /**
        * @description 提示文本内容
        */
@@ -183,7 +187,7 @@
        */
       validator: {
         type: Function,
-        default: function () {
+        default: function (val) {
           return true
         }
       },
@@ -193,6 +197,13 @@
       autoValid: {
         type: Boolean,
         default: true
+      },
+      /**
+       * @description 在输入过程中和失去焦点后进行校验
+       */
+      inputValid: {
+        type: Boolean,
+        default: false
       }
     },
     data () {
@@ -200,7 +211,8 @@
         inputValue: this.value,
         active: this.autoFocus,
         invalid: false,
-        realWidth: this.minWidth
+        realWidth: this.minWidth,
+        oldInput: ''
       }
     },
     mounted () {
@@ -211,10 +223,10 @@
     computed: {
       clazz () {
         let clazz = {
-          'c-active': this.active,
-          'c-error': this.invalid
+          'zg-active': this.active,
+          'zg-error': this.invalid
         }
-        clazz['c-size-' + this.size] = true
+        clazz['zg-size-' + this.size] = true
         return clazz
       },
       style () {
@@ -235,7 +247,7 @@
       },
       tipClazz () {
         let style = []
-        if (this.invalid) style.push('c-tooltip-error')
+        if (this.invalid) style.push('zg-tooltip-error')
         if (this.tipClass) style.push(this.tipClass)
         return style.join(' ')
       }
@@ -279,13 +291,33 @@
       _onKey (event) {
         this.$emit('key', event)
       },
+      _onInput (event) {
+        if (this.inputValid && this.$refs.tip && this.inputValue) {
+          if (this.validator(this.inputValue)) {
+            this.$refs.tip.hide()
+            this.invalid = false
+            this.oldInput = this.inputValue
+          } else {
+            let newInput = event.data || this.inputValue.replace(this.oldInput, '') || ''
+            this.inputValue = this.inputValue.replace(newInput, '')
+            this.$refs.tip.show()
+            this.invalid = true
+          }
+        }
+      },
       _onFocus () {
         this.active = true
         this.$emit('focus')
       },
       _onBlur () {
+        if (this.inputValid && this.$refs.tip) {
+          this.$refs.tip.hide()
+          this.invalid = false
+          this.validate()
+        } else if (this.autoValid) {
+          this.validate()
+        }
         this.active = false
-        if (this.autoValid) this.validate()
         this.$emit('blur')
       },
       focus () {
@@ -293,7 +325,7 @@
       },
       validate () {
         if (this._isBeingDestroyed || this._isDestroyed) return false
-        const flag = this.validator()
+        const flag = this.validator(this.inputValue)
         this.invalid = !flag
         this.$nextTick(() => {
           if (this._isBeingDestroyed || this._isDestroyed) return false
@@ -301,7 +333,10 @@
             this.$refs.tip.hide()
           } else {
             this.$refs.tip.show()
-            this.focus()
+            // @todo待优化，此处不应该使用自动获取焦点
+            if (this.autoValid) {
+              this.focus()
+            }
           }
         })
         return flag

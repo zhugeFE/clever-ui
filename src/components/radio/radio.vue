@@ -1,10 +1,10 @@
 <script type="text/jsx">
-  import CRadioLabel from './radioLabel'
+  import ZgRadioLabel from './radioLabel'
 
   export default {
     components: {
-      CRadioLabel},
-    name: 'cRadio',
+      ZgRadioLabel},
+    name: 'zgRadio',
     props: {
       /**
        * @description value
@@ -21,22 +21,6 @@
           // 结构为：{value: '', label: '', disable: false}
           return []
         }
-      },
-      direction: {
-        type: String,
-        default: 'column',
-        validator (val) {
-          return ['row', 'column'].includes(val)
-        }
-      }
-    },
-    computed: {
-      clazz () {
-        return {
-          'c-radio-list': true,
-          'c-radio-row': this.direction === 'row',
-          'c-radio-column': this.direction === 'column'
-        }
       }
     },
     methods: {
@@ -48,17 +32,17 @@
     },
     render (h) {
       return (
-        <ul class={this.clazz}>
+        <ul class="zg-radio-list">
           {this.store.map(item => {
             let itemClass = {
-              'c-radio-item': true,
-              'c-disable': item.disable,
-              'c-checked': item.value === this.value
+              'zg-radio-item': true,
+              'zg-disable': item.disable,
+              'zg-checked': item.value === this.value
             }
             return (
               <li class={itemClass} onClick={this.onClickRadio(item)}>
-                <span class="c-cycle">
-                </span><c-radio-label data={item} scopedSlots={{default: this.$scopedSlots.default}}></c-radio-label>
+                <span class="zg-cycle"></span>
+                <zg-radio-label data={item} scopedSlots={{default: this.$scopedSlots.default}}></zg-radio-label>
               </li>
             )
           })}

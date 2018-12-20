@@ -1,6 +1,6 @@
 @import "../../../assets/styles/constants"
 $arrow-size: 4px
-.c-tooltip-dark,.c-tooltip-light
+.zg-tooltip-dark,.zg-tooltip-light
   display: inline-block
   position: absolute
   background: $color-brand-black
@@ -33,66 +33,66 @@ $arrow-size: 4px
     position: absolute
     background: $color-brand-black
     z-index: -10
-  &.c-top-left:after
+  &.zg-top-left:after
     left: 10px
     bottom: -$arrow-size
-  &.c-top:after
+  &.zg-top:after
     left: 50%
     bottom: -$arrow-size
     margin-left: -5px
-  &.c-top-right:after
+  &.zg-top-right:after
     bottom: -$arrow-size
     right: 10px
 
-  &.c-left-top:after
+  &.zg-left-top:after
     right: -$arrow-size
     top: 10px
-  &.c-left:after
+  &.zg-left:after
     right: -$arrow-size
     top: 50%
     margin-top: -5px
-  &.c-left-bottom:after
+  &.zg-left-bottom:after
     right: -$arrow-size
     bottom: 10px
 
-  &.c-right-top:after
+  &.zg-right-top:after
     left: -$arrow-size
     top: 10px
-  &.c-right:after
+  &.zg-right:after
     left: -$arrow-size
     top: 50%
     margin-top: -5px
-  &.c-right-bottom:after
+  &.zg-right-bottom:after
     left: -$arrow-size
     bottom: 10px
 
-  &.c-bottom-left:after
+  &.zg-bottom-left:after
     left: 10px
     top: -$arrow-size
-  &.c-bottom:after
+  &.zg-bottom:after
     left: 50%
     top: -$arrow-size
     margin-left: -5px
-  &.c-bottom-right:after
+  &.zg-bottom-right:after
     top: -$arrow-size
     right: 10px
-  .c-tooltip-close
+  .zg-tooltip-close
     color: $color-white
     text-decoration: underline
     margin-left: 10px
     cursor: pointer
-.c-tooltip-light
-  background: $color-background-light
+.zg-tooltip-light
+  background: $color-white
   color: $color-brand-black
   &:after
-    background: $color-background-light
-  &.c-top:after,&.c-top-left:after,&.c-top-right:after
+    background: $color-white
+  &.zg-top:after,&.zg-top-left:after,&.zg-top-right:after
     box-shadow: 3px 3px 3px rgba(53, 64, 82, .2)
-  &.c-bottom:after,&.c-bottom-left:after,&.c-bottom-right:after
+  &.zg-bottom:after,&.zg-bottom-left:after,&.zg-bottom-right:after
     box-shadow: -1px -1px 1px rgba(53, 64, 82, .1)
-  &.c-left-top:after,&.c-left:after,&.c-left-bottom:after
+  &.zg-left-top:after,&.zg-left:after,&.zg-left-bottom:after
     box-shadow: 2px -2px 2px rgba(53, 64, 82, .2)
-  &.c-right:after,&.c-right-top:after,&.c-right-bottom:after
+  &.zg-right:after,&.zg-right-top:after,&.zg-right-bottom:after
     box-shadow: -2px 2px 2px rgba(53, 64, 82, .2)
-.c-tooltip-trigger
+.zg-tooltip-trigger
   display: inline-block

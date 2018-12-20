@@ -1,6 +1,7 @@
 <template>
   <div>
     <demo-panel title="button" subtitle="普通按钮，theme为normal（默认值）" jsFiddleName="fe9L2wkn">
+      <zg-button>zg button</zg-button>
       <c-button>normal</c-button>
       <c-button type="primary">primary</c-button>
       <c-button type="danger">danger</c-button>

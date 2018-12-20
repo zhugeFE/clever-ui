@@ -1,17 +1,17 @@
 <template>
   <div :class="handleClass" :style="handleStyle" @click="onClickHandle">
     <slot v-if="theme !== 'tag'">
-      <span v-show="!value.length" class="c-select-label c-placeholder">{{placeholder}}</span>
-      <span v-show="value.length" class="c-select-label">{{resultLabel}}</span>
-      <span v-if="theme === 'noborder'" class="c-count" v-show="value.length > 1">({{value.length}})</span>
+      <span v-show="!value.length" class="zg-select-label zg-placeholder">{{placeholder}}</span>
+      <span v-show="value.length" class="zg-select-label">{{resultLabel}}</span>
+      <span v-if="theme === 'noborder'" class="zg-count" v-show="value.length > 1">({{value.length}})</span>
       <i :class="arrowIcon"></i>
     </slot>
     <template v-else>
-      <span v-show="!value.length && !focus && !active" class="c-placeholder">{{placeholder}}</span>
-      <c-tag :title="item[aliasField] || item[labelField]" v-for="item in value"
+      <span v-show="!value.length && !focus && !active" class="zg-placeholder">{{placeholder}}</span>
+      <zg-tag :title="item[aliasField] || item[labelField]" v-for="item in value"
               :key="item[keyField]" closeable @close="onDel(item)">
         {{getTagText(item[aliasField] || item[labelField])}}
-      </c-tag>
+      </zg-tag>
       <input type="text"
              :style="inputStyle"
              @keyup.enter="onEnter"
@@ -24,18 +24,18 @@
              @blur="onBlur"
              v-model="search"
              ref="input"/>
-      <span class="c-temp" ref="search">{{search}}</span>
+      <span class="zg-temp" ref="search">{{search}}</span>
     </template>
   </div>
 </template>
 
 <script>
   import {util} from '../../utils/index'
-  import CTag from '../tag/tag'
+  import ZgTag from '../tag/tag'
 
   export default {
-    components: {CTag},
-    name: 'cSelectorHandle',
+    components: {ZgTag},
+    name: 'zgSelectorHandle',
     props: {
       /**
        * @description 已选列表
@@ -145,12 +145,12 @@
     computed: {
       handleClass () {
         let clazz = {
-          'c-select-handle': true,
+          'zg-select-handle': true,
           active: this.active,
           disable: this.disable
         }
-        clazz[`c-theme-${this.theme}`] = true
-        clazz['c-size-' + this.size] = true
+        clazz[`zg-theme-${this.theme}`] = true
+        clazz['zg-size-' + this.size] = true
         return clazz
       },
       handleStyle () {
@@ -168,9 +168,9 @@
       },
       arrowIcon () {
         return {
-          'c-select-arrow': true,
-          'cicon-down': this.theme === 'normal',
-          'cicon-pulldown': this.theme === 'noborder'
+          'zg-select-arrow': true,
+          'zgicon-down': this.theme === 'normal',
+          'zgicon-pulldown': this.theme === 'noborder'
         }
       },
       resultLabel () {
@@ -219,8 +219,9 @@
         let item = {
           temp: true // 表明选项为临时选项，删除时，从store中彻底删除
         }
-        item[this.keyField] = this.search
-        item[this.labelField] = this.search
+        let searchText = this.search.trim()
+        item[this.keyField] = searchText
+        item[this.labelField] = searchText
         this.$emit('enter', this.search ? item : null)
         this.search = ''
       },

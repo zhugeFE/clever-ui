@@ -1,4 +1,10 @@
-<script type="text/jsx">
+<template>
+  <span :class="clazz" :style="style" @click="onClick">
+    <i v-show="tab.icon" :class="tab.icon"></i>{{tab.title}}
+  </span>
+</template>
+
+<script>
   export default {
     name: 'tab',
     props: {
@@ -14,17 +20,13 @@
       activeIndex: {
         type: Number,
         required: true
-      },
-      closeAble: {
-        type: Boolean,
-        default: false
       }
     },
     computed: {
       clazz () {
         return {
-          'c-tab': true,
-          'c-checked': this.activeIndex === this.index
+          'zg-tab': true,
+          'zg-checked': this.activeIndex === this.index
         }
       },
       style () {
@@ -37,32 +39,7 @@
       onClick () {
         if (this.activeIndex === this.index) return
         this.$emit('click', this.tab)
-      },
-      onRemove (event) {
-        this.$emit('remove', this.tab)
-        event.stopPropagation()
       }
-    },
-    render (h) {
-      return (
-        <span class={this.clazz} style={this.style} onClick={this.onClick}>
-          {(() => {
-            if (this.$slots.default) {
-              return this.$slots.default
-            } else {
-              let iconClass = {'c-tab-icon': true}
-              iconClass[this.tab.icon] = true
-              return <span>
-                <i v-show={this.tab.icon} class={iconClass}></i>
-                {this.tab.title}
-                <i v-show={this.closeAble}
-                   onClick={this.onRemove}
-                   class="c-tab-close cicon-delete-little1"></i>
-                </span>
-            }
-          })()}
-        </span>
-      )
     }
   }
 </script>

@@ -4,18 +4,15 @@
  * @author yqdong
  *
  */
-import charts from './charts.vue'
+import flow from './flow.vue'
 
 const components = [
-  charts
+  flow
 ]
 components.forEach(component => {
   component.install = function (Vue) {
     Vue.component(component.name, component)
-    Vue.component(component.name.replace(/c|C/, 'zg'), component)
   }
 })
 
-export {
-  charts
-}
+export default flow

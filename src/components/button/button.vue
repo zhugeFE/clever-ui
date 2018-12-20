@@ -4,18 +4,17 @@
     :type="nativeType"
     :disabled="disable"
     :class="buttonClass">
-    <i class="c-icon" :class="icon" v-if="icon && iconPosition === 'left'"></i>
-    <c-loading v-show="showLoading" size="small" :showTip="false"></c-loading>
+    <i class="zg-icon" :class="icon" v-if="icon"></i>
+    <zg-loading v-show="showLoading" size="small" :showTip="false"></zg-loading>
     <span><slot></slot></span>
-    <i class="c-icon" :class="icon" v-if="icon && iconPosition === 'right'"></i>
   </button>
 </template>
 <script>
-import CLoading from '../loading/loading'
+import ZgLoading from '../loading/loading'
 
 export default {
-  components: {CLoading},
-  name: 'CButton',
+  components: {ZgLoading},
+  name: 'ZgButton',
   props: {
     /**
      * @description 可选值为：normal、primary、danger、secondary、success
@@ -33,7 +32,7 @@ export default {
      */
     size: {
       type: String,
-      default: 'small',
+      default: 'normal',
       validator (value) {
         return ['small', 'normal', 'large'].includes(value)
       }
@@ -77,27 +76,17 @@ export default {
     showLoading: {
       type: Boolean,
       default: false
-    },
-    /**
-     * @description icon位置
-     */
-    iconPosition: {
-      type: String,
-      default: 'left',
-      validator (v) {
-        return ['left', 'right'].includes(v)
-      }
     }
   },
   computed: {
     buttonClass () {
       let clazz = {
-        'c-button': true,
-        'c-disable': this.disable,
-        'c-button-icon': this.icon && !this.$slots.default
+        'zg-button': true,
+        'zg-disable': this.disable,
+        'zg-button-icon': this.icon && !this.$slots.default
       }
-      clazz[`c-button-${this.theme}-${this.type}`] = true
-      clazz[`c-button-size-${this.size}`] = this.size !== 'normal'
+      clazz[`zg-button-${this.theme}-${this.type}`] = true
+      clazz[`zg-button-size-${this.size}`] = this.size !== 'normal'
 
       return clazz
     }

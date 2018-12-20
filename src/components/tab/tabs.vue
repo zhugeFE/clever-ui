@@ -1,10 +1,10 @@
 <script type="text/jsx">
   import {emitter} from '../../mixins/main'
-  import cTab from './tab.vue'
+  import zgTab from './tab.vue'
   export default {
-    name: 'cTabs',
+    name: 'zgTabs',
     mixins: [emitter],
-    components: {cTab},
+    components: {zgTab},
     props: {
       value: {
         type: Number,
@@ -21,13 +21,6 @@
         }
       },
       /**
-       * @description 是否纵向排列
-       */
-      vertical: {
-        type: Boolean,
-        default: false
-      },
-      /**
        * @description 主题类型
        */
       theme: {
@@ -42,20 +35,6 @@
        */
       tabWidth: {
         type: Number
-      },
-      /**
-       * @description 切换标签页时，采用v-show还是v-if，true为v-if
-       */
-      cleanMode: {
-        type: Boolean,
-        default: false
-      },
-      /**
-       * @description 具有添加tab按钮
-       */
-      showAdd: {
-        type: Boolean,
-        default: false
       }
     },
     data () {
@@ -67,17 +46,11 @@
     computed: {
       tabBarClass () {
         return {
-          'c-tab-bar': true,
-          'c-tab-normal': this.theme === 'normal',
-          'c-tab-card': this.theme === 'card',
-          'c-right': this.placement === 'right',
-          'c-center': this.placement === 'center'
-        }
-      },
-      clazz () {
-        return {
-          'c-tabs': true,
-          'c-tab-vertical': this.vertical
+          'zg-tab-bar': true,
+          'zg-tab-normal': this.theme === 'normal',
+          'zg-tab-card': this.theme === 'card',
+          'zg-right': this.placement === 'right',
+          'zg-center': this.placement === 'center'
         }
       }
     },
@@ -87,7 +60,7 @@
       }
     },
     mounted () {
-      const tabs = this.children('cTabPanel')
+      const tabs = this.children('zgTabPanel')
       if (tabs.length) {
         tabs[this.activeIndex].$data.show = true
       }
@@ -95,66 +68,35 @@
     methods: {
       onClickTab (tab) {
         this.activeIndex = tab.index
-        this.$emit('input', tab.index)
         this.$emit('change', tab)
+        this.$emit('input', tab.index)
       },
       addTab (tab) {
         tab.index = this.tabs.length
         this.tabs.push(tab)
-      },
-      onAdd () {
-        this.$emit('add')
-      },
-      remove (tab) {
-        this.tabs.forEach((item, i) => {
-          if (item === tab) {
-            this.tabs.splice(i, 1)
-          }
-        })
-        let index = this.activeIndex >= this.tabs.length ? 0 : this.activeIndex
-        this.tabs.forEach((tab, i) => {
-          tab.index = i
-        })
-        if (this.tabs[index]) this.onClickTab(this.tabs[index])
-      },
-      onRemove (tab) {
-        this.$emit('remove', tab.title)
       }
     },
     render (h) {
       return (
-        <div class={this.clazz}>
+        <div class="zg-tabs">
           <div style="display: none">{this.$slots.default}</div>
           <div class={this.tabBarClass}>
             {this.tabs.map((tab, index) => {
               return (
-                <c-tab activeIndex={this.activeIndex}
+                <zg-tab activeIndex={this.activeIndex}
                         index={index}
                         tab={tab}
                         width={this.tabWidth}
-                        closeAble={tab.closeAble && this.tabs.length > 1}
-                        onRemove={this.onRemove}
                         onClick={this.onClickTab}
-                >{tab.slots.title}</c-tab>
+                ></zg-tab>
               )
             })}
-            {(() => {
-              if (this.showAdd) {
-                return <span class="c-tab" onClick={this.onAdd}>
-                  <i class="cicon-add" style="margin: 0"/>
-                </span>
-              }
-            })()}
           </div>
           {this.tabs.map((tab, index) => {
-            if (this.cleanMode) {
-              if (index === this.activeIndex) {
-                return (
-                  <div class="c-tab-panel">{tab.slots.default}</div>
-                )
-              }
-            } else {
-              return (<div v-show={index === this.activeIndex} class="c-tab-panel">{tab.slots.default}</div>)
+            if (index === this.activeIndex) {
+              return (
+                <div class="zg-tab-panel">{tab.slot}</div>
+              )
             }
           })}
         </div>

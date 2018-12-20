@@ -1,12 +1,12 @@
 @import "../../../assets/styles/constants"
-.c-radio-list
+.zg-radio-list
   display: inline-block
   color: $color-font-title
   white-space: nowrap
   font-size: $size-font-content
-  .c-radio-item
+  .zg-radio-item
     cursor: pointer
-    .c-cycle
+    .zg-cycle
       vertical-align: middle
       margin-right: 10px
       display: inline-block
@@ -14,8 +14,8 @@
       height: 14px
       border-radius: 50%
       border: 1px solid $color-border-normal
-    &.c-checked
-      .c-cycle
+    &.zg-checked
+      .zg-cycle
         border: 1px solid $color-brand
         position: relative
         &:after
@@ -29,15 +29,9 @@
           height: 6px
           border-radius: 50%
           background: $color-brand
-    &.c-disable
+    &.zg-disable
       cursor: not-allowed
-      .c-cycle
+      .zg-cycle
         border-color: $color-action-disabled-default
         &:after
           background: $color-action-disabled-default
-  &.c-radio-row
-    .c-radio-item
-      float: left
-      margin-left: 20px
-      &:first-child
-        margin-left: 0

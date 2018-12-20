@@ -2,18 +2,18 @@
   import {util, dom} from '../../utils/index'
   import {emitter} from '../../mixins/main'
 
-  import CGridHeader from './gridHeader.vue'
-  import CGridCell from './gridCell.vue'
-  import CGrid from './grid.vue'
+  import ZgGridHeader from './gridHeader.vue'
+  import ZgGridCell from './gridCell.vue'
+  import ZgGrid from './grid.vue'
   /**
    * clickCell，以列上注册的事件优先
    */
   export default {
     components: {
-      CGrid,
-      CGridCell,
-      CGridHeader},
-    name: 'cDataGrid',
+      ZgGrid,
+      ZgGridCell,
+      ZgGridHeader},
+    name: 'zgDataGrid',
     mixins: [emitter],
     props: {
       /**
@@ -97,7 +97,8 @@
           left: false,
           right: false,
           center: false
-        }
+        },
+        dataList: []
       }
     },
     computed: {
@@ -133,14 +134,14 @@
       if (this._isDestroyed) return
       let styleSheet = []
       // 调整body中单元格高度
-      this.store.forEach((item, i) => {
+      this.dataList.forEach((item, i) => {
         if (this.pagination) {
           const startIndex = (this.pageNum - 1) * this.pageSize
           const endIndex = this.pageNum * this.pageSize
 
           if (i < startIndex || i >= endIndex) return
         }
-        const className = `.c-row-${this._uid}-${i}`
+        const className = `.zg-row-${this._uid}-${i}`
         const rows = document.querySelectorAll(className)
         let heights = []
         rows.forEach(row => {
@@ -170,7 +171,7 @@
           }
         })
       }
-      dom.addStyleSheet(`cDataGrid_${this._uid}`, styleSheet)
+      dom.addStyleSheet(`zgDataGrid_${this._uid}`, styleSheet)
     },
     methods: {
       /**
@@ -178,14 +179,14 @@
        * @param column
        */
       onSort (status, column) {
-        const headerList = this.children('cGridHeader')
+        const headerList = this.children('zgGridHeader', true)
         headerList.forEach(header => {
           if (header.$props.column !== column) {
             header.$data.sortStatus = 0
           }
         })
         const field = column.field
-        this.store.sort((a, b) => {
+        this.dataList.sort((a, b) => {
           if (this.customSort) {
             return this.customSort(a, b, field, status)
           } else {
@@ -204,24 +205,35 @@
         const left = this.$refs.left
         if (left) left.style['box-shadow'] = container.scrollLeft === 0 ? 'none' : '6px 0 6px -4px rgba(0,0,0,.2)'
         if (right) right.style['box-shadow'] = container.scrollLeft === (container.scrollWidth - container.offsetWidth) ? 'none' : '-6px 0 6px -4px rgba(0,0,0,.2)'
+      },
+      initDataList () {
+        this.dataList = util.clone(this.store)
       }
+    },
+    watch: {
+      store () {
+        this.initDataList()
+      }
+    },
+    created () {
+      this.initDataList()
     },
     render (h) {
       const listeners = this.$listeners
       return (
-        <div class="c-data-grid" style={this.gridStyle} ref="main">
-          <div class="c-hidden-structure">
+        <div class="zg-data-grid" style={this.gridStyle} ref="main">
+          <div class="zg-hidden-structure">
             {this.$slots.default}
-            <span class="c-grid-hover-color"></span>
+            <span class="zg-grid-hover-color"></span>
           </div>
-          <div class="c-grid-container">
+          <div class="zg-grid-container">
             {(() => {
               if (this.structure.left.length) {
                 return (
-                  <div class="c-grid-left" ref="left">
-                    <c-grid gridId={this._uid}
+                  <div class="zg-grid-left" ref="left">
+                    <zg-grid gridId={this._uid}
                              structure={this.structure.left}
-                             store={this.store}
+                             store={this.dataList}
                              showIndex={this.showIndex}
                              indexTitle={this.indexTitle}
                              pagination={this.pagination}
@@ -231,7 +243,7 @@
                              onSort={this.onSort}
                              chosenCells={this.chosenCells}
                              onClickCell={listeners.clickCell || (() => {})}
-                    ></c-grid>
+                    ></zg-grid>
                   </div>
                 )
               }
@@ -239,10 +251,10 @@
             {(() => {
               if (this.structure.center.length) {
                 return (
-                  <div class="c-grid-center" onScroll={this.onScroll} ref="center">
-                    <c-grid gridId={this._uid}
+                  <div class="zg-grid-center" onScroll={this.onScroll} ref="center">
+                    <zg-grid gridId={this._uid}
                              structure={this.structure.center}
-                             store={this.store}
+                             store={this.dataList}
                              showIndex={this.showIndex && !this.structure.left.length}
                              indexTitle={this.indexTitle}
                              pagination={this.pagination}
@@ -253,7 +265,7 @@
                              startColumnIndex={this.structure.left.length}
                              onSort={this.onSort}
                              onClickCell={listeners.clickCell || (() => {})}
-                    ></c-grid>
+                    ></zg-grid>
                   </div>
                 )
               }
@@ -261,10 +273,10 @@
             {(() => {
               if (this.structure.right.length) {
                 return (
-                  <div class="c-grid-right" ref="right">
-                    <c-grid gridId={this._uid}
+                  <div class="zg-grid-right" ref="right">
+                    <zg-grid gridId={this._uid}
                              structure={this.structure.right}
-                             store={this.store}
+                             store={this.dataList}
                              showIndex={this.showIndex && !this.structure.left.length && !this.structure.center.length}
                              pagination={this.pagination}
                              pageNum={this.pageNum}
@@ -274,13 +286,13 @@
                              startColumnIndex={this.structure.left.length + this.structure.center.length}
                              onSort={this.onSort}
                              onClickCell={listeners.clickCell || (() => {})}
-                    ></c-grid>
+                    ></zg-grid>
                   </div>
                 )
               }
             })()}
           </div>
-          <div v-show={!this.store.length} class="c-grid-empty">暂无数据</div>
+          <div v-show={!this.dataList.length} class="zg-grid-empty">暂无数据</div>
         </div>
       )
     }

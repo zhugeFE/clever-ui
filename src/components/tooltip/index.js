@@ -8,6 +8,7 @@ import tooltip from './tooltip.vue'
 
 tooltip.install = function (Vue) {
   Vue.component(tooltip.name, tooltip)
+  Vue.component(tooltip.name.replace(/c|C/, 'zg'), tooltip)
 }
 
 export default tooltip

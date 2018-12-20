@@ -2,7 +2,7 @@
   import Vue from 'vue'
   import {emitter} from '../../mixins/main'
   export default {
-    name: 'cTabPanel',
+    name: 'zgTabPanel',
     mixins: [emitter],
     props: {
       /**
@@ -17,10 +17,6 @@
        */
       icon: {
         type: String
-      },
-      closeAble: {
-        type: Boolean,
-        default: false
       }
     },
     data () {
@@ -28,25 +24,16 @@
         templateData: {
           title: this.title,
           icon: this.icon,
-          closeAble: this.closeAble,
-          slots: {
-            default: this.$slots.default,
-            title: this.$slots.title
-          }
+          slot: this.$slots.default
         }
       }
     },
-    mounted () {
-      const parent = this.parent('cTabs')
+    created () {
+      const parent = this.parent('zgTabs')
       parent.addTab(this.templateData)
     },
-    beforeDestroy () {
-      const parent = this.parent('cTabs')
-      parent.remove(this.templateData)
-    },
     render (h) {
-      Vue.set(this.templateData.slots, 'slot', this.$slots.default)
-      Vue.set(this.templateData.slots, 'title', this.$slots.title)
+      Vue.set(this.templateData, 'slot', this.$slots.default)
       return ''
     }
   }

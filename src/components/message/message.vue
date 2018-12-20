@@ -8,23 +8,24 @@
         message: '',
         autoHide: true,
         duration: 3000,
-        icon: ''
+        icon: '',
+        style: {}
       }
     },
     computed: {
       messageClass () {
         let clazz = {
-          'c-message': true
+          'zg-message': true
         }
-        clazz[`c-${this.type}`] = true
+        clazz[`zg-${this.type}`] = true
         return clazz
       },
       iconClass () {
-        if (this.icon) return ['c-icon', this.icon]
+        if (this.icon) return ['zg-icon', this.icon]
         return {
-          'c-icon': true,
-          'cicon-error_filled': this.type === 'error',
-          'cicon-check_filled': this.type === 'success'
+          'zg-icon': true,
+          'zgicon-error_filled': this.type === 'error',
+          'zgicon-check_filled': this.type === 'success'
         }
       }
     },
@@ -46,13 +47,13 @@
     },
     render (h) {
       return (
-        <div class={this.messageClass}>
+        <div class={this.messageClass} style={this.style}>
           <i class={this.iconClass}></i>
-          <span class="c-msg-content">{this.message}</span>
+          <span class="zg-msg-content">{this.message}</span>
           {(() => {
             if (!this.autoHide) {
               return (
-                <i onClick={this.close} class="c-close cicon-delete-little1"></i>
+                <i onClick={this.close} class="zg-close zgicon-delete-little1"></i>
               )
             }
           })()}

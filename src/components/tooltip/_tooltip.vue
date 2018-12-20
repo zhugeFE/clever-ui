@@ -7,7 +7,7 @@
         content: '',
         placement: '',
         trigger: null,
-        top: 99999999,
+        top: -99999999,
         left: 0,
         autoHide: true,
         width: 0,
@@ -37,9 +37,9 @@
           'bottom-left', 'bottom', 'bottom-right'
         ]
         let clazz = {}
-        clazz[`c-tooltip-` + this.theme] = true
+        clazz[`zg-tooltip-` + this.theme] = true
         rules.forEach(placement => {
-          clazz[`c-${placement}`] = this.placement === placement
+          clazz[`zg-${placement}`] = this.placement === placement
         })
         clazz[this.customClass] = true
         return clazz
@@ -49,10 +49,8 @@
       this.$nextTick(() => {
         if (!this.trigger) return
         const triggerRect = this.trigger.getBoundingClientRect()
-        const tipRect = {
-          width: this.$refs.tooltip.offsetWidth,
-          height: this.$refs.tooltip.offsetHeight
-        }
+        const tipRect = this.$refs.tooltip.getBoundingClientRect()
+
         const placement = this.placement.split('-')
         placement.forEach((position, i) => {
           if (i > 0)return
@@ -104,7 +102,13 @@
               if (this.customRender) {
                 return this.customRender
               } else {
-                return this.content
+                return [this.content, (() => {
+                  if (!this.autoHide) {
+                    return (
+                      <a href="javascript:void(0);" class="zg-tooltip-close" onClick={this.hide}>知道了</a>
+                    )
+                  }
+                })()]
               }
             })()}
           </span>

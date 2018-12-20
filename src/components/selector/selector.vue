@@ -1,20 +1,20 @@
 <script type="text/jsx">
-  import COption from './option.vue'
-  import CCheckbox from '../checkbox/checkbox.vue'
-  import COptGroup from './optGroup.vue'
+  import ZgOption from './option.vue'
+  import ZgCheckbox from '../checkbox/checkbox.vue'
+  import ZgOptGroup from './optGroup.vue'
   import {util} from '../../utils'
-  import CScrollContainer from '../scroll/scrollContainer'
-  import CSelectorHandle from './handle'
-  import CLoading from '../loading/loading'
+  import ZgScrollContainer from '../scroll/scrollContainer'
+  import ZgSelectorHandle from './handle'
+  import ZgLoading from '../loading/loading'
   export default {
     components: {
-      CLoading,
-      CScrollContainer,
-      COptGroup,
-      CCheckbox,
-      COption,
-      CSelectorHandle},
-    name: 'cSelector',
+      ZgLoading,
+      ZgScrollContainer,
+      ZgOptGroup,
+      ZgCheckbox,
+      ZgOption,
+      ZgSelectorHandle},
+    name: 'zgSelector',
     props: {
       /**
        * @description 选项唯一标识字段
@@ -260,15 +260,10 @@
       noData () {
         return this.innerStore.length === 0
       },
-      showNoMatch () {
-        return (!this.noData && this.noMatch) ||
-          (this.theme === 'tag' &&
-            this.innerStore.length === this.chosenList.length && !this.noData)
-      },
       filterClass () {
-        let clazz = ['c-select-search']
+        let clazz = ['zg-select-search']
         if (this.filter) {
-          clazz.push('c-active')
+          clazz.push('zg-active')
         }
         return clazz.join(' ')
       },
@@ -289,7 +284,7 @@
         let maxCount = (this.pageNum + 1) * this.pageSize
         let totalCount = 0
         let filter = this.filter
-        this.renderStore = []
+        let renderStore = []
         this.innerStore.forEach(item => {
           // 有分组
           if (this.childrenField) {
@@ -305,18 +300,19 @@
               }
               if (!filter || this.filterData(child)) totalCount++
             })
-            if (haveChildren) this.renderStore.push(item)
+            if (haveChildren) renderStore.push(item)
             map[item[this.keyField]] = haveChildren
           } else { // 没分组
             let flag = map.count < maxCount
             if (flag && ((!filter || this.filterData(item)))) {
               map[item[this.keyField]] = flag
               map.count++
-              this.renderStore.push(item)
+              renderStore.push(item)
             }
             if (!filter || this.filterData(item)) totalCount++
           }
         })
+        this.renderStore = renderStore
         this.totalCount = totalCount
         this.noMatch = filter && totalCount === 0
         return map
@@ -385,37 +381,21 @@
         this.$emit('input', this.chosenList[0])
       }
     },
-    /**
-     * @description 处理选项框左右及上下位置布局
-     */
     updated () {
-      if (this._isBeingDestroyed || this._isDestroyed) return
       const dropPanel = this.$refs.dropPanel
-      const handleRect = this.$refs.select.getBoundingClientRect()
+      if (!dropPanel) return
       const panelRect = dropPanel.getBoundingClientRect()
-      // 左右排列
+      const bottomHeight = window.innerHeight - panelRect.top - 7
+      dropPanel.style.maxHeight = Math.min(325, bottomHeight) + 'px'
       if ((panelRect.width + panelRect.left) > window.innerWidth) {
         dropPanel.style.right = '0px'
-      }
-      let margin = 7
-      let maxHeightOfTop = handleRect.top - margin
-      let pageHeight = (this.pageSize - 2) * 34 // 34是一个选项的高度, 减2是为了出滚动条
-      let maxHeightOfBottom = window.innerHeight - handleRect.top - handleRect.height - margin
-      if (panelRect.height > maxHeightOfBottom) { // 向下展开越界了
-        if (maxHeightOfBottom > maxHeightOfTop) { // 下面空间大，那就还向下展开
-          // 最大高度，不得高于pageSize的总高度，否则会造成无法滚动
-          dropPanel.style.maxHeight = Math.min(maxHeightOfBottom, pageHeight) + 'px'
-        } else { // 向上展开
-          dropPanel.style.maxHeight = Math.min(maxHeightOfTop, pageHeight) + 'px'
-          dropPanel.style.bottom = this.$refs.handle.$el.getBoundingClientRect().height + margin + 'px'
-        }
       }
     },
     methods: {
       filterData (data) {
         let filterReg = util.getRegExp(this.filter.toLowerCase())
         let flag = true
-        flag = filterReg.test((data[this.aliasField] || data[this.labelField]).toLowerCase())
+        flag = filterReg.test((data[this.aliasField] || data[this.labelField] || '').toLowerCase())
         return flag
       },
       onClickOutside () {
@@ -438,16 +418,11 @@
             if (this.childrenField) {
               option[this.childrenField].forEach(children => {
                 this.$set(this.checkedMap, children[this.keyField], children[this.keyField] === data[this.keyField])
-                if (children[this.keyField] === data[this.keyField] && !this.chosenList.length) {
-                  this.chosenList.push(children)
-                }
+                if (children[this.keyField] === data[this.keyField] && !this.chosenList.length) this.chosenList.push(children)
               })
             } else {
               this.$set(this.checkedMap, option[this.keyField], option[this.keyField] === data[this.keyField])
-              // 如果当前项与点击项相同，并且没有已选项，则选中当前项
-              if (option[this.keyField] === data[this.keyField] && !this.chosenList.length) {
-                this.chosenList.push(option)
-              }
+              if (option[this.keyField] === data[this.keyField] && !this.chosenList.length) this.chosenList.push(option)
             }
           })
           this.showOptions = false
@@ -526,23 +501,13 @@
             }
           })
         }
-        // 如果是单选
-        if (!this.multiple) {
-          this.chosenList.forEach((item, i) => {
-            if (item === option) {
-              this.chosenList.splice(i, 1)
-            }
-          })
-          this.$emit('input', null)
-          this.$emit('change', null, this)
-        }
+        this.onClickOption(false, option)
       }
     },
     render (h) {
       return (
-        <div class="c-select" ref="select" style={this.selectStyle} v-click-outside={this.onClickOutside}>
-          <c-selector-handle value={this.chosenList}
-                              ref="handle"
+        <div class="zg-select" style={this.selectStyle} v-click-outside={this.onClickOutside}>
+          <zg-selector-handle value={this.chosenList}
                               theme={this.theme}
                               placeholder={this.placeholder}
                               labelField={this.labelField}
@@ -550,7 +515,6 @@
                               splitStr={this.splitStr}
                               splitStrFormat={this.splitStrFormat}
                               width={this.width}
-                              size={this.size}
                               maxWidth={this.maxWidth}
                               active={this.showOptions}
                               keyField={this.keyField}
@@ -560,35 +524,33 @@
                               onDelete={this.onDelete}
                               onClick={this.onClickHandle}>
             {this.$slots.default}
-          </c-selector-handle>
+          </zg-selector-handle>
 
           <transition enter-active-class="animated slideInDown">
-            <ul v-show={this.showOptions} class="c-drop-panel" ref="dropPanel">
-              <div class="c-fixed" v-show={this.theme !== 'tag'}>
+            <ul v-show={this.showOptions} class="zg-drop-panel" ref="dropPanel">
+              <div class="zg-fixed" v-show={this.theme !== 'tag'}>
                 {(() => {
                   if (this.filterOption) {
                     return (
-                      <c-input icon="cicon-search"
+                      <zg-input icon="zgicon-search"
                                 width="100%"
                                 class={this.filterClass}
                                 clear-able
-                                ref="optionFilter" onInput={this.onFilter}></c-input>
+                                ref="optionFilter" onInput={this.onFilter}></zg-input>
                     )
                   }
                 })()}
-                <li v-show={this.multiple && this.chosenList.length && this.clearAble} class="c-clear">
+                <li v-show={this.multiple && this.chosenList.length && this.clearAble} class="zg-clear">
                   <a href="javascript:void(0)" onClick={this.clean}>清空</a>
                 </li>
               </div>
 
-              <c-scroll-container class="c-content"
-                                  ref="options"
-                                  onBottom={this.onBottom}>
-                <c-loading v-show={this.loading} size="small" tip="loading"></c-loading>
+              <zg-scroll-container class="zg-content" ref="options" onBottom={this.onBottom}>
+                <zg-loading v-show={this.loading} size="small" tip="loading"></zg-loading>
                 {this.renderStore.map(option => {
                   if (this.childrenField) {
                     return (
-                      <c-opt-group key={option[this.keyField]}
+                      <zg-opt-group key={option[this.keyField]}
                                     store={option[this.childrenField]}
                                     showMap={this.showMap}
                                     groupData={option}
@@ -606,11 +568,11 @@
                                       default: this.$scopedSlots.default,
                                       header: this.$scopedSlots.header
                                     }}
-                      ></c-opt-group>
+                      ></zg-opt-group>
                     )
                   } else {
                     return (
-                      <c-option key={option[this.keyField]}
+                      <zg-option key={option[this.keyField]}
                                  checked={this.checkedMap[option[this.keyField]]}
                                  disable={this.disableOptions.indexOf(option[this.keyField]) > -1}
                                  data={option}
@@ -620,17 +582,17 @@
                                  multiple={this.multiple}
                                  theme={this.theme}
                                  onClick={this.onClickOption}
-                                 scopedSlots={{default: this.$scopedSlots.default}}></c-option>
+                                 scopedSlots={{default: this.$scopedSlots.default}}></zg-option>
                     )
                   }
                 })}
-                <li v-show={this.noData} class="c-option c-error">
+                <li v-show={this.noData} class="zg-option zg-error">
                   {this.noDataText}
                 </li>
-                <li v-show={this.showNoMatch} class="c-option c-error">
+                <li v-show={!this.noData && this.noMatch} class="zg-option zg-error">
                   {this.noMatchText}
                 </li>
-              </c-scroll-container>
+              </zg-scroll-container>
             </ul>
           </transition>
           <div style="display: none">{this.showMap.count}</div>

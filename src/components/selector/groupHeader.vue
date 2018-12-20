@@ -1,5 +1,5 @@
 <template>
-  <li class="c-header" v-show="show">
+  <li class="zg-header" v-show="show">
     <slot :data="groupData">
       {{groupData[labelField]}}
     </slot>
@@ -8,7 +8,7 @@
 
 <script>
   export default {
-    name: 'cGroupHeader',
+    name: 'zgGroupHeader',
     props: {
       labelField: {
         type: String,

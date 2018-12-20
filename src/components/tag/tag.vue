@@ -1,18 +1,24 @@
 <template>
-  <div class="c-tag" :style="style" v-if="!closed">
+  <div class="zg-tag" :style="style" v-if="!closed">
     <slot></slot>
-    <i v-show="closeable" class="c-icon cicon-delete-little1" @click="onClose"></i>
+    <i v-show="closeable" class="zg-icon zgicon-delete-little1" @click="onClose"></i>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'cTag',
+  name: 'zgTag',
   props: {
+    /**
+     * @description 是否显示关闭按钮
+     */
     closeable: {
       type: Boolean,
       default: false
     },
+    /**
+     * @description 背景颜色
+     */
     color: {
       type: String,
       default: ''

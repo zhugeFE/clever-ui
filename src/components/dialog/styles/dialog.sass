@@ -1,5 +1,9 @@
 @import "../../../assets/styles/constants"
-.c-dialog
+.zg-dialog
+  min-width: 420px
+  min-height: 210px
+  max-width: 660px
+  max-height: 700px
   border: 1px solid $color-border-normal
   border-radius: $border-radius
   background: $color-white
@@ -12,7 +16,7 @@
   left: 50%
   transform: translate(-50%, -50%)
   z-index: $z-index-max
-  .c-dialog-head
+  .zg-dialog-head
     height: 58px
     line-height: 58px
     padding: 0 20px
@@ -20,18 +24,17 @@
     color: $color-brand-black
     border-bottom: 1px solid $color-border-normal
     flex: none
-  .c-dialog-content
+  .zg-dialog-content
     padding: 20px
-    flex: 1 1 auto
-    overflow: auto
-  .c-dialog-foot
+    flex: 0 1 auto
+  .zg-dialog-foot
     padding: 20px
     flex: none
-    .c-dialog-cancel, .c-dialog-confirm
+    .zg-dialog-cancel, .zg-dialog-confirm
       float: right
-    .c-dialog-cancel
+    .zg-dialog-cancel
       margin-right: 10px
-.c-dialog-layer
+.zg-dialog-layer
   position: fixed
   top: 0
   left: 0

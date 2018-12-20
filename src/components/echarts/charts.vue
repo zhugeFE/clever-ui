@@ -1,18 +1,16 @@
 <template>
-  <div class="c-charts" :style="style" v-resize="onResize">
-    <div class="c-charts-main" ref="toChart"></div>
-    <div v-show="!chartStore.series.length" :style="{'line-height': height + 'px'}" class="c-charts-empty">暂无数据</div>
+  <div class="zg-charts" :style="style" v-resize="onResize">
+    <div class="zg-charts-main" ref="toChart"></div>
+    <div v-show="!store.series.length" :style="{'line-height': height + 'px'}" class="zg-charts-empty">暂无数据</div>
   </div>
 </template>
 
 <script>
+  import echarts from 'echarts'
   import {util} from '../../utils'
   export default {
-    name: 'cCharts',
+    name: 'zgCharts',
     props: {
-      echarts: {
-        required: true
-      },
       /**
        * @description 图表宽度，默认自适应
        */
@@ -116,6 +114,10 @@
           return label
         }
       },
+      legendShow: {
+        type: Boolean,
+        default: true
+      },
       /**
        * @description 显示数据项（从store中过滤），对应series中的names字段
        * @格式[['group', 'item1'], ['group', 'item2']]或['item1', 'item2']
@@ -140,7 +142,12 @@
       colors: {
         type: Array,
         default () {
-          return util.colors
+          return [
+            '#00a0e9', '#f4b93b', '#85bd41', '#f29c9f', '#8f82bc',
+            '#0068b7', '#f29b76', '#13b5b1', '#ea68a2', '#fff100',
+            '#1ec0ff', '#f9a11b', '#8cd790', '#40ccca', '#aaabd3',
+            '#2b90d9', '#ec7a4a', '#f29b76', '#ea68a2', '#ffdd38'
+          ]
         }
       },
       /**
@@ -180,20 +187,12 @@
         default (series) {
           return series
         }
-      },
-      /**
-       * @description option包装器，用来完全自定义option选项
-       */
-      optionWrapper: {
-        type: Function,
-        default (option) {
-          return option
-        }
       }
     },
     data () {
       return {
-        chart: null
+        chart: null,
+        resizeTimer: null
       }
     },
     computed: {
@@ -287,9 +286,6 @@
           yAxis: this.getYAxis(),
           series: this.getSeries()
         }
-        if (this.optionWrapper) {
-          option = this.optionWrapper(option)
-        }
         return option
       }
     },
@@ -299,11 +295,14 @@
       }
     },
     mounted () {
-      this.chart = this.echarts.init(this.$refs.toChart)
+      this.chart = echarts.init(this.$refs.toChart)
       this.setOption(this.option)
     },
     beforeDestroy () {
       if (!this.chart) return
+      if (this.resizeTimer) {
+        clearTimeout(this.resizeTimer)
+      }
       this.chart.dispose()
       this.chart = null
     },
@@ -422,7 +421,7 @@
           borderColor: 'red',
           borderWidth: 0,
           width: '60%',
-          show: legendList.length > 1,
+          show: this.legendShow && legendList.length > 0,
           formatter: this.legendFormatter
         }
       },
@@ -569,6 +568,18 @@
       },
       onResize () {
         if (!this.chart) return
+        // 当图表被隐藏时发生resize事件后会导致图表渲染异常，需要延时矫正
+        let rect = this.$refs.toChart.getBoundingClientRect()
+        if (!rect.width || !rect.height) {
+          if (this.resizeTimer) {
+            clearTimeout(this.resizeTimer)
+          }
+          this.resizeTimer = setTimeout(() => {
+            this.onResize(false)
+          }, 300)
+          return
+        }
+        this.chart.resize()
         this.setOption(this.option)
         this.$nextTick(() => {
           this.chart.resize()

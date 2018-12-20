@@ -1,7 +1,7 @@
 <template>
-  <span class="c-checkbox" :class="clazz" @click.stop="onChange">
-    <span class="c-box">
-      <i v-if="checked" class="cicon-check_small"></i>
+  <span class="zg-checkbox" :class="clazz" @click.stop="onChange">
+    <span class="zg-box">
+      <i v-if="checked" class="zgicon-check_small"></i>
     </span>
     <slot>
       <span>{{label}}</span>
@@ -11,7 +11,7 @@
 
 <script>
   export default {
-    name: 'cCheckbox',
+    name: 'zgCheckbox',
     props: {
       /**
        * @description 默认选中状态,使用时，通过v-model的形式

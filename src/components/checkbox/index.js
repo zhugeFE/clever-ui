@@ -8,6 +8,7 @@ import checkbox from './checkbox.vue'
 
 checkbox.install = (Vue) => {
   Vue.component(checkbox.name, checkbox)
+  Vue.component(checkbox.name.replace(/c|C/, 'zg'), checkbox)
 }
 
 export default checkbox
