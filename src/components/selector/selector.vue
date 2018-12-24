@@ -400,16 +400,15 @@
       }
       let margin = 7
       let maxHeightOfTop = handleRect.top - margin
-      let pageHeight = (this.pageSize - 2) * 34 // 34是一个选项的高度, 减2是为了出滚动条
+      let pageHeight = Math.min(this.pageSize, this.store.length) * 34 + (this.filterOption ? 42 : 0) // 34是一个选项的高度
       let maxHeightOfBottom = window.innerHeight - handleRect.top - handleRect.height - margin
-      if (panelRect.height > maxHeightOfBottom) { // 向下展开越界了
-        if (maxHeightOfBottom > maxHeightOfTop) { // 下面空间大，那就还向下展开
-          // 最大高度，不得高于pageSize的总高度，否则会造成无法滚动
-          dropPanel.style.maxHeight = Math.min(maxHeightOfBottom, pageHeight) + 'px'
-        } else { // 向上展开
-          dropPanel.style.maxHeight = Math.min(maxHeightOfTop, pageHeight) + 'px'
-          dropPanel.style.bottom = this.$refs.handle.$el.getBoundingClientRect().height + margin + 'px'
-        }
+      if (maxHeightOfBottom > maxHeightOfTop) { // 下面空间大，那就还向下展开
+        // 最大高度，不得高于pageSize的总高度，否则会造成无法滚动
+        dropPanel.style.height = Math.min(maxHeightOfBottom, pageHeight) + 'px'
+        dropPanel.style.top = this.$refs.handle.$el.getBoundingClientRect().height + margin + 'px'
+      } else { // 向上展开
+        dropPanel.style.height = Math.min(maxHeightOfTop, pageHeight) + 'px'
+        dropPanel.style.bottom = this.$refs.handle.$el.getBoundingClientRect().height + margin + 'px'
       }
     },
     methods: {
