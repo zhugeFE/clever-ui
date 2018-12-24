@@ -1,6 +1,6 @@
 {
   "name": "clever-ui",
-  "version": "1.0.60",
+  "version": "1.0.61",
   "description": "VUE组件库",
   "scripts": {
     "start": "node build/dev-server.js",
