@@ -105,6 +105,8 @@
         let style = {}
         if (this.width) {
           style.width = `${this.width}px`
+        } else {
+          style.width = '100%'
         }
         return style
       },
