@@ -336,7 +336,7 @@
         this.chosenList = []
         this.$set(this, 'checkedMap', {})
         if (!value) return
-        if (!this.multiple) {
+        if (!this.multiple) { // 单选
           this.innerStore.forEach(option => {
             if (this.childrenField) {
               option[this.childrenField].forEach(child => {
@@ -355,9 +355,9 @@
             }
           })
           if (this.noData) this.$emit('input', this.chosenList[0])
-        } else {
+        } else { // 多选
           this.innerStore.forEach(option => {
-            if (this.childrenField) {
+            if (this.childrenField) { // 有分组
               option[this.childrenField].forEach(child => {
                 value.forEach(defaultOption => {
                   if (child[this.keyField] === defaultOption[this.keyField]) {
@@ -366,7 +366,7 @@
                   }
                 })
               })
-            } else {
+            } else { // 没有分组
               value.forEach(defaultOption => {
                 if (option[this.keyField] === defaultOption[this.keyField]) {
                   this.checkedMap[option[this.keyField]] = true
@@ -387,29 +387,21 @@
       }
     },
     /**
-     * @description 处理选项框左右及上下位置布局
+     * @description 处理选项框左右及上下位置布局 todo 位置计算优化
      */
     updated () {
       if (this._isBeingDestroyed || this._isDestroyed) return
       const dropPanel = this.$refs.dropPanel
-      const handleRect = this.$refs.select.getBoundingClientRect()
+      const dropHandle = this.$refs.handle
+      if (!dropPanel || !dropHandle) return
       const panelRect = dropPanel.getBoundingClientRect()
-      // 左右排列
+      const handleRect = dropHandle.$el.getBoundingClientRect()
+      const bottomHeight = window.innerHeight - panelRect.top - 7
+      dropPanel.style.maxHeight = Math.min(325, bottomHeight) + 'px'
       if ((panelRect.width + panelRect.left) > window.innerWidth) {
         dropPanel.style.right = '0px'
       }
-      let margin = 7
-      let maxHeightOfTop = handleRect.top - margin
-      let pageHeight = Math.min(this.pageSize, this.store.length) * 34 + (this.filterOption ? 42 : 0) // 34是一个选项的高度
-      let maxHeightOfBottom = window.innerHeight - handleRect.top - handleRect.height - margin
-      if (maxHeightOfBottom > maxHeightOfTop) { // 下面空间大，那就还向下展开
-        // 最大高度，不得高于pageSize的总高度，否则会造成无法滚动
-        dropPanel.style.height = Math.min(maxHeightOfBottom, pageHeight) + 'px'
-        dropPanel.style.top = this.$refs.handle.$el.getBoundingClientRect().height + margin + 'px'
-      } else { // 向上展开
-        dropPanel.style.height = Math.min(maxHeightOfTop, pageHeight) + 'px'
-        dropPanel.style.bottom = this.$refs.handle.$el.getBoundingClientRect().height + margin + 'px'
-      }
+      dropPanel.style.top = handleRect.height + 5 + 'px'
     },
     methods: {
       filterData (data) {
@@ -526,13 +518,14 @@
             }
           })
         }
+        this.chosenList.forEach((item, i) => {
+          if (item === option) {
+            this.checkedMap[option[this.keyField]] = false
+            this.chosenList.splice(i, 1)
+          }
+        })
         // 如果是单选
         if (!this.multiple) {
-          this.chosenList.forEach((item, i) => {
-            if (item === option) {
-              this.chosenList.splice(i, 1)
-            }
-          })
           this.$emit('input', null)
           this.$emit('change', null, this)
         }

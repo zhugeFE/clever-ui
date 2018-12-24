@@ -3,14 +3,15 @@
     <demo-panel subtitle="tag模式">
       <c-selector :store="[]" labelField="label" keyField="key"></c-selector>
       <c-selector keyField="id"
-                   :store="store"
-                   placeholder="单选"
-                   labelField="label"
-                   filterOption
-                   icon-field="icon"
-                   theme="tag"
-                   :maxWidth="450"
-                   v-model="result">
+                  :store="store"
+                  placeholder="单选"
+                  labelField="label"
+                  filterOption
+                  icon-field="icon"
+                  theme="tag"
+                  multiple
+                  :maxWidth="450"
+                  v-model="result">
       </c-selector>
     </demo-panel>
   </div>
