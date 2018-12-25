@@ -180,7 +180,7 @@
        * @param column
        */
       onSort (status, column) {
-        const headerList = this.children('cGridHeader', true)
+        const headerList = this.children('cGridHeader')
         headerList.forEach(header => {
           if (header.$props.column !== column) {
             header.$data.sortStatus = 0

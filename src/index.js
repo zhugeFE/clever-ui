@@ -19,6 +19,8 @@ import {calendar} from './components/calendar'
 import pagination from './components/pagination'
 import tree from './components/tree'
 import flow from './components/flow'
+import dropdown from './components/dropDown/index'
+import {datePicker} from './components/datePicker/index'
 import {util} from './utils'
 
 import msg from './components/message'
@@ -51,6 +53,8 @@ const components = [
   pagination,
   tree,
   flow,
+  dropdown,
+  datePicker,
 
   charts
 ]

@@ -27,6 +27,7 @@ export default {
         'grid',
         'pagination',
         'calendar',
+        'datePicker',
         'tooltip',
         'badge',
         'loading',

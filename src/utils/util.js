@@ -64,18 +64,25 @@ let util = {
    * @param formatter
    * @returns {string}
    */
-  timeFormat (date = new Date(), formatter = 'hh:mm:ss') {
+  timeFormat (date = new Date(), formatter = 'hh:mm:ss', autoShort) {
     if (this.isDate(date)) {
       return formatter.replace('hh', this.toDoubleNumber(date.getHours()))
         .replace('mm', this.toDoubleNumber(date.getMinutes()))
         .replace('ss', this.toDoubleNumber(date.getSeconds()))
     } else if (this.isNumber(date)) {
       // formatter 格式化规则 如:{s:'秒', h:'小时', m: '分钟'}
-      let s = parseInt((parseFloat(date) / 1000).toFixed(0))
+      let s = parseInt(date / 1000)
       let m = parseInt(s / 60)
       let h = parseInt(m / 60)
       s = s - m * 60
       m = m - h * 60
+      if (!h && autoShort) {
+        formatter = formatter.replace(/hh\S*?mm/, 'mm')
+        if (!m) {
+          formatter = formatter.replace(/mm\S*?ss/, 'ss')
+          return formatter.replace('ss', s)
+        }
+      }
       return formatter.replace('hh', this.toDoubleNumber(h))
         .replace('mm', this.toDoubleNumber(m))
         .replace('ss', this.toDoubleNumber(s))

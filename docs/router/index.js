@@ -21,6 +21,7 @@ import overview from '../modules/overview/index'
 import calendar from '../modules/calendar/index'
 import pagination from '../modules/pagination/index'
 import notification from '../modules/notification/index'
+import datePicker from '../modules/datePicker/index'
 
 Vue.use(Router)
 
@@ -76,6 +77,11 @@ export default new Router({
           path: '/calendar',
           name: 'calendar',
           component: calendar
+        },
+        {
+          path: '/datepicker',
+          name: 'datePicker',
+          component: datePicker
         },
         {
           path: '/tooltip',
