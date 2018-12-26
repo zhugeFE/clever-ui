@@ -23,25 +23,67 @@
         </thead>
         <tbody class="c-cld-body">
         <tr v-for="(week, i) of days" :key="i">
-          <td v-for="day of week"
-              :class="{'c-day': true, 'c-other-month': isOtherMonth(day), 'c-checked': util.isOneDay(day, chosenDate), 'c-today': util.isOneDay(day, new Date())}"
-              @click="onClickDay(day)">
-            {{dateFormat(day)}}
-          </td>
+          <c-picker-day v-for="day of week"
+                        :key="day.getTime()"
+                        :day="day"
+                        :min="min"
+                        :max="max"
+                        :highlight-start="highlightStart"
+                        :highlight-end="highlightEnd"
+                        :current-date="currentDate"
+                        :chosen-date="chosenDate"
+                        @click="onClickDay"></c-picker-day>
         </tr>
         </tbody>
       </table>
-      <div class="c-to-today"><span @click="toToday">今天</span></div>
+      <div class="c-to-today" v-if="showToday"><span @click="toToday">今天</span></div>
     </div>
   </div>
 </template>
 
 <script>
 import {util} from '../../utils'
+import CPickerDay from './day'
 export default {
   name: 'cDatePicker',
+  components: {CPickerDay},
   props: {
-    value: null
+    value: null,
+    showToday: {
+      type: Boolean,
+      default: true
+    },
+    /**
+     * @description todo 保持展开状态
+     */
+    keepExpand: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * 最小时间
+     */
+    min: {
+      type: Date
+    },
+    /**
+     * 最大时间
+     */
+    max: {
+      type: Date
+    },
+    /**
+     * 高亮的起始日期
+     */
+    highlightStart: {
+      type: Date
+    },
+    /**
+     * 高亮的结束日期
+     */
+    highlightEnd: {
+      type: Date
+    }
   },
   data () {
     let chosenDate = this.value || new Date()
@@ -53,12 +95,6 @@ export default {
     }
   },
   methods: {
-    dateFormat (date) {
-      return util.dateFormat(date, 'dd')
-    },
-    isOtherMonth (day) {
-      return new Date(day).getMonth() !== this.currentDate.getMonth()
-    },
     getDays (date) {
       let firstDay = new Date(date.getFullYear(), date.getMonth(), 1)
       let firstOfWeek = new Date(firstDay.getTime() - firstDay.getDay() * util.dayTime)
@@ -81,6 +117,7 @@ export default {
       this.currentDate = new Date(day)
       this.days = this.getDays(this.chosenDate)
       this.$emit('input', this.chosenDate)
+      this.$emit('change', this.chosenDate)
     },
     toToday () {
       this.currentDate = new Date()

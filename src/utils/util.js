@@ -98,23 +98,16 @@ let util = {
     return this.dateFormat(day1) === this.dateFormat(day2)
   },
   /**
-   * 获取两个日期的时差天数
-   * @param day1
-   * @param day2
-   * @returns {number}
-   */
-  getTimeLong (day1, day2) {
-    return Math.ceil(Math.abs((day1.getTime() - day2.getTime()) / this.dayTime)) + 1
-  },
-  /**
    * 比较两个日期大小，并返回天数差
    * @param day1
    * @param day2
    * @returns {number}
    */
   compareDays (day1, day2) {
-    let res = (day1.getTime() - day2.getTime()) / this.dayTime
-    return (this.getTimeLong(day1, day2) - 1) * (res > 0 ? 1 : -1)
+    let a = new Date(day1.getFullYear(), day1.getMonth(), day1.getDate())
+    let b = new Date(day2.getFullYear(), day2.getMonth(), day2.getDate())
+    let res = (a.getTime() - b.getTime()) / this.dayTime
+    return res
   },
   /**
    * 获取指定范围的随机数

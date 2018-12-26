@@ -1,8 +1,12 @@
 <template>
   <div>
-    <c-date-picker v-model="date"></c-date-picker>
-
+    <c-date-picker v-model="date" :min="min" :max="max"></c-date-picker>
     {{date.toLocaleDateString()}}
+
+    <div style="margin-top: 10px">
+      <c-date-range-picker v-model="range" :min="min" :max="max"></c-date-range-picker>
+      {{range.map(date => date.toLocaleDateString())}}
+    </div>
   </div>
 </template>
 
@@ -11,7 +15,10 @@ export default {
   name: 'index',
   data () {
     return {
-      date: new Date()
+      range: [new Date(new Date().getTime() - 3 * this.$util.dayTime), new Date()],
+      date: new Date(),
+      min: new Date(new Date().getTime() - 10 * this.$util.dayTime),
+      max: new Date(new Date().getTime() + 10 * this.$util.dayTime)
     }
   }
 }

@@ -35,7 +35,7 @@ export default {
   },
   computed: {
     dayCount () {
-      return util.getTimeLong(this.task.beginDate, this.task.endDate)
+      return util.compareDays(this.task.beginDate, this.task.endDate)
     },
     // 如果当前日期是周日，并且任务的开始时间早于当前日期，结束时间晚于当前日期
     isCrossWeek () {
@@ -53,7 +53,7 @@ export default {
         dayCount = 6 - this.day.getDay() + 1
       }
       if (this.isCrossWeek) {
-        dayCount = Math.min(util.getTimeLong(this.day, this.task.endDate) - 1, 7)
+        dayCount = Math.min(util.compareDays(this.day, this.task.endDate) - 1, 7)
       }
       return {
         width: `${dayCount * this.width - 10}px`,
