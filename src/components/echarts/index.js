@@ -5,9 +5,11 @@
  *
  */
 import charts from './charts.vue'
+import pieChart from './pie'
 
 const components = [
-  charts
+  charts,
+  pieChart
 ]
 components.forEach(component => {
   component.install = function (Vue) {
@@ -17,5 +19,6 @@ components.forEach(component => {
 })
 
 export {
-  charts
+  charts,
+  pieChart
 }

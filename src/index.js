@@ -13,7 +13,7 @@ import dialog from './components/dialog'
 import reload from './components/reload'
 import radio from './components/radio'
 import {scrollContainer, scrollLazyPanel} from './components/scroll'
-import {charts} from './components/echarts'
+import {charts, pieChart} from './components/echarts'
 import tag from './components/tag'
 import {calendar} from './components/calendar'
 import pagination from './components/pagination'
@@ -57,7 +57,8 @@ const components = [
   datePicker,
   dateRangePicker,
 
-  charts
+  charts,
+  pieChart
 ]
 
 const install = function (Vue) {
@@ -83,5 +84,34 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  install
+  install,
+  button,
+  radioButton,
+  input,
+  selector,
+  option,
+  optGroup,
+  checkbox,
+  dataGrid,
+  gridColumn,
+  tooltip,
+  badge,
+  loading,
+  tabs,
+  tabPanel,
+  dialog,
+  reload,
+  radio,
+  scrollContainer,
+  scrollLazyPanel,
+  tag,
+  calendar,
+  pagination,
+  tree,
+  flow,
+  dropdown,
+  datePicker,
+  dateRangePicker,
+  charts,
+  pieChart
 }

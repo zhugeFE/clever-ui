@@ -1,0 +1,55 @@
+{
+  "app_data": {
+    "series": [
+      {
+        "names": [
+          "FIREFOX"
+        ],
+        "original_names": [
+          "FIREFOX"
+        ],
+        "values": [
+          1
+        ]
+      },
+      {
+        "names": [
+          "MOBILE_SAFARI"
+        ],
+        "original_names": [
+          "MOBILE_SAFARI"
+        ],
+        "values": [
+          1
+        ]
+      },
+      {
+        "names": [
+          "CHROME_MOBILE"
+        ],
+        "original_names": [
+          "CHROME_MOBILE"
+        ],
+        "values": [
+          1
+        ]
+      },
+      {
+        "names": [
+          "CHROME"
+        ],
+        "original_names": [
+          "CHROME"
+        ],
+        "values": [
+          1
+        ]
+      }
+    ],
+    "x_axis": [
+      "2018-12-03|2018-12-25"
+    ]
+  },
+  "code": 10001,
+  "msg": "Request success"
+}
