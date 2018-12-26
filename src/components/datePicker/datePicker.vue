@@ -94,6 +94,13 @@ export default {
       days: this.getDays(chosenDate)
     }
   },
+  watch: {
+    value (date) {
+      this.chosenDate = new Date(date)
+      this.currentDate = new Date(date)
+      this.days = this.getDays(this.chosenDate)
+    }
+  },
   methods: {
     getDays (date) {
       let firstDay = new Date(date.getFullYear(), date.getMonth(), 1)

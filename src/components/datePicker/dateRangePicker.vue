@@ -48,20 +48,27 @@ export default {
       endDate: new Date()
     }
     if (this.value) {
-      data.startDate = this.value[0]
-      data.endDate = this.value[1]
+      data.startDate = this.value.startDate
+      data.endDate = this.value.endDate
     }
     return data
   },
   computed: {
     output () {
-      return [
-        this.startDate,
-        this.endDate
-      ]
+      return {
+        startDate: this.startDate,
+        endDate: this.endDate
+      }
     }
   },
   watch: {
+    value: {
+      handler: function (val) {
+        this.startDate = val.startDate
+        this.endDate = val.endDate
+      },
+      deep: true
+    },
     output () {
       this.$emit('input', this.output)
     }
