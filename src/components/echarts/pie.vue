@@ -29,6 +29,29 @@ export default {
     height: {
       type: Number,
       default: 400
+    },
+    /**
+     * @description 显示数据项（从store中过滤），对应series中的names字段。如果没传的话，默认会展示前10条记录
+     * @格式[['group', 'item1'], ['group', 'item2']]或['item1', 'item2']
+     */
+    showList: {
+      type: Array
+    },
+    /**
+     * @description 默认展示showList指定的条目或者前10条记录，并生成"其它"记录。showAll置为true后，将强制在饼图上展示所有记录
+     */
+    showAll: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * @description option包装器，用来完全自定义option选项
+     */
+    optionWrapper: {
+      type: Function,
+      default (option) {
+        return option
+      }
     }
   },
   data () {
@@ -49,31 +72,67 @@ export default {
         return item.names.join('-')
       })
     },
+    showMap () {
+      let map = {}
+      this.showList.forEach(names => {
+        map[names.join('-')] = true
+      })
+      return map
+    },
     seriesData () {
-      return this.store.map(item => {
-        return {
+      let list = []
+      let other = {
+        name: '其它',
+        value: 0,
+        itemStyle: {
+          color: '#E1E3E6'
+        }
+      }
+      this.store.forEach(item => {
+        let series = {
           name: item.names.join('-'),
           value: item.values[0]
         }
+        if (this.showAll) {
+          list.push(series)
+        } else {
+          if ((this.showList &&
+            this.showMap[series.name]) ||
+            (!this.showList && list.length < 10)) { // 数据被showList命中，或者没定义showList，但位于前十的记录
+            list.push(series)
+          } else {
+            other.value += item.values[0]
+          }
+        }
       })
+      if (!this.showAll && other.value > 0) list.push(other)
+      return list
     },
     option () {
       return {
+        color: util.colors,
+        backgroundColor: 'white',
         tooltip: {
-          trigger: 'item'
+          trigger: 'item',
+          formatter: '{b}: {c} ({d}%)'
         },
         legend: {
-          data: this.legend
+          data: this.legend,
+          type: 'scroll'
         },
         series: [
           {
             type: 'pie',
             radius: ['50%', '70%'],
-            avoidLabelOverlap: false,
             data: this.seriesData
           }
         ]
       }
+    }
+  },
+  watch: {
+    option () {
+      this.setOption(this.option)
     }
   },
   mounted () {
@@ -85,10 +144,7 @@ export default {
   },
   methods: {
     setOption (option) {
-      this.chart.setOption(this.resizeGrid(util.clone(option)))
-    },
-    resizeGrid (option) {
-      return option
+      this.chart.setOption(this.optionWrapper(util.clone(option)))
     },
     onResize () {
       if (!this.chart) return

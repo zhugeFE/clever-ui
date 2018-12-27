@@ -3,10 +3,23 @@
     "series": [
       {
         "names": [
-          "FIREFOX"
+          "所有用户",
+          "CHROME31"
         ],
         "original_names": [
-          "FIREFOX"
+          "CHROME31"
+        ],
+        "values": [
+          6
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "CHROME10"
+        ],
+        "original_names": [
+          "CHROME10"
         ],
         "values": [
           1
@@ -14,10 +27,23 @@
       },
       {
         "names": [
-          "MOBILE_SAFARI"
+          "所有用户",
+          "CHROME38"
         ],
         "original_names": [
-          "MOBILE_SAFARI"
+          "CHROME38"
+        ],
+        "values": [
+          4
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "CHROME35"
+        ],
+        "original_names": [
+          "CHROME35"
         ],
         "values": [
           1
@@ -25,29 +51,475 @@
       },
       {
         "names": [
+          "所有用户",
           "CHROME_MOBILE"
         ],
         "original_names": [
           "CHROME_MOBILE"
         ],
         "values": [
+          224
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "FIREFOX2"
+        ],
+        "original_names": [
+          "FIREFOX2"
+        ],
+        "values": [
           1
         ]
       },
       {
         "names": [
+          "所有用户",
           "CHROME"
         ],
         "original_names": [
           "CHROME"
         ],
         "values": [
+          2670
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "CHROME51"
+        ],
+        "original_names": [
+          "CHROME51"
+        ],
+        "values": [
+          7
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "CHROME30"
+        ],
+        "original_names": [
+          "CHROME30"
+        ],
+        "values": [
           1
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "OPERA"
+        ],
+        "original_names": [
+          "OPERA"
+        ],
+        "values": [
+          4
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "FIREFOX44"
+        ],
+        "original_names": [
+          "FIREFOX44"
+        ],
+        "values": [
+          3
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "FIREFOX"
+        ],
+        "original_names": [
+          "FIREFOX"
+        ],
+        "values": [
+          120
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "FIREFOX45"
+        ],
+        "original_names": [
+          "FIREFOX45"
+        ],
+        "values": [
+          2
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "MOBILE_SAFARI"
+        ],
+        "original_names": [
+          "MOBILE_SAFARI"
+        ],
+        "values": [
+          100
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "SAFARI"
+        ],
+        "original_names": [
+          "SAFARI"
+        ],
+        "values": [
+          131
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "IE10"
+        ],
+        "original_names": [
+          "IE10"
+        ],
+        "values": [
+          1
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "IE7"
+        ],
+        "original_names": [
+          "IE7"
+        ],
+        "values": [
+          19
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "IE9"
+        ],
+        "original_names": [
+          "IE9"
+        ],
+        "values": [
+          37
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "FIREFOX_MOBILE"
+        ],
+        "original_names": [
+          "FIREFOX_MOBILE"
+        ],
+        "values": [
+          1
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "EDGE"
+        ],
+        "original_names": [
+          "EDGE"
+        ],
+        "values": [
+          82
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "IE8"
+        ],
+        "original_names": [
+          "IE8"
+        ],
+        "values": [
+          16
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "IE11"
+        ],
+        "original_names": [
+          "IE11"
+        ],
+        "values": [
+          40
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "CHROME45"
+        ],
+        "original_names": [
+          "CHROME45"
+        ],
+        "values": [
+          4
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "CHROME42"
+        ],
+        "original_names": [
+          "CHROME42"
+        ],
+        "values": [
+          1
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "CHROME43"
+        ],
+        "original_names": [
+          "CHROME43"
+        ],
+        "values": [
+          2
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "CHROME48"
+        ],
+        "original_names": [
+          "CHROME48"
+        ],
+        "values": [
+          16
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "CHROME49"
+        ],
+        "original_names": [
+          "CHROME49"
+        ],
+        "values": [
+          32
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "BOT"
+        ],
+        "original_names": [
+          "BOT"
+        ],
+        "values": [
+          15
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "CHROME47"
+        ],
+        "original_names": [
+          "CHROME47"
+        ],
+        "values": [
+          12
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "CHROME40"
+        ],
+        "original_names": [
+          "CHROME40"
+        ],
+        "values": [
+          1
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "CHROME41"
+        ],
+        "original_names": [
+          "CHROME41"
+        ],
+        "values": [
+          1
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "SAFARI9"
+        ],
+        "original_names": [
+          "SAFARI9"
+        ],
+        "values": [
+          3
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "CHROME39"
+        ],
+        "original_names": [
+          "CHROME39"
+        ],
+        "values": [
+          43
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "UNKNOWN"
+        ],
+        "original_names": [
+          "UNKNOWN"
+        ],
+        "values": [
+          2
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "APPLE_WEB_KIT"
+        ],
+        "original_names": [
+          "APPLE_WEB_KIT"
+        ],
+        "values": [
+          92
+        ]
+      },
+      {
+        "names": [
+          "所有用户",
+          "EDGE14"
+        ],
+        "original_names": [
+          "EDGE14"
+        ],
+        "values": [
+          2
+        ]
+      },
+      {
+        "names": [
+          "实名-手机号",
+          "FIREFOX"
+        ],
+        "original_names": [
+          "FIREFOX"
+        ],
+        "values": [
+          3
+        ]
+      },
+      {
+        "names": [
+          "实名-手机号",
+          "CHROME49"
+        ],
+        "original_names": [
+          "CHROME49"
+        ],
+        "values": [
+          2
+        ]
+      },
+      {
+        "names": [
+          "实名-手机号",
+          "CHROME_MOBILE"
+        ],
+        "original_names": [
+          "CHROME_MOBILE"
+        ],
+        "values": [
+          13
+        ]
+      },
+      {
+        "names": [
+          "实名-手机号",
+          "SAFARI"
+        ],
+        "original_names": [
+          "SAFARI"
+        ],
+        "values": [
+          16
+        ]
+      },
+      {
+        "names": [
+          "实名-手机号",
+          "CHROME"
+        ],
+        "original_names": [
+          "CHROME"
+        ],
+        "values": [
+          93
+        ]
+      },
+      {
+        "names": [
+          "实名-手机号",
+          "EDGE14"
+        ],
+        "original_names": [
+          "EDGE14"
+        ],
+        "values": [
+          1
+        ]
+      },
+      {
+        "names": [
+          "实名-手机号",
+          "EDGE"
+        ],
+        "original_names": [
+          "EDGE"
+        ],
+        "values": [
+          2
         ]
       }
     ],
     "x_axis": [
-      "2018-12-03|2018-12-25"
+      "2018-12-20|2018-12-26"
     ]
   },
   "code": 10001,
