@@ -12,8 +12,8 @@
 
       <div v-if="showFoot" class="c-dialog-foot">
         <slot name="footer">
-          <c-button class="c-dialog-confirm" type="primary" @click="onConfirm">{{confirmLabel}}</c-button>
-          <c-button class="c-dialog-cancel" @click="onCancel">{{cancelLabel}}</c-button>
+          <c-button class="c-dialog-confirm" size="normal" type="primary" @click="onConfirm">{{confirmLabel}}</c-button>
+          <c-button class="c-dialog-cancel" v-if="showCancel" size="normal" @click="onCancel">{{cancelLabel}}</c-button>
         </slot>
       </div>
     </div>
@@ -45,6 +45,10 @@
       confirmLabel: {
         type: String,
         default: '确定'
+      },
+      showCancel: {
+        type: Boolean,
+        default: true
       }
     },
     methods: {

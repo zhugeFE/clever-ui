@@ -1,14 +1,14 @@
 <template>
   <div>
     <pie-chart></pie-chart>
-    <!--<area-chart></area-chart>-->
-    <!--<stack-bar-chart></stack-bar-chart>-->
-    <!--<bar-chart></bar-chart>-->
-    <!--<line-chart></line-chart>-->
-    <!--<double-line></double-line>-->
-    <!--<multiple-chart></multiple-chart>-->
-    <!--<reverse></reverse>-->
-    <!--<doc-markdown :api="api"></doc-markdown>-->
+    <area-chart></area-chart>
+    <stack-bar-chart></stack-bar-chart>
+    <bar-chart></bar-chart>
+    <line-chart></line-chart>
+    <double-line></double-line>
+    <multiple-chart></multiple-chart>
+    <reverse></reverse>
+    <doc-markdown :api="api"></doc-markdown>
   </div>
 </template>
 

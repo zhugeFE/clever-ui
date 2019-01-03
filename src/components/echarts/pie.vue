@@ -68,9 +68,11 @@ export default {
       return style
     },
     legend () {
-      return this.store.map(item => {
+      let legends = this.store.map(item => {
         return item.names.join('-')
       })
+      legends.push('其它')
+      return legends
     },
     showMap () {
       let map = {}
