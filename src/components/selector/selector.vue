@@ -198,6 +198,16 @@
             replaceStr: '...'
           }
         }
+      },
+      /**
+       * @description 下拉框展开方向
+       */
+      expandArrow: {
+        type: String,
+        default: 'down',
+        validator (arrow) {
+          return ['down', 'up'].includes(arrow)
+        }
       }
     },
     data () {
@@ -394,14 +404,20 @@
       const dropPanel = this.$refs.dropPanel
       const dropHandle = this.$refs.handle
       if (!dropPanel || !dropHandle) return
-      const panelRect = dropPanel.getBoundingClientRect()
-      const handleRect = dropHandle.$el.getBoundingClientRect()
-      const bottomHeight = window.innerHeight - panelRect.top - 7
-      dropPanel.style.maxHeight = Math.min(325, bottomHeight) + 'px'
-      if ((panelRect.width + panelRect.left) > window.innerWidth) {
-        dropPanel.style.right = '0px'
+      if (this.expandArrow === 'down') {
+        const panelRect = dropPanel.getBoundingClientRect()
+        const handleRect = dropHandle.$el.getBoundingClientRect()
+        const bottomHeight = window.innerHeight - panelRect.top - 7
+        dropPanel.style.maxHeight = Math.min(325, bottomHeight) + 'px'
+        if ((panelRect.width + panelRect.left) > window.innerWidth) {
+          dropPanel.style.right = 0
+        }
+        dropPanel.style.top = handleRect.height + 5 + 'px'
+        dropPanel.style.bottom = 'auto'
+      } else {
+        dropPanel.style.bottom = '38px'
+        dropPanel.style.top = 'auto'
       }
-      dropPanel.style.top = handleRect.height + 5 + 'px'
     },
     methods: {
       filterData (data) {

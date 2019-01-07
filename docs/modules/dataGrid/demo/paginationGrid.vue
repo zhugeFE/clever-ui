@@ -1,7 +1,7 @@
 <template>
   <div>
     <demo-panel title="dataGrid" subtitle="分页表格" jsFiddleName="0v4vs2je">
-      <c-data-grid :store="store" @click-cell="onClickCell" show-index
+      <c-data-grid :store="gridStore" @click-cell="onClickCell" show-index
         pagination :pageNum="3" :pageSize="10">
         <c-grid-column field="label0"
                         title="首列"
@@ -13,9 +13,10 @@
           </template>
         </c-grid-column>
         <c-grid-column v-for="column in columns"
-                        :field="column.field"
-                        :key="column.title"
-                        :title="column.title"></c-grid-column>
+                       sort-able
+                       :field="column.field"
+                       :key="column.title"
+                       :title="column.title"></c-grid-column>
       </c-data-grid>
     </demo-panel>
   </div>
@@ -39,18 +40,20 @@
             })
           }
           return columns
-        })(),
-        store: (() => {
-          let store = []
-          for (let i = 0; i < 300; i++) {
-            let item = {}
-            for (let j = 0; j < 5; j++) {
-              item[`label${j}`] = `${i}-${j}`
-            }
-            store.push(item)
-          }
-          return store
         })()
+      }
+    },
+    computed: {
+      gridStore () {
+        let store = []
+        for (let i = 0; i < 300; i++) {
+          let item = {}
+          for (let j = 0; j < 5; j++) {
+            item[`label${j}`] = `${i}-${j}`
+          }
+          store.push(item)
+        }
+        return store
       }
     },
     methods: {

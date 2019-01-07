@@ -91,7 +91,11 @@
       startColumnIndex: {
         type: Number,
         default: 0
-      }
+      },
+      /**
+       * @description 当前在排序的列
+       */
+      sortColumn: null
     },
     computed: {
       structureParser () {
@@ -156,13 +160,14 @@
                   const rowspan = (rowIndex === 0 && !column.children) ? this.headerRowspan : 1
                   return (
                     <c-grid-header title={column.title}
-                                    sortAble={column.sortAble}
-                                    column={column}
-                                    width={column.width}
-                                    rowspan={rowspan}
-                                    colspan={column.colspan}
-                                    scopedSlots={{default: column.headFormatter}}
-                                    onSort={listeners.sort}></c-grid-header>
+                                   sortColumn={this.sortColumn}
+                                   sortAble={column.sortAble}
+                                   column={column}
+                                   width={column.width}
+                                   rowspan={rowspan}
+                                   colspan={column.colspan}
+                                   scopedSlots={{default: column.headFormatter}}
+                                   onSort={listeners.sort}></c-grid-header>
                   )
                 })}
               </tr>

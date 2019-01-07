@@ -3,9 +3,9 @@
     <slot :title="title">
       {{title}}
     </slot>
-    <span class="c-sort-icon" v-if="sortAble">
-      <i class="cicon-sort-left" :class="{'c-active': sortStatus === -1}"></i>
-      <i class="cicon-sort-right" :class="{'c-active': sortStatus === 1}"></i>
+    <span class="c-sort-icon" v-if="sortAble && sortStatus !== 0">
+      <i class="cicon-down" v-show="sortStatus === -1"></i>
+      <i class="cicon-up" v-show="sortStatus === 1"></i>
     </span>
   </th>
 </template>
@@ -34,7 +34,11 @@
       rowspan: {
         type: Number,
         default: 1
-      }
+      },
+      /**
+       * @description 当前在排序的列
+       */
+      sortColumn: null
     },
     data () {
       return {
@@ -59,6 +63,11 @@
           'c-grid-header-cell': true,
           'c-sort-able': this.sortAble
         }
+      }
+    },
+    watch: {
+      sortColumn (column) {
+        if (column !== this.column) this.sortStatus = 0
       }
     },
     methods: {

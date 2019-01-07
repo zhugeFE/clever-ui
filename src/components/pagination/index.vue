@@ -5,11 +5,13 @@
     <c-selector :store="sizeOptions"
                 v-model="pageSize"
                 :width="108"
+                expand-arrow="up"
                 key-field="v"
                 label-field="label"></c-selector>
     <c-selector :store="pageNumList"
                 v-model="pageNum"
                 @change="onChange"
+                expand-arrow="up"
                 :width="108"
                 key-field="v"
                 label-field="label"></c-selector>

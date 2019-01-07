@@ -88,6 +88,7 @@
     },
     data () {
       return {
+        gridStore: util.clone(this.store),
         structure: {
           left: [],
           right: [],
@@ -97,7 +98,8 @@
           left: false,
           right: false,
           center: false
-        }
+        },
+        sortColumn: null
       }
     },
     computed: {
@@ -135,7 +137,7 @@
       if (this._isDestroyed) return
       let styleSheet = []
       // 调整body中单元格高度
-      this.store.forEach((item, i) => {
+      this.gridStore.forEach((item, i) => {
         if (this.pagination) {
           const startIndex = (this.pageNum - 1) * this.pageSize
           const endIndex = this.pageNum * this.pageSize
@@ -180,6 +182,7 @@
        * @param column
        */
       onSort (status, column) {
+        this.sortColumn = column
         const headerList = this.children('cGridHeader')
         headerList.forEach(header => {
           if (header.$props.column !== column) {
@@ -187,7 +190,7 @@
           }
         })
         const field = column.field
-        this.store.sort((a, b) => {
+        this.gridStore.sort((a, b) => {
           if (this.customSort) {
             return this.customSort(a, b, field, status)
           } else {
@@ -222,17 +225,18 @@
                 return (
                   <div class="c-grid-left" ref="left">
                     <c-grid gridId={this._uid}
-                             structure={this.structure.left}
-                             store={this.store}
-                             showIndex={this.showIndex}
-                             indexTitle={this.indexTitle}
-                             pagination={this.pagination}
-                             pageNum={this.pageNum}
-                             pageSize={this.pageSize}
-                             headerRowspan={this.headerRowspan}
-                             onSort={this.onSort}
-                             chosenCells={this.chosenCells}
-                             onClickCell={listeners.clickCell || (() => {})}
+                            structure={this.structure.left}
+                            store={this.gridStore}
+                            showIndex={this.showIndex}
+                            indexTitle={this.indexTitle}
+                            pagination={this.pagination}
+                            pageNum={this.pageNum}
+                            pageSize={this.pageSize}
+                            headerRowspan={this.headerRowspan}
+                            sortColumn={this.sortColumn}
+                            onSort={this.onSort}
+                            chosenCells={this.chosenCells}
+                            onClickCell={listeners.clickCell || (() => {})}
                     ></c-grid>
                   </div>
                 )
@@ -243,18 +247,19 @@
                 return (
                   <div class="c-grid-center" onScroll={this.onScroll} ref="center">
                     <c-grid gridId={this._uid}
-                             structure={this.structure.center}
-                             store={this.store}
-                             showIndex={this.showIndex && !this.structure.left.length}
-                             indexTitle={this.indexTitle}
-                             pagination={this.pagination}
-                             pageNum={this.pageNum}
-                             pageSize={this.pageSize}
-                             headerRowspan={this.headerRowspan}
-                             chosenCells={this.chosenCells}
-                             startColumnIndex={this.structure.left.length}
-                             onSort={this.onSort}
-                             onClickCell={listeners.clickCell || (() => {})}
+                            sortColumn={this.sortColumn}
+                            structure={this.structure.center}
+                            store={this.gridStore}
+                            showIndex={this.showIndex && !this.structure.left.length}
+                            indexTitle={this.indexTitle}
+                            pagination={this.pagination}
+                            pageNum={this.pageNum}
+                            pageSize={this.pageSize}
+                            headerRowspan={this.headerRowspan}
+                            chosenCells={this.chosenCells}
+                            startColumnIndex={this.structure.left.length}
+                            onSort={this.onSort}
+                            onClickCell={listeners.clickCell || (() => {})}
                     ></c-grid>
                   </div>
                 )
@@ -265,24 +270,25 @@
                 return (
                   <div class="c-grid-right" ref="right">
                     <c-grid gridId={this._uid}
-                             structure={this.structure.right}
-                             store={this.store}
-                             showIndex={this.showIndex && !this.structure.left.length && !this.structure.center.length}
-                             pagination={this.pagination}
-                             pageNum={this.pageNum}
-                             pageSize={this.pageSize}
-                             headerRowspan={this.headerRowspan}
-                             chosenCells={this.chosenCells}
-                             startColumnIndex={this.structure.left.length + this.structure.center.length}
-                             onSort={this.onSort}
-                             onClickCell={listeners.clickCell || (() => {})}
+                            sortColumn={this.sortColumn}
+                            structure={this.structure.right}
+                            store={this.gridStore}
+                            showIndex={this.showIndex && !this.structure.left.length && !this.structure.center.length}
+                            pagination={this.pagination}
+                            pageNum={this.pageNum}
+                            pageSize={this.pageSize}
+                            headerRowspan={this.headerRowspan}
+                            chosenCells={this.chosenCells}
+                            startColumnIndex={this.structure.left.length + this.structure.center.length}
+                            onSort={this.onSort}
+                            onClickCell={listeners.clickCell || (() => {})}
                     ></c-grid>
                   </div>
                 )
               }
             })()}
           </div>
-          <div v-show={!this.store.length} class="c-grid-empty">暂无数据</div>
+          <div v-show={!this.gridStore.length} class="c-grid-empty">暂无数据</div>
         </div>
       )
     }

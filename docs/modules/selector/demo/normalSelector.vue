@@ -3,13 +3,13 @@
     <demo-panel title="普通下拉框" subtitle="单选" jsFiddleName="s5rjhjwj">
 
       <c-selector keyField="id"
-                   :store="store"
-                   placeholder="单选"
-                   labelField="label"
-                   :disableOptions="disableList"
-                   filterOption
-                   icon-field="icon"
-                   v-model="result">
+                  :store="store"
+                  placeholder="单选"
+                  labelField="label"
+                  :disableOptions="disableList"
+                  filterOption
+                  icon-field="icon"
+                  v-model="result">
       </c-selector>
 
       <span>选中值</span>{{result}}<br>
