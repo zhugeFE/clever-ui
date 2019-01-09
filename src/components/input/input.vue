@@ -331,10 +331,6 @@
             this.$refs.tip.hide()
           } else {
             this.$refs.tip.show()
-            // todo 待优化，此处不应该使用自动获取焦点
-            if (this.autoValid) {
-              this.focus()
-            }
           }
         })
         return flag
