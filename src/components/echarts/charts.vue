@@ -73,19 +73,14 @@
        * @description tooltip自定义显示
        */
       tooltipFormatter: {
-        type: Function,
-        default (params) {
-          let xLabel = params[0].name
-          if (/^\d{4}-\d{2}-\d{2}$/.test(xLabel)) { // 处理日期
-            xLabel = xLabel.replace(/\d{4}-/, '')
-          } else if (/^\d{4}-\d{2}-\d{2}\|\d{4}-\d{2}-\d{2}$/.test(xLabel)) { // 周、月日期
-            let dates = xLabel.match(/\d{4}-\d{2}-\d{2}/g)
-            xLabel = dates[0].replace(/\d{4}-/, '') + '~' + dates[1].replace(/\d{4}-/, '')
-          }
-          return `<span>${xLabel}</span><br>` + params.map(item => {
-            return `${item.marker}${item.seriesName}: <span style="color:#66ccff;">${util.toThousands(item.value)}</span>`
-          }).join('<br>')
-        }
+        type: Function
+      },
+      /**
+       * @description value值的单位，可以是%, '个'等
+       */
+      valueUnit: {
+        type: String,
+        default: ''
       },
       yAxisFormatter: {
         type: Function,
@@ -202,6 +197,21 @@
       }
     },
     computed: {
+      tooltipFormat () {
+        return (params) => {
+          if (this.tooltipFormatter) return this.tooltipFormatter(params)
+          let xLabel = params[0].name
+          if (/^\d{4}-\d{2}-\d{2}$/.test(xLabel)) { // 处理日期
+            xLabel = xLabel.replace(/\d{4}-/, '')
+          } else if (/^\d{4}-\d{2}-\d{2}\|\d{4}-\d{2}-\d{2}$/.test(xLabel)) { // 周、月日期
+            let dates = xLabel.match(/\d{4}-\d{2}-\d{2}/g)
+            xLabel = dates[0].replace(/\d{4}-/, '') + '~' + dates[1].replace(/\d{4}-/, '')
+          }
+          return `<span>${xLabel}</span><br>` + params.map(item => {
+            return `${item.marker}${item.seriesName}: <span style="color:#66ccff;">${util.toThousands(item.value)}${this.valueUnit}</span>`
+          }).join('<br>')
+        }
+      },
       chartStore () {
         if (this.reverseXAxis) {
           let series = {
@@ -261,7 +271,10 @@
                 type: 'solid'
               }
             },
-            formatter: this.tooltipFormatter
+            textStyle: {
+              fontSize: 12
+            },
+            formatter: this.tooltipFormat
           },
           xAxis: {
             data: this.getXAxis(),

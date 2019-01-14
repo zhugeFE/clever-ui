@@ -1,7 +1,9 @@
 <template>
   <div>
-    <demo-panel subtitle="line">
-      <c-charts :echarts="echarts" type="line" :store="json" :showList="showList" :markLine="markLine"></c-charts>
+    <demo-panel subtitle="折线图">
+      <c-charts :echarts="echarts" type="line"
+                value-unit="人"
+                :store="json" :showList="showList" :markLine="markLine"></c-charts>
     </demo-panel>
   </div>
 </template>

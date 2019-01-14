@@ -36,7 +36,7 @@
         return series
       })
       store.series = seriesList
-      return {
+      let data = {
         echarts,
         json: store,
         stackConfig: [
@@ -57,6 +57,8 @@
           }
         ]
       }
+      console.log(JSON.parse(JSON.stringify(data)))
+      return data
     },
     methods: {
       tooltip () {

@@ -116,6 +116,9 @@ export default {
         backgroundColor: 'white',
         tooltip: {
           trigger: 'item',
+          textStyle: {
+            fontSize: 12
+          },
           formatter: '{b}: {c} ({d}%)'
         },
         legend: {
