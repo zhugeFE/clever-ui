@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="c-dialog-layer"></div>
-    <div class="c-dialog">
+    <div class="c-dialog" ref="dialog">
       <div v-if="showHead" class="c-dialog-head">
         <slot name="header">{{title}}</slot>
       </div>
@@ -51,7 +51,20 @@
         default: true
       }
     },
+    updated () {
+      this.resize()
+    },
+    mounted () {
+      this.resize()
+    },
     methods: {
+      resize () {
+        let dialog = this.$refs.dialog
+        let rect = dialog.getBoundingClientRect()
+        let containerRect = document.body.getBoundingClientRect()
+        dialog.style.top = parseInt((containerRect.height - rect.height) / 2) + 'px'
+        dialog.style.left = parseInt((containerRect.width - rect.width) / 2) + 'px'
+      },
       onConfirm () {
         this.$emit('confirm')
       },
