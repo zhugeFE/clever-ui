@@ -100,6 +100,8 @@
           } else if (/^\d{4}-\d{2}-\d{2}\|\d{4}-\d{2}-\d{2}$/.test(label)) { // 周、月日期
             let dates = label.match(/\d{4}-\d{2}-\d{2}/g)
             return dates[0].replace(/\d{4}-/, '') + '~' + dates[1].replace(/\d{4}-/, '')
+          } else if (/:/.test(label)) {
+            return label.replace(/\d{4}-\d{2}-\d{2}\s/, '')
           } else {
             return label
           }
@@ -446,7 +448,7 @@
           borderColor: 'red',
           borderWidth: 0,
           width: '60%',
-          show: this.legendShow && legendList.length > 1,
+          show: this.legendShow || legendList.length > 1,
           formatter: this.legendFormatter
         }
       },
