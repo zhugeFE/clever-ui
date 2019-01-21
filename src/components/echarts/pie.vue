@@ -149,6 +149,7 @@ export default {
   },
   methods: {
     setOption (option) {
+      this.chart.clear()
       this.chart.setOption(this.optionWrapper(util.clone(option)))
     },
     onResize () {

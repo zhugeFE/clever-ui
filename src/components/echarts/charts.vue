@@ -569,6 +569,7 @@
         return type
       },
       setOption (option) {
+        this.chart.clear()
         this.chart.setOption(this.resizeGrid(util.clone(option)))
       },
       /**
