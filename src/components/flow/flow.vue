@@ -10,7 +10,9 @@ import { util } from '../../utils'
 export default {
   name: 'cFlow',
   props: {
-    echarts: null,
+    echarts: {
+      required: true
+    },
     /**
      * @description 图表宽度，默认自适应
      */

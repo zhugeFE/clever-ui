@@ -2,48 +2,49 @@
   <div>
     <demo-panel title="tab" subtitle="them is normal" jsFiddleName="fnp7n0hd">
       {{chosenIndex}}
+      <zg-checkbox v-model="showRightTab">显示tab-right</zg-checkbox>
       <c-tabs v-model="chosenIndex"
                @add="onAddTab"
                @remove="onRemove"
                showAdd>
-        <!--<c-tab-panel title="center" icon="cicon-add">-->
-          <!--<c-tabs placement="center">-->
-            <!--<c-tab-panel title="tab1">-->
-              <!--<span slot="title">-->
-                <!--tab1的title-->
-              <!--</span>-->
-              <!--this is tab1-->
-            <!--</c-tab-panel>-->
-            <!--<c-tab-panel title="tab2">-->
-              <!--<div style="height: 50px; background: lightpink">-->
-                <!--this is tab2-->
-              <!--</div>-->
-            <!--</c-tab-panel>-->
-            <!--<c-tab-panel title="tab3">-->
-              <!--<div style="height: 50px; background: lightcoral">-->
-                <!--this is tab3-->
-              <!--</div>-->
-            <!--</c-tab-panel>-->
-          <!--</c-tabs>-->
-        <!--</c-tab-panel>-->
+        <c-tab-panel title="center" icon="cicon-add">
+          <c-tabs placement="center">
+            <c-tab-panel title="tab1">
+              <span slot="title">
+                tab1的title
+              </span>
+              this is tab1
+            </c-tab-panel>
+            <c-tab-panel title="tab2">
+              <div style="height: 50px; background: lightpink">
+                this is tab2
+              </div>
+            </c-tab-panel>
+            <c-tab-panel title="tab3">
+              <div style="height: 50px; background: lightcoral">
+                this is tab3
+              </div>
+            </c-tab-panel>
+          </c-tabs>
+        </c-tab-panel>
 
-        <!--<c-tab-panel title="right">-->
-          <!--<c-tabs placement="right">-->
-            <!--<c-tab-panel title="tab1">-->
-              <!--this is tab1-->
-            <!--</c-tab-panel>-->
-            <!--<c-tab-panel title="tab2">-->
-              <!--<div style="height: 50px; background: lightpink">-->
-                <!--this is tab2-->
-              <!--</div>-->
-            <!--</c-tab-panel>-->
-            <!--<c-tab-panel title="tab3">-->
-              <!--<div style="height: 50px; background: lightcoral">-->
-                <!--this is tab3-->
-              <!--</div>-->
-            <!--</c-tab-panel>-->
-          <!--</c-tabs>-->
-        <!--</c-tab-panel>-->
+        <c-tab-panel title="right" v-if="showRightTab">
+          <c-tabs placement="right">
+            <c-tab-panel title="tab1">
+              this is tab1
+            </c-tab-panel>
+            <c-tab-panel title="tab2">
+              <div style="height: 50px; background: lightpink">
+                this is tab2
+              </div>
+            </c-tab-panel>
+            <c-tab-panel title="tab3">
+              <div style="height: 50px; background: lightcoral">
+                this is tab3
+              </div>
+            </c-tab-panel>
+          </c-tabs>
+        </c-tab-panel>
         <c-tab-panel v-for="tab in tabs" :key="tab.id" :title="tab.name" closeAble>
           <c-button>{{tab.name}}</c-button>
         </c-tab-panel>
@@ -66,7 +67,8 @@
     data () {
       return {
         tabs: [],
-        chosenIndex: 0
+        chosenIndex: 0,
+        showRightTab: true
       }
     },
     methods: {

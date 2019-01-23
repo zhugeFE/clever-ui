@@ -1,0 +1,1 @@
+[{"name":"iconField","type":"String","required":false,"default":"''","description":"图标"},{"name":"aliasField","type":"String","required":false,"default":"false","description":"别名字段，设置别名后，优先展示别名"},{"name":"theme","type":"String","required":false,"default":"'normal'","description":"主题，目前支持的主题有：normal、noborder、tag"}]

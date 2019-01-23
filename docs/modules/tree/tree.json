@@ -1,0 +1,1 @@
+[{"name":"dataList","type":"Array","required":false,"default":"[]","description":"渲染图形的基础数据"},{"name":"direction","type":"String","required":false,"default":"'top-bottom'","description":"树形图伸展的方向"},{"name":"getRectBackground","type":"Function","required":false,"default":"'#fae692'","description":"节点的背景颜色","tip":"函数参数为节点的名称"}]

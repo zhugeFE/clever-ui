@@ -226,43 +226,11 @@
       }
       // 绑定默认值
       if (this.value) {
-        if (!this.multiple) {
-          this.store.forEach(option => {
-            if (this.childrenField) {
-              option[this.childrenField].forEach(child => {
-                if (child[this.keyField] === this.value[this.keyField]) {
-                  data.checkedMap[this.value[this.keyField]] = true
-                  data.chosenList.push(child)
-                }
-              })
-            } else {
-              if (option[this.keyField] === this.value[this.keyField]) {
-                data.checkedMap[this.value[this.keyField]] = true
-                data.chosenList.push(option)
-              }
-            }
+        this.store.forEach(option => {
+          this.updateData(option, {
+            data: data
           })
-        } else {
-          this.store.forEach(option => {
-            if (this.childrenField) {
-              option[this.childrenField].forEach(child => {
-                this.value.forEach(defaultOption => {
-                  if (child[this.keyField] === defaultOption[this.keyField]) {
-                    data.checkedMap[child[this.keyField]] = true
-                    data.chosenList.push(child)
-                  }
-                })
-              })
-            } else {
-              this.value.forEach(defaultOption => {
-                if (option[this.keyField] === defaultOption[this.keyField]) {
-                  data.checkedMap[option[this.keyField]] = true
-                  data.chosenList.push(option)
-                }
-              })
-            }
-          })
-        }
+        })
       }
       return data
     },
@@ -345,46 +313,13 @@
         if (value === this.chosenList) return
         this.chosenList = []
         this.$set(this, 'checkedMap', {})
-        if (!value) return
+        if (!value || this.noData) return
+        this.innerStore.forEach(option => {
+          this.updateData(option)
+        })
         if (!this.multiple) { // 单选
-          this.innerStore.forEach(option => {
-            if (this.childrenField) {
-              option[this.childrenField].forEach(child => {
-                if (child[this.keyField] === value[this.keyField]) {
-                  this.checkedMap[value[this.keyField]] = true
-                  if (!this.chosenList.length)this.chosenList.push(child)
-                  this.$emit('input', this.chosenList[0])
-                }
-              })
-            } else {
-              if (option[this.keyField] === value[this.keyField]) {
-                this.checkedMap[value[this.keyField]] = true
-                if (!this.chosenList.length)this.chosenList.push(option)
-                this.$emit('input', this.chosenList[0])
-              }
-            }
-          })
-          if (this.noData) this.$emit('input', this.chosenList[0])
+          this.$emit('input', this.chosenList[0])
         } else { // 多选
-          this.innerStore.forEach(option => {
-            if (this.childrenField) { // 有分组
-              option[this.childrenField].forEach(child => {
-                value.forEach(defaultOption => {
-                  if (child[this.keyField] === defaultOption[this.keyField]) {
-                    this.checkedMap[child[this.keyField]] = true
-                    this.chosenList.push(child)
-                  }
-                })
-              })
-            } else { // 没有分组
-              value.forEach(defaultOption => {
-                if (option[this.keyField] === defaultOption[this.keyField]) {
-                  this.checkedMap[option[this.keyField]] = true
-                  this.chosenList.push(option)
-                }
-              })
-            }
-          })
           this.$emit('input', this.chosenList)
         }
       }
@@ -420,6 +355,35 @@
       }
     },
     methods: {
+      updateData (option, params = {}) {
+        if (!option || !this.value || !this.keyField) return
+        let value = params.value || this.value
+        let useChildren = params.useChildren || true
+        let data = params.data || this
+        if (useChildren && this.childrenField && util.isArray(option[this.childrenField])) {
+          option[this.childrenField].forEach(item => {
+            this.updateData(item, {
+              value,
+              useChildren: false,
+              data
+            })
+          })
+        } else {
+          let optionKey = option[this.keyField]
+          if (this.multiple && util.isArray(value)) {
+            value.forEach(obj => {
+               this.updateData(option, {
+                  value: obj,
+                  useChildren: false,
+                  data
+                })
+            })
+          } else if (optionKey === value[this.keyField] && !data.checkedMap[optionKey]) {
+            data.checkedMap[optionKey] = true
+            data.chosenList.push(option)
+          }
+        }
+      },
       filterData (data) {
         let filterReg = util.getRegExp(this.filter.toLowerCase())
         let flag = true
@@ -588,6 +552,7 @@
                 <li v-show={this.multiple && this.chosenList.length && this.clearAble} class="c-clear">
                   <a href="javascript:void(0)" onClick={this.clean}>清空</a>
                 </li>
+                {this.$slots.optionsHeader}
               </div>
 
               <c-scroll-container class="c-content"

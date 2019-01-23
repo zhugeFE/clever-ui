@@ -38,7 +38,10 @@ export default {
         'dialog',
         'charts',
         'reload',
-        'scroll'
+        'scroll',
+        'tree',
+        'flow',
+        'forceChart'
       ]
     }
   },
@@ -104,4 +107,3 @@ export default {
     padding: 15px 15px 30px 15px
     overflow: auto
 </style>
-

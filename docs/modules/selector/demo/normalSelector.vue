@@ -9,7 +9,9 @@
                   :disableOptions="disableList"
                   filterOption
                   icon-field="icon"
+                  :clearAble="true"
                   v-model="result">
+                  <div slot="optionsHeader" style="font-size: 12px; margin-left: 5px;"> 普通下拉框的内容</div>
       </c-selector>
 
       <span>选中值</span>{{result}}<br>
@@ -51,7 +53,7 @@
           return store
         })(),
         result: {id: 4},
-        disableList: [3,5,1],
+        disableList: [3, 5, 1],
         multipleStore: (() => {
           let store = []
           for (let i = 0; i < 20; i++) {
@@ -67,7 +69,7 @@
     },
     mounted () {
       setTimeout(() => {
-        this.disableList = [1,2,3]
+        this.disableList = [1, 2, 3]
         this.result = {id: 8}
         this.multipleResult = [{id: 2}, {id: 3}]
       }, 2000)

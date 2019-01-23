@@ -88,7 +88,7 @@
     },
     data () {
       return {
-        gridStore: util.clone(this.store),
+        gridStore: [],
         structure: {
           left: [],
           right: [],
@@ -177,13 +177,16 @@
       dom.addStyleSheet(`cDataGrid_${this._uid}`, styleSheet)
     },
     methods: {
+      initDataList () {
+        this.gridStore = util.clone(this.store)
+      },
       /**
        * @param status 1：正序；-1：倒序
        * @param column
        */
       onSort (status, column) {
         this.sortColumn = column
-        const headerList = this.children('cGridHeader')
+        const headerList = this.children('cGridHeader', true)
         headerList.forEach(header => {
           if (header.$props.column !== column) {
             header.$data.sortStatus = 0
@@ -291,7 +294,15 @@
           <div v-show={!this.gridStore.length} class="c-grid-empty">暂无数据</div>
         </div>
       )
-    }
+    },
+    watch: {
+      store () {
+        this.initDataList()
+      }
+    },
+    created () {
+      this.initDataList()
+    },
   }
 </script>
 

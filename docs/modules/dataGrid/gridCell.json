@@ -1,0 +1,1 @@
+[{"name":"index","type":"Number","required":"true","default":null,"description":"行号"},{"name":"width","type":"null","required":false,"default":null,"description":"宽度"},{"name":"column","type":"Number","required":false,"default":null,"description":"列号"},{"name":"chosenCells","type":"Array","required":false,"default":"default(){","description":"自定义选中单元格"}]

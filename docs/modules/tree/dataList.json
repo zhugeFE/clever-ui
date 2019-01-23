@@ -1,0 +1,3478 @@
+{
+  "flag": 101,
+  "behavior_datas": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 11665,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 438,
+                      "disabled": false,
+                      "eid": "23382010",
+                      "end": false,
+                      "name": "官网-首页-依场景而设",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 212,
+                      "disabled": false,
+                      "eid": "24068825",
+                      "end": false,
+                      "name": "官网-首页-免费试用",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 180,
+                      "disabled": false,
+                      "eid": "6907938",
+                      "end": false,
+                      "name": "Demo-进入demo",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 128,
+                      "disabled": false,
+                      "eid": "6907797",
+                      "end": false,
+                      "name": "官网-进入官网",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 0,
+                      "disabled": true,
+                      "eid": "2",
+                      "end": false,
+                      "name": "其它",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 14228,
+                  "disabled": false,
+                  "eid": "24098377",
+                  "end": false,
+                  "name": "页面滚动",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 65,
+                      "disabled": false,
+                      "eid": "6907797",
+                      "end": false,
+                      "name": "官网-进入官网",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 36,
+                      "disabled": false,
+                      "eid": "24065444",
+                      "end": false,
+                      "name": "demo联系信息",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 4,
+                      "disabled": false,
+                      "eid": "23570489",
+                      "end": false,
+                      "name": "看板-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23576563",
+                      "end": false,
+                      "name": "登录-进入登录页",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24068717",
+                      "end": false,
+                      "name": "官网-关于我们",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 0,
+                      "disabled": true,
+                      "eid": "2",
+                      "end": false,
+                      "name": "其它",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 217,
+                  "disabled": false,
+                  "eid": "6907938",
+                  "end": false,
+                  "name": "Demo-进入demo",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 197,
+                      "disabled": false,
+                      "eid": "7994381",
+                      "end": false,
+                      "name": "注册-进入注册界面",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "6907797",
+                      "end": false,
+                      "name": "官网-进入官网",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 203,
+                  "disabled": false,
+                  "eid": "24068825",
+                  "end": false,
+                  "name": "官网-首页-免费试用",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 19,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 5,
+                      "disabled": false,
+                      "eid": "6907797",
+                      "end": false,
+                      "name": "官网-进入官网",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 4,
+                      "disabled": false,
+                      "eid": "6907938",
+                      "end": false,
+                      "name": "Demo-进入demo",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 4,
+                      "disabled": false,
+                      "eid": "23382010",
+                      "end": false,
+                      "name": "官网-首页-依场景而设",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 3,
+                      "disabled": false,
+                      "eid": "24068825",
+                      "end": false,
+                      "name": "官网-首页-免费试用",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 0,
+                      "disabled": true,
+                      "eid": "2",
+                      "end": false,
+                      "name": "其它",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 72,
+                  "disabled": false,
+                  "eid": "6907797",
+                  "end": false,
+                  "name": "官网-进入官网",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 58,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23382010",
+                      "end": false,
+                      "name": "官网-首页-依场景而设",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 59,
+                  "disabled": false,
+                  "eid": "23382010",
+                  "end": false,
+                  "name": "官网-首页-依场景而设",
+                  "rowNum": 4
+                },
+                {
+                  "children": [],
+                  "count": 0,
+                  "disabled": true,
+                  "eid": "2",
+                  "end": false,
+                  "name": "其它",
+                  "rowNum": 4
+                }
+              ],
+              "count": 15906,
+              "disabled": false,
+              "eid": "24098377",
+              "end": false,
+              "name": "页面滚动",
+              "rowNum": 3
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 702,
+                      "disabled": false,
+                      "eid": "23661027",
+                      "end": false,
+                      "name": "注册-填写手机号完成",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 335,
+                      "disabled": false,
+                      "eid": "6907797",
+                      "end": false,
+                      "name": "官网-进入官网",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 6,
+                      "disabled": false,
+                      "eid": "7994381",
+                      "end": false,
+                      "name": "注册-进入注册界面",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "6907938",
+                      "end": false,
+                      "name": "Demo-进入demo",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "23652755",
+                      "end": false,
+                      "name": "官网-隐私政策",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 0,
+                      "disabled": true,
+                      "eid": "2",
+                      "end": false,
+                      "name": "其它",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 1971,
+                  "disabled": false,
+                  "eid": "7994381",
+                  "end": false,
+                  "name": "注册-进入注册界面",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 14,
+                      "disabled": false,
+                      "eid": "7994381",
+                      "end": false,
+                      "name": "注册-进入注册界面",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 3,
+                      "disabled": false,
+                      "eid": "24068825",
+                      "end": false,
+                      "name": "官网-首页-免费试用",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 19,
+                  "disabled": false,
+                  "eid": "24068825",
+                  "end": false,
+                  "name": "官网-首页-免费试用",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "24068825",
+                      "end": false,
+                      "name": "官网-首页-免费试用",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "6907938",
+                      "end": false,
+                      "name": "Demo-进入demo",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "7994381",
+                      "end": false,
+                      "name": "注册-进入注册界面",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 10,
+                  "disabled": false,
+                  "eid": "6907797",
+                  "end": false,
+                  "name": "官网-进入官网",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 4,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "7994381",
+                      "end": false,
+                      "name": "注册-进入注册界面",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 6,
+                  "disabled": false,
+                  "eid": "24098377",
+                  "end": false,
+                  "name": "页面滚动",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "6907938",
+                      "end": false,
+                      "name": "Demo-进入demo",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 1,
+                  "disabled": false,
+                  "eid": "6907938",
+                  "end": false,
+                  "name": "Demo-进入demo",
+                  "rowNum": 4
+                },
+                {
+                  "children": [],
+                  "count": 0,
+                  "disabled": true,
+                  "eid": "2",
+                  "end": false,
+                  "name": "其它",
+                  "rowNum": 4
+                }
+              ],
+              "count": 2021,
+              "disabled": false,
+              "eid": "24068825",
+              "end": false,
+              "name": "官网-首页-免费试用",
+              "rowNum": 3
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 213,
+                      "disabled": false,
+                      "eid": "23570637",
+                      "end": false,
+                      "name": "看板-看板列表",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "6909312",
+                      "end": false,
+                      "name": "整体-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23570489",
+                      "end": false,
+                      "name": "看板-进入模块",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 215,
+                  "disabled": false,
+                  "eid": "23570489",
+                  "end": false,
+                  "name": "看板-进入模块",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 182,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 3,
+                      "disabled": false,
+                      "eid": "6907797",
+                      "end": false,
+                      "name": "官网-进入官网",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "24068825",
+                      "end": false,
+                      "name": "官网-首页-免费试用",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23382010",
+                      "end": false,
+                      "name": "官网-首页-依场景而设",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23570489",
+                      "end": false,
+                      "name": "看板-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 0,
+                      "disabled": true,
+                      "eid": "2",
+                      "end": false,
+                      "name": "其它",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 203,
+                  "disabled": false,
+                  "eid": "24098377",
+                  "end": false,
+                  "name": "页面滚动",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 50,
+                      "disabled": false,
+                      "eid": "6907797",
+                      "end": false,
+                      "name": "官网-进入官网",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 16,
+                      "disabled": false,
+                      "eid": "23576563",
+                      "end": false,
+                      "name": "登录-进入登录页",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 14,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 9,
+                      "disabled": false,
+                      "eid": "24068825",
+                      "end": false,
+                      "name": "官网-首页-免费试用",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 8,
+                      "disabled": false,
+                      "eid": "23570489",
+                      "end": false,
+                      "name": "看板-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 0,
+                      "disabled": true,
+                      "eid": "2",
+                      "end": false,
+                      "name": "其它",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 189,
+                  "disabled": false,
+                  "eid": "6907797",
+                  "end": false,
+                  "name": "官网-进入官网",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 70,
+                      "disabled": false,
+                      "eid": "7994381",
+                      "end": false,
+                      "name": "注册-进入注册界面",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 70,
+                  "disabled": false,
+                  "eid": "24068825",
+                  "end": false,
+                  "name": "官网-首页-免费试用",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 18,
+                      "disabled": false,
+                      "eid": "23570489",
+                      "end": false,
+                      "name": "看板-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 16,
+                      "disabled": false,
+                      "eid": "6907797",
+                      "end": false,
+                      "name": "官网-进入官网",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 8,
+                      "disabled": false,
+                      "eid": "24065444",
+                      "end": false,
+                      "name": "demo联系信息",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23382010",
+                      "end": false,
+                      "name": "官网-首页-依场景而设",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 0,
+                      "disabled": true,
+                      "eid": "2",
+                      "end": false,
+                      "name": "其它",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 62,
+                  "disabled": false,
+                  "eid": "6907938",
+                  "end": false,
+                  "name": "Demo-进入demo",
+                  "rowNum": 4
+                },
+                {
+                  "children": [],
+                  "count": 0,
+                  "disabled": true,
+                  "eid": "2",
+                  "end": false,
+                  "name": "其它",
+                  "rowNum": 4
+                }
+              ],
+              "count": 1502,
+              "disabled": false,
+              "eid": "6907797",
+              "end": false,
+              "name": "官网-进入官网",
+              "rowNum": 3
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 142,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 71,
+                      "disabled": false,
+                      "eid": "24068825",
+                      "end": false,
+                      "name": "官网-首页-免费试用",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 28,
+                      "disabled": false,
+                      "eid": "6907938",
+                      "end": false,
+                      "name": "Demo-进入demo",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 22,
+                      "disabled": false,
+                      "eid": "23576563",
+                      "end": false,
+                      "name": "登录-进入登录页",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 15,
+                      "disabled": false,
+                      "eid": "23376233",
+                      "end": false,
+                      "name": "官网-价格-访问价格页",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 0,
+                      "disabled": true,
+                      "eid": "2",
+                      "end": false,
+                      "name": "其它",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 379,
+                  "disabled": false,
+                  "eid": "6907797",
+                  "end": false,
+                  "name": "官网-进入官网",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 254,
+                      "disabled": false,
+                      "eid": "23570489",
+                      "end": false,
+                      "name": "看板-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 4,
+                      "disabled": false,
+                      "eid": "24065444",
+                      "end": false,
+                      "name": "demo联系信息",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 4,
+                      "disabled": false,
+                      "eid": "6907797",
+                      "end": false,
+                      "name": "官网-进入官网",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 270,
+                  "disabled": false,
+                  "eid": "24065444",
+                  "end": false,
+                  "name": "demo联系信息",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 172,
+                      "disabled": false,
+                      "eid": "23570637",
+                      "end": false,
+                      "name": "看板-看板列表",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 172,
+                  "disabled": false,
+                  "eid": "23570489",
+                  "end": false,
+                  "name": "看板-进入模块",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 6,
+                      "disabled": false,
+                      "eid": "23570489",
+                      "end": false,
+                      "name": "看板-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 3,
+                      "disabled": false,
+                      "eid": "6907938",
+                      "end": false,
+                      "name": "Demo-进入demo",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24065444",
+                      "end": false,
+                      "name": "demo联系信息",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 14,
+                  "disabled": false,
+                  "eid": "6907938",
+                  "end": false,
+                  "name": "Demo-进入demo",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 7,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "24065444",
+                      "end": false,
+                      "name": "demo联系信息",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23382010",
+                      "end": false,
+                      "name": "官网-首页-依场景而设",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23570489",
+                      "end": false,
+                      "name": "看板-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "6907797",
+                      "end": false,
+                      "name": "官网-进入官网",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 0,
+                      "disabled": true,
+                      "eid": "2",
+                      "end": false,
+                      "name": "其它",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 13,
+                  "disabled": false,
+                  "eid": "24098377",
+                  "end": false,
+                  "name": "页面滚动",
+                  "rowNum": 4
+                },
+                {
+                  "children": [],
+                  "count": 0,
+                  "disabled": true,
+                  "eid": "2",
+                  "end": false,
+                  "name": "其它",
+                  "rowNum": 4
+                }
+              ],
+              "count": 1392,
+              "disabled": false,
+              "eid": "6907938",
+              "end": false,
+              "name": "Demo-进入demo",
+              "rowNum": 3
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 638,
+                      "disabled": false,
+                      "eid": "23570489",
+                      "end": false,
+                      "name": "看板-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 71,
+                      "disabled": false,
+                      "eid": "471676",
+                      "end": false,
+                      "name": "接入数据-显示接入数据",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 38,
+                      "disabled": false,
+                      "eid": "6909312",
+                      "end": false,
+                      "name": "整体-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 35,
+                      "disabled": false,
+                      "eid": "6908014",
+                      "end": false,
+                      "name": "事件-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 30,
+                      "disabled": false,
+                      "eid": "8000156",
+                      "end": false,
+                      "name": "成员-进入补充信息页面",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 0,
+                      "disabled": true,
+                      "eid": "2",
+                      "end": false,
+                      "name": "其它",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 890,
+                  "disabled": false,
+                  "eid": "565",
+                  "end": false,
+                  "name": "登录",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 22,
+                      "disabled": false,
+                      "eid": "23661027",
+                      "end": false,
+                      "name": "注册-填写手机号完成",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 4,
+                      "disabled": false,
+                      "eid": "23576563",
+                      "end": false,
+                      "name": "登录-进入登录页",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "6907797",
+                      "end": false,
+                      "name": "官网-进入官网",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23652755",
+                      "end": false,
+                      "name": "官网-隐私政策",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 33,
+                  "disabled": false,
+                  "eid": "7994381",
+                  "end": false,
+                  "name": "注册-进入注册界面",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 10,
+                      "disabled": false,
+                      "eid": "565",
+                      "end": false,
+                      "name": "登录",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 3,
+                      "disabled": false,
+                      "eid": "23576563",
+                      "end": false,
+                      "name": "登录-进入登录页",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "6907797",
+                      "end": false,
+                      "name": "官网-进入官网",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "8000156",
+                      "end": false,
+                      "name": "成员-进入补充信息页面",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 23,
+                  "disabled": false,
+                  "eid": "23576563",
+                  "end": false,
+                  "name": "登录-进入登录页",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 7,
+                      "disabled": false,
+                      "eid": "23576563",
+                      "end": false,
+                      "name": "登录-进入登录页",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 3,
+                      "disabled": false,
+                      "eid": "6907938",
+                      "end": false,
+                      "name": "Demo-进入demo",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 3,
+                      "disabled": false,
+                      "eid": "7994381",
+                      "end": false,
+                      "name": "注册-进入注册界面",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "24068825",
+                      "end": false,
+                      "name": "官网-首页-免费试用",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 0,
+                      "disabled": true,
+                      "eid": "2",
+                      "end": false,
+                      "name": "其它",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 22,
+                  "disabled": false,
+                  "eid": "6907797",
+                  "end": false,
+                  "name": "官网-进入官网",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 13,
+                      "disabled": false,
+                      "eid": "23570637",
+                      "end": false,
+                      "name": "看板-看板列表",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 13,
+                  "disabled": false,
+                  "eid": "23570489",
+                  "end": false,
+                  "name": "看板-进入模块",
+                  "rowNum": 4
+                },
+                {
+                  "children": [],
+                  "count": 0,
+                  "disabled": true,
+                  "eid": "2",
+                  "end": false,
+                  "name": "其它",
+                  "rowNum": 4
+                }
+              ],
+              "count": 1094,
+              "disabled": false,
+              "eid": "23576563",
+              "end": false,
+              "name": "登录-进入登录页",
+              "rowNum": 3
+            },
+            {
+              "children": [],
+              "count": 0,
+              "disabled": true,
+              "eid": "2",
+              "end": false,
+              "name": "其它",
+              "rowNum": 3
+            }
+          ],
+          "count": 23833,
+          "disabled": false,
+          "eid": "6907797",
+          "end": false,
+          "name": "官网-进入官网",
+          "rowNum": 2
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 2115,
+                      "disabled": false,
+                      "eid": "23570489",
+                      "end": false,
+                      "name": "看板-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 4,
+                      "disabled": false,
+                      "eid": "471676",
+                      "end": false,
+                      "name": "接入数据-显示接入数据",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "565",
+                      "end": false,
+                      "name": "登录",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "7232353",
+                      "end": false,
+                      "name": "用户-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "6908014",
+                      "end": false,
+                      "name": "事件-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 0,
+                      "disabled": true,
+                      "eid": "2",
+                      "end": false,
+                      "name": "其它",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 2126,
+                  "disabled": false,
+                  "eid": "565",
+                  "end": false,
+                  "name": "登录",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 33,
+                      "disabled": false,
+                      "eid": "565",
+                      "end": false,
+                      "name": "登录",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "23576563",
+                      "end": false,
+                      "name": "登录-进入登录页",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23570489",
+                      "end": false,
+                      "name": "看板-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "6907797",
+                      "end": false,
+                      "name": "官网-进入官网",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "7232353",
+                      "end": false,
+                      "name": "用户-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 0,
+                      "disabled": true,
+                      "eid": "2",
+                      "end": false,
+                      "name": "其它",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 39,
+                  "disabled": false,
+                  "eid": "23576563",
+                  "end": false,
+                  "name": "登录-进入登录页",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23661027",
+                      "end": false,
+                      "name": "注册-填写手机号完成",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 1,
+                  "disabled": false,
+                  "eid": "7994381",
+                  "end": false,
+                  "name": "注册-进入注册界面",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": true,
+                      "eid": "1",
+                      "end": true,
+                      "name": "会话结束",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 1,
+                  "disabled": false,
+                  "eid": "23576597",
+                  "end": false,
+                  "name": "忘记密码-进入忘记密码",
+                  "rowNum": 4
+                }
+              ],
+              "count": 2196,
+              "disabled": false,
+              "eid": "23576563",
+              "end": false,
+              "name": "登录-进入登录页",
+              "rowNum": 3
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1353,
+                      "disabled": false,
+                      "eid": "23570637",
+                      "end": false,
+                      "name": "看板-看板列表",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "6908933",
+                      "end": false,
+                      "name": "整体-分析指标",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24067941",
+                      "end": false,
+                      "name": "搜索关键词广告-设置转化目标",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 1355,
+                  "disabled": false,
+                  "eid": "23570489",
+                  "end": false,
+                  "name": "看板-进入模块",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 16,
+                      "disabled": false,
+                      "eid": "471676",
+                      "end": false,
+                      "name": "接入数据-显示接入数据",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 8,
+                      "disabled": false,
+                      "eid": "23676992",
+                      "end": false,
+                      "name": "接入数据-埋点管理",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 6,
+                      "disabled": false,
+                      "eid": "6907797",
+                      "end": false,
+                      "name": "官网-进入官网",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 5,
+                      "disabled": false,
+                      "eid": "471678",
+                      "end": false,
+                      "name": "接入数据-查看接入引导",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 3,
+                      "disabled": false,
+                      "eid": "23570489",
+                      "end": false,
+                      "name": "看板-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 0,
+                      "disabled": true,
+                      "eid": "2",
+                      "end": false,
+                      "name": "其它",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 58,
+                  "disabled": false,
+                  "eid": "471676",
+                  "end": false,
+                  "name": "接入数据-显示接入数据",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 30,
+                      "disabled": false,
+                      "eid": "6908923",
+                      "end": false,
+                      "name": "事件-分析事件",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 3,
+                      "disabled": false,
+                      "eid": "6908014",
+                      "end": false,
+                      "name": "事件-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "6908912",
+                      "end": false,
+                      "name": "事件-洞察用户",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "6909312",
+                      "end": false,
+                      "name": "整体-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "7232353",
+                      "end": false,
+                      "name": "用户-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 0,
+                      "disabled": true,
+                      "eid": "2",
+                      "end": false,
+                      "name": "其它",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 37,
+                  "disabled": false,
+                  "eid": "6908014",
+                  "end": false,
+                  "name": "事件-进入模块",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 25,
+                      "disabled": false,
+                      "eid": "6908933",
+                      "end": false,
+                      "name": "整体-分析指标",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 3,
+                      "disabled": false,
+                      "eid": "6908014",
+                      "end": false,
+                      "name": "事件-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "471684",
+                      "end": false,
+                      "name": "数据概览-进入",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "6909312",
+                      "end": false,
+                      "name": "整体-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23570493",
+                      "end": false,
+                      "name": "漏斗-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 0,
+                      "disabled": true,
+                      "eid": "2",
+                      "end": false,
+                      "name": "其它",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 32,
+                  "disabled": false,
+                  "eid": "6909312",
+                  "end": false,
+                  "name": "整体-进入模块",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 4,
+                      "disabled": false,
+                      "eid": "23570489",
+                      "end": false,
+                      "name": "看板-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 4,
+                      "disabled": false,
+                      "eid": "7232353",
+                      "end": false,
+                      "name": "用户-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 3,
+                      "disabled": false,
+                      "eid": "23610794",
+                      "end": false,
+                      "name": "用户-管理-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 3,
+                      "disabled": false,
+                      "eid": "7237915",
+                      "end": false,
+                      "name": "用户-选择用户群",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "6909312",
+                      "end": false,
+                      "name": "整体-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 0,
+                      "disabled": true,
+                      "eid": "2",
+                      "end": false,
+                      "name": "其它",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 21,
+                  "disabled": false,
+                  "eid": "7232353",
+                  "end": false,
+                  "name": "用户-进入模块",
+                  "rowNum": 4
+                },
+                {
+                  "children": [],
+                  "count": 0,
+                  "disabled": true,
+                  "eid": "2",
+                  "end": false,
+                  "name": "其它",
+                  "rowNum": 4
+                }
+              ],
+              "count": 1620,
+              "disabled": false,
+              "eid": "565",
+              "end": false,
+              "name": "登录",
+              "rowNum": 3
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "24065444",
+                      "end": false,
+                      "name": "demo联系信息",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "6907797",
+                      "end": false,
+                      "name": "官网-进入官网",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23576563",
+                      "end": false,
+                      "name": "登录-进入登录页",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23570489",
+                      "end": false,
+                      "name": "看板-进入模块",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 8,
+                  "disabled": false,
+                  "eid": "6907938",
+                  "end": false,
+                  "name": "Demo-进入demo",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "6907797",
+                      "end": false,
+                      "name": "官网-进入官网",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "7994381",
+                      "end": false,
+                      "name": "注册-进入注册界面",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23576597",
+                      "end": false,
+                      "name": "忘记密码-进入忘记密码",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 4,
+                  "disabled": false,
+                  "eid": "23576563",
+                  "end": false,
+                  "name": "登录-进入登录页",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24068662",
+                      "end": false,
+                      "name": "官网-查看角色解决方案-工程师",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24068693",
+                      "end": false,
+                      "name": "官网-查看产品优势-领先用户模型",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 3,
+                  "disabled": false,
+                  "eid": "24068663",
+                  "end": false,
+                  "name": "官网-查看产品优势-全面数据采集",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": true,
+                      "eid": "1",
+                      "end": true,
+                      "name": "会话结束",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 1,
+                  "disabled": false,
+                  "eid": "23382010",
+                  "end": false,
+                  "name": "官网-首页-依场景而设",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23576563",
+                      "end": false,
+                      "name": "登录-进入登录页",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 1,
+                  "disabled": false,
+                  "eid": "6907797",
+                  "end": false,
+                  "name": "官网-进入官网",
+                  "rowNum": 4
+                },
+                {
+                  "children": [],
+                  "count": 0,
+                  "disabled": true,
+                  "eid": "2",
+                  "end": false,
+                  "name": "其它",
+                  "rowNum": 4
+                }
+              ],
+              "count": 23,
+              "disabled": false,
+              "eid": "6907797",
+              "end": false,
+              "name": "官网-进入官网",
+              "rowNum": 3
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 14,
+                      "disabled": false,
+                      "eid": "8532810",
+                      "end": false,
+                      "name": "查看看板",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23570489",
+                      "end": false,
+                      "name": "看板-进入模块",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 15,
+                  "disabled": false,
+                  "eid": "23570637",
+                  "end": false,
+                  "name": "看板-看板列表",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23570637",
+                      "end": false,
+                      "name": "看板-看板列表",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 1,
+                  "disabled": false,
+                  "eid": "23570489",
+                  "end": false,
+                  "name": "看板-进入模块",
+                  "rowNum": 4
+                }
+              ],
+              "count": 16,
+              "disabled": false,
+              "eid": "23570489",
+              "end": false,
+              "name": "看板-进入模块",
+              "rowNum": 3
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 6,
+                      "disabled": false,
+                      "eid": "8008410",
+                      "end": false,
+                      "name": "注册-发送手机验证码",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 6,
+                  "disabled": false,
+                  "eid": "23661027",
+                  "end": false,
+                  "name": "注册-填写手机号完成",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "6907938",
+                      "end": false,
+                      "name": "Demo-进入demo",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 1,
+                  "disabled": false,
+                  "eid": "6907797",
+                  "end": false,
+                  "name": "官网-进入官网",
+                  "rowNum": 4
+                }
+              ],
+              "count": 7,
+              "disabled": false,
+              "eid": "7994381",
+              "end": false,
+              "name": "注册-进入注册界面",
+              "rowNum": 3
+            },
+            {
+              "children": [],
+              "count": 0,
+              "disabled": true,
+              "eid": "2",
+              "end": false,
+              "name": "其它",
+              "rowNum": 3
+            }
+          ],
+          "count": 3884,
+          "disabled": false,
+          "eid": "23576563",
+          "end": false,
+          "name": "登录-进入登录页",
+          "rowNum": 2
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 714,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 5,
+                      "disabled": false,
+                      "eid": "6907797",
+                      "end": false,
+                      "name": "官网-进入官网",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 3,
+                      "disabled": false,
+                      "eid": "6907938",
+                      "end": false,
+                      "name": "Demo-进入demo",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 3,
+                      "disabled": false,
+                      "eid": "23382010",
+                      "end": false,
+                      "name": "官网-首页-依场景而设",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "23376233",
+                      "end": false,
+                      "name": "官网-价格-访问价格页",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 0,
+                      "disabled": true,
+                      "eid": "2",
+                      "end": false,
+                      "name": "其它",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 810,
+                  "disabled": false,
+                  "eid": "24098377",
+                  "end": false,
+                  "name": "页面滚动",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 8,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23576563",
+                      "end": false,
+                      "name": "登录-进入登录页",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "6907797",
+                      "end": false,
+                      "name": "官网-进入官网",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 12,
+                  "disabled": false,
+                  "eid": "6907797",
+                  "end": false,
+                  "name": "官网-进入官网",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 5,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 5,
+                  "disabled": false,
+                  "eid": "23382010",
+                  "end": false,
+                  "name": "官网-首页-依场景而设",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "6907938",
+                      "end": false,
+                      "name": "Demo-进入demo",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24065444",
+                      "end": false,
+                      "name": "demo联系信息",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "6907797",
+                      "end": false,
+                      "name": "官网-进入官网",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 4,
+                  "disabled": false,
+                  "eid": "6907938",
+                  "end": false,
+                  "name": "Demo-进入demo",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24068717",
+                      "end": false,
+                      "name": "官网-关于我们",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 2,
+                  "disabled": false,
+                  "eid": "24068693",
+                  "end": false,
+                  "name": "官网-查看产品优势-领先用户模型",
+                  "rowNum": 4
+                },
+                {
+                  "children": [],
+                  "count": 0,
+                  "disabled": true,
+                  "eid": "2",
+                  "end": false,
+                  "name": "其它",
+                  "rowNum": 4
+                }
+              ],
+              "count": 939,
+              "disabled": false,
+              "eid": "24098377",
+              "end": false,
+              "name": "页面滚动",
+              "rowNum": 3
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 17,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23382010",
+                      "end": false,
+                      "name": "官网-首页-依场景而设",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 19,
+                  "disabled": false,
+                  "eid": "24098377",
+                  "end": false,
+                  "name": "页面滚动",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": true,
+                      "eid": "1",
+                      "end": true,
+                      "name": "会话结束",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 1,
+                  "disabled": false,
+                  "eid": "24068825",
+                  "end": false,
+                  "name": "官网-首页-免费试用",
+                  "rowNum": 4
+                }
+              ],
+              "count": 30,
+              "disabled": false,
+              "eid": "6907797",
+              "end": false,
+              "name": "官网-进入官网",
+              "rowNum": 3
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24068595",
+                      "end": false,
+                      "name": "官网-客户案例页",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 3,
+                  "disabled": false,
+                  "eid": "24098377",
+                  "end": false,
+                  "name": "页面滚动",
+                  "rowNum": 4
+                }
+              ],
+              "count": 3,
+              "disabled": false,
+              "eid": "23382010",
+              "end": false,
+              "name": "官网-首页-依场景而设",
+              "rowNum": 3
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24068709",
+                      "end": false,
+                      "name": "官网-查看产品价值-智能触达",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 1,
+                  "disabled": false,
+                  "eid": "6907797",
+                  "end": false,
+                  "name": "官网-进入官网",
+                  "rowNum": 4
+                }
+              ],
+              "count": 2,
+              "disabled": false,
+              "eid": "6907938",
+              "end": false,
+              "name": "Demo-进入demo",
+              "rowNum": 3
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23706591",
+                      "end": false,
+                      "name": "官网-查看角色解决方案-运营",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 1,
+                  "disabled": false,
+                  "eid": "23705491",
+                  "end": false,
+                  "name": "官网-查看角色解决方案-市场",
+                  "rowNum": 4
+                }
+              ],
+              "count": 2,
+              "disabled": false,
+              "eid": "24068653",
+              "end": false,
+              "name": "官网-查看角色解决方案-CEO/CXO",
+              "rowNum": 3
+            },
+            {
+              "children": [],
+              "count": 0,
+              "disabled": true,
+              "eid": "2",
+              "end": false,
+              "name": "其它",
+              "rowNum": 3
+            }
+          ],
+          "count": 983,
+          "disabled": false,
+          "eid": "24098377",
+          "end": false,
+          "name": "页面滚动",
+          "rowNum": 2
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "24048608",
+                      "end": false,
+                      "name": "web-进入首页",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24052818",
+                      "end": false,
+                      "name": "web-首页-点击了解用户分群",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24052400",
+                      "end": false,
+                      "name": "web-首页-点击了解获取分析",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24049171",
+                      "end": false,
+                      "name": "web-点击行业解决方案",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 16,
+                  "disabled": false,
+                  "eid": "24048608",
+                  "end": false,
+                  "name": "web-进入首页",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "24057771",
+                      "end": false,
+                      "name": "web-点击增长学院",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24048608",
+                      "end": false,
+                      "name": "web-进入首页",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24069872",
+                      "end": false,
+                      "name": "手机端注册入口",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 7,
+                  "disabled": false,
+                  "eid": "24057754",
+                  "end": false,
+                  "name": "web-点击增长案例",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24048608",
+                      "end": false,
+                      "name": "web-进入首页",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "7994381",
+                      "end": false,
+                      "name": "注册-进入注册界面",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 6,
+                  "disabled": false,
+                  "eid": "24052348",
+                  "end": false,
+                  "name": "web-首页-点击了解数据采集",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 3,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 5,
+                  "disabled": false,
+                  "eid": "24098377",
+                  "end": false,
+                  "name": "页面滚动",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 4,
+                      "disabled": false,
+                      "eid": "24065266",
+                      "end": false,
+                      "name": "预约演示-mobile-km",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 4,
+                  "disabled": false,
+                  "eid": "24069872",
+                  "end": false,
+                  "name": "手机端注册入口",
+                  "rowNum": 4
+                },
+                {
+                  "children": [],
+                  "count": 0,
+                  "disabled": true,
+                  "eid": "2",
+                  "end": false,
+                  "name": "其它",
+                  "rowNum": 4
+                }
+              ],
+              "count": 162,
+              "disabled": false,
+              "eid": "24048608",
+              "end": false,
+              "name": "web-进入首页",
+              "rowNum": 3
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 57,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "24057754",
+                      "end": false,
+                      "name": "web-点击增长案例",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 66,
+                  "disabled": false,
+                  "eid": "24098377",
+                  "end": false,
+                  "name": "页面滚动",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24048608",
+                      "end": false,
+                      "name": "web-进入首页",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24057754",
+                      "end": false,
+                      "name": "web-点击增长案例",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 3,
+                  "disabled": false,
+                  "eid": "24048608",
+                  "end": false,
+                  "name": "web-进入首页",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "24048608",
+                      "end": false,
+                      "name": "web-进入首页",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 3,
+                  "disabled": false,
+                  "eid": "24057754",
+                  "end": false,
+                  "name": "web-点击增长案例",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": true,
+                      "eid": "1",
+                      "end": true,
+                      "name": "会话结束",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 1,
+                  "disabled": false,
+                  "eid": "24048800",
+                  "end": false,
+                  "name": "web-查看菜单栏",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": true,
+                      "eid": "1",
+                      "end": true,
+                      "name": "会话结束",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 1,
+                  "disabled": false,
+                  "eid": "24048928",
+                  "end": false,
+                  "name": "web-查看产品功能列表",
+                  "rowNum": 4
+                },
+                {
+                  "children": [],
+                  "count": 0,
+                  "disabled": true,
+                  "eid": "2",
+                  "end": false,
+                  "name": "其它",
+                  "rowNum": 4
+                }
+              ],
+              "count": 109,
+              "disabled": false,
+              "eid": "24098377",
+              "end": false,
+              "name": "页面滚动",
+              "rowNum": 3
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "24057771",
+                      "end": false,
+                      "name": "web-点击增长学院",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24048928",
+                      "end": false,
+                      "name": "web-查看产品功能列表",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24069872",
+                      "end": false,
+                      "name": "手机端注册入口",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24052348",
+                      "end": false,
+                      "name": "web-首页-点击了解数据采集",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 14,
+                  "disabled": false,
+                  "eid": "24048608",
+                  "end": false,
+                  "name": "web-进入首页",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 4,
+                      "disabled": false,
+                      "eid": "23661027",
+                      "end": false,
+                      "name": "注册-填写手机号完成",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24048608",
+                      "end": false,
+                      "name": "web-进入首页",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 5,
+                  "disabled": false,
+                  "eid": "7994381",
+                  "end": false,
+                  "name": "注册-进入注册界面",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "24048962",
+                      "end": false,
+                      "name": "web-点击角色解决方案",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24048800",
+                      "end": false,
+                      "name": "web-查看菜单栏",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 4,
+                  "disabled": false,
+                  "eid": "24048961",
+                  "end": false,
+                  "name": "解决方案页",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "7994381",
+                      "end": false,
+                      "name": "注册-进入注册界面",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 2,
+                  "disabled": false,
+                  "eid": "24065266",
+                  "end": false,
+                  "name": "预约演示-mobile-km",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": true,
+                      "eid": "1",
+                      "end": true,
+                      "name": "会话结束",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 2,
+                  "disabled": false,
+                  "eid": "24057771",
+                  "end": false,
+                  "name": "web-点击增长学院",
+                  "rowNum": 4
+                },
+                {
+                  "children": [],
+                  "count": 0,
+                  "disabled": true,
+                  "eid": "2",
+                  "end": false,
+                  "name": "其它",
+                  "rowNum": 4
+                }
+              ],
+              "count": 99,
+              "disabled": false,
+              "eid": "24057754",
+              "end": false,
+              "name": "web-点击增长案例",
+              "rowNum": 3
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "24052400",
+                      "end": false,
+                      "name": "web-首页-点击了解获取分析",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24048608",
+                      "end": false,
+                      "name": "web-进入首页",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24052348",
+                      "end": false,
+                      "name": "web-首页-点击了解数据采集",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24098377",
+                      "end": false,
+                      "name": "页面滚动",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 9,
+                  "disabled": false,
+                  "eid": "24048608",
+                  "end": false,
+                  "name": "web-进入首页",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 4,
+                      "disabled": false,
+                      "eid": "7994381",
+                      "end": false,
+                      "name": "注册-进入注册界面",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 4,
+                  "disabled": false,
+                  "eid": "24065266",
+                  "end": false,
+                  "name": "预约演示-mobile-km",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "23661027",
+                      "end": false,
+                      "name": "注册-填写手机号完成",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 3,
+                  "disabled": false,
+                  "eid": "7994381",
+                  "end": false,
+                  "name": "注册-进入注册界面",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": true,
+                      "eid": "1",
+                      "end": true,
+                      "name": "会话结束",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 2,
+                  "disabled": false,
+                  "eid": "24052400",
+                  "end": false,
+                  "name": "web-首页-点击了解获取分析",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": true,
+                      "eid": "1",
+                      "end": true,
+                      "name": "会话结束",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 1,
+                  "disabled": false,
+                  "eid": "24057754",
+                  "end": false,
+                  "name": "web-点击增长案例",
+                  "rowNum": 4
+                },
+                {
+                  "children": [],
+                  "count": 0,
+                  "disabled": true,
+                  "eid": "2",
+                  "end": false,
+                  "name": "其它",
+                  "rowNum": 4
+                }
+              ],
+              "count": 69,
+              "disabled": false,
+              "eid": "24052348",
+              "end": false,
+              "name": "web-首页-点击了解数据采集",
+              "rowNum": 3
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 39,
+                      "disabled": false,
+                      "eid": "7994381",
+                      "end": false,
+                      "name": "注册-进入注册界面",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24048608",
+                      "end": false,
+                      "name": "web-进入首页",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24048799",
+                      "end": false,
+                      "name": "web-点击LOGO",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 41,
+                  "disabled": false,
+                  "eid": "24065266",
+                  "end": false,
+                  "name": "预约演示-mobile-km",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 7,
+                      "disabled": false,
+                      "eid": "23661027",
+                      "end": false,
+                      "name": "注册-填写手机号完成",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "24048608",
+                      "end": false,
+                      "name": "web-进入首页",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23652755",
+                      "end": false,
+                      "name": "官网-隐私政策",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 14,
+                  "disabled": false,
+                  "eid": "7994381",
+                  "end": false,
+                  "name": "注册-进入注册界面",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "7994381",
+                      "end": false,
+                      "name": "注册-进入注册界面",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 1,
+                  "disabled": false,
+                  "eid": "24069872",
+                  "end": false,
+                  "name": "手机端注册入口",
+                  "rowNum": 4
+                }
+              ],
+              "count": 56,
+              "disabled": false,
+              "eid": "24069872",
+              "end": false,
+              "name": "手机端注册入口",
+              "rowNum": 3
+            },
+            {
+              "children": [],
+              "count": 0,
+              "disabled": true,
+              "eid": "2",
+              "end": false,
+              "name": "其它",
+              "rowNum": 3
+            }
+          ],
+          "count": 732,
+          "disabled": false,
+          "eid": "24048608",
+          "end": false,
+          "name": "web-进入首页",
+          "rowNum": 2
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 146,
+                      "disabled": false,
+                      "eid": "6909312",
+                      "end": false,
+                      "name": "整体-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 119,
+                      "disabled": false,
+                      "eid": "23570489",
+                      "end": false,
+                      "name": "看板-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 58,
+                      "disabled": false,
+                      "eid": "8532810",
+                      "end": false,
+                      "name": "查看看板",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 35,
+                      "disabled": false,
+                      "eid": "23633651",
+                      "end": false,
+                      "name": "获取-进入模块",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 34,
+                      "disabled": false,
+                      "eid": "23586138",
+                      "end": false,
+                      "name": "看板-查看指标详情",
+                      "rowNum": 5
+                    },
+                    {
+                      "children": [],
+                      "count": 0,
+                      "disabled": true,
+                      "eid": "2",
+                      "end": false,
+                      "name": "其它",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 652,
+                  "disabled": false,
+                  "eid": "8532810",
+                  "end": false,
+                  "name": "查看看板",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 15,
+                      "disabled": false,
+                      "eid": "23570637",
+                      "end": false,
+                      "name": "看板-看板列表",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 15,
+                  "disabled": false,
+                  "eid": "23570489",
+                  "end": false,
+                  "name": "看板-进入模块",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 6,
+                      "disabled": false,
+                      "eid": "6908933",
+                      "end": false,
+                      "name": "整体-分析指标",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 6,
+                  "disabled": false,
+                  "eid": "6909312",
+                  "end": false,
+                  "name": "整体-进入模块",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 4,
+                      "disabled": false,
+                      "eid": "23633663",
+                      "end": false,
+                      "name": "获取-选择时间段",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 4,
+                  "disabled": false,
+                  "eid": "23633651",
+                  "end": false,
+                  "name": "获取-进入模块",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "6908923",
+                      "end": false,
+                      "name": "事件-分析事件",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 2,
+                  "disabled": false,
+                  "eid": "6908014",
+                  "end": false,
+                  "name": "事件-进入模块",
+                  "rowNum": 4
+                },
+                {
+                  "children": [],
+                  "count": 0,
+                  "disabled": true,
+                  "eid": "2",
+                  "end": false,
+                  "name": "其它",
+                  "rowNum": 4
+                }
+              ],
+              "count": 692,
+              "disabled": false,
+              "eid": "23570637",
+              "end": false,
+              "name": "看板-看板列表",
+              "rowNum": 3
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "6908933",
+                      "end": false,
+                      "name": "整体-分析指标",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 1,
+                  "disabled": false,
+                  "eid": "6908933",
+                  "end": false,
+                  "name": "整体-分析指标",
+                  "rowNum": 4
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23570637",
+                      "end": false,
+                      "name": "看板-看板列表",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 1,
+                  "disabled": false,
+                  "eid": "23570489",
+                  "end": false,
+                  "name": "看板-进入模块",
+                  "rowNum": 4
+                }
+              ],
+              "count": 2,
+              "disabled": false,
+              "eid": "8532810",
+              "end": false,
+              "name": "查看看板",
+              "rowNum": 3
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "count": 2,
+                  "disabled": true,
+                  "eid": "1",
+                  "end": true,
+                  "name": "会话结束",
+                  "rowNum": 4
+                }
+              ],
+              "count": 2,
+              "disabled": false,
+              "eid": "23576563",
+              "end": false,
+              "name": "登录-进入登录页",
+              "rowNum": 3
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 2,
+                      "disabled": false,
+                      "eid": "8532810",
+                      "end": false,
+                      "name": "查看看板",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 2,
+                  "disabled": false,
+                  "eid": "23570637",
+                  "end": false,
+                  "name": "看板-看板列表",
+                  "rowNum": 4
+                }
+              ],
+              "count": 2,
+              "disabled": false,
+              "eid": "23570489",
+              "end": false,
+              "name": "看板-进入模块",
+              "rowNum": 3
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "count": 1,
+                      "disabled": false,
+                      "eid": "23570637",
+                      "end": false,
+                      "name": "看板-看板列表",
+                      "rowNum": 5
+                    }
+                  ],
+                  "count": 1,
+                  "disabled": false,
+                  "eid": "24050832",
+                  "end": false,
+                  "name": "行为路径-进入树形图",
+                  "rowNum": 4
+                }
+              ],
+              "count": 1,
+              "disabled": false,
+              "eid": "23555550",
+              "end": false,
+              "name": "行为路径-分析行为路径",
+              "rowNum": 3
+            },
+            {
+              "children": [],
+              "count": 0,
+              "disabled": true,
+              "eid": "2",
+              "end": false,
+              "name": "其它",
+              "rowNum": 3
+            }
+          ],
+          "count": 703,
+          "disabled": false,
+          "eid": "23570489",
+          "end": false,
+          "name": "看板-进入模块",
+          "rowNum": 2
+        },
+        {
+          "children": [],
+          "count": 0,
+          "disabled": true,
+          "eid": "2",
+          "end": false,
+          "name": "其它",
+          "rowNum": 2
+        }
+      ],
+      "count": 34057,
+      "disabled": false,
+      "eid": "0",
+      "end": false,
+      "name": "会话开始",
+      "rowNum": 1
+    }
+  ]
+}

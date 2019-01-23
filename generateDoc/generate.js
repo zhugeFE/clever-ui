@@ -19,19 +19,22 @@ const reg = {
    */
   commentAndName: /\/\*\*[\s\S]*?:/g,
   comment: /\/\*\*[\s\S]*?(\*\/)/g,
-  props: /props:[\s\S]*?(data|watch|computed|updated|methods|created)/
+  props: /props:[\s\S]*?(watch[ ]*:|computed[ ]*:|methods[ ]*:|updated[ ]*\(|data[ ]*\(|created[ ]*\()/
 }
 
 fsUtil.readDir(config.basePath, (filePath, file, stat) => {
   if (/.vue$/.test(file)) {
     fs.readFile(path.resolve(filePath, file), (err, data) => {
+      if (err) {
+        console.error(err)
+        return
+      }
       const fileContent = data.toString()
       const matchProps = fileContent.match(reg.props)
       if (!matchProps || !/\{[\s\S]*\}/.test(matchProps[0])) return
       const propContent = matchProps[0].match(/\{[\s\S]*\}/)[0]
       const props = propContent.split(reg.commentAndName)
       const comments = propContent.match(reg.commentAndName)
-
       if (!props || !comments) return
 
       let docJson = []
@@ -44,7 +47,7 @@ fsUtil.readDir(config.basePath, (filePath, file, stat) => {
           required: false,
           default: null
         }
-        comment = comment.match(reg.comment)[0]
+        comment = (comment.match(reg.comment) || [])[0]
 
         // 解析注解信息
         const marks = ['description', 'tip', 'type', 'required', 'default']
@@ -57,7 +60,7 @@ fsUtil.readDir(config.basePath, (filePath, file, stat) => {
 
         // 解析vue中prop规则属性, 如果有同名注解，则以注解为准
         const rules = ['type', 'required', 'default']
-        if (prop.match(/\n/g).length <= 1) {// 简单定义，只定义了属性类型
+        if (prop.match(/\n/g).length <= 1) { // 简单定义，只定义了属性类型
           docItem.type = prop.replace(/[\s\n]*/g, '').replace(/,$/, '')
         } else {
           rules.forEach(rule => {

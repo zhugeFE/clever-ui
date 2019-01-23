@@ -235,6 +235,22 @@ let util = {
     }
 
     return str
+  },
+  /**
+ * 计算百分比值
+ * @param {number} numerator 分子
+ * @param {number} denominator 分母
+ * @param {number} precision 小数精度
+ * @returns {string}
+ */
+  percentCalculate (numerator, denominator, precision = 2) {
+    let data = 0
+    if (numerator && denominator) {
+      precision = Math.pow(10, precision)
+      numerator = numerator * precision * 100
+      data = Math.floor(numerator / denominator) / precision
+    }
+    return data + '%'
   }
 }
 

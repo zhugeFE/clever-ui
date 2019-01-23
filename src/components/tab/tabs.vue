@@ -87,12 +87,19 @@
       }
     },
     mounted () {
-      const tabs = this.children('cTabPanel')
-      if (tabs.length) {
-        tabs[this.activeIndex].$data.show = true
-      }
+      this.initTabs()
+    },
+    beforeUpdate () {
+      this.initTabs()
     },
     methods: {
+      initTabs () {
+        const tabs = this.children('zgTabPanel')
+        if (tabs.length) {
+          let index = tabs[this.activeIndex] ? this.activeIndex : 0
+          tabs[index].$data.show = true
+        }
+      },
       onClickTab (tab) {
         this.activeIndex = tab.index
         this.$emit('input', tab.index)

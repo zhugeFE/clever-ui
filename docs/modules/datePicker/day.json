@@ -1,0 +1,1 @@
+[{"name":"min","type":"Date","required":false,"default":null},{"name":"max","type":"Date","required":false,"default":null},{"name":"highlightStart","type":"Date","required":false,"default":null},{"name":"highlightEnd","type":"Date","required":false,"default":null}]
