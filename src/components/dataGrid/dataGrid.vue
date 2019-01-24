@@ -186,12 +186,6 @@
        */
       onSort (status, column) {
         this.sortColumn = column
-        const headerList = this.children('cGridHeader', true)
-        headerList.forEach(header => {
-          if (header.$props.column !== column) {
-            header.$data.sortStatus = 0
-          }
-        })
         const field = column.field
         this.gridStore.sort((a, b) => {
           if (this.customSort) {

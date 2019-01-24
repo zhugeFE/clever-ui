@@ -1,5 +1,5 @@
 <template>
-  <div ref="zgFlow" class="c-flow" v-resize="onResize" :style="style">
+  <div ref="cFlow" class="c-flow" v-resize="onResize" :style="style">
     <div class="c-flow-main" ref="toChart"></div>
     <!-- <div :style="{'line-height': height + 'px'}" class="c-flow-empty">暂无数据</div> -->
   </div>
@@ -280,7 +280,7 @@ export default {
   },
   methods: {
     initXWidth () {
-      let width = this.$refs.zgFlow.getBoundingClientRect().width
+      let width = this.$refs.cFlow.getBoundingClientRect().width
       if (width <= this.minWidth) width = this.minWidth
       this.xWidth = this.width || width
     },

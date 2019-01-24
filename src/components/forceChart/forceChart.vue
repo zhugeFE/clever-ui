@@ -1,14 +1,18 @@
 <template>
-  <div ref="zgForceChart" class="zg-fore-chart" v-resize="onResize" :style="style">
-    <div class="zg-fore-chart-main" ref="toChart"></div>
-    <zg-loading v-if="loading"></zg-loading>
+  <div ref="cForceChart" class="c-fore-chart" v-resize="onResize" :style="style">
+    <div class="c-fore-chart-main" ref="toChart"></div>
+    <c-loading v-if="loading"></c-loading>
   </div>
 </template>
 
 <script>
 import { util } from '../../utils'
+import cLoading from '../loading/loading'
 export default {
-  name: 'zgForceChart',
+  name: 'cForceChart',
+  components: {
+    cLoading
+  },
   props: {
     echarts: {
       required: true
@@ -250,7 +254,7 @@ export default {
   },
   methods: {
     initXWidth () {
-      let width = this.$refs.zgForceChart.getBoundingClientRect().width
+      let width = this.$refs.cForceChart.getBoundingClientRect().width
       if (width <= this.minWidth) width = this.minWidth
       this.xWidth = this.width || width
     },

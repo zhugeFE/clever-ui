@@ -94,7 +94,7 @@
     },
     methods: {
       initTabs () {
-        const tabs = this.children('zgTabPanel')
+        const tabs = this.children('cTabPanel')
         if (tabs.length) {
           let index = tabs[this.activeIndex] ? this.activeIndex : 0
           tabs[index].$data.show = true
