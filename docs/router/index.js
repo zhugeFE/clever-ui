@@ -22,6 +22,9 @@ import calendar from '../modules/calendar/index'
 import pagination from '../modules/pagination/index'
 import notification from '../modules/notification/index'
 import datePicker from '../modules/datePicker/index'
+import tree from '../modules/tree/index'
+import flow from '../modules/flow/index'
+import forceChart from '../modules/forceChart/index'
 
 Vue.use(Router)
 
@@ -137,6 +140,21 @@ export default new Router({
           path: '/scroll',
           name: 'scroll',
           component: scroll
+        },
+        {
+          path: '/tree',
+          name: 'tree',
+          component: tree
+        },
+        {
+          path: '/flow',
+          name: 'flow',
+          component: flow
+        },
+        {
+          path: '/forceChart',
+          name: 'forceChart',
+          component: forceChart
         }
       ]
     }

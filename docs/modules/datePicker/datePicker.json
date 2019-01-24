@@ -1,0 +1,1 @@
+[{"name":"keepExpand","type":"Boolean","required":false,"default":"false","description":"todo 保持展开状态"},{"name":"min","type":"Date","required":false,"default":null},{"name":"max","type":"Date","required":false,"default":null},{"name":"highlightStart","type":"Date","required":false,"default":null},{"name":"highlightEnd","type":"Date","required":false,"default":null}]

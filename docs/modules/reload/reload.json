@@ -1,0 +1,1 @@
+[{"name":"size","type":"String","required":false,"default":"'normal'","description":"reload图标的大小尺寸","tip":"可选值为 'normal' 、'bigger'"}]

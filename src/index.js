@@ -19,6 +19,7 @@ import {calendar} from './components/calendar'
 import pagination from './components/pagination'
 import tree from './components/tree'
 import flow from './components/flow'
+import forceChart from './components/forceChart'
 import dropdown from './components/dropDown/index'
 import {datePicker, dateRangePicker} from './components/datePicker/index'
 import {util} from './utils'
@@ -53,6 +54,7 @@ const components = [
   pagination,
   tree,
   flow,
+  forceChart,
   dropdown,
   datePicker,
   dateRangePicker,

@@ -1,1 +1,1 @@
-[{"name":"title","type":"String","required":"true","default":null,"description":"tab标签显示文本"}]
+[{"name":"title","type":"String","required":"true","default":null,"description":"tab标签显示文本"},{"name":"icon","type":"String","required":false,"default":"false","description":"tab标签icon"}]

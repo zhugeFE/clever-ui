@@ -1,0 +1,1 @@
+[{"name":"bottomRatio","type":"Number","required":false,"default":"0.05","description":"纵向滚动检测比例值，当scrollBottom在总高度*bottomRatio范围时，触发bottom（触底）事件"}]

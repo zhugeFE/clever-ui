@@ -78,7 +78,7 @@
             } else if (this.placement === 'left') {
               this.top = triggerRect.top + (triggerRect.height - tipRect.height) / 2
             } else {
-              this.top = triggerRect.top + triggerRect.height - tipRect.height
+              this.top = triggerRect.top + (triggerRect.height - tipRect.height) / 2
             }
           }
         })

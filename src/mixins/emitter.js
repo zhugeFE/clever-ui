@@ -7,7 +7,11 @@ const getChildren = ({parent, childName, deep = false}, result) => {
         children.push(item)
       }
       if (!deep) return
-      getChildren(item, childName, children)
+      getChildren({
+        parent: item,
+        childName,
+        deep
+      }, children)
     })
   }
   return children
