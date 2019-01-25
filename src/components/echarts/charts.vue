@@ -542,7 +542,11 @@
               handle.call(this, `${name} ${stack.name}`, {
                 names: series.names.concat([stack.name]),
                 values: series.values.map(v => {
-                  return v[stack.field]
+                  return {
+                    originData: v,
+                    field: stack.field,
+                    value: v[stack.field]
+                  }
                 }),
                 stack: `stack-${index}`,
                 option: stack.option
