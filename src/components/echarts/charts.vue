@@ -209,9 +209,16 @@
             let dates = xLabel.match(/\d{4}-\d{2}-\d{2}/g)
             xLabel = dates[0].replace(/\d{4}-/, '') + '~' + dates[1].replace(/\d{4}-/, '')
           }
-          return `<span>${xLabel}</span><br>` + params.map(item => {
-            return `${item.marker}${item.seriesName}: <span style="color:#66ccff;">${util.toThousands(item.value)}${this.valueUnit}</span>`
-          }).join('<br>')
+          let seriesMap = {}
+          let series = []
+          params.forEach(item => {
+            if (item.value === null ||
+              item.value === undefined ||
+              (seriesMap[item.seriesName] !== null && seriesMap[item.seriesName] !== undefined)) return
+            seriesMap[item.seriesName] = item.value
+            series.push(`${item.marker}${item.seriesName}: <span style="color:#66ccff;">${util.toThousands(item.value)}${this.valueUnit}</span>`)
+          })
+          return `<span>${xLabel}</span><br>${series.join('<br/>')}`
         }
       },
       chartStore () {
@@ -310,6 +317,9 @@
         if (this.optionWrapper) {
           option = this.optionWrapper(option)
         }
+        if (this.type === 'line') {
+          option = this.dashedLineFormat(option)
+        }
         return option
       }
     },
@@ -334,6 +344,48 @@
       this.chart = null
     },
     methods: {
+      dashedLineFormat (option) {
+        let overTime = false
+        option.xAxis.data.forEach((label, index) => {
+          if (overTime) return
+          if (!/\d{4}-\d{2}-\d{2}/.test(label)) return // 如果x轴不是日期，则不做虚线处理
+          let laterTime = label.replace(/[-:\s]*/g, '')
+          let currentDate = new Date()
+          let currentDateTime = util.dateFormat(currentDate, 'yyyymmdd')
+          if (/\d{2}:\d{2}:\d{2}/.test(label)) { // 有时分秒
+            currentDateTime += currentDate.toTimeString().match(/\d{2}:\d{2}:\d{2}/)[0].replace(/:/g, '')
+          } else if (/\|/.test(label)) { // 周，月
+            laterTime = label.split('|')[1].replace(/[-:\s]*/g, '')
+          }
+          if (parseInt(laterTime) >= currentDateTime) {
+            overTime = true
+            let dashedSeries = []
+            option.series.forEach((series, seriesIndex) => {
+              let dashedItem = this.addDashedSeries(series, index - 1)
+              dashedItem.itemStyle.normal.color = dashedItem.lineStyle.normal.color = option.color[seriesIndex]
+              dashedSeries.push(dashedItem)
+            })
+            option.series = option.series.concat(dashedSeries)
+          }
+        })
+        return option
+      },
+      addDashedSeries (series, dashedIndex) {
+        let dashedSeries = util.clone(series)
+        if (!dashedSeries.lineStyle) dashedSeries.lineStyle = {normal: {}}
+        dashedSeries.lineStyle.normal.type = 'dashed'
+        series.data.forEach((v, i) => { // 去掉未过完的时间点数据
+          if (i > dashedIndex) {
+            series.data.splice(i, 1, null)
+          }
+        })
+        dashedSeries.data.forEach((v, i) => {
+          if (i < dashedIndex) {
+            dashedSeries.data.splice(i, 1, null)
+          }
+        })
+        return dashedSeries
+      },
       /**
        * @description 获取x轴数据
        */
@@ -498,7 +550,7 @@
         return {
           name,
           type: 'line',
-          data: series.values,
+          data: util.clone(series.values),
           symbol: 'circle',
           symbolSize: 5,
           showAllSymbol: false,
