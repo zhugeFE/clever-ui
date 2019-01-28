@@ -102,6 +102,8 @@
             return dates[0].replace(/\d{4}-/, '') + '~' + dates[1].replace(/\d{4}-/, '')
           } else if (/:/.test(label)) {
             return label.replace(/\d{4}-\d{2}-\d{2}\s/, '')
+          } else if (/,/.test(label)) {
+            return label.replace(/,/g, '-')
           } else {
             return label
           }
