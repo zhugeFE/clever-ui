@@ -14,6 +14,7 @@
                 tab1的title
               </span>
               this is tab1
+              <c-button @click="num++">计算：{{num}}+1</c-button> ::: {{num}}
             </c-tab-panel>
             <c-tab-panel title="tab2">
               <div style="height: 50px; background: lightpink">
@@ -68,7 +69,8 @@
       return {
         tabs: [],
         chosenIndex: 0,
-        showRightTab: true
+        showRightTab: true,
+        num: 0
       }
     },
     methods: {
