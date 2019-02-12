@@ -45,7 +45,7 @@
       parent.remove(this.templateData)
     },
     render (h) {
-      Vue.set(this.templateData.slots, 'slot', this.$slots.default)
+      Vue.set(this.templateData.slots, 'default', this.$slots.default)
       Vue.set(this.templateData.slots, 'title', this.$slots.title)
       return ''
     }
