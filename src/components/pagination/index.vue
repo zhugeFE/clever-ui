@@ -75,7 +75,7 @@ export default {
   data () {
     return {
       pageSize: {v: this.defaultPageSize},
-      pageNum: {v: this.defaultPageNum}
+      pageNum: {v: 1}
     }
   },
   computed: {
@@ -88,7 +88,7 @@ export default {
       })
     },
     pageNumList () {
-      let totalPage = Math.ceil(this.total / this.pageSize.v)
+      let totalPage = Math.ceil(this.total / this.pageSize.v) || 1
       let store = []
       for (let i = 0; i < totalPage; i++) {
         store.push({
@@ -111,6 +111,13 @@ export default {
       this.$nextTick(() => {
         this.onChange()
       })
+    },
+    pageNumList () {
+      if (this.defaultPageNum <= this.pageNumList) {
+        this.pageNum = {v: this.defaultPageNum}
+      } else {
+        this.pageNum = this.pageNumList[0]
+      }
     }
   },
   methods: {

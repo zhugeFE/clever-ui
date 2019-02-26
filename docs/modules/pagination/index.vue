@@ -1,6 +1,6 @@
 <template>
   <div>
-    <c-pagination class="test-pg" :total="30" :default-page-num="2" @change="onChange"></c-pagination>
+    <c-pagination class="test-pg" :total="0" :default-page-num="2" @change="onChange"></c-pagination>
   </div>
 </template>
 
@@ -17,4 +17,5 @@ export default {
 
 <style lang="sass">
 .test-pg
+  margin-top: 300px
 </style>
