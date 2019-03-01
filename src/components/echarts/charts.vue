@@ -668,6 +668,7 @@
         this.chart.resize()
         this.setOption(this.option)
         this.$nextTick(() => {
+          if (!this.chart) return
           this.chart.resize()
         })
       }
