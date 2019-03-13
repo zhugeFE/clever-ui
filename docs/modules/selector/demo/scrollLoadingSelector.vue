@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: 'semSelector',
+  name: 'scrollLoadingSelector',
   data () {
     return {
       pushNewData: false,
@@ -92,7 +92,8 @@ export default {
     toggle () {
       this.loading = !this.loading
     },
-    search () {
+    search (value) {
+      console.log(value)
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve()
