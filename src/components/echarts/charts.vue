@@ -376,6 +376,7 @@
         let dashedSeries = util.clone(series)
         if (!dashedSeries.lineStyle) dashedSeries.lineStyle = {normal: {}}
         dashedSeries.lineStyle.normal.type = 'dashed'
+        if (!dashedSeries.itemStyle) dashedSeries.itemStyle = {normal: {}}
         series.data.forEach((v, i) => { // 去掉未过完的时间点数据
           if (i > dashedIndex) {
             series.data.splice(i, 1, null)
@@ -668,6 +669,7 @@
         this.chart.resize()
         this.setOption(this.option)
         this.$nextTick(() => {
+          if (!this.chart) return
           this.chart.resize()
         })
       }
