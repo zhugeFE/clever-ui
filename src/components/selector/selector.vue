@@ -241,7 +241,8 @@
         filter: '', // 筛选条件
         filterTimeout: null,
         noMatch: false,
-        loading: false
+        loading: false,
+        cancenFetch: false
       }
       // 绑定默认值
       if (this.value) {
@@ -467,15 +468,24 @@
       },
       onBottom () {
         if (this.onBottomScroll) {
-          if (this.loading) return
-          this.loading = true
+          if (this.cancenFetch) return
+          // if (this.loading) return
+          // this.loading = true
+          this.cancenFetch = true
           this.onBottomScroll().finally(() => {
             let count = (this.pageNum + 1) * this.pageSize
             if (this.totalCount > count) {
               this.pageNum++
             }
+            // this.loading = false
+            this.cancenFetch = false
             this.loading = false
           })
+          setTimeout(() => {
+            if (this.cancenFetch) {
+              this.loading = true
+            }
+          }, 500)
         } else {
           let count = (this.pageNum + 1) * this.pageSize
           if (this.totalCount > count) {
@@ -642,7 +652,9 @@
                     {this.noMatchText}
                   </li>
                 </c-scroll-container>
-                <c-loading v-show={this.loading || this.showLoading} size="small" tip="loading"></c-loading>
+                <div class="loading-wrap" v-show={this.loading || this.showLoading}>
+                  <c-loading size="small" showTip={false} tip="loading"></c-loading>
+                </div>
               </div>
             </div>
           </transition>

@@ -50,7 +50,7 @@ export default {
         for (let j = 0; j < 10; j++) {
           item.children.push({
             key: j,
-            label: `第${i}-${j}个`
+            label: `第${i}-${j}个22222231231312312312个22222231231312312312个22222231231312312312个22222231231312312312`
           })
         }
         result.push(item)
