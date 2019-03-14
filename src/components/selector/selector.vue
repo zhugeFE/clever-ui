@@ -469,15 +469,12 @@
       onBottom () {
         if (this.onBottomScroll) {
           if (this.cancenFetch) return
-          // if (this.loading) return
-          // this.loading = true
           this.cancenFetch = true
           this.onBottomScroll().finally(() => {
             let count = (this.pageNum + 1) * this.pageSize
             if (this.totalCount > count) {
               this.pageNum++
             }
-            // this.loading = false
             this.cancenFetch = false
             this.loading = false
           })
@@ -507,7 +504,7 @@
             this.pageNum = 0
             this.filter = filterValue
           }
-        }, 100)
+        }, 300)
       },
       clean () {
         this.chosenList = []
