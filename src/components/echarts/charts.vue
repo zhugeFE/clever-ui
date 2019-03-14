@@ -1,7 +1,10 @@
 <template>
   <div class="c-charts" :style="style" v-resize="onResize">
     <div class="c-charts-main" ref="toChart"></div>
-    <div v-show="!chartStore.series.length" :style="{'line-height': height + 'px'}" class="c-charts-empty">暂无数据</div>
+    <div v-show="showEmpty" :style="{'line-height': height + 'px'}"
+         class="c-charts-empty">
+      {{emptyLabel}}
+    </div>
   </div>
 </template>
 
@@ -192,6 +195,13 @@
         default (option) {
           return option
         }
+      },
+      /**
+       * @description 数据为空时的提示
+       */
+      emptyLabel: {
+        type: String,
+        default: '暂无数据'
       }
     },
     data () {
@@ -323,6 +333,11 @@
           option = this.dashedLineFormat(option)
         }
         return option
+      },
+      showEmpty () {
+        return !this.chartStore.series.length ||
+          !this.option.series.length ||
+          (util.isArray(this.showList) && !this.showList.length)
       }
     },
     watch: {
