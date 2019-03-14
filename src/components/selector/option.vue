@@ -1,9 +1,10 @@
 <template>
-  <li class="c-option" :class="className" @click="onClick" v-show="theme !== 'tag' || !active">
-    <slot v-if="!multiple || theme == 'tag'" :data="data" :active="active" :disable="disable">
-      <i v-if="iconField" :class="iconClass"></i><span>{{data[aliasField] || data[labelField]}}</span>
-    </slot>
-
+  <li class="c-option" :class="className" v-show="theme !== 'tag' || !active">
+    <span class="c-option-item" @click="onClick" v-if="!multiple || theme == 'tag'">
+      <slot :data="data" :active="active" :disable="disable">
+        <i v-if="iconField" :class="iconClass"></i><span>{{data[aliasField] || data[labelField]}}</span>
+      </slot>
+    </span>
     <c-checkbox v-else @change="onClick" v-model="active" :disable="disable">
       <slot :data="data" :active="active" :disable="disable">
         <i v-if="iconField" :class="iconClass"></i><span>{{data[aliasField] || data[labelField]}}</span>
