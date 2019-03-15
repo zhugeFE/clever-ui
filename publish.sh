@@ -13,6 +13,10 @@ branch=$(git symbolic-ref --short HEAD)
 git push origin $branch
 
 print 'npm version <newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease'
+
+print '远程最新版本: '
+npm dist-tag ls
+
 read -p "版本号：" version
 npm version $version
 git add -A
