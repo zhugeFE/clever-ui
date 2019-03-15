@@ -17,6 +17,9 @@ print 'npm version <newversion> | major | minor | patch | premajor | preminor | 
 print '远程最新版本: '
 npm dist-tag ls
 
+print '本地当前版本信息：'
+npm version
+
 read -p "版本号：" version
 npm version $version
 git add -A
@@ -31,3 +34,6 @@ else
   npm publish
 fi
 cnpm sync clever-ui
+
+print '远程最新版本: '
+npm dist-tag ls
