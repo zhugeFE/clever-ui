@@ -23,7 +23,7 @@ export default {
     return {
       scrollBottom: 0,
       scrollTop: 0,
-      t: 0
+      scrollTopPos: 0
     }
   },
   methods: {
@@ -52,10 +52,10 @@ export default {
       const canScrollHeight = panel.scrollHeight - height // 可滚动的总高度
       const scrollBottom = canScrollHeight - panel.scrollTop // 未滚动的高度
       this.scrollTop = panel.scrollTop
-      if (this.t <= this.scrollTop && scrollBottom <= Math.max(canScrollHeight * this.bottomRatio, height / 2)) {
+      if (this.scrollTopPos <= this.scrollTop && scrollBottom <= Math.max(canScrollHeight * this.bottomRatio, height / 2)) {
         this.$emit('bottom')
       }
-      setTimeout(() => { this.t = this.scrollTop })
+      setTimeout(() => { this.scrollTopPos = this.scrollTop })
     }
   }
 }
