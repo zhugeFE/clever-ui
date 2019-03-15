@@ -242,7 +242,8 @@
         filterTimeout: null,
         noMatch: false,
         loading: false,
-        cancenFetch: false
+        cancenFetch: false,
+        scrollLoadingTimer: null
       }
       // 绑定默认值
       if (this.value) {
@@ -478,7 +479,10 @@
             this.cancenFetch = false
             this.loading = false
           })
-          setTimeout(() => {
+          if (this.scrollLoadingTimer) {
+            clearTimeout(this.scrollLoadingTimer)
+          }
+          this.scrollLoadingTimer = setTimeout(() => {
             if (this.cancenFetch) {
               this.loading = true
             }
