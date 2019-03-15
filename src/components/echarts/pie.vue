@@ -111,6 +111,7 @@ export default {
       return list
     },
     option () {
+      let context = this
       return {
         color: util.colors,
         backgroundColor: 'white',
@@ -119,17 +120,44 @@ export default {
           textStyle: {
             fontSize: 12
           },
-          formatter: '{b}: {c} ({d}%)'
+          formatter (param) {
+            const maxLength = context.getMaxLabelLength()
+            let name = param.name.match(new RegExp(`\\S{1,${maxLength}}`, 'g')).join('<br/>')
+            return `${param.marker}${name}: ${param.value}(${param.percent}%)`
+          }
         },
         legend: {
           data: this.legend,
-          type: 'scroll'
+          type: 'scroll',
+          tooltip: {
+            show: true,
+            formatter (param) {
+              const maxLength = context.getMaxLabelLength()
+              return param.name.match(new RegExp(`\\S{1,${maxLength}}`, 'g')).join('<br/>')
+            }
+          },
+          formatter (name) {
+            const maxLength = context.getMaxLabelLength()
+            return util.strMiddleSplit(name, {
+              maxLength,
+              beginLength: maxLength / 2 - 2,
+              endLength: maxLength / 2 - 2,
+              replaceStr: '...'
+            })
+          }
         },
         series: [
           {
             type: 'pie',
             radius: ['50%', '70%'],
-            data: this.seriesData
+            data: this.seriesData,
+            label: {
+              formatter (param) {
+                const maxLength = context.getMaxLabelLength()
+                let name = param.name.match(new RegExp(`\\S{1,${maxLength}}`, 'g')).join('\n')
+                return `${name}`
+              }
+            }
           }
         ]
       }
@@ -148,6 +176,11 @@ export default {
     this.onResize()
   },
   methods: {
+    getMaxLabelLength () {
+      let rect = this.$refs.toChart.getBoundingClientRect()
+      const length = parseInt(Math.min(rect.width, rect.height) / 12)
+      return length
+    },
     setOption (option) {
       this.chart.clear()
       this.chart.setOption(this.optionWrapper(util.clone(option)))
