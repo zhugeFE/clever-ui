@@ -9,9 +9,8 @@
     "build-lib": "node build/build-lib.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
-    "version": "npm run build-lib;git add -A",
-    "postversion": "git push;git push --tags;npm publish;cnpm sync clever-ui",
-    "lint": "eslint --ext .js,.vue src test/unit/specs"
+    "lint": "eslint --ext .js,.vue src test/unit/specs",
+    "pub": "./publish.sh"
   },
   "main": "lib/main.js",
   "files": [
