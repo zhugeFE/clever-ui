@@ -209,21 +209,34 @@
           return ['down', 'up'].includes(arrow)
         }
       },
+      /**
+       * @description 下拉框滚动到底部执行此函数,当请求时间超过500毫秒会出现loading
+       * @tip 适用下拉框数据远程加载,返回值需要是Promise实例 
+       */
       onBottomScroll :{
         type: Function
       },
+      /**
+       * @description 下拉框打开事件
+       */
       onShow: {
         type: Function,
         default: () => {
           return
         }
       },
+      /**
+       * @description 下拉框关闭事件
+       */
       onClose: {
         type: Function,
         default: () => {
           return
         }
       },
+      /**
+       * @description 控制下拉框内loading显示 组件内部有data控制loading，当内部loading无法满足需求时可以控制showLoading
+       */
       showLoading: {
         type: Boolean,
         default: false
