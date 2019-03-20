@@ -28,14 +28,9 @@ export default {
     })
   },
   unbind (el, binding, vnode) {
-    const current = {
-      node: el,
-      handle: binding.value,
-      context: vnode
-    }
     for (let i in nodeList) {
-      var node = nodeList[i]
-      if (current === node) {
+      var item = nodeList[i]
+      if (item.node === el && item.handle === binding.value && item.context === vnode) {
         nodeList.splice(i, 1)
         break
       }
