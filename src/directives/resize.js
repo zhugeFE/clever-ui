@@ -27,14 +27,9 @@ export default {
     })
   },
   unbind (el, binding, vnode) {
-    let current = {
-      node: el,
-      handle: binding.value,
-      context: vnode
-    }
     for (let i = 0; i < callStack.length; i++) {
       let item = callStack[i]
-      if (item === current) {
+      if (item.node === el && item.handle === binding.value && item.context === vnode) {
         callStack.splice(i, 1)
         return
       }

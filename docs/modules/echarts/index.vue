@@ -1,6 +1,7 @@
 <template>
   <div>
-    <pie-chart></pie-chart>
+    <c-button @click="onClick">{{show ? '隐藏' : '显示'}}</c-button> PIE 图表
+    <pie-chart v-if="show" v-click-outside="onClickOutSide"></pie-chart>
     <area-chart></area-chart>
     <stack-bar-chart></stack-bar-chart>
     <bar-chart></bar-chart>
@@ -38,7 +39,16 @@
     name: 'index',
     data () {
       return {
-        api
+        api,
+        show: true
+      }
+    },
+    methods: {
+      onClickOutSide () {
+        console.log('click out side')
+      },
+      onClick () {
+        this.show = !this.show
       }
     }
   }
