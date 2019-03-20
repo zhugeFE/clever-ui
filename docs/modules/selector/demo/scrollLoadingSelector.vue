@@ -50,7 +50,7 @@ export default {
         for (let j = 0; j < 10; j++) {
           item.children.push({
             key: j,
-            label: `第${i}-${j}个22222231231312312312个22222231231312312312个22222231231312312312个22222231231312312312`
+            label: `第${i}-${j}个`
           })
         }
         result.push(item)
@@ -98,7 +98,7 @@ export default {
         setTimeout(() => {
           resolve()
           console.log(this)
-        }, 500)
+        }, 800)
       })
     },
     scroll () {
@@ -106,7 +106,7 @@ export default {
         setTimeout(() => {
           console.log('请求完成')
           resolve()
-        }, 1000)
+        }, 800)
       })
     }
   },

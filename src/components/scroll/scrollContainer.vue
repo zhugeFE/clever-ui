@@ -22,8 +22,7 @@ export default {
   data () {
     return {
       scrollBottom: 0,
-      scrollTop: 0,
-      scrollTopPos: 0
+      prveScrollTopPos: 0 // 记录上一次滚动的位置
     }
   },
   methods: {
@@ -51,11 +50,10 @@ export default {
 
       const canScrollHeight = panel.scrollHeight - height // 可滚动的总高度
       const scrollBottom = canScrollHeight - panel.scrollTop // 未滚动的高度
-      this.scrollTop = panel.scrollTop
-      if (this.scrollTopPos <= this.scrollTop && scrollBottom <= Math.max(canScrollHeight * this.bottomRatio, height / 2)) {
+      if (this.prveScrollTopPos <= panel.scrollTop && scrollBottom <= Math.max(canScrollHeight * this.bottomRatio, height / 2)) {
         this.$emit('bottom')
       }
-      setTimeout(() => { this.scrollTopPos = this.scrollTop })
+      this.prveScrollTopPos = panel.scrollTop
     }
   }
 }

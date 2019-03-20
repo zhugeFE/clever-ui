@@ -255,7 +255,8 @@
         filterTimeout: null,
         noMatch: false,
         loading: false,
-        cancenFetch: false,
+        finallyTimeout: null,
+        scrollTime: 0,
         scrollLoadingTimer: null
       }
       // 绑定默认值
@@ -358,6 +359,8 @@
         }
       },
       showOptions (state) {
+        this.filter = ''
+        this.$refs.options.$el.scrollTop = 0
         if (state) {
           this.onShow()
         } else {
@@ -481,23 +484,30 @@
       },
       onBottom () {
         if (this.onBottomScroll) {
-          if (this.cancenFetch) return
-          this.cancenFetch = true
+          if (this.scrollTime) return
+          this.scrollTime = new Date().getTime()
           this.onBottomScroll().finally(() => {
-            let count = (this.pageNum + 1) * this.pageSize
-            if (this.totalCount > count) {
-              this.pageNum++
-            }
-            this.cancenFetch = false
-            this.loading = false
-          })
-          if (this.scrollLoadingTimer) {
             clearTimeout(this.scrollLoadingTimer)
-          }
-          this.scrollLoadingTimer = setTimeout(() => {
-            if (this.cancenFetch) {
+            let loadingTime = 0
+            let endTime = new Date().getTime() - this.scrollTime
+            if (endTime > 500) {
+              loadingTime = 300
               this.loading = true
             }
+            if (this.finallyTimeout) {
+              clearTimeout(this.finallyTimeout)
+            }
+            this.finallyTimeout = setTimeout(() => {
+              this.loading = false
+              let count = (this.pageNum + 1) * this.pageSize
+              if (this.totalCount > count) {
+                this.pageNum++
+              }
+              this.scrollTime = 0
+            }, loadingTime)
+          })
+          this.scrollLoadingTimer = setTimeout(() => {
+            this.loading = true
           }, 500)
         } else {
           let count = (this.pageNum + 1) * this.pageSize
@@ -514,9 +524,11 @@
             this.loading = true
             this.search(filterValue).finally(() => {
               this.loading = false
+              this.$refs.options.$el.scrollTop = 0
+              this.pageNum = 0
             })
           } else {
-            this.$refs.options.scrollTop = 0
+            this.$refs.options.$el.scrollTop = 0
             this.pageNum = 0
             this.filter = filterValue
           }

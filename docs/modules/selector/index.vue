@@ -5,7 +5,7 @@
     <normal-big-data-selector></normal-big-data-selector>
     <group-big-data-selector></group-big-data-selector>
     <tag-selector></tag-selector>
-    <scrollLoadingSelector></scrollLoadingSelector>
+    <ScrollLoadingSelector></ScrollLoadingSelector>
     <doc-markdown :api="api.select" title="select"></doc-markdown>
     <doc-markdown :api="api.bigSelect" title="bigSelect"></doc-markdown>
     <doc-markdown :api="api.option" title="option"></doc-markdown>
@@ -22,7 +22,7 @@ import NormalBigDataSelector from './demo/normalBigDataSelector.vue'
 import GroupBigDataSelector from './demo/groupBigDataSelector.vue'
 import selectApi from './selector.json'
 import TagSelector from './demo/tagSelector'
-import scrollLoadingSelector from './demo/scrollLoadingSelector'
+import ScrollLoadingSelector from './demo/scrollLoadingSelector'
 export default {
   components: {
     TagSelector,
@@ -30,7 +30,7 @@ export default {
     NormalBigDataSelector,
     GroupSelector,
     NormalSelector,
-    scrollLoadingSelector,
+    ScrollLoadingSelector,
     DocMarkdown},
   name: 'index',
   data () {
