@@ -208,6 +208,38 @@
         validator (arrow) {
           return ['down', 'up'].includes(arrow)
         }
+      },
+      /**
+       * @description 下拉框滚动到底部执行此函数,当请求时间超过500毫秒会出现loading
+       * @tip 适用下拉框数据远程加载,返回值需要是Promise实例 
+       */
+      onBottomScroll :{
+        type: Function
+      },
+      /**
+       * @description 下拉框打开事件
+       */
+      onShow: {
+        type: Function,
+        default: () => {
+          return
+        }
+      },
+      /**
+       * @description 下拉框关闭事件
+       */
+      onClose: {
+        type: Function,
+        default: () => {
+          return
+        }
+      },
+      /**
+       * @description 控制下拉框内loading显示 组件内部有data控制loading，当内部loading无法满足需求时可以控制showLoading
+       */
+      showLoading: {
+        type: Boolean,
+        default: false
       }
     },
     data () {
@@ -222,7 +254,10 @@
         filter: '', // 筛选条件
         filterTimeout: null,
         noMatch: false,
-        loading: false
+        loading: false,
+        finallyTimeout: null,
+        scrollTime: 0,
+        scrollLoadingTimer: null
       }
       // 绑定默认值
       if (this.value) {
@@ -322,6 +357,15 @@
         } else { // 多选
           this.$emit('input', this.chosenList)
         }
+      },
+      showOptions (state) {
+        this.filter = ''
+        this.$refs.options.$el.scrollTop = 0
+        if (state) {
+          this.onShow()
+        } else {
+          this.onClose()
+        }
       }
     },
     mounted () {
@@ -343,7 +387,6 @@
         const panelRect = dropPanel.getBoundingClientRect()
         const handleRect = dropHandle.$el.getBoundingClientRect()
         const bottomHeight = window.innerHeight - panelRect.top - 7
-        dropPanel.style.maxHeight = Math.min(325, bottomHeight) + 'px'
         if ((panelRect.width + panelRect.left) > window.innerWidth) {
           dropPanel.style.right = 0
         }
@@ -440,9 +483,37 @@
         this.$emit('change', this.chosenList, this)
       },
       onBottom () {
-        let count = (this.pageNum + 1) * this.pageSize
-        if (this.totalCount > count) {
-          this.pageNum++
+        if (this.onBottomScroll) {
+          if (this.scrollTime) return
+          this.scrollTime = new Date().getTime()
+          this.onBottomScroll().finally(() => {
+            clearTimeout(this.scrollLoadingTimer)
+            let loadingTime = 0
+            let endTime = new Date().getTime() - this.scrollTime
+            if (endTime > 500) {
+              loadingTime = 300
+              this.loading = true
+            }
+            if (this.finallyTimeout) {
+              clearTimeout(this.finallyTimeout)
+            }
+            this.finallyTimeout = setTimeout(() => {
+              this.loading = false
+              let count = (this.pageNum + 1) * this.pageSize
+              if (this.totalCount > count) {
+                this.pageNum++
+              }
+              this.scrollTime = 0
+            }, loadingTime)
+          })
+          this.scrollLoadingTimer = setTimeout(() => {
+            this.loading = true
+          }, 500)
+        } else {
+          let count = (this.pageNum + 1) * this.pageSize
+          if (this.totalCount > count) {
+            this.pageNum++
+          }
         }
       },
       onFilter (filterValue) {
@@ -453,13 +524,15 @@
             this.loading = true
             this.search(filterValue).finally(() => {
               this.loading = false
+              this.$refs.options.$el.scrollTop = 0
+              this.pageNum = 0
             })
           } else {
-            this.$refs.options.scrollTop = 0
+            this.$refs.options.$el.scrollTop = 0
             this.pageNum = 0
             this.filter = filterValue
           }
-        }, 100)
+        }, 300)
       },
       clean () {
         this.chosenList = []
@@ -536,7 +609,7 @@
           </c-selector-handle>
 
           <transition enter-active-class="animated slideInDown">
-            <ul v-show={this.showOptions} class="c-drop-panel" ref="dropPanel">
+            <div v-show={this.showOptions} class="c-drop-panel" ref="dropPanel">
               <div class="c-fixed" v-show={this.theme !== 'tag'}>
                 {(() => {
                   if (this.filterOption) {
@@ -554,58 +627,61 @@
                 </li>
                 {this.$slots.optionsHeader}
               </div>
-
-              <c-scroll-container class="c-content"
-                                  ref="options"
-                                  onBottom={this.onBottom}>
-                <c-loading v-show={this.loading} size="small" tip="loading"></c-loading>
-                {this.renderStore.map(option => {
-                  if (this.childrenField) {
-                    return (
-                      <c-opt-group key={option[this.keyField]}
-                                    store={option[this.childrenField]}
-                                    showMap={this.showMap}
-                                    groupData={option}
-                                    checkedMap={this.checkedMap}
-                                    disableOptions={this.disableOptions}
-                                    keyField={this.keyField}
-                                    labelField={this.labelField}
-                                    aliasField={this.aliasField}
-                                    iconField={this.iconField}
-                                    multiple={this.multiple}
-                                    theme={this.theme}
-                                    hideHead={this.hiddenGroupMap[option[this.keyField]]}
-                                    onClick={this.onClickOption}
-                                    scopedSlots={{
-                                      default: this.$scopedSlots.default,
-                                      header: this.$scopedSlots.header
-                                    }}
-                      ></c-opt-group>
-                    )
-                  } else {
-                    return (
-                      <c-option key={option[this.keyField]}
-                                 checked={this.checkedMap[option[this.keyField]]}
-                                 disable={this.disableOptions.indexOf(option[this.keyField]) > -1}
-                                 data={option}
-                                 labelField={this.labelField}
-                                 aliasField={this.aliasField}
-                                 iconField={this.iconField}
-                                 multiple={this.multiple}
-                                 theme={this.theme}
-                                 onClick={this.onClickOption}
-                                 scopedSlots={{default: this.$scopedSlots.default}}></c-option>
-                    )
-                  }
-                })}
-                <li v-show={this.noData} class="c-option c-error">
-                  {this.noDataText}
-                </li>
-                <li v-show={this.showNoMatch} class="c-option c-error">
-                  {this.noMatchText}
-                </li>
-              </c-scroll-container>
-            </ul>
+              <div class="c-context">
+                <c-scroll-container class="c-content"
+                                    ref="options"
+                                    onBottom={this.onBottom}>
+                  {this.renderStore.map(option => {
+                    if (this.childrenField) {
+                      return (
+                        <c-opt-group key={option[this.keyField]}
+                                      store={option[this.childrenField]}
+                                      showMap={this.showMap}
+                                      groupData={option}
+                                      checkedMap={this.checkedMap}
+                                      disableOptions={this.disableOptions}
+                                      keyField={this.keyField}
+                                      labelField={this.labelField}
+                                      aliasField={this.aliasField}
+                                      iconField={this.iconField}
+                                      multiple={this.multiple}
+                                      theme={this.theme}
+                                      hideHead={this.hiddenGroupMap[option[this.keyField]]}
+                                      onClick={this.onClickOption}
+                                      scopedSlots={{
+                                        default: this.$scopedSlots.default,
+                                        header: this.$scopedSlots.header
+                                      }}
+                        ></c-opt-group>
+                      )
+                    } else {
+                      return (
+                        <c-option key={option[this.keyField]}
+                                  checked={this.checkedMap[option[this.keyField]]}
+                                  disable={this.disableOptions.indexOf(option[this.keyField]) > -1}
+                                  data={option}
+                                  labelField={this.labelField}
+                                  aliasField={this.aliasField}
+                                  iconField={this.iconField}
+                                  multiple={this.multiple}
+                                  theme={this.theme}
+                                  onClick={this.onClickOption}
+                                  scopedSlots={{default: this.$scopedSlots.default}}></c-option>
+                      )
+                    }
+                  })}
+                  <li v-show={this.noData} class="c-option c-error">
+                    {this.noDataText}
+                  </li>
+                  <li v-show={this.showNoMatch} class="c-option c-error">
+                    {this.noMatchText}
+                  </li>
+                </c-scroll-container>
+                <div class="loading-wrap" v-show={this.loading || this.showLoading}>
+                  <c-loading size="small" showTip={false} tip="loading"></c-loading>
+                </div>
+              </div>
+            </div>
           </transition>
           <div style="display: none">{this.showMap.count}</div>
         </div>
