@@ -1,7 +1,10 @@
 <template>
   <div class="c-charts" :style="style" v-resize="onResize">
     <div class="c-charts-main" ref="toChart"></div>
-    <div v-show="!chartStore.series.length" :style="{'line-height': height + 'px'}" class="c-charts-empty">暂无数据</div>
+    <div v-show="showEmpty" :style="{'line-height': height + 'px'}"
+         class="c-charts-empty">
+      {{emptyLabel}}
+    </div>
   </div>
 </template>
 
@@ -110,10 +113,7 @@
         }
       },
       legendFormatter: {
-        type: Function,
-        default (label) {
-          return label
-        }
+        type: Function
       },
       legendShow: {
         type: Boolean,
@@ -192,6 +192,13 @@
         default (option) {
           return option
         }
+      },
+      /**
+       * @description 数据为空时的提示
+       */
+      emptyLabel: {
+        type: String,
+        default: '暂无数据'
       }
     },
     data () {
@@ -204,12 +211,16 @@
       tooltipFormat () {
         return (params) => {
           if (this.tooltipFormatter) return this.tooltipFormatter(params)
+          let maxLength = this.getMaxLabelLength()
+          let lengthReg = new RegExp('\\S{1,' + maxLength + '}', 'g')
           let xLabel = params[0].name
           if (/^\d{4}-\d{2}-\d{2}$/.test(xLabel)) { // 处理日期
             xLabel = xLabel.replace(/\d{4}-/, '')
           } else if (/^\d{4}-\d{2}-\d{2}\|\d{4}-\d{2}-\d{2}$/.test(xLabel)) { // 周、月日期
             let dates = xLabel.match(/\d{4}-\d{2}-\d{2}/g)
             xLabel = dates[0].replace(/\d{4}-/, '') + '~' + dates[1].replace(/\d{4}-/, '')
+          } else {
+            xLabel = (xLabel.match(lengthReg) || []).join('<br/>')
           }
           let seriesMap = {}
           let series = []
@@ -218,7 +229,8 @@
               item.value === undefined ||
               (seriesMap[item.seriesName] !== null && seriesMap[item.seriesName] !== undefined)) return
             seriesMap[item.seriesName] = item.value
-            series.push(`${item.marker}${item.seriesName}: <span style="color:#66ccff;">${util.toThousands(item.value)}${this.valueUnit}</span>`)
+            let name = (item.seriesName.match(lengthReg) || []).join('<br/>')
+            series.push(`${item.marker}${name}: <span style="color:#66ccff;">${util.toThousands(item.value)}${this.valueUnit}</span>`)
           })
           return `<span>${xLabel}</span><br>${series.join('<br/>')}`
         }
@@ -323,6 +335,11 @@
           option = this.dashedLineFormat(option)
         }
         return option
+      },
+      showEmpty () {
+        return !this.chartStore.series.length ||
+          !this.option.series.length ||
+          (util.isArray(this.showList) && !this.showList.length)
       }
     },
     watch: {
@@ -346,6 +363,11 @@
       this.chart = null
     },
     methods: {
+      getMaxLabelLength () {
+        let rect = this.$refs.toChart.getBoundingClientRect()
+        const length = parseInt(rect.width / 2 / 12) // 宽度的一般再除以字体大小
+        return length
+      },
       dashedLineFormat (option) {
         let overTime = false
         option.xAxis.data.forEach((label, index) => {
@@ -497,6 +519,7 @@
             name
           })
         })
+        let context = this
         return {
           type: 'scroll',
           data: legendList,
@@ -504,7 +527,22 @@
           borderWidth: 0,
           width: '60%',
           show: this.legendShow || legendList.length > 1,
-          formatter: this.legendFormatter
+          formatter: (this.legendFormatter || function (label) {
+            const maxLength = context.getMaxLabelLength()
+            return util.strMiddleSplit(label, {
+              maxLength,
+              beginLength: maxLength / 2 - 2,
+              endLength: maxLength / 2 - 2,
+              replaceStr: '...'
+            })
+          }),
+          tooltip: {
+            show: true,
+            formatter (param) {
+              const maxLength = context.getMaxLabelLength()
+              return param.name.match(new RegExp(`\\S{1,${maxLength}}`, 'g')).join('<br/>')
+            }
+          }
         }
       },
       getBarSeries (name, series) {

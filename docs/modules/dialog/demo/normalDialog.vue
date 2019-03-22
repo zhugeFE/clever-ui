@@ -29,9 +29,10 @@
       onClick () {
         this.show = true
       },
-      onConfirm () {
+      onConfirm (resetLoading) {
         console.log('confirm')
         this.show = false
+        resetLoading()
       },
       onCancel () {
         console.log('cancel')

@@ -12,7 +12,11 @@
 
       <div v-if="showFoot" class="c-dialog-foot">
         <slot name="footer">
-          <c-button class="c-dialog-confirm" size="normal" type="primary" @click="onConfirm">{{confirmLabel}}</c-button>
+          <c-button class="c-dialog-confirm"
+                    :showLoading="showLoading"
+                    size="normal"
+                    type="primary"
+                    @click="onConfirm">{{confirmLabel}}</c-button>
           <c-button class="c-dialog-cancel" v-if="showCancel" size="normal" @click="onCancel">{{cancelLabel}}</c-button>
         </slot>
       </div>
@@ -49,6 +53,19 @@
       showCancel: {
         type: Boolean,
         default: true
+      },
+      /**
+       * @description 启用loading，点击确定按钮后，确定按钮置为loading状态
+       * @tip loading状态可以通过confirm事件的回调置回
+       */
+      enableLoading: {
+        type: Boolean,
+        default: false
+      }
+    },
+    data () {
+      return {
+        showLoading: false
       }
     },
     updated () {
@@ -66,7 +83,10 @@
         dialog.style.left = parseInt((containerRect.width - rect.width) / 2) + 'px'
       },
       onConfirm () {
-        this.$emit('confirm')
+        if (this.enableLoading) this.showLoading = true
+        this.$emit('confirm', () => {
+          this.showLoading = false
+        })
       },
       onCancel () {
         this.$emit('cancel')

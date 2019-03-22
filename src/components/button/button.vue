@@ -104,7 +104,7 @@ export default {
   },
   methods: {
     onClick () {
-      if (this.disable) return
+      if (this.disable || this.showLoading) return
       this.$emit('click')
     }
   }
