@@ -122,7 +122,7 @@ export default {
           },
           formatter (param) {
             const maxLength = context.getMaxLabelLength()
-            let name = param.name.match(new RegExp(`\\S{1,${maxLength}}`, 'g')).join('<br/>')
+            let name = (param.name.match(new RegExp(`\\S{1,${maxLength}}`, 'g')) || []).join('<br/>')
             return `${param.marker}${name}: ${param.value}(${param.percent}%)`
           }
         },
@@ -133,7 +133,7 @@ export default {
             show: true,
             formatter (param) {
               const maxLength = context.getMaxLabelLength()
-              return param.name.match(new RegExp(`\\S{1,${maxLength}}`, 'g')).join('<br/>')
+              return (param.name.match(new RegExp(`\\S{1,${maxLength}}`, 'g')) || []).join('<br/>')
             }
           },
           formatter (name) {
@@ -154,7 +154,7 @@ export default {
             label: {
               formatter (param) {
                 const maxLength = context.getMaxLabelLength()
-                let name = param.name.match(new RegExp(`\\S{1,${maxLength}}`, 'g')).join('\n')
+                let name = (param.name.match(new RegExp(`\\S{1,${maxLength}}`, 'g')) || []).join('\n')
                 return util.strMiddleSplit(name, {
                   maxLength,
                   beginLength: maxLength / 2 - 2,
@@ -179,6 +179,11 @@ export default {
   },
   updated () {
     this.onResize()
+  },
+  beforeDestroy () {
+    if (!this.chart) return
+    this.chart.dispose()
+    this.chart = null
   },
   methods: {
     getMaxLabelLength () {
