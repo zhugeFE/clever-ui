@@ -149,13 +149,18 @@ export default {
         series: [
           {
             type: 'pie',
-            radius: ['50%', '70%'],
+            radius: ['30%', '70%'],
             data: this.seriesData,
             label: {
               formatter (param) {
                 const maxLength = context.getMaxLabelLength()
                 let name = param.name.match(new RegExp(`\\S{1,${maxLength}}`, 'g')).join('\n')
-                return `${name}`
+                return util.strMiddleSplit(name, {
+                  maxLength,
+                  beginLength: maxLength / 2 - 2,
+                  endLength: maxLength / 2 - 2,
+                  replaceStr: '...'
+                })
               }
             }
           }
