@@ -34,6 +34,12 @@
         required: true
       },
       /**
+       * @description 分组名称字段，用于显示分组名，不传则默认取labelField
+       */
+      groupField: {
+        type: String
+      },
+      /**
        * @description 图标
        */
       iconField: {
@@ -80,7 +86,7 @@
       return (
         <ul class="c-opt-group" v-show={this.show}>
           <c-group-header groupData={this.groupData}
-                           labelField={this.labelField}
+                           labelField={this.groupField || this.labelField}
                            show={!this.hideHead}
                            scopedSlots={{default: this.$scopedSlots.header}}></c-group-header>
           {this.store.map(option => {

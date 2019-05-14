@@ -668,6 +668,7 @@
                                       keyField={this.keyField}
                                       labelField={this.labelField}
                                       aliasField={this.aliasField}
+                                      groupField={this.groupField}
                                       iconField={this.iconField}
                                       multiple={this.multiple}
                                       theme={this.theme}
