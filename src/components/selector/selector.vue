@@ -110,6 +110,12 @@
         type: String
       },
       /**
+       * @description 分组字段，用于分组名称筛选，不传则默认取labelField
+       */
+      groupField: {
+        type: String
+      },
+      /**
        * @description 图标
        */
       iconField: {
@@ -152,6 +158,15 @@
       filterOption: {
         type: Boolean,
         default: false
+      },
+      /**
+       * @description 开启分组筛选过滤
+       */
+      filterGroup: {
+        type: Boolean,
+        default() {
+          return true
+        }
       },
       /**
        * @description 搜索回调处理
@@ -310,13 +325,13 @@
             item[this.childrenField].forEach((child, i) => {
               let flag = map.count < maxCount
               if (flag &&
-                (!filter || this.filterData(child))
+                (!filter || this.filterData(child) || (this.filterGroupData(item) && this.filterGroup))
               ) {
                 map[child[this.keyField]] = flag
                 map.count++
                 haveChildren = true
               }
-              if (!filter || this.filterData(child)) totalCount++
+              if (!filter || this.filterData(child) || (this.filterGroupData(item) && this.filterGroup)) totalCount++
             })
             if (haveChildren) renderStore.push(item)
             map[item[this.keyField]] = haveChildren
@@ -431,6 +446,16 @@
         let filterReg = util.getRegExp(this.filter.toLowerCase())
         let flag = true
         flag = filterReg.test((data[this.aliasField] || data[this.labelField] || '').toLowerCase())
+        return flag
+      },
+      filterGroupData (groupData) {
+        let filterReg = util.getRegExp(this.filter.toLowerCase())
+        let flag = true
+        if (this.groupField) {
+          flag = filterReg.test((groupData[this.groupField] || '').toLowerCase())
+        } else {
+          flag = filterReg.test((groupData[this.aliasField] || groupData[this.labelField] || '').toLowerCase())
+        }
         return flag
       },
       onClickOutside () {
@@ -643,6 +668,7 @@
                                       keyField={this.keyField}
                                       labelField={this.labelField}
                                       aliasField={this.aliasField}
+                                      groupField={this.groupField}
                                       iconField={this.iconField}
                                       multiple={this.multiple}
                                       theme={this.theme}
