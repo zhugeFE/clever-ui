@@ -226,7 +226,7 @@
       },
       /**
        * @description 下拉框滚动到底部执行此函数,当请求时间超过500毫秒会出现loading
-       * @tip 适用下拉框数据远程加载,返回值需要是Promise实例 
+       * @tip 适用下拉框数据远程加载,返回值需要是Promise实例
        */
       onBottomScroll :{
         type: Function
@@ -375,6 +375,7 @@
       },
       showOptions (state) {
         this.filter = ''
+        this.$refs.optionFilter.inputValue = ''
         this.$refs.options.$el.scrollTop = 0
         if (state) {
           this.onShow()
@@ -542,6 +543,7 @@
         }
       },
       onFilter (filterValue) {
+        if (!this.filter && !filterValue) return
         this.showOptions = true
         if (this.filterTimeout) clearTimeout(this.filterTimeout)
         this.filterTimeout = setTimeout(() => {
@@ -625,6 +627,7 @@
                               maxWidth={this.maxWidth}
                               active={this.showOptions}
                               keyField={this.keyField}
+                              disable={this.disable}
                               onInput={this.syncChosen}
                               onSearch={this.onFilter}
                               onEnter={this.onEnter}
