@@ -375,8 +375,12 @@
       },
       showOptions (state) {
         this.filter = ''
-        this.$refs.optionFilter.inputValue = ''
-        this.$refs.options.$el.scrollTop = 0
+        if (this.$refs.optionFilter) {
+          this.$refs.optionFilter.inputValue = ''
+        }
+        if (this.$refs.options) {
+          this.$refs.options.$el.scrollTop = 0
+        }
         if (state) {
           this.onShow()
         } else {
