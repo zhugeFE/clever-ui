@@ -49,6 +49,7 @@
     "cross-env": "^5.0.1",
     "css-loader": "^0.28.0",
     "cssnano": "^3.10.0",
+    "echarts": "^4.1.0",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^6.2.1",
     "eslint-friendly-formatter": "^3.0.0",
@@ -89,6 +90,7 @@
     "sinon": "^2.1.0",
     "sinon-chai": "^2.8.0",
     "url-loader": "^0.5.8",
+    "vue": "^2.4.2",
     "vue-loader": "^13.0.4",
     "vue-markdown": "^2.2.4",
     "vue-router": "^2.7.0",
@@ -98,9 +100,7 @@
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.18.0",
-    "webpack-merge": "^4.1.0",
-    "echarts": "^4.1.0",
-    "vue": "^2.4.2"
+    "webpack-merge": "^4.1.0"
   },
   "peerDependencies": {
     "echarts": "^4.1.0",
