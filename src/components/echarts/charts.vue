@@ -709,6 +709,7 @@
           }
           option.grid = {
             ...option.grid,
+            top: option.legend.show ? 40 : 20,
             containLabel: true,
             bottom: 0,
             left: 30,
