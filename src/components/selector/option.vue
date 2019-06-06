@@ -110,10 +110,10 @@
       onClick () {
         if (this.disable) return
         if (this.multiple && this.theme !== 'tag') {
-          this.$emit('click', this.active, this.data)
+          this.$emit('click', this.active, {...this.data})
         } else if (!this.active) {
           this.active = !this.active
-          this.$emit('click', this.active, this.data)
+          this.$emit('click', this.active, {...this.data})
         }
       }
     }

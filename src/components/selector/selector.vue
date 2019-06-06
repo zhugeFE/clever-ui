@@ -465,6 +465,9 @@
       },
       onClickOutside () {
         this.showOptions = false
+        if (this.$refs.handle) {
+          this.$refs.handle.onBlur()
+        }
       },
       onClickHandle () {
         if (this.disable) return
@@ -546,8 +549,9 @@
           }
         }
       },
-      onFilter (filterValue) {
-        if (!this.filter && !filterValue) return
+      onFilter (filterValue, force) {
+        if (!force && !this.filter && !filterValue) return
+
         this.showOptions = true
         if (this.filterTimeout) clearTimeout(this.filterTimeout)
         this.filterTimeout = setTimeout(() => {
@@ -564,6 +568,9 @@
             this.filter = filterValue
           }
         }, 300)
+      },
+      onHandelFocus() {
+        this.onFilter('', true)
       },
       clean () {
         this.chosenList = []
@@ -634,6 +641,7 @@
                               disable={this.disable}
                               onInput={this.syncChosen}
                               onSearch={this.onFilter}
+                              onFocus={this.onHandelFocus}
                               onEnter={this.onEnter}
                               onDelete={this.onDelete}
                               onClick={this.onClickHandle}>
