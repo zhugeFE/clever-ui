@@ -26,6 +26,9 @@ var webpackConfig = merge(baseWebpackConfig, {
       extract: true
     })
   },
+  // stats: 'verbose',
+  // profile: true,
+  // node: false,
   plugins: [
     new CleanWebpackPlugin(['lib']),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
