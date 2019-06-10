@@ -25,6 +25,18 @@
                    placeholder="多选" multiple></c-selector>
       <span>选中值</span>{{multipleResult}}<br>
     </demo-panel>
+    <demo-panel subtitle="禁用">
+      <c-selector keyField="id"
+                  :disable="true"
+                  :store="store"
+                  placeholder="单选"
+                  labelField="label"
+                  filterOption
+                  icon-field="icon"
+                  v-model="result">
+      </c-selector>
+      <span>选中值</span>{{result}}<br>
+    </demo-panel>
   </div>
 </template>
 

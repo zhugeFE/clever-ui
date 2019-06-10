@@ -6,6 +6,7 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 var env = config.lib.env
 
@@ -13,11 +14,15 @@ var webpackConfig = merge(baseWebpackConfig, {
   entry: {
     main: './src/index.js'
   },
+  externals: {
+    vue: 'vue'
+  },
   output: {
     path: path.resolve(__dirname, '../lib'),
     filename: '[name].js',
     libraryTarget: 'umd'
   },
+  externals: ['vue', 'zrender'],
   module: {
     rules: utils.styleLoaders({
       sourceMap: config.lib.productionSourceMap,
@@ -34,6 +39,9 @@ var webpackConfig = merge(baseWebpackConfig, {
     new ExtractTextPlugin({
       filename: utils.assetsPath('[name].css')
     }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static'
+    })
   ]
 })
 

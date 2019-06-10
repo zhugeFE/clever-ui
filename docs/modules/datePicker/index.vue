@@ -5,7 +5,7 @@
 
     <div style="margin-top: 10px">
       <c-date-range-picker v-model="range" :min="min" :max="max"></c-date-range-picker>
-      {{range.map(date => date.toLocaleDateString())}}
+      {{range}}
     </div>
   </div>
 </template>
@@ -15,7 +15,10 @@ export default {
   name: 'index',
   data () {
     return {
-      range: [new Date(new Date().getTime() - 3 * this.$util.dayTime), new Date()],
+      range: {
+        startDate: new Date(new Date().getTime() - 3 * this.$util.dayTime),
+        endDate: new Date()
+      },
       date: new Date(),
       min: new Date(new Date().getTime() - 10 * this.$util.dayTime),
       max: new Date(new Date().getTime() + 10 * this.$util.dayTime)
