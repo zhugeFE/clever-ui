@@ -513,6 +513,11 @@
           }
           this.$emit('input', this.chosenList)
         }
+        // 选中选项后，清空搜索内容
+        if (this.$refs.handle) {
+          this.$refs.handle.clearSearch()
+        }
+
         this.$emit('change', this.chosenList, this)
       },
       onBottom () {

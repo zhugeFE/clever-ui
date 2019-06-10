@@ -243,6 +243,9 @@
         this.dirtySearch = true
         this.onEnter() // 失去焦点自动生效
       },
+      clearSearch () {
+        this.search = ''
+      },
       getTagText (str) {
         return this.splitStr ? util.strMiddleSplit(str, this.splitStrFormat) : str
       }
