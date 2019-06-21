@@ -27,10 +27,11 @@ export default {
       context: vnode
     })
   },
-  unbind (el, binding, vnode) {
+  unbind (el, binding) {
     for (let i in nodeList) {
       var item = nodeList[i]
-      if (item.node === el && item.handle === binding.value && item.context === vnode) {
+      // vnode 为Vue 编译生成的虚拟节点，虚拟dom更新后此节点会变，此处不以此变量做判断
+      if (item.node === el && item.handle === binding.value) {
         nodeList.splice(i, 1)
         break
       }
