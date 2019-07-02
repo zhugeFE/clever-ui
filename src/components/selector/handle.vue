@@ -21,7 +21,7 @@
              @keyup.down="onNext"
              @keyup.right="onNext"
              @click.stop="onClickHandle"
-             @blur="onBlur"
+             @focus="onFocus"
              v-model="search"
              ref="input"/>
       <span class="c-temp" ref="search">{{search}}</span>
@@ -205,6 +205,9 @@
           this.$refs.input.focus()
         }
       },
+      onFocus () {
+        this.$emit('focus')
+      },
       /**
        * @description 删除键处理
        * @param data
@@ -239,6 +242,9 @@
         this.focus = false
         this.dirtySearch = true
         this.onEnter() // 失去焦点自动生效
+      },
+      clearSearch () {
+        this.search = ''
       },
       getTagText (str) {
         return this.splitStr ? util.strMiddleSplit(str, this.splitStrFormat) : str

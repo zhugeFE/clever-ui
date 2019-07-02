@@ -103,14 +103,33 @@
           } else if (/^\d{4}-\d{2}-\d{2}\|\d{4}-\d{2}-\d{2}$/.test(label)) { // 周、月日期
             let dates = label.match(/\d{4}-\d{2}-\d{2}/g)
             return dates[0].replace(/\d{4}-/, '') + '~' + dates[1].replace(/\d{4}-/, '')
-          } else if (/:/.test(label)) {
-            return label.replace(/\d{4}-\d{2}-\d{2}\s/, '')
-          } else if (/,/.test(label)) {
-            return label.replace(/,/g, '-')
           } else {
-            return label
+            label = util.strMiddleSplit(label)
+            if (/:/.test(label)) {
+              return label.replace(/\d{4}-\d{2}-\d{2}\s/, '')
+            } else if (/,/.test(label)) {
+              return label.replace(/,/g, '-')
+            } else {
+              return label
+            }
           }
         }
+      },
+      /**
+       * @description 判断是否使用带角度的X轴坐标
+       */
+      xAxisRotateCheck: {
+        type: Function,
+        default: (option, type) => {
+          return type === 'bar' && option.xAxis.data.length > 5
+        }
+      },
+      /**
+       * @description 当X轴坐标label需要旋转时的旋转角度，-90 到 90
+       */
+      xAxisRotate: {
+        type: Number,
+        default: 40
       },
       legendFormatter: {
         type: Function
@@ -679,16 +698,32 @@
         const legendHeight = option.legend.show ? 24 : 0
         const margin = {
           top: 20,
-          right: 40,
+          right: this.doubleY ? 10 : 40,
           bottom: 10,
           left: 0
         }
-        const xAxisHeight = 24 // todo x轴条目太多，则进行x轴文本旋转处理，旋转后高度需计算
         const yAxisWidth = 80
-        option.grid.width = containerWidth - yAxisWidth * (this.doubleY ? 2 : 1) - margin.left - margin.right
-        option.grid.top = legendHeight + margin.top
-        option.grid.left = yAxisWidth
-        option.grid.height = containerHeight - option.grid.top - xAxisHeight - margin.bottom
+        const xAxisHeight = 24
+
+        if (this.xAxisRotateCheck(option, this.type)) {
+          option.xAxis.axisLabel = {
+            ...option.xAxis.axisLabel || {},
+            rotate: this.xAxisRotate
+          }
+          option.grid = {
+            ...option.grid,
+            top: option.legend.show ? 40 : 20,
+            containLabel: true,
+            bottom: 0,
+            left: 30,
+            right: this.doubleY ? 20 : 30
+          }
+        } else {
+          option.grid.width = containerWidth - yAxisWidth * (this.doubleY ? 2 : 1) - margin.left - margin.right
+          option.grid.top = legendHeight + margin.top
+          option.grid.left = yAxisWidth
+          option.grid.height = containerHeight - option.grid.top - xAxisHeight - margin.bottom
+        }
         return option
       },
       onResize () {
