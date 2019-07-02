@@ -511,9 +511,8 @@
             this.chosenList.push(data)
             if (
               this.multiple &&
-              this.useChosenAll && 
-              this.innerStore.length === Object.values(this.checkedMap).length &&
-              !Object.values(this.checkedMap).includes(false)
+              this.useChosenAll &&
+              this.innerStore.length === Object.values(this.checkedMap).filter(item => item).length
             ) {
               this.chosenAllState = true
             }
@@ -646,28 +645,25 @@
       chosenAll(state) {
         this.chosenAllState = state
         let checkedMap = {}
-        let chosenListKeyArr = this.chosenList.map(item => item[this.keyField])
+        let allData = []
         if (state) {
           this.innerStore.forEach((item) => {
             let field = item[this.keyField]
             if (item.children && item.children.length) {
               item.children.forEach((childrenItem) => {
-                if (!chosenListKeyArr.includes(item[this.keyField])) {
-                  this.chosenList.push(childrenItem)
-                }
+                allData.push(childrenItem)
                 checkedMap[childrenItem[this.keyField]] = true
               })
             } else {
-              if (!chosenListKeyArr.includes(item[this.keyField])) {
-                this.chosenList.push(item)
-              }
+              allData.push(item)
               checkedMap[item[this.keyField]] = true
             }
           })
         } else {
-          this.chosenList = []
+          allData = []
           checkedMap = {}
         }
+        this.chosenList = allData
         this.$set(this, 'checkedMap', checkedMap)
         this.$emit('input', this.chosenList)
         this.$emit('change', this.chosenList, this)
@@ -713,17 +709,17 @@
                     )
                   }
                 })()}
-                <li class="option-list-control">
+                <li v-show={this.multiple && (this.useChosenAll || this.clearAble && this.chosenList.length)} class="option-list-control">
                   <c-option
                     checked={this.chosenAllState}
-                    v-show={this.multiple && this.useChosenAll}
-                    multiple 
-                    onClick={this.chosenAll} 
-                    labelField="labelField" 
+                    v-show={this.useChosenAll}
+                    multiple
+                    onClick={this.chosenAll}
+                    labelField="labelField"
                     data={{labelField:'全选'}}
                   ></c-option>
-                  <a 
-                    v-show={this.multiple && this.chosenList.length && this.clearAble}
+                  <a
+                    v-show={this.chosenList.length && this.clearAble}
                     class="c-clear" onClick={this.clean}
                   >清空</a>
                 </li>
