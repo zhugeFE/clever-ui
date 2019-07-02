@@ -519,7 +519,7 @@
             }
           } else {
             this.chosenList.forEach((option, i) => {
-              if (JSON.stringify(option) === JSON.stringify(data)) {
+              if (option[this.keyField] === data[this.keyField]) {
                 this.chosenList.splice(i, 1)
               }
             })
@@ -646,16 +646,21 @@
       chosenAll(state) {
         this.chosenAllState = state
         let checkedMap = {}
+        let chosenListKeyArr = this.chosenList.map(item => item[this.keyField])
         if (state) {
           this.innerStore.forEach((item) => {
             let field = item[this.keyField]
             if (item.children && item.children.length) {
               item.children.forEach((childrenItem) => {
-                this.chosenList.push(childrenItem)
+                if (!chosenListKeyArr.includes(item[this.keyField])) {
+                  this.chosenList.push(childrenItem)
+                }
                 checkedMap[childrenItem[this.keyField]] = true
               })
             } else {
-              this.chosenList.push(item)
+              if (!chosenListKeyArr.includes(item[this.keyField])) {
+                this.chosenList.push(item)
+              }
               checkedMap[item[this.keyField]] = true
             }
           })
