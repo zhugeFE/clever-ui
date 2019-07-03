@@ -290,6 +290,12 @@
       return data
     },
     computed: {
+      showClearAbleBtn() {
+        return this.multiple && this.clearAble && this.chosenList.length !== 0
+      },
+      showChosenAllBtn() {
+        return this.multiple && this.useChosenAll
+      },
       noData () {
         return this.innerStore.length === 0
       },
@@ -709,20 +715,22 @@
                     )
                   }
                 })()}
-                <li v-show={this.multiple && (this.useChosenAll || this.clearAble && this.chosenList.length)} class="option-list-control">
-                  <c-option
-                    checked={this.chosenAllState}
-                    v-show={this.useChosenAll}
-                    multiple
-                    onClick={this.chosenAll}
-                    labelField="labelField"
-                    data={{labelField:'全选'}}
-                  ></c-option>
-                  <a
-                    v-show={this.chosenList.length && this.clearAble}
-                    class="c-clear" onClick={this.clean}
-                  >清空</a>
-                </li>
+                {
+                  (this.showChosenAllBtn || this.showClearAbleBtn) &&
+                  <li class="option-list-control">
+                    {
+                      this.showChosenAllBtn &&
+                      <c-option
+                        checked={this.chosenAllState}
+                        multiple
+                        onClick={this.chosenAll}
+                        labelField="labelField"
+                        data={{labelField:'全选'}}
+                      ></c-option>
+                    }
+                    {this.showClearAbleBtn && <a class="c-clear" onClick={this.clean}>清空</a>}
+                  </li>
+                }
                 {this.$slots.optionsHeader}
               </div>
               <div class="c-context">
