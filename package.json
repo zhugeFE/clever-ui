@@ -1,6 +1,6 @@
 {
   "name": "clever-ui",
-  "version": "1.2.4-2",
+  "version": "1.2.4-3",
   "description": "VUE组件库",
   "scripts": {
     "start": "node build/dev-server.js",
@@ -104,7 +104,8 @@
   },
   "peerDependencies": {
     "echarts": "^4.1.0",
-    "vue": "^2.4.2"
+    "vue": "^2.4.2",
+    "babel-register": "^6.22.0"
   },
   "repository": {
     "type": "git",
