@@ -671,6 +671,14 @@
       },
       getAxisPointerType () {
         let type = 'shadow'
+        if (this.doubleY) {
+          let haveBar = false
+          for (const key in this.yAxisRule) {
+            let rule = this.yAxisRule[key]
+            if (rule.type === 'bar') haveBar = true
+          }
+          if (haveBar) return type
+        }
         switch (this.type) {
           case 'bar':
             type = 'shadow'

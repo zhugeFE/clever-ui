@@ -257,8 +257,12 @@
         default: false
       },
       /**
-       * @description 是否启用全选功能，全选功能只支持多选模式
+       * @description 始终展开弹窗
        */
+      alwaysExpand: {
+        type: Boolean,
+        default: false
+      },
       useChosenAll: {
         type: Boolean,
         default: false
@@ -266,7 +270,7 @@
     },
     data () {
       let data = {
-        showOptions: false,
+        showOptions: this.alwaysExpand,
         checkedMap: {}, // 选项选中状态map集合，为了便捷option的状态显示，选中的集合与chosenList相同
         chosenList: [], // 选中的选项集合
         innerStore: this.store, // prop中的store，转为私有属性，因为tag模式时，可能需要向store中增加或删除元素
@@ -481,13 +485,14 @@
         return flag
       },
       onClickOutside () {
+        if (this.alwaysExpand) return
         this.showOptions = false
         if (this.$refs.handle) {
           this.$refs.handle.onBlur()
         }
       },
       onClickHandle () {
-        if (this.disable) return
+        if (this.disable || this.alwaysExpand) return
         this.showOptions = !this.showOptions
         this.pageNum = 0
         if (this.showOptions && this.filterOption && this.theme !== 'tag') {
@@ -515,7 +520,7 @@
               }
             }
           })
-          this.showOptions = false
+          if (!this.alwaysExpand) this.showOptions = false
           this.$emit('input', this.chosenList[0])
         } else {
           this.$set(this.checkedMap, data[this.keyField], checked)

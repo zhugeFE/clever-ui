@@ -37,6 +37,18 @@
       </c-selector>
       <span>选中值</span>{{result}}<br>
     </demo-panel>
+    <demo-panel subtitle="始终展开">
+      <c-selector keyField="id"
+                  :store="alwaysExpandStore"
+                  placeholder="单选"
+                  labelField="label"
+                  filterOption
+                  icon-field="icon"
+                  always-expand
+                  v-model="alwaysExpandResult">
+      </c-selector>
+      <span>选中值</span>{{alwaysExpandResult}}
+    </demo-panel>
   </div>
 </template>
 
@@ -76,7 +88,19 @@
           }
           return store
         })(),
-        multipleResult: [{id: 1}, {id: 4}]
+        multipleResult: [{id: 1}, {id: 4}],
+        alwaysExpandStore: (() => {
+          let store = []
+          for (let i = 0; i < 3; i++) {
+            store.push({
+              id: i,
+              label: 'option_' + i,
+              icon: 'cicon-edit'
+            })
+          }
+          return store
+        })(),
+        alwaysExpandResult: null
       }
     },
     mounted () {
