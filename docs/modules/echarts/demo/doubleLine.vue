@@ -21,22 +21,26 @@
         echarts,
         json: json.app_data,
         yAxisRule: {
-          '曝光': {
+          '付款成功价格': {
             index: 0
           },
-          '点击': {
-            index: 1
+          '付款成功数量': {
+            index: 1,
+            type: 'bar'
           }
         },
         markLine: [
-          "00:05:00",
-          "00:25:00",
-          "01:30:00",
-          "01:40:00",
-          "02:05:00",
-          "03:10:00"
+          "2019-06-25"
         ]
       }
+    },
+    mounted () {
+      setTimeout(() => {
+        // this.json = {
+        //   series: [],
+        //   x_axis: []
+        // }
+      }, 3000)
     }
   }
 </script>

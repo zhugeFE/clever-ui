@@ -75,7 +75,7 @@ export default {
   data () {
     return {
       pageSize: {v: this.defaultPageSize},
-      pageNum: {v: 1}
+      pageNum: {v: this.defaultPageNum}
     }
   },
   computed: {
