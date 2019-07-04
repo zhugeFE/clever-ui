@@ -293,7 +293,7 @@
       return data
     },
     computed: {
-      showChosenFixHead() {
+      showChosenControl() {
         return (this.showChosenAllBtn || this.showClearAbleBtn) && this.store.length !== 0
       },
       showClearAbleBtn() {
@@ -722,7 +722,7 @@
                   }
                 })()}
                 {
-                  this.showChosenFixHead &&
+                  this.showChosenControl &&
                   <li class="option-list-control">
                     {
                       this.showChosenAllBtn &&
