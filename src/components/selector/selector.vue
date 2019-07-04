@@ -256,9 +256,12 @@
         type: Boolean,
         default: false
       },
+      /**
+       * @description 是否启用全选功能，全选功能只支持多选模式
+       */
       useChosenAll: {
         type: Boolean,
-        default: true
+        default: false
       }
     },
     data () {
@@ -290,6 +293,9 @@
       return data
     },
     computed: {
+      showChosenFixHead() {
+        return (this.showChosenAllBtn || this.showClearAbleBtn) && this.store.length !== 0
+      },
       showClearAbleBtn() {
         return this.multiple && this.clearAble && this.chosenList.length !== 0
       },
@@ -716,7 +722,7 @@
                   }
                 })()}
                 {
-                  (this.showChosenAllBtn || this.showClearAbleBtn) &&
+                  this.showChosenFixHead &&
                   <li class="option-list-control">
                     {
                       this.showChosenAllBtn &&
