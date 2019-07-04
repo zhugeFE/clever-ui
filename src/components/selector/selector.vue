@@ -262,6 +262,10 @@
       alwaysExpand: {
         type: Boolean,
         default: false
+      },
+      useChosenAll: {
+        type: Boolean,
+        default: true
       }
     },
     data () {
@@ -279,7 +283,8 @@
         loading: false,
         finallyTimeout: null,
         scrollTime: 0,
-        scrollLoadingTimer: null
+        scrollLoadingTimer: null,
+        chosenAllState: false
       }
       // 绑定默认值
       if (this.value) {
@@ -292,6 +297,12 @@
       return data
     },
     computed: {
+      showClearAbleBtn() {
+        return this.multiple && this.clearAble && this.chosenList.length !== 0
+      },
+      showChosenAllBtn() {
+        return this.multiple && this.useChosenAll
+      },
       noData () {
         return this.innerStore.length === 0
       },
@@ -512,12 +523,22 @@
           this.$set(this.checkedMap, data[this.keyField], checked)
           if (checked) {
             this.chosenList.push(data)
+            if (
+              this.multiple &&
+              this.useChosenAll &&
+              this.innerStore.length === Object.values(this.checkedMap).filter(item => item).length
+            ) {
+              this.chosenAllState = true
+            }
           } else {
             this.chosenList.forEach((option, i) => {
-              if (option === data) {
+              if (option[this.keyField] === data[this.keyField]) {
                 this.chosenList.splice(i, 1)
               }
             })
+            if (this.multiple && this.useChosenAll) {
+              this.chosenAllState = false
+            }
           }
           this.$emit('input', this.chosenList)
         }
@@ -586,6 +607,7 @@
         this.onFilter('', true)
       },
       clean () {
+        this.chosenAllState = false
         this.chosenList = []
         this.$set(this, 'checkedMap', {})
         this.$emit('input', this.chosenList)
@@ -633,6 +655,32 @@
           this.$emit('input', null)
           this.$emit('change', null, this)
         }
+      },
+      chosenAll(state) {
+        this.chosenAllState = state
+        let checkedMap = {}
+        let allData = []
+        if (state) {
+          this.innerStore.forEach((item) => {
+            let field = item[this.keyField]
+            if (item.children && item.children.length) {
+              item.children.forEach((childrenItem) => {
+                allData.push(childrenItem)
+                checkedMap[childrenItem[this.keyField]] = true
+              })
+            } else {
+              allData.push(item)
+              checkedMap[item[this.keyField]] = true
+            }
+          })
+        } else {
+          allData = []
+          checkedMap = {}
+        }
+        this.chosenList = allData
+        this.$set(this, 'checkedMap', checkedMap)
+        this.$emit('input', this.chosenList)
+        this.$emit('change', this.chosenList, this)
       }
     },
     render (h) {
@@ -675,9 +723,22 @@
                     )
                   }
                 })()}
-                <li v-show={this.multiple && this.chosenList.length && this.clearAble} class="c-clear">
-                  <a href="javascript:void(0)" onClick={this.clean}>清空</a>
-                </li>
+                {
+                  (this.showChosenAllBtn || this.showClearAbleBtn) &&
+                  <li class="option-list-control">
+                    {
+                      this.showChosenAllBtn &&
+                      <c-option
+                        checked={this.chosenAllState}
+                        multiple
+                        onClick={this.chosenAll}
+                        labelField="labelField"
+                        data={{labelField:'全选'}}
+                      ></c-option>
+                    }
+                    {this.showClearAbleBtn && <a class="c-clear" onClick={this.clean}>清空</a>}
+                  </li>
+                }
                 {this.$slots.optionsHeader}
               </div>
               <div class="c-context">
