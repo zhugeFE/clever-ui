@@ -411,7 +411,7 @@
     },
     mounted () {
       if (this.multiple) {
-        if (this.showChosenAllBtn && this.value.length === this.store.length) {
+        if (this.showChosenAllBtn && this.chosenList.length === this.store.length) {
           this.chosenAllState = true
         }
         this.$emit('input', this.chosenList)
