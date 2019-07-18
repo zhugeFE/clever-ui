@@ -265,7 +265,7 @@
       },
       useChosenAll: {
         type: Boolean,
-        default: true
+        default: false
       }
     },
     data () {
@@ -297,6 +297,9 @@
       return data
     },
     computed: {
+      showChosenControl() {
+        return (this.showChosenAllBtn || this.showClearAbleBtn) && this.store.length !== 0
+      },
       showClearAbleBtn() {
         return this.multiple && this.clearAble && this.chosenList.length !== 0
       },
@@ -408,6 +411,9 @@
     },
     mounted () {
       if (this.multiple) {
+        if (this.showChosenAllBtn && this.chosenList.length === this.store.length) {
+          this.chosenAllState = true
+        }
         this.$emit('input', this.chosenList)
       } else {
         this.$emit('input', this.chosenList[0])
@@ -724,7 +730,7 @@
                   }
                 })()}
                 {
-                  (this.showChosenAllBtn || this.showClearAbleBtn) &&
+                  this.showChosenControl &&
                   <li class="option-list-control">
                     {
                       this.showChosenAllBtn &&
