@@ -42,7 +42,10 @@
     methods: {
       onClickRadio (item) {
         return () => {
-          if (!item.disable) this.$emit('input', item.value)
+          if (!item.disable) {
+            this.$emit('input', item.value)
+            this.$emit('change', item)
+          }
         }
       }
     },
