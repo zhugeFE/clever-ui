@@ -2,6 +2,7 @@
   <span class="c-checkbox" :class="clazz" @click.stop="onChange">
     <span class="c-box">
       <i v-if="checked" class="cicon-check_small"></i>
+      <i v-else-if="indeterminate" class="check-small"></i>
     </span>
     <slot>
       <span>{{label}}</span>
@@ -30,6 +31,13 @@
        * @description 禁用
        */
       disable: {
+        type: Boolean,
+        default: false
+      },
+      /**
+       * @description 设置 indeterminate 状态，只负责样式控制,用于全选效果
+       */
+      indeterminate: {
         type: Boolean,
         default: false
       }
