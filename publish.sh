@@ -15,7 +15,7 @@ git push origin $branch
 print 'npm version <newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease'
 
 print '远程最新版本: '
-npm dist-tag ls
+npm view clever-ui dist-tags
 
 print '本地当前版本信息：'
 npm version
@@ -36,4 +36,4 @@ fi
 cnpm sync clever-ui
 
 print '远程最新版本: '
-npm dist-tag ls
+npm view clever-ui dist-tags
