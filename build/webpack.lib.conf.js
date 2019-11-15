@@ -1,5 +1,5 @@
+
 var path = require('path')
-var utils = require('./utils')
 var webpack = require('webpack')
 var config = require('../config')
 var merge = require('webpack-merge')
@@ -12,11 +12,12 @@ var env = config.lib.env
 
 var webpackConfig = merge(baseWebpackConfig, {
   entry: {
+    ...utils.getAllComponentsEntry('src/components'),
     main: './src/index.js'
   },
-  externals: {
-    vue: 'vue'
-  },
+  // externals: {
+  //   vue: 'vue'
+  // },
   output: {
     path: path.resolve(__dirname, '../lib'),
     filename: '[name].js',

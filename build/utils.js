@@ -1,19 +1,22 @@
 var path = require('path')
+var fs = require('fs')
 var config = require('../config')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+const join = path.join
+const resolve = (dir) => path.join(__dirname, '../', dir)
 
 exports.assetsPath = function (_path) {
-  var assetsSubDirectory =''
-    switch (process.env.NODE_ENV) {
-      case 'production':
-        assetsSubDirectory = config.build.assetsSubDirectory
-        break
-      case 'lib':
-        assetsSubDirectory = config.lib.assetsSubDirectory
-        break
-      default:
-        assetsSubDirectory = config.dev.assetsSubDirectory
-    }
+  var assetsSubDirectory = ''
+  switch (process.env.NODE_ENV) {
+    case 'production':
+      assetsSubDirectory = config.build.assetsSubDirectory
+      break
+    case 'lib':
+      assetsSubDirectory = config.lib.assetsSubDirectory
+      break
+    default:
+      assetsSubDirectory = config.dev.assetsSubDirectory
+  }
   return path.posix.join(assetsSubDirectory, _path)
 }
 
@@ -29,7 +32,7 @@ exports.cssLoaders = function (options) {
   }
 
   // generate loader string to be used with extract text plugin
-  function generateLoaders (loader, loaderOptions) {
+  function generateLoaders(loader, loaderOptions) {
     var loaders = [cssLoader]
     if (loader) {
       loaders.push({
@@ -76,4 +79,17 @@ exports.styleLoaders = function (options) {
     })
   }
   return output
+}
+
+exports.getAllComponentsEntry = function (path) {
+  let files = fs.readdirSync(resolve(path))
+  const componentEntries = files.reduce((ret, item) => {
+    const itemPath = join(path, item)
+    const isDir = fs.statSync(itemPath).isDirectory()
+    if (isDir) {
+      ret[item] = resolve(join(itemPath, 'index.js'))
+    }
+    return ret
+  }, {})
+  return componentEntries
 }
