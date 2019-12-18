@@ -6,6 +6,7 @@
   import CScrollContainer from '../scroll/scrollContainer'
   import CSelectorHandle from './handle'
   import CLoading from '../loading/loading'
+  import clickOutside from '../../directives/clickOutside'
   export default {
     components: {
       CLoading,
@@ -15,6 +16,7 @@
       COption,
       CSelectorHandle},
     name: 'cSelector',
+    directives: { clickOutside },
     props: {
       /**
        * @description 选项唯一标识字段

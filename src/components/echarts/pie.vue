@@ -7,8 +7,10 @@
 
 <script>
 import {util} from '../../utils'
+import resize from '../../directives/resize'
 export default {
   name: 'cPieChart',
+  directives: {resize},
   props: {
     echarts: {
       required: true

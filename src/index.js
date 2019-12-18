@@ -3,7 +3,7 @@ import './assets/icons/iconfont.css'
 import {button, radioButton} from './components/button/index.js'
 import input from './components/input/index'
 import checkbox from './components/checkbox/index'
-import {selector, option, optGroup} from './components/selector/index'
+import selector from './components/selector/index'
 import {dataGrid, gridColumn} from './components/dataGrid/index'
 import tooltip from './components/tooltip/index'
 import badge from './components/badge/index'
@@ -15,7 +15,7 @@ import radio from './components/radio'
 import {scrollContainer, scrollLazyPanel} from './components/scroll'
 import {charts, pieChart} from './components/echarts'
 import tag from './components/tag'
-import {calendar} from './components/calendar'
+import calendar from './components/calendar'
 import pagination from './components/pagination'
 import tree from './components/tree'
 import flow from './components/flow'
@@ -27,15 +27,15 @@ import {util} from './utils'
 import msg from './components/message'
 import notification from './components/notification'
 
-import directives from './directives/main'
+// import directives from './directives/main'
 
 const components = [
   button,
   radioButton,
   input,
   selector,
-  option,
-  optGroup,
+  // option,
+  // optGroup,
   checkbox,
   dataGrid,
   gridColumn,
@@ -65,10 +65,10 @@ const components = [
 
 const install = function (Vue) {
   // directives
-  for (let key in directives) {
-    let directive = directives[key]
-    Vue.directive(key, directive)
-  }
+  // for (let key in directives) {
+  //   let directive = directives[key]
+  //   Vue.directive(key, directive)
+  // }
 
   // components
   components.forEach((component) => {
@@ -91,8 +91,8 @@ export default {
   radioButton,
   input,
   selector,
-  option,
-  optGroup,
+  // option,
+  // optGroup,
   checkbox,
   dataGrid,
   gridColumn,

@@ -24,6 +24,7 @@
   import StackBarChart from './demo/stackBarChart'
   import AreaChart from './demo/areaChart'
   import PieChart from './demo/pie'
+  import clickOutside from '../../../src/directives/clickOutside'
 
   export default {
     components: {
@@ -37,6 +38,7 @@
       LineChart,
       barChart},
     name: 'index',
+    directives: {clickOutside},
     data () {
       return {
         api,

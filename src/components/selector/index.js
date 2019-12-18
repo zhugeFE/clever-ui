@@ -4,25 +4,12 @@
  * @author yqdong
  *
  */
-import optGroup from './optGroup.vue'
-import option from './option.vue'
+
 import selector from './selector.vue'
 
-let components = [
-  optGroup,
-  option,
-  selector
-]
-
-components.forEach(component => {
-  component.install = function (Vue) {
-    Vue.component(component.name, component)
-    Vue.component(component.name.replace(/c|C/, 'zg'), component)
-  }
-})
-
-export {
-  optGroup,
-  option,
-  selector
+selector.install = function (Vue) {
+  Vue.component(selector.name, selector)
+  Vue.component(selector.name.replace(/c|C/, 'zg'), selector)
 }
+
+export default selector

@@ -10,8 +10,10 @@
 
 <script>
   import {util} from '../../utils'
+  import resize from '../../directives/resize'
   export default {
     name: 'cCharts',
+    directives: {resize},
     props: {
       echarts: {
         required: true

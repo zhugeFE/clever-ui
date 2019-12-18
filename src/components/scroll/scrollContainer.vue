@@ -6,9 +6,11 @@
 <script>
 import {util} from '../../utils'
 import {emitter} from '../../mixins/main'
+import resize from '../../directives/resize'
 let timer = null
 export default {
   name: 'cScrollContainer',
+  directives: {resize},
   mixins: [emitter],
   props: {
     /**

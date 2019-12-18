@@ -7,8 +7,10 @@
 
 <script>
 import { util } from '../../utils'
+import resize from '../../directives/resize'
 export default {
   name: 'cFlow',
+  directives: {resize},
   props: {
     echarts: {
       required: true
