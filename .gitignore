@@ -9,4 +9,4 @@ selenium-debug.log
 .idea/
 .sass-cache/
 dist/
-lib/
+lib/**
