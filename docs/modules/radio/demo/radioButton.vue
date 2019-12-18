@@ -19,7 +19,7 @@
 
 <script>
   import CRadio from '../../../../src/components/radio/radio'
-  import CRadioButton from '../../../../src/components/button/radioButton'
+  import CRadioButton from '../../../../src/components/radio-button/radioButton'
 
   export default {
     components: {

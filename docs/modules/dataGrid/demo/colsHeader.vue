@@ -58,8 +58,8 @@
 
 <script>
   import DemoPanel from '../../../components/demoPanel/index.vue'
-  import CDataGrid from '../../../../src/components/dataGrid/dataGrid.vue'
-  import CGridColumn from '../../../../src/components/dataGrid/gridColumn.vue'
+  import CDataGrid from '../../../../src/components/data-grid/dataGrid.vue'
+  import CGridColumn from '../../../../src/components/grid-column/gridColumn.vue'
 
   export default {
     components: {DemoPanel,

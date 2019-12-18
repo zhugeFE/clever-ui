@@ -5,7 +5,7 @@
   "style": "lib/index.css",
   "license": "MIT",
   "scripts": {
-    "build-font": "gulp build"
+    "build-font": "./node_modules/gulp/bin/gulp.js build"
   },
   "dependencies": {
     "gulp": "^4.0.2",
