@@ -1,5 +1,5 @@
 <script type="text/jsx">
-  import CButton from './button'
+  import CButton from '../button/button'
 
   export default {
     components: {CButton},

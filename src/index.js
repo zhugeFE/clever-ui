@@ -1,6 +1,7 @@
 import './assets/styles/reset.sass'
 import './assets/icons/iconfont.css'
-import {button, radioButton} from './components/button/index.js'
+import button from './components/button/index.js'
+import radioButton from './components/radioButton/index.js'
 import input from './components/input/index'
 import checkbox from './components/checkbox/index'
 import selector from './components/selector/index'
