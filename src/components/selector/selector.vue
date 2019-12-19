@@ -671,8 +671,8 @@
         if (state) {
           this.innerStore.forEach((item) => {
             let field = item[this.keyField]
-            if (item.children && item.children.length) {
-              item.children.forEach((childrenItem) => {
+            if (this.childrenField && item[this.childrenField].length) {
+              item[this.childrenField].forEach((childrenItem) => {
                 allData.push(childrenItem)
                 checkedMap[childrenItem[this.keyField]] = true
               })
