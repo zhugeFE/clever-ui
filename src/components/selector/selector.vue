@@ -3,7 +3,7 @@
   import CCheckbox from '../checkbox/checkbox.vue'
   import COptGroup from './optGroup.vue'
   import {util} from '../../utils'
-  import CScrollContainer from '../scroll/scrollContainer'
+  import CScrollContainer from '../scroll-container/scrollContainer'
   import CSelectorHandle from './handle'
   import CLoading from '../loading/loading'
   import clickOutside from '../../directives/clickOutside'

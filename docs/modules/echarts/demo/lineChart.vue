@@ -10,7 +10,7 @@
 
 <script>
   import DemoPanel from '../../../components/demoPanel/index.vue'
-  import CCharts from '../../../../src/components/echarts/charts.vue'
+  import CCharts from '../../../../src/components/charts/charts.vue'
   import json from './json/line.json'
   import echarts from 'echarts'
   export default {

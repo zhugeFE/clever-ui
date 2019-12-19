@@ -4,7 +4,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const cssmin = require('gulp-cssmin');
 
 function compile() {
-  return src('./base.sass')
+  return src('./*.sass')
     .pipe(sass.sync())
     .pipe(autoprefixer({
       cascade: false

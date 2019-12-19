@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import CDatePicker from './datePicker'
+import CDatePicker from '../date-picker/datePicker'
 export default {
   name: 'cDateRangePicker',
   components: {CDatePicker},

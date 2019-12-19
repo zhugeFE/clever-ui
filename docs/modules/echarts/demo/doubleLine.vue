@@ -9,7 +9,7 @@
 <script>
   import json from './json/doubleLine.json'
   import DemoPanel from '../../../components/demoPanel/index.vue'
-  import CCharts from '../../../../src/components/echarts/charts.vue'
+  import CCharts from '../../../../src/components/charts/charts.vue'
   import echarts from 'echarts'
   export default {
     components: {

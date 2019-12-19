@@ -8,8 +8,10 @@
 <script>
 import { util } from '../../utils'
 import cLoading from '../loading/loading'
+import resize from '../../directives/resize'
 export default {
   name: 'cForceChart',
+  directives: {resize},
   components: {
     cLoading
   },

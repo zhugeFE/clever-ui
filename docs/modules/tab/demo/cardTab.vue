@@ -43,8 +43,8 @@
 </template>
 
 <script>
-  import CTabs from '../../../../src/components/tab/tabs.vue'
-  import CTabPanel from '../../../../src/components/tab/tabPanel.vue'
+  import CTabs from '../../../../src/components/tabs/tabs.vue'
+  import CTabPanel from '../../../../src/components/tab-panel/tabPanel.vue'
   import DemoPanel from '../../../components/demoPanel/index.vue'
 
   export default {

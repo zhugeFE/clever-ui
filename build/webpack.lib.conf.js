@@ -14,7 +14,8 @@ var env = config.lib.env
 var webpackConfig = merge(baseWebpackConfig, {
   entry: {
     ...utils.getAllComponentsEntry('src/components'),
-    main: './src/index.js'
+    main: './src/index.js',
+    index: './src/index.js'
   },
   // externals: {
   //   vue: 'vue'

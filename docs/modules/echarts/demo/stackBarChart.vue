@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import CCharts from '../../../../src/components/echarts/charts.vue'
+  import CCharts from '../../../../src/components/charts/charts.vue'
   import json from './json/stackBar.json'
   import DemoPanel from '../../../components/demoPanel/index.vue'
   import echarts from 'echarts'

@@ -8,7 +8,7 @@
 
 <script>
   import json from './json/eventList'
-  import CCharts from '../../../../src/components/echarts/charts'
+  import CCharts from '../../../../src/components/charts/charts'
   import echarts from 'echarts'
 
   export default {

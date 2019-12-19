@@ -8,7 +8,7 @@
 
 <script>
   import json from './json/area.json'
-  import CCharts from '../../../../src/components/echarts/charts'
+  import CCharts from '../../../../src/components/charts/charts'
   import {util} from '../../../../src/utils'
   import echarts from 'echarts'
   export default {
