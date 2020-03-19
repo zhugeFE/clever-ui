@@ -375,6 +375,24 @@
     watch: {
       store (store) {
         this.innerStore = store
+        let firstOption = null
+        if (this.innerStore.length) {
+          if (this.childrenField) {
+            firstOption = this.innerStore[0][this.childrenField][0]
+          } else {
+            firstOption = this.innerStore[0]
+          }
+        }
+        if (firstOption) {
+          this.chosenList = [firstOption]
+          this.$set(this, 'checkedMap', {
+            [firstOption[this.keyField]]: true
+          })
+        } else {
+          this.chosenList = []
+          this.$set(this, 'checkedMap', {})
+        }
+        
       },
       /**
        * 保持对v-model的双向数据绑定
