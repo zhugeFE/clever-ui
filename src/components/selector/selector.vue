@@ -266,6 +266,14 @@
       useChosenAll: {
         type: Boolean,
         default: false
+      },
+      /**
+       * 选中项与store进行强绑定，当store发生变化时，自动置store中的第一个选项为value。
+       * 一些场景下并不需要此处理，比如es查询，store会随着搜索内容改变，但是历史选中的选项应也是有效的才对
+       */
+      bindValueWithStore: {
+        type: Boolean,
+        default: false
       }
     },
     data () {
@@ -375,24 +383,25 @@
     watch: {
       store (store) {
         this.innerStore = store
-        let firstOption = null
-        if (this.innerStore.length) {
-          if (this.childrenField) {
-            firstOption = this.innerStore[0][this.childrenField][0]
+        if (this.bindValueWithStore) {
+          let firstOption = null
+          if (this.innerStore.length) {
+            if (this.childrenField) {
+              firstOption = this.innerStore[0][this.childrenField][0]
+            } else {
+              firstOption = this.innerStore[0]
+            }
+          }
+          if (firstOption) {
+            this.chosenList = [firstOption]
+            this.$set(this, 'checkedMap', {
+              [firstOption[this.keyField]]: true
+            })
           } else {
-            firstOption = this.innerStore[0]
+            this.chosenList = []
+            this.$set(this, 'checkedMap', {})
           }
         }
-        if (firstOption) {
-          this.chosenList = [firstOption]
-          this.$set(this, 'checkedMap', {
-            [firstOption[this.keyField]]: true
-          })
-        } else {
-          this.chosenList = []
-          this.$set(this, 'checkedMap', {})
-        }
-        
       },
       /**
        * 保持对v-model的双向数据绑定
