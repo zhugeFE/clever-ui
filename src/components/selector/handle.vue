@@ -3,7 +3,7 @@
     <slot v-if="theme !== 'tag'">
       <span v-show="!value.length" class="c-select-label c-placeholder">{{placeholder}}</span>
       <span v-show="value.length" class="c-select-label">{{resultLabel}}</span>
-      <span v-if="theme === 'noborder'" class="c-count" v-show="value.length > 1">({{value.length}})</span>
+      <span v-if="showCount" class="c-count" v-show="value.length > 1">({{value.length}})</span>
       <i :class="arrowIcon"></i>
     </slot>
     <template v-else>
@@ -45,6 +45,10 @@
         default () {
           return []
         }
+      },
+      showCount: {
+        type: Boolean,
+        default: false
       },
       /**
        * @description 支持normal、noborder、tag

@@ -183,6 +183,13 @@
         default: false
       },
       /**
+       * @description 显示选中个数，多选时有效
+       */
+      showCount: {
+        type: Boolean,
+        default: false
+      },
+      /**
        * @description 下拉框尺寸
        */
       size: {
@@ -729,6 +736,7 @@
                               splitStrFormat={this.splitStrFormat}
                               width={this.width}
                               size={this.size}
+                              showCount={this.multiple && this.showCount}
                               maxWidth={this.maxWidth}
                               active={this.showOptions}
                               keyField={this.keyField}
