@@ -17,9 +17,9 @@ var webpackConfig = merge(baseWebpackConfig, {
     main: './src/index.js',
     index: './src/index.js'
   },
-  // externals: {
-  //   vue: 'vue'
-  // },
+  externals: {
+    vue: 'vue'
+  },
   output: {
     path: path.resolve(__dirname, '../lib'),
     filename: '[name].js',

@@ -40,8 +40,6 @@ const components = [
   radioButton,
   input,
   selector,
-  // option,
-  // optGroup,
   checkbox,
   dataGrid,
   gridColumn,
@@ -70,12 +68,6 @@ const components = [
 ]
 
 const install = function (Vue) {
-  // directives
-  // for (let key in directives) {
-  //   let directive = directives[key]
-  //   Vue.directive(key, directive)
-  // }
-
   // components
   components.forEach((component) => {
     component.install(Vue)
@@ -97,8 +89,6 @@ export default {
   radioButton,
   input,
   selector,
-  // option,
-  // optGroup,
   checkbox,
   dataGrid,
   gridColumn,
