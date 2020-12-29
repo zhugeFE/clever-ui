@@ -299,7 +299,8 @@
         finallyTimeout: null,
         scrollTime: 0,
         scrollLoadingTimer: null,
-        chosenAllState: false
+        chosenAllState: false,
+        allShowMap: {}
       }
       // 绑定默认值
       if (this.value) {
@@ -354,18 +355,23 @@
         let totalCount = 0
         let filter = this.filter
         let renderStore = []
+        this.allShowMap = {
+          count: 0
+        }
         this.innerStore.forEach(item => {
           // 有分组
           if (this.childrenField) {
             let haveChildren = false
             item[this.childrenField].forEach((child, i) => {
               let flag = map.count < maxCount
-              if (flag &&
-                (!filter || this.filterData(child) || (this.filterGroupData(item) && this.filterGroup))
-              ) {
-                map[child[this.keyField]] = flag
-                map.count++
-                haveChildren = true
+              if (!filter || this.filterData(child) || (this.filterGroupData(item) && this.filterGroup)) {
+                if (flag) {
+                  map[child[this.keyField]] = flag
+                  map.count++
+                  haveChildren = true
+                }
+                this.allShowMap[child[this.keyField]] = true
+                this.allShowMap.count++
               }
               if (!filter || this.filterData(child) || (this.filterGroupData(item) && this.filterGroup)) totalCount++
             })
@@ -373,10 +379,14 @@
             map[item[this.keyField]] = haveChildren
           } else { // 没分组
             let flag = map.count < maxCount
-            if (flag && ((!filter || this.filterData(item)))) {
-              map[item[this.keyField]] = flag
-              map.count++
-              renderStore.push(item)
+            if ((!filter || this.filterData(item))) {
+              if (flag) {
+                map[item[this.keyField]] = flag
+                map.count++
+                renderStore.push(item)
+              }
+              this.allShowMap[item[this.keyField]] = true
+              this.allShowMap.count++
             }
             if (!filter || this.filterData(item)) totalCount++
           }
@@ -705,10 +715,12 @@
             let field = item[this.keyField]
             if (this.childrenField && item[this.childrenField].length) {
               item[this.childrenField].forEach((childrenItem) => {
+                if (!this.allShowMap[childrenItem[this.keyField]]) return
                 allData.push(childrenItem)
                 checkedMap[childrenItem[this.keyField]] = true
               })
             } else {
+              if (!this.allShowMap[item[this.keyField]]) return
               allData.push(item)
               checkedMap[item[this.keyField]] = true
             }
