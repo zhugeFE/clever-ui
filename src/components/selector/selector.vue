@@ -451,6 +451,9 @@
         } else {
           this.onClose()
         }
+      },
+      'allShowMap.count' () {
+        this.chosenAllState = false
       }
     },
     mounted () {
