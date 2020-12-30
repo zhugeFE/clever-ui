@@ -8,5 +8,4 @@ test/e2e/reports
 selenium-debug.log
 .idea/
 .sass-cache/
-dist/
 lib/report.html
