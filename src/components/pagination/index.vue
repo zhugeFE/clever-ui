@@ -1,38 +1,52 @@
 <template>
   <div class="c-pagination" :style="style">
     <slot name="left"></slot>
-    <span class="c-pg-txt">共<span class="c-pg-num">{{total}}</span>条, <span class="c-pg-num">{{pageNumList.length}}</span>页</span>
-    <c-selector :store="sizeOptions"
-                v-model="pageSize"
-                :width="108"
-                expand-arrow="up"
-                key-field="v"
-                label-field="label"></c-selector>
-    <c-selector :store="pageNumList"
-                v-model="pageNum"
-                @change="onChange"
-                expand-arrow="up"
-                :width="108"
-                key-field="v"
-                label-field="label"></c-selector>
-    <c-button class="c-pg-pre" @click="onPre"
-              :disable="pageNum.v <= 1"
-              size="normal"
-              icon="cicon-pagination-prev"></c-button>
-    <c-button class="c-pg-next" @click="onNext"
-              :disable="pageNum.v >= pageNumList.length"
-              size="normal"
-              icon="cicon-pagination-next"></c-button>
+    <span class="c-pg-txt"
+      >共<span class="c-pg-num">{{ total }}</span
+      >条, <span class="c-pg-num">{{ pageNumList.length }}</span
+      >页</span
+    >
+    <c-selector
+      :store="sizeOptions"
+      v-model="pageSize"
+      :width="108"
+      expand-arrow="up"
+      key-field="v"
+      label-field="label"
+    ></c-selector>
+    <c-selector
+      :store="pageNumList"
+      v-model="pageNum"
+      @change="onChange"
+      expand-arrow="up"
+      :width="108"
+      key-field="v"
+      label-field="label"
+    ></c-selector>
+    <c-button
+      class="c-pg-pre"
+      @click="onPre"
+      :disable="pageNum.v <= 1"
+      size="normal"
+      icon="cicon-pagination-prev"
+    ></c-button>
+    <c-button
+      class="c-pg-next"
+      @click="onNext"
+      :disable="pageNum.v >= pageNumList.length"
+      size="normal"
+      icon="cicon-pagination-next"
+    ></c-button>
     <slot name="right"></slot>
   </div>
 </template>
 
 <script>
-import CSelector from '../selector/selector'
-import CButton from '../button/button'
+import CSelector from '../selector'
+import CButton from '../button'
 export default {
   name: 'cPagination',
-  components: {CButton, CSelector},
+  components: { CButton, CSelector },
   props: {
     /**
      * @description 总记录数
@@ -46,7 +60,7 @@ export default {
      */
     pageSizeOptions: {
       type: Array,
-      default () {
+      default() {
         return [5, 10, 20, 50]
       }
     },
@@ -72,14 +86,14 @@ export default {
       default: 5
     }
   },
-  data () {
+  data() {
     return {
-      pageSize: {v: this.defaultPageSize},
-      pageNum: {v: this.defaultPageNum}
+      pageSize: { v: this.defaultPageSize },
+      pageNum: { v: this.defaultPageNum }
     }
   },
   computed: {
-    sizeOptions () {
+    sizeOptions() {
       return this.pageSizeOptions.map(size => {
         return {
           v: size,
@@ -87,7 +101,7 @@ export default {
         }
       })
     },
-    pageNumList () {
+    pageNumList() {
       let totalPage = Math.ceil(this.total / this.pageSize.v) || 1
       let store = []
       for (let i = 0; i < totalPage; i++) {
@@ -98,41 +112,41 @@ export default {
       }
       return store
     },
-    style () {
+    style() {
       return {
         'text-align': this.align
       }
     }
   },
   watch: {
-    pageSize (size, preSize) {
+    pageSize(size, preSize) {
       if (size.v === preSize.v) return
-      this.pageNum = {v: 1}
+      this.pageNum = { v: 1 }
       this.$nextTick(() => {
         this.onChange()
       })
     },
-    pageNumList () {
+    pageNumList() {
       if (this.defaultPageNum <= this.pageNumList) {
-        this.pageNum = {v: this.defaultPageNum}
+        this.pageNum = { v: this.defaultPageNum }
       } else {
         this.pageNum = this.pageNumList[0]
       }
     }
   },
   methods: {
-    onChange () {
+    onChange() {
       this.$emit('change', {
         pageSize: this.pageSize.v,
         pageNum: this.pageNum.v
       })
     },
-    onPre () {
-      this.pageNum = {v: this.pageNum.v - 1}
+    onPre() {
+      this.pageNum = { v: this.pageNum.v - 1 }
       this.onChange()
     },
-    onNext () {
-      this.pageNum = {v: this.pageNum.v + 1}
+    onNext() {
+      this.pageNum = { v: this.pageNum.v + 1 }
       this.onChange()
     }
   }

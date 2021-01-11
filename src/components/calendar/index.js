@@ -7,6 +7,5 @@ import calendar from './calendar.vue'
   }
 })
 
-export {
-  calendar
-}
+export default calendar
+

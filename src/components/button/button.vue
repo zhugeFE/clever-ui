@@ -3,7 +3,8 @@
     @click.stop.prevent="onClick"
     :type="nativeType"
     :disabled="disable"
-    :class="buttonClass">
+    :class="buttonClass"
+  >
     <i class="c-icon" :class="icon" v-if="icon && iconPosition === 'left'"></i>
     <c-loading v-show="showLoading" size="small" :showTip="false"></c-loading>
     <span><slot></slot></span>
@@ -11,10 +12,10 @@
   </button>
 </template>
 <script>
-import CLoading from '../loading/loading'
+import CLoading from '../loading'
 
 export default {
-  components: {CLoading},
+  components: { CLoading },
   name: 'CButton',
   props: {
     /**
@@ -23,8 +24,15 @@ export default {
     type: {
       type: String,
       default: 'normal',
-      validator (value) {
-        let rules = ['normal', 'primary', 'danger', 'secondary', 'warning', 'success']
+      validator(value) {
+        let rules = [
+          'normal',
+          'primary',
+          'danger',
+          'secondary',
+          'warning',
+          'success'
+        ]
         return rules.includes(value)
       }
     },
@@ -34,7 +42,7 @@ export default {
     size: {
       type: String,
       default: 'small',
-      validator (value) {
+      validator(value) {
         return ['small', 'normal', 'large'].includes(value)
       }
     },
@@ -44,7 +52,7 @@ export default {
     theme: {
       type: String,
       default: 'normal',
-      validator (value) {
+      validator(value) {
         return ['normal', 'border'].includes(value)
       }
     },
@@ -67,7 +75,7 @@ export default {
     nativeType: {
       type: String,
       default: 'button',
-      validator (value) {
+      validator(value) {
         return ['button', 'submit', 'reset'].includes(value)
       }
     },
@@ -84,13 +92,13 @@ export default {
     iconPosition: {
       type: String,
       default: 'left',
-      validator (v) {
+      validator(v) {
         return ['left', 'right'].includes(v)
       }
     }
   },
   computed: {
-    buttonClass () {
+    buttonClass() {
       let clazz = {
         'c-button': true,
         'c-disable': this.disable,
@@ -103,7 +111,7 @@ export default {
     }
   },
   methods: {
-    onClick () {
+    onClick() {
       if (this.disable || this.showLoading) return
       this.$emit('click')
     }

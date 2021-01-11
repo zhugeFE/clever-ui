@@ -1,6 +1,6 @@
 <script type="text/jsx">
 import Vue from 'vue'
-import CButton from '../button/button'
+import CButton from '../button'
 const Notification = Vue.extend({
   components: {
     CButton

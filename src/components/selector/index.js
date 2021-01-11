@@ -4,9 +4,9 @@
  * @author yqdong
  *
  */
+import selector from './selector.vue'
 import optGroup from './optGroup.vue'
 import option from './option.vue'
-import selector from './selector.vue'
 
 let components = [
   optGroup,
@@ -21,8 +21,4 @@ components.forEach(component => {
   }
 })
 
-export {
-  optGroup,
-  option,
-  selector
-}
+export default selector

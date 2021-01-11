@@ -1,19 +1,16 @@
 <template>
-  <div>
-  </div>
+  <div></div>
 </template>
 
 <script>
-  export default {
-    name: 'cSelectDropPanel',
-    data () {
-      return {
-        msg: 'dropPanel'
-      }
+export default {
+  name: 'cSelectDropPanel',
+  data() {
+    return {
+      msg: 'dropPanel'
     }
   }
+}
 </script>
 
-<style lang="sass">
-
-</style>
+<style lang="sass"></style>

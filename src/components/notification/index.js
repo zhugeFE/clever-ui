@@ -30,5 +30,7 @@ const notification = function (options) {
   }
   document.querySelector('.' + clazz).appendChild(notice.$el)
 }
-
+notification.install = function(Vue) {
+  Vue.prototype.$notification = notification
+}
 export default notification

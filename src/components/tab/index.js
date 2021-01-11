@@ -5,18 +5,11 @@
  *
  */
 import tabs from './tabs.vue'
-import tabPanel from './tabPanel.vue'
 
-const components = [tabs, tabPanel]
-
-components.forEach(component => {
-  component.install = function (Vue) {
-    Vue.component(component.name, component)
-    Vue.component(component.name.replace(/c|C/, 'zg'), component)
-  }
-})
-
-export {
-  tabs,
-  tabPanel
+tabs.install = function (Vue) {
+  Vue.component(tabs.name, tabs)
+  Vue.component(tabs.name.replace(/c|C/, 'zg'), tabs)
 }
+
+export default tabs
+

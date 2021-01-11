@@ -13,5 +13,7 @@ const msg = function (options) {
 
   document.body.appendChild(message.$el)
 }
-
+msg.install = function(Vue) {
+  Vue.prototype.$message = msg
+}
 export default msg

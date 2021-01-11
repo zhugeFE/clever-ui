@@ -8,8 +8,8 @@
 import NormalCalendar from './demo/normalCalendar'
 export default {
   name: 'index',
-  components: {NormalCalendar},
-  data () {
+  components: { NormalCalendar },
+  data() {
     return {
       msg: 'index'
     }
@@ -17,6 +17,4 @@ export default {
 }
 </script>
 
-<style lang="sass">
-
-</style>
+<style lang="sass"></style>
