@@ -1,27 +1,32 @@
 import './assets/styles/reset.sass'
 import './assets/icons/iconfont.css'
-import {button, radioButton} from './components/button/index.js'
+import button from './components/button/index.js'
+import radioButton from './components/radioButton/index.js'
 import input from './components/input/index'
 import checkbox from './components/checkbox/index'
-import {selector, option, optGroup} from './components/selector/index'
-import {dataGrid, gridColumn} from './components/dataGrid/index'
+import selector from './components/selector/index'
+import dataGrid from './components/dataGrid/index'
+import gridColumn from './components/gridColumn/index'
 import tooltip from './components/tooltip/index'
 import badge from './components/badge/index'
 import loading from './components/loading/index'
-import {tabs, tabPanel} from './components/tab/index'
+import tabs from './components/tab/index'
+import tabPanel from './components/tabPanel/index'
 import dialog from './components/dialog'
 import reload from './components/reload'
 import radio from './components/radio'
 import {scrollContainer, scrollLazyPanel} from './components/scroll'
-import {charts, pieChart} from './components/echarts'
+import charts from './components/echarts'
+import pieChart from './components/pie'
 import tag from './components/tag'
-import {calendar} from './components/calendar'
+import calendar from './components/calendar'
 import pagination from './components/pagination'
 import tree from './components/tree'
 import flow from './components/flow'
 import forceChart from './components/forceChart'
 import dropdown from './components/dropDown/index'
-import {datePicker, dateRangePicker} from './components/datePicker/index'
+import datePicker from './components/datePicker/index'
+import dateRangePicker from './components/dateRangePicker/index'
 import {util} from './utils'
 
 import msg from './components/message'
@@ -34,8 +39,6 @@ const components = [
   radioButton,
   input,
   selector,
-  option,
-  optGroup,
   checkbox,
   dataGrid,
   gridColumn,
@@ -58,7 +61,6 @@ const components = [
   dropdown,
   datePicker,
   dateRangePicker,
-
   charts,
   pieChart
 ]
@@ -86,34 +88,5 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  install,
-  button,
-  radioButton,
-  input,
-  selector,
-  option,
-  optGroup,
-  checkbox,
-  dataGrid,
-  gridColumn,
-  tooltip,
-  badge,
-  loading,
-  tabs,
-  tabPanel,
-  dialog,
-  reload,
-  radio,
-  scrollContainer,
-  scrollLazyPanel,
-  tag,
-  calendar,
-  pagination,
-  tree,
-  flow,
-  dropdown,
-  datePicker,
-  dateRangePicker,
-  charts,
-  pieChart
+  install
 }

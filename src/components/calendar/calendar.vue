@@ -1,58 +1,72 @@
 <template>
   <div class="c-calendar-container" ref="main" v-resize="onResize">
     <div class="c-cld-toolbar">
-      <c-selector :store="yearList"
-                   :width="100"
-                   class="c-cld-year"
-                   @change="onChangeYear"
-                   v-model="currentYear"
-                   key-field="value"
-                   label-field="label"></c-selector>
-      <c-selector :store="monthList"
-                   :width="100"
-                   @change="onChangeMonth"
-                   class="c-cld-month-selector"
-                   v-model="currentMonth"
-                   key-field="value"
-                   label-field="label"></c-selector>
+      <c-selector
+        :store="yearList"
+        :width="100"
+        class="c-cld-year"
+        @change="onChangeYear"
+        v-model="currentYear"
+        key-field="value"
+        label-field="label"
+      ></c-selector>
+      <c-selector
+        :store="monthList"
+        :width="100"
+        @change="onChangeMonth"
+        class="c-cld-month-selector"
+        v-model="currentMonth"
+        key-field="value"
+        label-field="label"
+      ></c-selector>
       <span class="c-cld-day-control">
-        <c-button size="normal" icon="cicon-arrow-left" @click="onPreDay"></c-button>
+        <c-button
+          size="normal"
+          icon="cicon-arrow-left"
+          @click="onPreDay"
+        ></c-button>
         <c-button size="normal" @click="onClickDay(new Date())">今天</c-button>
-        <c-button size="normal" icon="cicon-arrow-right1" @click="onNextDay"></c-button>
+        <c-button
+          size="normal"
+          icon="cicon-arrow-right1"
+          @click="onNextDay"
+        ></c-button>
       </span>
     </div>
     <table class="c-cld">
       <thead class="c-cld-title">
-      <tr>
-        <td class="c-cld-secondary">周日</td>
-        <td>周一</td>
-        <td>周二</td>
-        <td>周三</td>
-        <td>周四</td>
-        <td>周五</td>
-        <td class="c-cld-secondary">周六</td>
-      </tr>
+        <tr>
+          <td class="c-cld-secondary">周日</td>
+          <td>周一</td>
+          <td>周二</td>
+          <td>周三</td>
+          <td>周四</td>
+          <td>周五</td>
+          <td class="c-cld-secondary">周六</td>
+        </tr>
       </thead>
       <tbody class="c-cld-body">
-      <tr v-for="(week, i) of days" :key="i">
-        <c-day v-for="day of week"
-                :key="day.toLocaleString()"
-                :day="day"
-                :width="dayWidth"
-                :currentDay="currentDay"
-                :currentMonth="currentMonth"
-                :taskList="_taskList"
-                @click="onClickDay"/>
-      </tr>
+        <tr v-for="(week, i) of days" :key="i">
+          <c-day
+            v-for="day of week"
+            :key="day.toLocaleString()"
+            :day="day"
+            :width="dayWidth"
+            :currentDay="currentDay"
+            :currentMonth="currentMonth"
+            :taskList="_taskList"
+            @click="onClickDay"
+          />
+        </tr>
       </tbody>
     </table>
   </div>
 </template>
 
 <script>
-import {util} from '../../utils'
+import { util } from '../../utils'
 import CDay from './day'
-import CSelector from '../selector/selector'
+import CSelector from '../selector'
 export default {
   name: 'cCalendar',
   components: {
@@ -72,7 +86,7 @@ export default {
     type: {
       type: String,
       default: 'normal',
-      validator (type) {
+      validator(type) {
         return ['normal', 'card'].includes(type)
       }
     },
@@ -83,7 +97,7 @@ export default {
     mode: {
       type: String,
       default: 'month',
-      validator (mode) {
+      validator(mode) {
         return ['month', 'year', 'week', 'day'].includes(mode)
       }
     },
@@ -92,12 +106,12 @@ export default {
      */
     taskList: {
       type: Array,
-      default () {
+      default() {
         return []
       }
     }
   },
-  data () {
+  data() {
     let currentDay = this.value || new Date()
     return {
       days: this.getDays(currentDay),
@@ -110,13 +124,13 @@ export default {
         let list = []
         for (let i = 0; i < 12; i++) {
           list.push({
-            label: (i + 1) + '月',
+            label: i + 1 + '月',
             value: i
           })
         }
         return list
       })(),
-      currentYear: {value: currentDay.getFullYear()},
+      currentYear: { value: currentDay.getFullYear() },
       yearList: (() => {
         let list = []
         let currentYear = currentDay.getFullYear()
@@ -131,7 +145,7 @@ export default {
     }
   },
   computed: {
-    _taskList () {
+    _taskList() {
       let list = this.taskList.map(item => item)
       list.sort((a, b) => {
         return a.beginDate.getTime() - b.beginDate.getTime()
@@ -139,18 +153,18 @@ export default {
       return list
     }
   },
-  mounted () {
+  mounted() {
     this.onResize()
   },
   methods: {
-    dateFormat (date) {
+    dateFormat(date) {
       return util.dateFormat(date, 'dd')
     },
-    onResize () {
+    onResize() {
       let container = this.$refs.main
       this.dayWidth = container.offsetWidth / 7
     },
-    getDayClass (day) {
+    getDayClass(day) {
       let week = day.getDay()
       let isOtherMonth = this.currentMonth.value !== day.getMonth()
       let isToday = util.dateFormat(new Date()) === util.dateFormat(day)
@@ -162,33 +176,54 @@ export default {
         'c-cld-active': isCurrent
       }
     },
-    getDays (currentDay) {
-      let firstDay = new Date(currentDay.getFullYear(), currentDay.getMonth(), 1)
-      let lastDay = new Date(new Date(currentDay.getFullYear(), currentDay.getMonth() + 1, 1).getTime() - util.dayTime)
-      let firstOfWeek = new Date(firstDay.getTime() - firstDay.getDay() * util.dayTime)
-      let lastOfWeek = new Date(lastDay.getTime() + (6 - lastDay.getDay()) * util.dayTime)
-      let totalDays = (lastOfWeek.getTime() - firstOfWeek.getTime()) / util.dayTime + 1
+    getDays(currentDay) {
+      let firstDay = new Date(
+        currentDay.getFullYear(),
+        currentDay.getMonth(),
+        1
+      )
+      let lastDay = new Date(
+        new Date(
+          currentDay.getFullYear(),
+          currentDay.getMonth() + 1,
+          1
+        ).getTime() - util.dayTime
+      )
+      let firstOfWeek = new Date(
+        firstDay.getTime() - firstDay.getDay() * util.dayTime
+      )
+      let lastOfWeek = new Date(
+        lastDay.getTime() + (6 - lastDay.getDay()) * util.dayTime
+      )
+      let totalDays =
+        (lastOfWeek.getTime() - firstOfWeek.getTime()) / util.dayTime + 1
       let days = []
       let week = []
       for (let i = 0; i < totalDays; i++) {
         let date = new Date(firstOfWeek.getTime() + i * util.dayTime)
-        if (!date.getDay()) { // 周的第一天
+        if (!date.getDay()) {
+          // 周的第一天
           week = []
         }
         week.push(date)
-        if (date.getDay() === 6) { // 周的最后一天
+        if (date.getDay() === 6) {
+          // 周的最后一天
           days.push(util.clone(week))
         }
       }
       return days
     },
-    onChangeYear () {
-      this.days = this.getDays(new Date(this.currentYear.value, this.currentMonth.value, 1))
+    onChangeYear() {
+      this.days = this.getDays(
+        new Date(this.currentYear.value, this.currentMonth.value, 1)
+      )
     },
-    onChangeMonth () {
-      this.days = this.getDays(new Date(this.currentYear.value, this.currentMonth.value, 1))
+    onChangeMonth() {
+      this.days = this.getDays(
+        new Date(this.currentYear.value, this.currentMonth.value, 1)
+      )
     },
-    onClickDay (day) {
+    onClickDay(day) {
       this.currentYear = {
         value: day.getFullYear()
       }
@@ -200,10 +235,10 @@ export default {
       this.$emit('input', day)
       this.$emit('selectDay', day)
     },
-    onNextDay () {
+    onNextDay() {
       this.onClickDay(new Date(this.currentDay.getTime() + util.dayTime))
     },
-    onPreDay () {
+    onPreDay() {
       this.onClickDay(new Date(this.currentDay.getTime() - util.dayTime))
     }
   }

@@ -1,28 +1,32 @@
 <template>
   <div class="c-date-range-picker">
-    <c-date-picker :show-today="false"
-                   v-model="startDate"
-                   :max="endDate"
-                   :min="min"
-                   :highlight-start="startDate"
-                   :highlight-end="endDate"></c-date-picker>
+    <c-date-picker
+      :show-today="false"
+      v-model="startDate"
+      :max="endDate"
+      :min="min"
+      :highlight-start="startDate"
+      :highlight-end="endDate"
+    ></c-date-picker>
 
-    <span class="c-range-separator">{{separator}}</span>
+    <span class="c-range-separator">{{ separator }}</span>
 
-    <c-date-picker :show-today="false"
-                   v-model="endDate"
-                   :min="startDate"
-                   :max="max"
-                   :highlight-end="endDate"
-                   :highlight-start="startDate"></c-date-picker>
+    <c-date-picker
+      :show-today="false"
+      v-model="endDate"
+      :min="startDate"
+      :max="max"
+      :highlight-end="endDate"
+      :highlight-start="startDate"
+    ></c-date-picker>
   </div>
 </template>
 
 <script>
-import CDatePicker from './datePicker'
+import CDatePicker from '../datePicker'
 export default {
   name: 'cDateRangePicker',
-  components: {CDatePicker},
+  components: { CDatePicker },
   props: {
     value: null,
     separator: {
@@ -42,7 +46,7 @@ export default {
       type: Date
     }
   },
-  data () {
+  data() {
     let data = {
       startDate: new Date(),
       endDate: new Date()
@@ -54,7 +58,7 @@ export default {
     return data
   },
   computed: {
-    output () {
+    output() {
       return {
         startDate: this.startDate,
         endDate: this.endDate
@@ -63,13 +67,13 @@ export default {
   },
   watch: {
     value: {
-      handler: function (val) {
+      handler: function(val) {
         this.startDate = val.startDate
         this.endDate = val.endDate
       },
       deep: true
     },
-    output () {
+    output() {
       this.$emit('input', this.output)
     }
   }

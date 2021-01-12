@@ -43,24 +43,23 @@
 </template>
 
 <script>
-  import CTabs from '../../../../src/components/tab/tabs.vue'
-  import CTabPanel from '../../../../src/components/tab/tabPanel.vue'
-  import DemoPanel from '../../../components/demoPanel/index.vue'
+import CTabs from '../../../../src/components/tab/tabs.vue'
+import CTabPanel from '../../../../src/components/tabPanel/tabPanel.vue'
+import DemoPanel from '../../../components/demoPanel/index.vue'
 
-  export default {
-    name: 'cardTab',
-    components: {
-      DemoPanel,
-      CTabPanel,
-      CTabs},
-    data () {
-      return {
-        msg: 'cardTab'
-      }
+export default {
+  name: 'cardTab',
+  components: {
+    DemoPanel,
+    CTabPanel,
+    CTabs
+  },
+  data() {
+    return {
+      msg: 'cardTab'
     }
   }
+}
 </script>
 
-<style lang="sass">
-
-</style>
+<style lang="sass"></style>

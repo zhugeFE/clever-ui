@@ -3,7 +3,7 @@ var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -11,9 +11,12 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
+      vue$: 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      '@docs': resolve('docs')
+      '@docs': resolve('docs'),
+      // 'clever-ui':path.resolve(__dirname, '../'),
+      // src:path.resolve(__dirname,'../src'),
+      // components:path.resolve(__dirname,'../src/components')
     }
   },
   module: {
@@ -41,7 +44,7 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
-          publicPath: function (url) {
+          publicPath: function(url) {
             if (process.env.NODE_ENV === 'production') {
               url = url.replace('theme-default/', '')
             }
@@ -55,7 +58,7 @@ module.exports = {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
         loader: 'url-loader',
         options: {
-          publicPath: function (url) {
+          publicPath: function(url) {
             if (process.env.NODE_ENV === 'production') {
               url = url.replace('theme-default/', '')
             }

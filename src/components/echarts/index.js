@@ -5,20 +5,11 @@
  *
  */
 import charts from './charts.vue'
-import pieChart from './pie'
 
-const components = [
-  charts,
-  pieChart
-]
-components.forEach(component => {
-  component.install = function (Vue) {
-    Vue.component(component.name, component)
-    Vue.component(component.name.replace(/c|C/, 'zg'), component)
-  }
-})
-
-export {
-  charts,
-  pieChart
+charts.install = function (Vue) {
+  Vue.component(charts.name, charts)
+  Vue.component(charts.name.replace(/c|C/, 'zg'), charts)
 }
+
+export default charts
+

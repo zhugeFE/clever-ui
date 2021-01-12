@@ -1,11 +1,11 @@
 <script type="text/jsx">
   import COption from './option.vue'
-  import CCheckbox from '../checkbox/checkbox.vue'
+  import CCheckbox from '../checkbox'
   import COptGroup from './optGroup.vue'
   import {util} from '../../utils'
   import CScrollContainer from '../scroll/scrollContainer'
   import CSelectorHandle from './handle'
-  import CLoading from '../loading/loading'
+  import CLoading from '../loading'
   export default {
     components: {
       CLoading,
