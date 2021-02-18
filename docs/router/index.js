@@ -25,7 +25,7 @@ import datePicker from '../modules/datePicker/index'
 import tree from '../modules/tree/index'
 import flow from '../modules/flow/index'
 import forceChart from '../modules/forceChart/index'
-
+import popover from '../modules/popover/index'
 Vue.use(Router)
 
 export default new Router({
@@ -55,6 +55,11 @@ export default new Router({
           path: '/checkbox',
           name: 'checkbox',
           component: Checkbox
+        },
+        {
+          path: '/popover',
+          name: 'popover',
+          component: popover
         },
         {
           path: '/radio',
