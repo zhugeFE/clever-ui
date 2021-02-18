@@ -2,6 +2,7 @@
 import Vue from 'vue'
 import clickOutside  from '../../directives/clickOutside.js'
 export default Vue.extend({
+  name:"popoverContent",
   data() {
     return {
       content: null,
