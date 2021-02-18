@@ -1,0 +1,31 @@
+[
+  {
+    "name": "trigger",
+    "type": "String",
+    "required": false,
+    "default": "contextmenu",
+    "description": "触发方式有contextmenu和click两种"
+  },
+  {
+    "name": "placement",
+    "type": "String",
+    "required": false,
+    "default": "'top'",
+    "description": "展示位置top-left, top, top-right, left, right,bottom-left, bottom, bottom-right",
+    "tip":"仅当trigger为click时有效"
+  },
+  {
+    "name": "width",
+    "type": "Number",
+    "required": false,
+    "default": 200,
+    "description": "展示宽度"
+  },
+  {
+    "name": "hideOnClick",
+    "type": "Boolean",
+    "required": false,
+    "default": "false",
+    "description": "弹框内部元素被点击时是否隐藏popover"
+  }
+]

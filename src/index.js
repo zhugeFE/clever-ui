@@ -27,6 +27,7 @@ import forceChart from './components/forceChart'
 import dropdown from './components/dropDown/index'
 import datePicker from './components/datePicker/index'
 import dateRangePicker from './components/dateRangePicker/index'
+import popover from './components/popover/index'
 import {util} from './utils'
 
 import msg from './components/message'
@@ -62,7 +63,8 @@ const components = [
   datePicker,
   dateRangePicker,
   charts,
-  pieChart
+  pieChart,
+  popover
 ]
 
 const install = function (Vue) {

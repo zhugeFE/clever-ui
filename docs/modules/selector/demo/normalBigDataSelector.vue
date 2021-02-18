@@ -8,11 +8,10 @@
 
     <demo-panel subtitle="多选" jsFiddleName="udt2nfjs">
       <c-selector key-field="id" v-model="multipleValue"
-        useChosenAll
-        :store="multipleStore"
-        label-field="label"
-        filter-option
-        multiple></c-selector>
+                   :store="multipleStore"
+                   label-field="label"
+                   filter-option
+                   multiple></c-selector>
       <span>所选值：</span>{{multipleValue}}
     </demo-panel>
   </div>
