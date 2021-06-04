@@ -458,6 +458,11 @@ export default {
       this.chosenAllState = false
     }
   },
+  created() {
+    this.throttle = util.throttle(()=>{
+      this.positioningOption()
+    },100)
+  },
   mounted () {
     if (this.multiple) {
       if (this.showChosenAllBtn && this.chosenList.length === this.store.length) {
@@ -467,9 +472,6 @@ export default {
     } else {
       this.$emit('input', this.chosenList[0])
     }
-    this.throttle = util.throttle(()=>{
-      this.positioningOption()
-    },100)
   },
   /**
    * @description 处理选项框左右及上下位置布局 todo 位置计算优化
@@ -750,8 +752,6 @@ export default {
         dropPanel.style.bottom = '38px'
         dropPanel.style.top = 'auto'
       }
-    },
-    throttle(){
     }
   },
   render (h) {
