@@ -222,16 +222,6 @@
         }
       },
       /**
-       * @description 下拉框展开方向
-       */
-      expandArrow: {
-        type: String,
-        default: 'down',
-        validator (arrow) {
-          return ['down', 'up'].includes(arrow)
-        }
-      },
-      /**
        * @description 下拉框滚动到底部执行此函数,当请求时间超过500毫秒会出现loading
        * @tip 适用下拉框数据远程加载,返回值需要是Promise实例
        */
@@ -448,13 +438,20 @@
         }
         if (state) {
           this.onShow()
+          this.adsorb()
         } else {
+          this.remove()
           this.onClose()
         }
       },
       'allShowMap.count' () {
         this.chosenAllState = false
       }
+    },
+    created(){
+      this.throttle = util.throttle(()=>{
+        this.positioningOption()
+      },100)
     },
     mounted () {
       if (this.multiple) {
@@ -470,23 +467,7 @@
      * @description 处理选项框左右及上下位置布局 todo 位置计算优化
      */
     updated () {
-      if (this._isBeingDestroyed || this._isDestroyed) return
-      const dropPanel = this.$refs.dropPanel
-      const dropHandle = this.$refs.handle
-      if (!dropPanel || !dropHandle) return
-      if (this.expandArrow === 'down') {
-        const panelRect = dropPanel.getBoundingClientRect()
-        const handleRect = dropHandle.$el.getBoundingClientRect()
-        const bottomHeight = window.innerHeight - panelRect.top - 7
-        if ((panelRect.width + panelRect.left) > window.innerWidth) {
-          dropPanel.style.right = 0
-        }
-        dropPanel.style.top = handleRect.height + 5 + 'px'
-        dropPanel.style.bottom = 'auto'
-      } else {
-        dropPanel.style.bottom = '38px'
-        dropPanel.style.top = 'auto'
-      }
+      this.positioningOption()
     },
     methods: {
       updateData (option, params = {}) {
@@ -736,7 +717,32 @@
         this.$set(this, 'checkedMap', checkedMap)
         this.$emit('input', this.chosenList)
         this.$emit('change', this.chosenList, this)
-      }
+      },
+      adsorb(){
+       window.addEventListener('scroll', this.throttle,true)
+      },
+      remove(){
+        window.removeEventListener('scroll',this.throttle,true)
+      },
+      positioningOption(){
+        if (this._isBeingDestroyed || this._isDestroyed) return
+        const dropPanel = this.$refs.dropPanel
+        const dropHandle = this.$refs.handle
+        if (!dropPanel || !dropHandle) return
+        const handleRect = dropHandle.$el.getBoundingClientRect()
+        const dropHeight = dropPanel.offsetHeight
+        if (window.innerHeight - handleRect.bottom > dropHeight + 10){
+          const panelRect = dropPanel.getBoundingClientRect()
+          if ((panelRect.width + panelRect.left) > window.innerWidth) {
+            dropPanel.style.right = 0
+          }
+          dropPanel.style.top = handleRect.height + 5 + 'px'
+          dropPanel.style.bottom = 'auto'
+        }else{
+          dropPanel.style.bottom = '38px'
+          dropPanel.style.top = 'auto'
+        }
+      },
     },
     render (h) {
       return (

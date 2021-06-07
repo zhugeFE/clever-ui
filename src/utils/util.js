@@ -236,13 +236,13 @@ let util = {
 
     return str
   },
-  /**
- * 计算百分比值
- * @param {number} numerator 分子
- * @param {number} denominator 分母
- * @param {number} precision 小数精度
- * @returns {string}
- */
+/**
+* 计算百分比值
+* @param {number} numerator 分子
+* @param {number} denominator 分母
+* @param {number} precision 小数精度
+* @returns {string}
+*/
   percentCalculate (numerator, denominator, precision = 2) {
     let data = 0
     if (numerator && denominator) {
@@ -251,6 +251,24 @@ let util = {
       data = Math.floor(numerator / denominator) / precision
     }
     return data + '%'
+  },
+  /**
+   * 节流
+   * @param {function} fn 执行函数
+   * @param {number | string} wait 等待时间
+   * @returns {function}
+   */
+  throttle(fn, wait) {
+    let pre = Date.now()
+    return function() {
+      const context = this
+      const args = arguments
+      const now = Date.now()
+      if (now - pre >= wait) {
+        fn.apply(context, args)
+        pre = now
+      }
+    }
   }
 }
 
