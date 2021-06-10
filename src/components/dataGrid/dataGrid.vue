@@ -300,6 +300,6 @@
   }
 </script>
 
-<style lang="sass">
-@import "styles/grid"
+<style lang="less">
+@import "styles/grid.less";
 </style>

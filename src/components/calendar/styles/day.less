@@ -1,0 +1,75 @@
+@import "../../../assets/styles/constants";
+
+.c-cld-day {
+  border: 1px solid @color-border-normal;
+  vertical-align: top;
+  padding: 5px;
+  color: @color-font-subtitle;
+
+  &:hover {
+    background: @color-action-normal-active;
+    cursor: pointer;
+  }
+
+  .c-cld-day-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    position: relative;
+
+    .c-cld-label {
+      text-align: right;
+      flex: none;
+      height: 25px;
+    }
+
+    .c-cld-task-panel {
+      flex: 1;
+      overflow: visible;
+      position: relative;
+    }
+
+    .c-cld-task-list {
+      flex: 1;
+
+      .c-cld-task {
+        font-size: @size-font-tip;
+        height: 18px;
+        line-height: 18px;
+        border-radius: @border-radius;
+        background: @color-action-primary-default;
+        margin-bottom: 5px;
+        color: @color-white;
+        padding: 0 5px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        word-break: keep-all;
+
+        &:hover {
+          background: @color-action-primary-hover;
+        }
+      }
+    }
+  }
+
+  &.c-cld-today {
+    .c-day-num {
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+      text-align: center;
+      border-radius: 100%;
+      background: @color-brand;
+      margin-right: 5px;
+      color: @color-white;
+    }
+  }
+
+  &.c-cld-active {
+    background: @color-action-normal-active;
+  }
+}

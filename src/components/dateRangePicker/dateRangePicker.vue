@@ -80,6 +80,6 @@ export default {
 }
 </script>
 
-<style lang="sass">
-@import "styles/dateRange"
+<style lang="less">
+@import "styles/dateRange.less";
 </style>

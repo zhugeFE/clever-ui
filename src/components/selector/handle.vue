@@ -274,6 +274,6 @@ export default {
 }
 </script>
 
-<style lang="sass">
-@import "styles/handle"
+<style lang="less">
+@import "styles/handle.less";
 </style>

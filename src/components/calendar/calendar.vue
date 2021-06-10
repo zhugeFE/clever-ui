@@ -245,6 +245,6 @@ export default {
 }
 </script>
 
-<style lang="sass">
-@import "styles/index"
+<style lang="less">
+@import "styles/index.less";
 </style>

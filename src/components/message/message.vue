@@ -65,6 +65,6 @@
   export default Message
 </script>
 
-<style lang="sass">
-@import "styles/message"
+<style lang="less">
+@import "styles/message.less";
 </style>

@@ -99,6 +99,6 @@ export default {
 }
 </script>
 
-<style lang="sass">
-@import "./styles/radioButton"
+<style lang="less">
+@import "./styles/radioButton";
 </style>

@@ -45,10 +45,13 @@
   }
 </script>
 
-<style lang="sass">
-.overview
-  border: 1px solid lightseagreen
-  .line-panel
-    display: inline-block
-    border: 1px solid darkblue
+<style lang="less">
+.overview {
+  border: 1px solid lightseagreen;
+
+  .line-panel {
+    display: inline-block;
+    border: 1px solid darkblue;
+  }
+}
 </style>

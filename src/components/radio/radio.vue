@@ -71,6 +71,6 @@
   }
 </script>
 
-<style lang="sass">
-@import "styles/radio"
+<style lang="less">
+@import "styles/radio.less";
 </style>

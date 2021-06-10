@@ -1,0 +1,39 @@
+@import "../../../assets/styles/constants";
+
+.c-calendar-container {
+  background: @color-background-normal;
+
+  .c-cld-toolbar {
+    text-align: center;
+
+    .c-cld-year {
+      float: left;
+    }
+
+    .c-cld-month-selector {}
+
+    .c-cld-day-control {
+      float: right;
+    }
+  }
+
+  .c-cld {
+    border-collapse: collapse;
+
+    .c-cld-title {
+      td {
+        padding: 10px 5px;
+        text-align: right;
+      }
+    }
+
+    .c-cld-body {
+      font-size: @size-font-content;
+      color: @color-font-content;
+    }
+
+    .c-cld-secondary {
+      color: @color-font-assist !important;
+    }
+  }
+}

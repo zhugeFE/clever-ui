@@ -71,6 +71,6 @@
   }
 </script>
 
-<style lang="sass">
-@import "styles/checkbox"
+<style lang="less">
+@import "styles/checkbox.less";
 </style>

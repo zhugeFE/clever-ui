@@ -288,6 +288,6 @@ export default {
 }
 </script>
 
-<style lang="sass">
-@import "styles/tree"
+<style lang="less">
+@import "styles/tree.less";
 </style>

@@ -52,6 +52,6 @@
   }
 </script>
 
-<style lang="sass">
-@import "styles/tabPanel"
+<style lang="less">
+@import "styles/tabPanel.less";
 </style>

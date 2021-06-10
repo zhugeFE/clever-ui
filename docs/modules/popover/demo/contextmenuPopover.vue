@@ -36,22 +36,29 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
-.triggerArea
-  text-align: center
-  line-height: 400px
-  width: 900px
-  height: 400px
-  background-color: rgb(247, 247, 247)
-ul
-  li
-    &:nth-child(n+2)
-      margin-top: 10px
-    button
-      width: 100%
-      height: 34px
-      background: #FFFFFF
-      border-radius: 2px
-      border: 1px solid #D1D1D1
-      cursor: pointer
+<style lang="less" scoped>
+.triggerArea {
+  text-align: center;
+  line-height: 400px;
+  width: 900px;
+  height: 400px;
+  background-color: rgb(247, 247, 247);
+}
+
+ul {
+  li {
+    &:nth-child(n+2) {
+      margin-top: 10px;
+    }
+
+    button {
+      width: 100%;
+      height: 34px;
+      background: #FFFFFF;
+      border-radius: 2px;
+      border: 1px solid #D1D1D1;
+      cursor: pointer;
+    }
+  }
+}
 </style>

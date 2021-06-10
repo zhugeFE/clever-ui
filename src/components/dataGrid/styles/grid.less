@@ -1,0 +1,91 @@
+@import "./constants.less";
+
+.c-data-grid {
+  border: 1px solid @color-border-normal;
+  border-radius: @border-radius;
+  color: @color-brand-black;
+  overflow-x: auto;
+
+  .c-grid-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+    .c-grid-left {
+      flex: none;
+      position: relative;
+      border-right: 1px solid @color-border-normal;
+      z-index: @z-index-base + 1;
+    }
+
+    .c-grid-right {
+      flex: none;
+      position: relative;
+      border-left: 1px solid @color-border-normal;
+      box-shadow: (-6px) 0 6px -4px rgba(0, 0, 0, 0.2);
+      z-index: @z-index-base + 1;
+
+      .c-grid-cell:first-child, .c-grid-header-cell:first-child {
+        text-align: right;
+      }
+    }
+
+    .c-grid-center {
+      flex: 1 1 auto;
+      position: relative;
+      z-index: @z-index-base;
+      overflow-x: auto;
+
+      .c-grid-cell:first-child, .c-grid-header-cell:first-child {
+        text-align: right;
+      }
+    }
+
+    .c-grid {
+      width: auto;
+      min-width: 100%;
+      border-collapse: collapse;
+      font-size: @size-font-content;
+
+      .c-grid-header {
+        .c-grid-header-row {
+          background: @color-background-dark;
+        }
+      }
+
+      .c-grid-body {
+        .c-grid-row {
+          background: @color-background-normal;
+
+          &:nth-child(2n) {
+            background: @color-background-light;
+          }
+
+          &:hover {
+            background: @color-action-normal-hover;
+          }
+
+          &:last-child .c-grid-cell {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+
+  .c-hidden-structure {
+    display: none;
+
+    .c-grid-hover-color {
+      background: @color-action-normal-active;
+    }
+  }
+
+  .c-grid-empty {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: @size-font-content;
+    color: @color-font-content;
+  }
+}

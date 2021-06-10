@@ -58,9 +58,10 @@ export default {
   }
 }
 </script>
-<style lang="sass">
-.c-scroll-container
-  position: relative
-  height: 100%
-  overflow: auto
+<style lang="less">
+.c-scroll-container {
+  position: relative;
+  height: 100%;
+  overflow: auto;
+}
 </style>

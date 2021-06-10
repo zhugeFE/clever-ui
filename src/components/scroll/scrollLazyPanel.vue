@@ -50,8 +50,9 @@ export default {
   }
 }
 </script>
-<style lang="sass">
-.c-scroll-lazy-panel
-  position: relative
-  display: inline-block
+<style lang="less">
+.c-scroll-lazy-panel {
+  position: relative;
+  display: inline-block;
+}
 </style>

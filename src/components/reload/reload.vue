@@ -55,6 +55,6 @@ export default {
 }
 </script>
 
-<style lang="sass">
-@import "styles/reload"
+<style lang="less">
+@import "styles/reload.less";
 </style>

@@ -104,6 +104,6 @@ export default {
 }
 </script>
 
-<style lang="sass">
-@import "styles/badge"
+<style lang="less">
+@import "styles/badge.less";
 </style>

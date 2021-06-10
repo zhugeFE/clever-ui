@@ -44,14 +44,17 @@ export default {
   }
 }
 </script>
-<style lang="sass" scoped>
-button
-  padding: 0 10px
-  height: 30px
-  line-height: 30px
-.content
-  height: 50px
-  font-size: 30px
-  text-align: center
-  cursor: pointer
+<style lang="less" scoped>
+button {
+  padding: 0 10px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.content {
+  height: 50px;
+  font-size: 30px;
+  text-align: center;
+  cursor: pointer;
+}
 </style>

@@ -88,6 +88,6 @@
   }
 </script>
 
-<style lang="sass">
-@import "styles/loading"
+<style lang="less">
+@import "styles/loading.less";
 </style>

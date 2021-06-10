@@ -867,6 +867,6 @@
   }
 </script>
 
-<style lang="sass">
-  @import "styles/select"
+<style lang="less">
+@import "styles/select.less";
 </style>

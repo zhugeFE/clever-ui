@@ -13,21 +13,27 @@ export default {
 }
 </script>
 
-<style lang="sass">
-@import "../src/assets/styles/constants"
-@import "./assets/styles/reset.sass"
-#app
-  width: 100%
-  height: 100%
-  overflow: hidden
-  font-family: $font-family
-  display: flex
-  flex-direction: column
-  .top_
-    flex: 1
-  a
-    flex: none
-    font-size: $size-font-tip
-    color: $color-brand
-    text-align: center
+<style lang="less">
+@import "../src/assets/styles/constants";
+@import "./assets/styles/reset.less";
+
+#app {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: @font-family;
+  display: flex;
+  flex-direction: column;
+
+  .top_ {
+    flex: 1;
+  }
+
+  a {
+    flex: none;
+    font-size: @size-font-tip;
+    color: @color-brand;
+    text-align: center;
+  }
+}
 </style>

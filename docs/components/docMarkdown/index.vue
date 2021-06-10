@@ -35,6 +35,6 @@ export default {
   }
 }
 </script>
-<style lang="sass">
-@import "./styles/index.sass"
+<style lang="less">
+@import "./styles/index.less";
 </style>

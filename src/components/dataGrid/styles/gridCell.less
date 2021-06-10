@@ -1,0 +1,27 @@
+@import "./constants.less";
+
+.c-grid-cell {
+  border: 1px solid @color-border-normal;
+  padding: @cell-padding;
+  text-align: right;
+  vertical-align: middle;
+  word-wrap: break-word;
+  min-width: 120px;
+
+  &:first-child {
+    border-left: none;
+    text-align: left;
+  }
+
+  &:last-child {
+    border-right: none;
+  }
+
+  &.c-click-able {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

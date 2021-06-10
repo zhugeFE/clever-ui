@@ -66,25 +66,36 @@ export default {
 }
 </script>
 
-<style lang="sass">
-.scroll-demo
-  height: 500px
-  max-width: 500px
-  border: 1px solid #D1D1D1
-  .child
-    height: 200px
-    width: 200px
-    margin: 5px 0
-    line-height: 200px
-    background: #f3f5ef
-    text-align: center
-  .margin-panel
-    margin: 0 510px
-    display: inline-block
-  .handle-area
-    background: #ffad00e6
-    .child
-      background: rgba(52, 52, 52, 0.1)
-  .inner-container
-    background: #d0cabc
+<style lang="less">
+.scroll-demo {
+  height: 500px;
+  max-width: 500px;
+  border: 1px solid #D1D1D1;
+
+  .child {
+    height: 200px;
+    width: 200px;
+    margin: 5px 0;
+    line-height: 200px;
+    background: #f3f5ef;
+    text-align: center;
+  }
+
+  .margin-panel {
+    margin: 0 510px;
+    display: inline-block;
+  }
+
+  .handle-area {
+    background: #ffad00e6;
+
+    .child {
+      background: rgba(52, 52, 52, 0.1);
+    }
+  }
+
+  .inner-container {
+    background: #d0cabc;
+  }
+}
 </style>

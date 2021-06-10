@@ -1,0 +1,101 @@
+@charset "UTF-8";
+@import "animate.css";
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-family: "PingFang SC", Arial, "Microsoft YaHei", sans-serif;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+button,
+input,
+select,
+textarea {
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  outline: none;
+}
+ul,
+li,
+ol {
+  list-style: none;
+}
+input::-ms-clear,
+input::-ms-reveal {
+  display: none;
+}
+a {
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+a:focus {
+  text-decoration: underline;
+  text-decoration-skip-ink: auto;
+}
+[class^='c-'],
+[class*=' c-'],
+[class^='c-'] *,
+[class*=' c-'] * {
+  box-sizing: border-box;
+  font-family: "PingFang SC", Arial, "Microsoft YaHei", sans-serif;
+  outline: none;
+  list-style: none;
+}
+[class^='c-'] *,
+[class*=' c-'] * {
+  text-decoration: none;
+}
+[class^='cicon-'],
+[class*=' cicon-'] {
+  font-family: "cleverui" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

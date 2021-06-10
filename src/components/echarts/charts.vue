@@ -820,6 +820,6 @@ export default {
 }
 </script>
 
-<style lang="sass">
-@import "styles/charts"
+<style lang="less">
+@import "styles/charts.less";
 </style>

@@ -129,6 +129,6 @@
   }
 </script>
 
-<style lang="sass">
-@import "style/tooltip"
+<style lang="less">
+@import "style/tooltip.less";
 </style>

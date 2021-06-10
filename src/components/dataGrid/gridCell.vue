@@ -89,6 +89,6 @@
   }
 </script>
 
-<style lang="sass">
-@import "styles/gridCell"
+<style lang="less">
+@import "styles/gridCell.less";
 </style>

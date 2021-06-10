@@ -1,4 +1,4 @@
-import './assets/styles/reset.sass'
+import './assets/styles/reset.less'
 import './assets/icons/iconfont.css'
 import button from './components/button/index.js'
 import radioButton from './components/radioButton/index.js'

@@ -124,4 +124,6 @@ export default {
 }
 </script>
 
-<style lang="sass"></style>
+<style lang="less">
+
+</style>

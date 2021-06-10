@@ -77,6 +77,6 @@ export default {
   }
 }
 </script>
-<style lang="sass" scoped>
-@import "./styles/index.sass"
+<style lang="less" scoped>
+@import "./styles/index.less";
 </style>

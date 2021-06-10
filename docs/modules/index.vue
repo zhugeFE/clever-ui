@@ -72,39 +72,52 @@ export default {
   }
 }
 </script>
-<style lang="sass" scoped>
-.main
-  width: 100%
-  height: 100%
-  display: flex
-  flex-direction: row
-  .left-guide
-    width: 250px
-    height: 100%
-    border-right: 1px solid #D1D1D1
-    background: #FAFAFA
-    text-align: center
-    overflow-y: auto
-    ul li
-      list-style: none
-    .router-link
-      height: 40px
-      line-height: 40px
-      font-size: 14px
-      color: #5e6d82
-      overflow: hidden
-      white-space: nowrap
-      text-overflow: ellipsis
-      text-decoration: none
-      display: block
-      border-bottom: 1px solid #D1D1D1
-      color: #75787D
-      &:hover
-        color: #0EA1EB
-    .is-active
-      color: #0EA1EB
-  .content
-    width: 100%
-    padding: 15px 15px 30px 15px
-    overflow: auto
+<style lang="less" scoped>
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+
+  .left-guide {
+    width: 250px;
+    height: 100%;
+    border-right: 1px solid #D1D1D1;
+    background: #FAFAFA;
+    text-align: center;
+    overflow-y: auto;
+
+    ul li {
+      list-style: none;
+    }
+
+    .router-link {
+      height: 40px;
+      line-height: 40px;
+      font-size: 14px;
+      color: #5e6d82;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      text-decoration: none;
+      display: block;
+      border-bottom: 1px solid #D1D1D1;
+      color: #75787D;
+
+      &:hover {
+        color: #0EA1EB;
+      }
+    }
+
+    .is-active {
+      color: #0EA1EB;
+    }
+  }
+
+  .content {
+    width: 100%;
+    padding: 15px 15px 30px 15px;
+    overflow: auto;
+  }
+}
 </style>

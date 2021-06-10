@@ -1,0 +1,65 @@
+@import "../../../assets/styles/constants";
+
+.c-radio-list {
+  display: inline-block;
+  color: @color-font-title;
+  white-space: nowrap;
+  font-size: @size-font-content;
+
+  .c-radio-item {
+    cursor: pointer;
+
+    .c-cycle {
+      vertical-align: middle;
+      margin-right: 10px;
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid @color-border-normal;
+    }
+
+    &.c-checked {
+      .c-cycle {
+        border: 1px solid @color-brand;
+        position: relative;
+
+        &:after {
+          content: "";
+          display: inline-block;
+          vertical-align: middle;
+          position: absolute;
+          left: 3px;
+          top: 3px;
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: @color-brand;
+        }
+      }
+    }
+
+    &.c-disable {
+      cursor: not-allowed;
+
+      .c-cycle {
+        border-color: @color-action-disabled-default;
+
+        &:after {
+          background: @color-action-disabled-default;
+        }
+      }
+    }
+  }
+
+  &.c-radio-row {
+    .c-radio-item {
+      float: left;
+      margin-left: 20px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}

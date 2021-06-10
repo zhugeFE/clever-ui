@@ -209,6 +209,6 @@ export default {
 }
 </script>
 
-<style lang="sass">
-@import "styles/pie"
+<style lang="less">
+@import "styles/pie.less";
 </style>

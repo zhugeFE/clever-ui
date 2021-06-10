@@ -124,4 +124,6 @@ let Tooltip = Vue.extend({
 export default Tooltip
 </script>
 
-<style lang="sass"></style>
+<style lang="less">
+
+</style>

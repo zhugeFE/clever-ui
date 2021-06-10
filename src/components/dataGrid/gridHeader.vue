@@ -84,6 +84,6 @@
   }
 </script>
 
-<style lang="sass">
-@import "styles/gridHeader"
+<style lang="less">
+@import "styles/gridHeader.less";
 </style>

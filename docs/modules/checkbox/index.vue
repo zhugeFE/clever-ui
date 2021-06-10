@@ -94,12 +94,17 @@
   }
 </script>
 
-<style lang="sass">
-.list
-  list-style: none
-  & li
-    list-style: none
-    padding: 5px 0
-  .result
-    margin-left: 20px
+<style lang="less">
+.list {
+  list-style: none;
+
+  & li {
+    list-style: none;
+    padding: 5px 0;
+  }
+
+  .result {
+    margin-left: 20px;
+  }
+}
 </style>

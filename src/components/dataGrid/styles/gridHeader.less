@@ -1,0 +1,37 @@
+@import "constants.less";
+
+.c-grid-header-cell {
+  border: 1px solid @color-border-normal;
+  border-top: none;
+  padding: @cell-padding;
+  font-weight: normal;
+  color: @color-brand-black;
+  text-align: right;
+  vertical-align: middle;
+  min-width: 120px;
+  line-height: 20px;
+  white-space: nowrap;
+
+  &:first-child {
+    border-left: none;
+    text-align: left;
+  }
+
+  &:last-child {
+    border-right: none;
+  }
+
+  &.c-sort-able {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .c-sort-icon {
+    float: right;
+    color: @color-font-content;
+    position: relative;
+    margin-left: 5px;
+    position: relative;
+    right: -5px;
+  }
+}

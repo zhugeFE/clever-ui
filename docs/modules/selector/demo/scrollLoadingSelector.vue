@@ -115,14 +115,17 @@ export default {
   }
 }
 </script>
-<style lang="sass">
-.test
+<style lang="less">
+.test {
   width: 200px;
   max-height: 300px;
   border: 1px solid #000;
-  overflow: auto
-  height: 300px
-.test-content
-  height: 300px
   overflow: auto;
+  height: 300px;
+}
+
+.test-content {
+  height: 300px;
+  overflow: auto;
+}
 </style>

@@ -15,7 +15,8 @@ export default {
 }
 </script>
 
-<style lang="sass">
-.test-pg
-  margin-top: 300px
+<style lang="less">
+.test-pg {
+  margin-top: 300px;
+}
 </style>

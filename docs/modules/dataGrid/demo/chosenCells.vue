@@ -79,14 +79,21 @@ export default {
 }
 </script>
 
-<style lang="sass">
-.chosen-cell2
-  background: lightcoral
-  &:hover
-    background: lightsalmon
-.chosen-cell
-  background: lightskyblue
-  cursor: pointer
-  &:hover
-    background: lightseagreen
+<style lang="less">
+.chosen-cell2 {
+  background: lightcoral;
+
+  &:hover {
+    background: lightsalmon;
+  }
+}
+
+.chosen-cell {
+  background: lightskyblue;
+  cursor: pointer;
+
+  &:hover {
+    background: lightseagreen;
+  }
+}
 </style>

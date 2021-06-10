@@ -106,6 +106,6 @@ export default {
 }
 </script>
 
-<style lang="sass">
-@import "styles/dialog"
+<style lang="less">
+@import "styles/dialog.less";
 </style>

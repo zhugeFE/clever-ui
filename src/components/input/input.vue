@@ -359,6 +359,6 @@ export default {
 }
 </script>
 
-<style lang="sass">
-@import "styles/input"
+<style lang="less">
+@import "styles/input.less";
 </style>

@@ -113,12 +113,15 @@ export default {
   }
 }
 </script>
-<style lang="sass" scoped>
-.row
-  width: 300px
-  margin: 50px auto 0
-  display: flex
-  justify-content: space-between
-  &:first-child
-    margin-top: 0
+<style lang="less" scoped>
+.row {
+  width: 300px;
+  margin: 50px auto 0;
+  display: flex;
+  justify-content: space-between;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
 </style>

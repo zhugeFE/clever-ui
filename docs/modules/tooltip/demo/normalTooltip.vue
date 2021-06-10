@@ -72,24 +72,33 @@
   }
 </script>
 
-<style lang="sass">
-  .span
-    box-sizing: border-box
-    display: inline-block
-    border: 1px solid darkgray
-    border-radius: 3px
-    width: 50px
-    height: 50px
-    line-height: 50px
-    text-align: center
-    margin: 0 5px
-  .row
-    width: 350px
-    margin: 0 auto
-  .center, .center-top, .center-bottom
-    margin: 5px auto
-    & span:last-child
-      float: right
-  .top, .bottom
-    width: 200px
+<style lang="less">
+.span {
+  box-sizing: border-box;
+  display: inline-block;
+  border: 1px solid darkgray;
+  border-radius: 3px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin: 0 5px;
+}
+
+.row {
+  width: 350px;
+  margin: 0 auto;
+}
+
+.center, .center-top, .center-bottom {
+  margin: 5px auto;
+
+  & span:last-child {
+    float: right;
+  }
+}
+
+.top, .bottom {
+  width: 200px;
+}
 </style>

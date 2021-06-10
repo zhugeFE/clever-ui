@@ -1,0 +1,148 @@
+@import "../../../assets/styles/constants";
+
+@arrow-size: 4px;
+
+.c-tooltip-dark, .c-tooltip-light {
+  display: inline-block;
+  position: absolute;
+  background: @color-brand-black;
+  color: @color-white;
+  padding: 10px;
+  border-radius: @border-radius;
+  font-size: @size-font-tip;
+  line-height: @size-font-subtitle-lagre;
+  box-shadow: @shadow-normal;
+  z-index: @z-index-max;
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: @border-radius;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+  & * {
+    position: relative;
+    z-index: 11;
+  }
+
+  &:after {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    transform-origin: center;
+    position: absolute;
+    background: @color-brand-black;
+    z-index: -10;
+  }
+
+  &.c-top-left:after {
+    left: 10px;
+    bottom: -@arrow-size;
+  }
+
+  &.c-top:after {
+    left: 50%;
+    bottom: -@arrow-size;
+    margin-left: -5px;
+  }
+
+  &.c-top-right:after {
+    bottom: -@arrow-size;
+    right: 10px;
+  }
+
+  &.c-left-top:after {
+    right: -@arrow-size;
+    top: 10px;
+  }
+
+  &.c-left:after {
+    right: -@arrow-size;
+    top: 50%;
+    margin-top: -5px;
+  }
+
+  &.c-left-bottom:after {
+    right: -@arrow-size;
+    bottom: 10px;
+  }
+
+  &.c-right-top:after {
+    left: -@arrow-size;
+    top: 10px;
+  }
+
+  &.c-right:after {
+    left: -@arrow-size;
+    top: 50%;
+    margin-top: -5px;
+  }
+
+  &.c-right-bottom:after {
+    left: -@arrow-size;
+    bottom: 10px;
+  }
+
+  &.c-bottom-left:after {
+    left: 10px;
+    top: -@arrow-size;
+  }
+
+  &.c-bottom:after {
+    left: 50%;
+    top: -@arrow-size;
+    margin-left: -5px;
+  }
+
+  &.c-bottom-right:after {
+    top: -@arrow-size;
+    right: 10px;
+  }
+
+  .c-tooltip-close {
+    color: @color-white;
+    text-decoration: underline;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+}
+
+.c-tooltip-light {
+  background: @color-background-light;
+  color: @color-brand-black;
+
+  .c-tooltip-close {
+    color: @color-brand;
+  }
+
+  &:after {
+    background: @color-background-light;
+  }
+
+  &.c-top:after, &.c-top-left:after, &.c-top-right:after {
+    box-shadow: 3px 3px 3px rgba(53, 64, 82, 0.2);
+  }
+
+  &.c-bottom:after, &.c-bottom-left:after, &.c-bottom-right:after {
+    box-shadow: (-1px) -1px 1px rgba(53, 64, 82, 0.1);
+  }
+
+  &.c-left-top:after, &.c-left:after, &.c-left-bottom:after {
+    box-shadow: 2px -2px 2px rgba(53, 64, 82, 0.2);
+  }
+
+  &.c-right:after, &.c-right-top:after, &.c-right-bottom:after {
+    box-shadow: (-2px) 2px 2px rgba(53, 64, 82, 0.2);
+  }
+}
+
+.c-tooltip-trigger {
+  display: inline-block;
+}

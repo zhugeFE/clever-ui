@@ -1,0 +1,50 @@
+@import "../../../assets/styles/constants";
+
+.c-dialog {
+  border: 1px solid @color-border-normal;
+  border-radius: @border-radius;
+  background: @color-white;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: @z-index-max;
+
+  .c-dialog-head {
+    height: 58px;
+    line-height: 58px;
+    padding: 0 20px;
+    font-size: @size-font-subtitle-lagre;
+    color: @color-brand-black;
+    border-bottom: 1px solid @color-border-normal;
+    flex: none;
+  }
+
+  .c-dialog-content {
+    padding: 20px;
+    flex: 1 1 auto;
+    overflow: auto;
+  }
+
+  .c-dialog-foot {
+    padding: 20px;
+    flex: none;
+
+    .c-dialog-cancel, .c-dialog-confirm {
+      float: right;
+    }
+
+    .c-dialog-cancel {
+      margin-right: 10px;
+    }
+  }
+}
+
+.c-dialog-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: @layer;
+  z-index: @z-index-max;
+}

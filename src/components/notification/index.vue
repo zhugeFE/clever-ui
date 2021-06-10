@@ -73,6 +73,6 @@ const Notification = Vue.extend({
 export default Notification
 </script>
 
-<style lang="sass">
-@import "styles/index"
+<style lang="less">
+@import "styles/index.less";
 </style>

@@ -170,6 +170,6 @@
   }
 </script>
 
-<style lang="sass">
-@import "styles/tab"
+<style lang="less">
+@import "styles/tab.less";
 </style>

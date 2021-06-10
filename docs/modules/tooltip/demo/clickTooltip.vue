@@ -51,6 +51,6 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="less">
 
 </style>

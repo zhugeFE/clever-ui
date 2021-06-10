@@ -71,29 +71,35 @@ export default {
 }
 </script>
 
-<style lang="sass">
-@import "../../assets/styles/constants"
-.c-cld-task
-  position: absolute
-  font-size: $size-font-tip
-  height: 18px
-  line-height: 18px
-  border-radius: $border-radius
-  background: $color-action-primary-default
-  margin-bottom: 5px
-  color: $color-white
-  padding: 0 5px
-  text-overflow: ellipsis
-  overflow: hidden
-  white-space: nowrap
-  word-break: keep-all
-  &:hover
-    background: $color-action-primary-hover
-  .c-cld-mark
-    display: inline-block
-    width: 8px
-    height: 8px
-    border-radius: 50%
-    border: 2px solid $color-white
-    background: $color-danger
+<style lang="less">
+@import "../../assets/styles/constants";
+
+.c-cld-task {
+  position: absolute;
+  font-size: @size-font-tip;
+  height: 18px;
+  line-height: 18px;
+  border-radius: @border-radius;
+  background: @color-action-primary-default;
+  margin-bottom: 5px;
+  color: @color-white;
+  padding: 0 5px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: keep-all;
+
+  &:hover {
+    background: @color-action-primary-hover;
+  }
+
+  .c-cld-mark {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 2px solid @color-white;
+    background: @color-danger;
+  }
+}
 </style>

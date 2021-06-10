@@ -30,7 +30,8 @@
   }
 </script>
 
-<style lang="sass">
-h2
-  margin-top: 30px
+<style lang="less">
+h2 {
+  margin-top: 30px;
+}
 </style>

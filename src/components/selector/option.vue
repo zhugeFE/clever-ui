@@ -126,6 +126,6 @@ export default {
 }
 </script>
 
-<style lang="sass">
-@import "styles/option"
+<style lang="less">
+@import "styles/option.less";
 </style>

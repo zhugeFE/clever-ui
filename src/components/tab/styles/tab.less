@@ -1,0 +1,162 @@
+@import "../../../assets/styles/constants";
+
+.c-tabs {
+  .c-tab-bar {
+    display: inline-block;
+
+    .c-tab {
+      display: inline-block;
+      height: 36px;
+      line-height: 36px;
+      font-size: @size-font-content;
+      text-align: center;
+      position: relative;
+
+      .c-tab-close {
+        visibility: hidden;
+        cursor: pointer;
+        float: right;
+        color: @color-font-icon-normal;
+
+        &:hover {
+          color: @color-action-danger-active;
+        }
+      }
+
+      .c-tab-icon {
+        margin-right: 0.5em;
+      }
+
+      &:hover {
+        .c-tab-close {
+          visibility: visible;
+        }
+      }
+    }
+
+    &.c-tab-card {
+      .c-tab {
+        background: @color-white;
+        color: @color-brand-black;
+        border: 1px solid @color-border-normal;
+        border-right: none;
+        padding: 0 1.5em;
+
+        .c-tab-close {
+          position: absolute;
+          right: 3px;
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &:first-child {
+          border-top-left-radius: @border-radius;
+          border-bottom-left-radius: @border-radius;
+        }
+
+        &:last-child {
+          border-right: 1px solid @color-border-normal;
+          border-top-right-radius: @border-radius;
+          border-bottom-right-radius: @border-radius;
+        }
+
+        &.c-checked {
+          background: @color-brand;
+          color: @color-white;
+          border-color: @color-brand;
+
+          &:hover {
+            cursor: default;
+          }
+
+          .c-tab-close {
+            color: @color-white;
+          }
+
+          & + .c-tab {
+            border-left-color: @color-brand;
+          }
+        }
+      }
+    }
+
+    &.c-tab-normal {
+      & ~ .c-tab-panel {
+        border-top: 1px solid @color-border-normal;
+      }
+
+      .c-tab {
+        color: @color-brand-black;
+        top: 1px;
+
+        .c-tab-close {
+          //position: absolute
+          //right: -15px
+          float: right;
+          margin-left: 15px;
+        }
+
+        & + .c-tab {
+          margin-left: 22px;
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &.c-checked {
+          color: @color-brand;
+          border-bottom: 2px solid @color-brand;
+        }
+      }
+    }
+
+    &.c-center {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &.c-right {
+      position: relative;
+      left: 100%;
+      transform: translateX(-100%);
+    }
+  }
+
+  &.c-tab-vertical {
+    display: flex;
+    flex-direction: row;
+
+    & > .c-tab-bar {
+      flex: none;
+
+      & > .c-tab {
+        display: block;
+        margin-left: 0 !important;
+        left: 1px;
+        top: 0;
+        padding-right: 20px;
+
+        .c-tab-close {
+          right: 5px;
+        }
+
+        &.c-checked {
+          border-right: 2px solid @color-brand;
+          border-bottom: none;
+        }
+      }
+    }
+
+    & > .c-tab-panel {
+      flex: 1;
+      border-top: none !important;
+      border-left: 1px solid @color-border-normal;
+      padding-left: 20px;
+      padding-top: 0 !important;
+    }
+  }
+}

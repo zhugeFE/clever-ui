@@ -1,0 +1,38 @@
+@import "../../../assets/styles/constants";
+
+.c-day {
+  font-size: @size-font-content-small;
+  cursor: pointer;
+  height: 28px;
+  line-height: 28px;
+  width: 28px;
+  text-align: center;
+  border-radius: @border-radius;
+
+  &.c-today {
+    color: @color-brand;
+  }
+
+  &.c-other-month {
+    color: @color-font-icon-normal;
+  }
+
+  &.c-highlight-day {
+    background: @color-action-normal-active;
+  }
+
+  &.c-checked, &:hover {
+    color: @color-white;
+    background: @color-brand;
+  }
+
+  &.c-disable {
+    cursor: not-allowed;
+    color: @color-font-disabled;
+
+    &:hover {
+      background: none;
+      color: @color-font-disabled;
+    }
+  }
+}

@@ -170,6 +170,6 @@ export default {
   }
 }
 </script>
-<style lang="sass">
-@import './styles/popover.sass'
+<style lang="less">
+@import "./styles/popover.less";
 </style>

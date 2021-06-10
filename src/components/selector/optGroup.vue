@@ -113,6 +113,6 @@
   }
 </script>
 
-<style lang="sass">
-@import "styles/optGroup"
+<style lang="less">
+@import "styles/optGroup.less";
 </style>

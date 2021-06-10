@@ -118,6 +118,6 @@ export default {
   }
 }
 </script>
-<style lang="sass">
-@import "./styles/button.sass"
+<style lang="less">
+@import "./styles/button.less";
 </style>

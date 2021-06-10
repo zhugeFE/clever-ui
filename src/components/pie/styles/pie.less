@@ -1,0 +1,23 @@
+@import "../../../assets/styles/constants";
+
+.c-pie-chart {
+  background: @color-white;
+  width: 100%;
+  position: relative;
+  height: 300px;
+
+  .c-charts-main, .c-charts-empty {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .c-charts-empty {
+    font-size: @size-font-content;
+    color: @color-font-content;
+    text-align: center;
+    background: @color-white;
+  }
+}

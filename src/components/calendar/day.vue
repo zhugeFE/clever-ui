@@ -160,6 +160,6 @@ export default {
 }
 </script>
 
-<style lang="sass">
-@import "styles/day"
+<style lang="less">
+@import "styles/day.less";
 </style>
