@@ -38,6 +38,7 @@ export default {
         'notification',
         'dialog',
         'charts',
+        'boxplot',
         'reload',
         'scroll',
         'tree',
