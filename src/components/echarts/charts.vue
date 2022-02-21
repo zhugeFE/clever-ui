@@ -271,7 +271,7 @@ export default {
           series.push(
             `${
               item.marker
-            }${name}: <span style="color:#66ccff;">${util.toThousands(
+            }${util.getTooltipLabel(name)}: <span>${util.toThousands(
               item.value
             )}${this.valueUnit}</span>`
           )
@@ -338,8 +338,10 @@ export default {
               type: 'solid'
             }
           },
+          backgroundColor: '#6b6b6b',
           textStyle: {
-            fontSize: 12
+            fontSize: 12,
+            color: '#fff'
           },
           formatter: this.tooltipFormat
         },
