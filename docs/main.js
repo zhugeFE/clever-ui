@@ -7,6 +7,8 @@ import cleverUi from '../src'
 import demoPanel from './components/demoPanel'
 import docMarkdown from './components/docMarkdown'
 import VueMarkdown from 'vue-markdown'
+import * as echarts from 'echarts'
+window.echarts = echarts
 
 Vue.config.productionTip = false
 Vue.config.devtools = true

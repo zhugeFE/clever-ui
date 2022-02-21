@@ -1,4 +1,4 @@
-import zrender from 'zrender'
+import * as zrender from 'zrender'
 import {util} from '../../utils'
 
 const textColor = ['#333333', '#858585']

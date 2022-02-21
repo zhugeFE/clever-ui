@@ -1,4 +1,4 @@
-import zrender from 'zrender'
+import * as zrender from 'zrender'
 import {util} from '../../utils'
 
 export default class {

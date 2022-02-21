@@ -26,7 +26,6 @@ import tree from '../modules/tree/index'
 import flow from '../modules/flow/index'
 import forceChart from '../modules/forceChart/index'
 import popover from '../modules/popover/index'
-import boxplot from '../modules/boxplot/index'
 Vue.use(Router)
 
 export default new Router({
@@ -136,11 +135,6 @@ export default new Router({
           path: '/charts',
           name: 'charts',
           component: charts
-        },
-        {
-          path: '/boxplot',
-          name: 'boxplot',
-          component: boxplot
         },
         {
           path: '/reload',

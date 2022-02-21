@@ -10,7 +10,7 @@
   import json from './json/multiple.json'
   import DemoPanel from '../../../components/demoPanel/index.vue'
   import CCharts from '../../../../src/components/echarts/charts.vue'
-  import echarts from 'echarts'
+  import * as echarts from 'echarts'
 
   export default {
     name: 'multipleChart',

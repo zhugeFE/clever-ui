@@ -10,7 +10,7 @@
   import json from './json/area.json'
   import CCharts from '../../../../src/components/echarts/charts'
   import {util} from '../../../../src/utils'
-  import echarts from 'echarts'
+  import * as echarts from 'echarts'
   export default {
     components: {CCharts},
     name: 'areaChart',

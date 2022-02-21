@@ -1,6 +1,7 @@
 <template>
   <div>
     <c-button @click="onClick">{{show ? '隐藏' : '显示'}}</c-button> PIE 图表
+    <boxplot-demo/>
     <pie-chart v-if="show" v-click-outside="onClickOutSide"></pie-chart>
     <area-chart></area-chart>
     <stack-bar-chart></stack-bar-chart>
@@ -24,6 +25,7 @@
   import StackBarChart from './demo/stackBarChart'
   import AreaChart from './demo/areaChart'
   import PieChart from './demo/pie'
+  import boxplotDemo from './demo/boxplot.vue'
 
   export default {
     components: {
@@ -35,12 +37,14 @@
       DoubleLine,
       DocMarkdown,
       LineChart,
-      barChart},
+      barChart,
+      boxplotDemo
+    },
     name: 'index',
     data () {
       return {
         api,
-        show: true
+        show: false
       }
     },
     methods: {
