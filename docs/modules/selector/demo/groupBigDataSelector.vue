@@ -10,7 +10,8 @@
     <demo-panel subtitle="多选" jsFiddleName="b21m1LzL">
       <c-selector key-field="id" v-model="multipleValue"
                    :store="multipleStore" label-field="label"
-                   children-field="children" multiple filter-option></c-selector>
+                   children-field="children" multiple filter-option
+                   :showGroupShortcut="true" :width="200"></c-selector>
       <span>选中值：{{multipleValue}}</span>
     </demo-panel>
   </div>

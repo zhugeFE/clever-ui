@@ -6,6 +6,7 @@
   import CScrollContainer from '../scroll/scrollContainer'
   import CSelectorHandle from './handle'
   import CLoading from '../loading'
+import CTable from './table.vue'
   export default {
     components: {
       CLoading,
@@ -13,6 +14,7 @@
       COptGroup,
       CCheckbox,
       COption,
+      CTable,
       CSelectorHandle},
     name: 'cSelector',
     props: {
@@ -271,6 +273,13 @@
       bindValueWithStore: {
         type: Boolean,
         default: false
+      },
+      /**
+       * 展示分组标题切换标签，快捷展示数据
+       */
+      showGroupShortcut: {
+        type: Boolean,
+        default: false
       }
     },
     data () {
@@ -290,7 +299,9 @@
         scrollTime: 0,
         scrollLoadingTimer: null,
         chosenAllState: false,
-        allShowMap: {}
+        allShowMap: {},
+        lableList: [],
+        showGroup: true
       }
       // 绑定默认值
       if (this.value) {
@@ -350,7 +361,7 @@
         }
         this.innerStore.forEach(item => {
           // 有分组
-          if (this.childrenField) {
+          if (this.childrenField && this.showGroup) {
             let haveChildren = false
             item[this.childrenField].forEach((child, i) => {
               let flag = map.count < maxCount
@@ -743,6 +754,21 @@
           dropPanel.style.top = 'auto'
         }
       },
+      selectTableClick(name) {
+        if (name != 'all') {
+          // this.renderStore = []
+          let list = this.store.find(item => item.label == name)
+          this.pageNum = 0
+          this.showGroup = false
+          this.innerStore = list.children
+          this.$refs.options.$el.scrollTop = 0
+        } else {
+          this.$refs.options.$el.scrollTop = 0
+          this.pageNum = 0
+          this.innerStore = this.store
+          this.showGroup = true
+        }
+      }
     },
     render (h) {
       return (
@@ -803,12 +829,28 @@
                 }
                 {this.$slots.optionsHeader}
               </div>
+              {
+                (
+                  () => {
+                    if (this.showGroupShortcut) {
+                      return (
+                          <c-table
+                            labelField={this.labelField}
+                            groupField={this.groupField}
+                            onClick={this.selectTableClick}
+                            store={this.store}
+                          ></c-table>
+                      )
+                    }
+                  }
+                )()
+              }
               <div class="c-context">
                 <c-scroll-container class="c-content"
                                     ref="options"
                                     onBottom={this.onBottom}>
-                  {this.renderStore.map(option => {
-                    if (this.childrenField) {
+                  {this.renderStore.map((option) => {
+                    if (this.childrenField && this.showGroup) {
                       return (
                         <c-opt-group key={option[this.keyField]}
                                       store={option[this.childrenField]}
@@ -869,4 +911,5 @@
 
 <style lang="sass">
   @import "styles/select"
+  @import "styles/table"
 </style>
