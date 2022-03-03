@@ -269,6 +269,9 @@ let util = {
         pre = now
       }
     }
+  },
+  getTooltipLabel(label) {
+    return `<span style="opacity: 0.8;">${label}</span>`
   }
 }
 

@@ -14,7 +14,7 @@
 <script>
 import json from './json/eventList'
 import CCharts from '../../../../src/components/echarts/charts'
-import echarts from 'echarts'
+import * as echarts from 'echarts'
 
 export default {
   components: { CCharts },

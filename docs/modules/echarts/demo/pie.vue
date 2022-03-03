@@ -9,7 +9,7 @@
 <script>
   import DemoPanel from '../../../components/demoPanel/index.vue'
   import json from './json/pie.json'
-  import echarts from 'echarts'
+  import * as echarts from 'echarts'
   export default {
     components: {
       DemoPanel},
