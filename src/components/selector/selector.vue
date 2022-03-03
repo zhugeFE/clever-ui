@@ -756,11 +756,10 @@ import CTable from './table.vue'
       },
       selectTableClick(name) {
         if (name != 'all') {
-          // this.renderStore = []
-          let list = this.store.find(item => item.label == name)
+          let list = this.store.find(item => item[this.groupField || this.labelField || 'label'] == name)
           this.pageNum = 0
           this.showGroup = false
-          this.innerStore = list.children
+          this.innerStore = list[this.childrenField]
           this.$refs.options.$el.scrollTop = 0
         } else {
           this.$refs.options.$el.scrollTop = 0

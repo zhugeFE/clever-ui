@@ -11,7 +11,7 @@
       <c-selector key-field="id" v-model="multipleValue"
                    :store="multipleStore" label-field="label"
                    children-field="children" multiple filter-option
-                   :showGroupShortcut="true" :width="200"></c-selector>
+                   :width="200"></c-selector>
       <span>选中值：{{multipleValue}}</span>
     </demo-panel>
   </div>
