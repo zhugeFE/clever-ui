@@ -42,7 +42,6 @@ export default {
       type: Function,
       default(value) {
         if (parseFloat(value) >= 60) {
-          console.log(util.toTime(value) + '`````````' + value)
           return util.toTime(value)
         } else {
           return value + '秒'

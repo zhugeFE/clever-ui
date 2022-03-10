@@ -5,7 +5,6 @@
                    v-model="groupValue"
                    :store="store"
                    label-field="label"
-                   :width="300"
                    children-field="children">
         <template slot-scope="scope">
           <span>自定义展示{{scope.data.label}}</span>

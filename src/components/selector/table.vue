@@ -50,7 +50,6 @@ export default {
   },
   methods: {
     onclick(item) {
-      console.log(item)
       let name = item ? item[this.groupField || this.labelField] : 'all'
       this.checkedTable = name
       this.$emit('click', name)

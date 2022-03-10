@@ -11,7 +11,6 @@
         <template slot-scope="scope">
           <span>自定义展示{{scope.data.label}}</span>
         </template>
-
         <template slot="header" slot-scope="scope">
           自定义header: {{scope.data.label}}
         </template>
