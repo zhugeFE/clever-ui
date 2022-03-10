@@ -29,5 +29,6 @@
   "tooltip":"./src/components/tooltip/index.js",
   "tree":"./src/components/tree/index.js",
   "upload":"./src/components/upload/index.js",
-  "popover":"./src/components/popover/index.js"
+  "popover":"./src/components/popover/index.js",
+  "boxplot":"./src/components/boxplot/index.js"
 }

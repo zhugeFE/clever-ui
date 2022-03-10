@@ -176,6 +176,23 @@ let util = {
     source[0] = source[0].replace(new RegExp('(\\d)(?=(\\d{3})+$)', 'ig'), '$1,') // 只将整数部分进行都好分割
     return source.join('.') // 再将小数部分合并进来
   },
+  /**
+   * 将秒转为分钟、小时、天
+   * @param num
+   * @returns {string}
+   */
+  toTime (value) {
+    let m = parseInt(value / 60)
+    let h = parseInt(value / 3600)
+    let d = parseInt(value / (24 * 3600))
+    if (h > 24) {
+      return d + '天'
+    } else if (m > 60) {
+      return h + '小时'
+    } else {
+      return m + '分'
+    }
+  },
   getRegExp (str) {
     let keyWords = /\\|\^|\$|\*|\+|\?|\{|\}|\[|\]|\.|:|=|\||-|\/|<|!|\(|\)/
     let words = []

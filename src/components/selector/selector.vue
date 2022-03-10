@@ -547,7 +547,7 @@ import CTable from './table.vue'
         if (!this.multiple) {
           this.chosenList = []
           this.innerStore.forEach(option => {
-            if (this.childrenField) {
+            if (this.childrenField && this.showGroup) {
               option[this.childrenField].forEach(children => {
                 this.$set(this.checkedMap, children[this.keyField], children[this.keyField] === data[this.keyField])
                 if (children[this.keyField] === data[this.keyField] && !this.chosenList.length) {
