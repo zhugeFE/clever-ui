@@ -161,10 +161,11 @@ export default {
           show: false,
           left: 50,
           right: 50,
-          top: 50
+          top: 50,
+          bottom: 30
         },
         legend: {
-          bottom: 0,
+          top: 0,
           icon: 'circle'
         },
         tooltip: {
