@@ -84,6 +84,13 @@
           // }
           return []
         }
+      },
+      /**
+       * 可展开子表列（添加后，会有➕）
+       */
+      expandColumn: {
+        type: String,
+        default: null
       }
     },
     data () {
@@ -99,7 +106,11 @@
           right: false,
           center: false
         },
-        sortColumn: null
+        sortColumn: null,
+        /**
+         * 展开子表的index数组
+         */
+        expandRows: []
       }
     },
     computed: {
@@ -206,6 +217,15 @@
         const left = this.$refs.left
         if (left) left.style['box-shadow'] = container.scrollLeft === 0 ? 'none' : '6px 0 6px -4px rgba(0,0,0,.2)'
         if (right) right.style['box-shadow'] = container.scrollLeft === (container.scrollWidth - container.offsetWidth) ? 'none' : '-6px 0 6px -4px rgba(0,0,0,.2)'
+      },
+      onExpand (expanded, index) {
+        if (expanded) {
+          this.expandRows.push(index)
+        } else {
+          this.expandRows.forEach((rowIndex, i) => {
+            if (rowIndex === index) this.expandRows.splice(i, 1)
+          })
+        }
       }
     },
     render (h) {
@@ -233,7 +253,10 @@
                             sortColumn={this.sortColumn}
                             onSort={this.onSort}
                             chosenCells={this.chosenCells}
+                            expandRows={this.expandRows}
+                            expandColumn={this.expandColumn}
                             onClickCell={listeners.clickCell || (() => {})}
+                            onExpand={this.onExpand}
                     ></c-grid>
                   </div>
                 )
@@ -254,9 +277,12 @@
                             pageSize={this.pageSize}
                             headerRowspan={this.headerRowspan}
                             chosenCells={this.chosenCells}
+                            expandRows={this.expandRows}
+                            expandColumn={this.expandColumn}
                             startColumnIndex={this.structure.left.length}
                             onSort={this.onSort}
                             onClickCell={listeners.clickCell || (() => {})}
+                            onExpand={this.onExpand}
                     ></c-grid>
                   </div>
                 )
@@ -277,8 +303,11 @@
                             headerRowspan={this.headerRowspan}
                             chosenCells={this.chosenCells}
                             startColumnIndex={this.structure.left.length + this.structure.center.length}
+                            expandRows={this.expandRows}
+                            expandColumn={this.expandColumn}
                             onSort={this.onSort}
                             onClickCell={listeners.clickCell || (() => {})}
+                            onExpand={this.onExpand}
                     ></c-grid>
                   </div>
                 )

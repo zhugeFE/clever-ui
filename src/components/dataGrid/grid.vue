@@ -95,7 +95,18 @@
       /**
        * @description 当前在排序的列
        */
-      sortColumn: null
+      sortColumn: null,
+      /**
+       * 展开列
+       */
+      expandRows: null,
+      /**
+       * 可展开子表列（添加后，会有➕）
+       */
+      expandColumn: {
+        type: String,
+        default: null
+      }
     },
     computed: {
       structureParser () {
@@ -134,6 +145,9 @@
       },
       onMouseLeave () {
         dom.removeStyleSheet(`cDataGridHover${this.gridId}`)
+      },
+      onExpand_ (expanded, index) {
+        this.$emit('expand', expanded, index)
       }
     },
     render (h) {
@@ -187,40 +201,83 @@
                 'c-grid-row': true
               }
               rowClass[`c-row-${this.gridId}-${i}`] = true
-              return (
-                <tr class={rowClass} onMouseover={() => {this.onHoverRow(i)}}
-                    onMouseleave={() => {this.onMouseLeave(i)}}>
-                  {(() => {
-                    if (this.showIndex) {
-                      return (
-                        <c-grid-cell store={{index: i}}
-                                      labelField="index"
-                                      index={i}
-                                      chosenCells={this.chosenCells}
-                                      column={this.startColumnIndex + -1}
-                        ></c-grid-cell>
-                      )
-                    }
-                  })()}
-                  {this.structureParser.bodyStructure.map((column, j) => {
-                    let clazz = {
-                      'c-click-able': column.clickCell
-                    }
+              const row = [<tr class={rowClass} onMouseover={() => {this.onHoverRow(i)}}
+                onMouseleave={() => {this.onMouseLeave(i)}}>
+                {(() => {
+                  if (this.showIndex) {
                     return (
-                      <c-grid-cell store={item}
-                                    labelField={column.field}
-                                    width={column.width}
+                      <c-grid-cell store={{index: i}}
+                                    labelField="index"
                                     index={i}
-                                    column={this.startColumnIndex + j}
-                                    class={clazz}
                                     chosenCells={this.chosenCells}
-                                    scopedSlots={{default: column.cellFormatter}}
-                                    onClick={column.clickCell || listeners.clickCell}
+                                    expandColumn={this.expandColumn}
+                                    onExpand={this.onExpand_}
+                                    column={this.startColumnIndex + -1}
                       ></c-grid-cell>
                     )
+                  }
+                })()}
+                {this.structureParser.bodyStructure.map((column, j) => {
+                  let clazz = {
+                    'c-click-able': column.clickCell
+                  }
+                  return (
+                    <c-grid-cell store={item}
+                                  labelField={column.field}
+                                  width={column.width}
+                                  index={i}
+                                  column={this.startColumnIndex + j}
+                                  class={clazz}
+                                  chosenCells={this.chosenCells}
+                                  scopedSlots={{default: column.cellFormatter}}
+                                  expandColumn={this.expandColumn}
+                                  onClick={column.clickCell || listeners.clickCell}
+                                  onExpand={this.onExpand_}
+                    ></c-grid-cell>
+                  )
+                })
+                }</tr>]
+                // 如果有children，则将children数据进行渲染
+                if (item.children && this.expandRows.includes(i)) {
+                  item.children.map((child, g) => {
+                    let rowClass = {
+                      'c-grid-row': true
+                    }
+                    row.push(<tr class={rowClass} onMouseover={() => {this.onHoverRow(g)}}
+                      onMouseleave={() => {this.onMouseLeave(g)}}>
+                      {(() => {
+                        if (this.showIndex) {
+                          return (
+                            <c-grid-cell store={{index: g}}
+                                          labelField="index"
+                                          index={g}
+                                          chosenCells={this.chosenCells}
+                                          column={this.startColumnIndex + -1}
+                            ></c-grid-cell>
+                          )
+                        }
+                      })()}
+                      {this.structureParser.bodyStructure.map((column, j) => {
+                        let clazz = {
+                          'c-click-able': column.clickCell
+                        }
+                        return (
+                          <c-grid-cell store={child}
+                                        labelField={column.field}
+                                        width={column.width}
+                                        index={g}
+                                        column={this.startColumnIndex + j}
+                                        class={clazz}
+                                        chosenCells={this.chosenCells}
+                                        scopedSlots={{default: column.cellFormatter}}
+                                        onClick={column.clickCell || listeners.clickCell}
+                          ></c-grid-cell>
+                        )
+                      })
+                      }</tr>)
                   })
-                  }</tr>
-              )
+                }
+              return row
             })
           }
           </tbody>

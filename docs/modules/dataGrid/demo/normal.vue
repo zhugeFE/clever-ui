@@ -1,10 +1,10 @@
 <template>
   <div>
     <demo-panel title="dataGrid" subtitle="普通表格" jsFiddleName="0v4vs2je">
-      <c-data-grid :store="[]" @click-cell="onClickCell" show-index indexTitle="序列">
+      <c-data-grid :store="store" @click-cell="onClickCell" show-index indexTitle="序列">
         <c-grid-column field="label0"
                         title="首列"
-                        :width="130"
+                        :width="150"
                         sort-able
                         @clickCell="onClickFirstColumn">
           <template slot-scope="data" slot="header">

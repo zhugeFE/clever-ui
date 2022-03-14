@@ -1,5 +1,6 @@
 <template>
   <td :class="clazz" :style="style" @click="onClick">
+    <i v-if="store.children && labelField === expandColumn" :class="className" @click.stop="onExpand_"/>
     <slot :data="store" :field="labelField" :row="index" :column="column">{{store[labelField]}}</slot>
   </td>
 </template>
@@ -46,9 +47,29 @@
           // }
           return []
         }
+      },
+      /**
+       * 可展开子表列（添加后，会有➕）
+       */
+      expandColumn: {
+        type: String,
+        default: null
+      }
+    },
+    data: () => {
+      return {
+        /**
+         * 是否已展开
+         */
+        expanded: false
       }
     },
     computed: {
+      className () {
+        const clazz = ['expand-icon']
+        clazz.push(this.expanded ? 'cicon-jianyuan' : 'cicon-tianjia')
+        return clazz.join(' ')
+      },
       style () {
         let style = {}
         if (this.width) {
@@ -84,6 +105,10 @@
     methods: {
       onClick () {
         this.$emit('click', this.store, this.labelField)
+      },
+      onExpand_ () {
+        this.expanded = !this.expanded
+        this.$emit('expand', this.expanded, this.index)
       }
     }
   }
