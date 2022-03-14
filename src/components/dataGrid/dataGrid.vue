@@ -197,6 +197,7 @@
        */
       onSort (status, column) {
         this.sortColumn = column
+        this.expandRows = []
         const field = column.field
         this.gridStore.sort((a, b) => {
           if (this.customSort) {
