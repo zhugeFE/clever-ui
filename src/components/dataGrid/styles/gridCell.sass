@@ -6,6 +6,7 @@
   vertical-align: middle
   word-wrap: break-word
   min-width: 120px
+  position: relative
   &:first-child
     border-left: none
     text-align: left
@@ -15,3 +16,11 @@
     cursor: pointer
     &:hover
       text-decoration: underline
+  .expand-icon
+    margin-right: 10px
+    cursor: pointer
+    float: left
+    position: absolute
+    top: 50%
+    left: $cell-padding
+    transform: translateY(-50%)
