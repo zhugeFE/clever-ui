@@ -125,9 +125,11 @@ export default {
           const labels = ['最小值', '上四分位', '中位数', '下四分位', '最大值']
           params.value.forEach((v, i) => {
             if (i === 0) return
-            rows.push(`${util.getTooltipLabel(labels[i - 1])}: <span>${util.toThousands(
-              v
-            )}${this.valueUnit}</span>`)
+            if (i <= labels.length) {
+              rows.push(`${util.getTooltipLabel(labels[i - 1])}: <span>${util.toThousands(
+                v
+              )}${this.valueUnit}</span>`)
+            }
           })
         }
         // if (this.tooltipFormatter) return this.tooltipFormatter(params)
