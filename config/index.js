@@ -30,7 +30,7 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 1111,
+    port: 8888,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
