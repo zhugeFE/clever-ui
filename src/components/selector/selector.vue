@@ -280,6 +280,13 @@ import CTable from './table.vue'
       showGroupShortcut: {
         type: Boolean,
         default: false
+      },
+      /**
+       * 样式 类型
+       */
+      styleType: {
+        type: String,
+        default: ''
       }
     },
     data () {
@@ -865,6 +872,7 @@ import CTable from './table.vue'
                                       multiple={this.multiple}
                                       theme={this.theme}
                                       hideHead={this.hiddenGroupMap[option[this.keyField]]}
+                                      styleType={this.styleType}
                                       onClick={this.onClickOption}
                                       scopedSlots={{
                                         default: this.$scopedSlots.default,
@@ -883,6 +891,7 @@ import CTable from './table.vue'
                                   iconField={this.iconField}
                                   multiple={this.multiple}
                                   theme={this.theme}
+                                  styleType={this.styleType}
                                   onClick={this.onClickOption}
                                   scopedSlots={{default: this.$scopedSlots.default}}></c-option>
                       )

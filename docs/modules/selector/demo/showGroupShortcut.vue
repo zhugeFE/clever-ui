@@ -7,6 +7,7 @@
                    label-field="label"
                    :width="220"
                    children-field="children"
+                   styleType="line"
                    :showGroupShortcut="true">
         <template slot-scope="scope">
           <span>自定义展示{{scope.data.label}}</span>

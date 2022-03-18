@@ -166,7 +166,9 @@ export default {
           bottom: 30
         },
         legend: {
+          width: '60%',
           top: 0,
+          type: 'scroll',
           icon: 'circle'
         },
         tooltip: {

@@ -2,6 +2,7 @@
   <li class="c-option" :class="className" v-show="theme !== 'tag' || !active">
     <span
       class="c-option-item"
+      :class="{'c-option-line': styleType == 'line'}"
       @click="onClick"
       v-if="!multiple || theme == 'tag'"
     >
@@ -85,6 +86,13 @@ export default {
         const themes = ['normal', 'noborder', 'tag']
         return themes.indexOf(value) > -1
       }
+    },
+    /**
+     * 样式 类型
+     */
+    styleType: {
+      type: String,
+      default: ''
     }
   },
   data() {

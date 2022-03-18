@@ -1,5 +1,14 @@
 <template>
-  <li class="c-header" v-show="show">
+  <li class="c-header c-header-line" v-if="show && styleType == 'line'">
+    <span class="border"></span>
+    <span>
+      <slot :data="groupData">
+        {{groupData[labelField]}}
+      </slot>
+    </span>
+    <span class="line"></span>
+  </li>
+  <li class="c-header" v-else-if="show">
     <slot :data="groupData">
       {{groupData[labelField]}}
     </slot>
@@ -21,6 +30,13 @@
       show: {
         type: Boolean,
         default: true
+      },
+      /**
+       * 样式 类型
+       */
+      styleType: {
+        type: String,
+        default: ''
       }
     }
   }
