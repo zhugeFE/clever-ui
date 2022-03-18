@@ -126,9 +126,8 @@ export default {
           params.value.forEach((v, i) => {
             if (i === 0) return
             if (i <= labels.length) {
-              rows.push(`${util.getTooltipLabel(labels[i - 1])}: <span>${util.toThousands(
-                v
-              )}${this.valueUnit}</span>`)
+              rows.push(`${util.getTooltipLabel(labels[i - 1])}: <span>
+              ${util.timeFormat(parseInt(v + '000'))}${this.valueUnit}</span>`)
             }
           })
         }
