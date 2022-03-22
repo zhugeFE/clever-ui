@@ -122,8 +122,12 @@ export default {
         }
         rows.push(`${params.marker} ${util.getTooltipLabel(params.seriesName)}`)
         if (params.seriesType === 'boxplot') {
-          const labels = ['最小值', '上四分位', '中位数', '下四分位', '最大值']
-          params.value.forEach((v, i) => {
+          const labels = ['最大值', '上四分位', '中位数', '下四分位', '最小值']
+          let value = [...params.value]
+          let temp = value[1]
+          value[1] = value[5]
+          value[5] = temp
+          value.forEach((v, i) => {
             if (i === 0) return
             if (i <= labels.length) {
               rows.push(`${util.getTooltipLabel(labels[i - 1])}: <span>
@@ -131,25 +135,6 @@ export default {
             }
           })
         }
-        // if (this.tooltipFormatter) return this.tooltipFormatter(params)
-        // let xLabel = ''
-        // const rows = []
-        // params.forEach(series => {
-        //   if (!xLabel) {
-        //     xLabel = series.axisValueLabel
-        //     rows.push(xLabel)
-        //   }
-        //   rows.push(`${series.marker} ${util.getTooltipLabel(series.seriesName)}`)
-        //   if (series.seriesType === 'boxplot') {
-        //     const labels = ['最小值', '上四分位', '中位数', '下四分位', '最大值']
-        //     series.value.forEach((v, i) => {
-        //       if (i === 0) return
-        //       rows.push(`${util.getTooltipLabel(labels[i - 1])}: <span>${util.toThousands(
-        //         v
-        //       )}${this.valueUnit}</span>`)
-        //     })
-        //   }
-        // })
         return rows.join('<br/>')
       }
     },

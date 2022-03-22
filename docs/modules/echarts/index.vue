@@ -44,7 +44,7 @@
     data () {
       return {
         api,
-        show: false
+        show: true
       }
     },
     methods: {
