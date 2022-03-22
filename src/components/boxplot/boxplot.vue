@@ -4,7 +4,30 @@
   </div>
 </template>
 <script>
-
+let dateHandle = (label) => {
+  if (/^\d{4}-\d{2}-\d{2}$/.test(label)) {
+    // 处理日期
+    // label.replace(/\d{4}-/, '')
+    return `${label}(${util.getWeekNum(label)})`
+  } else if (/^\d{4}-\d{2}-\d{2}\|\d{4}-\d{2}-\d{2}$/.test(label)) {
+    // 周、月日期
+    let dates = label.match(/\d{4}-\d{2}-\d{2}/g)
+    return (
+      `${dates[0]}(${util.getWeekNum(dates[0])})` +
+      '～' +
+      `${dates[1]}(${util.getWeekNum(dates[1])})`
+    )
+  } else {
+    label = util.strMiddleSplit(label)
+    if (/:/.test(label)) {
+      return label.replace(/\d{4}-\d{2}-\d{2}\s/, '') + `(${util.getWeekNum(label[0])})`
+    } else if (/,/.test(label)) {
+      return label.replace(/,/g, '-') + `(${util.getWeekNum(label[0])})`
+    } else {
+      return label + `(${util.getWeekNum(label[0])})`
+    }
+  }
+}
 import {util} from '../../utils'
 export default {
   name: 'cBoxplot',
@@ -51,27 +74,7 @@ export default {
     xAxisFormatter: {
       type: Function,
       default(label) {
-        if (/^\d{4}-\d{2}-\d{2}$/.test(label)) {
-          // 处理日期
-          return label.replace(/\d{4}-/, '')
-        } else if (/^\d{4}-\d{2}-\d{2}\|\d{4}-\d{2}-\d{2}$/.test(label)) {
-          // 周、月日期
-          let dates = label.match(/\d{4}-\d{2}-\d{2}/g)
-          return (
-            dates[0].replace(/\d{4}-/, '') +
-            '~' +
-            dates[1].replace(/\d{4}-/, '')
-          )
-        } else {
-          label = util.strMiddleSplit(label)
-          if (/:/.test(label)) {
-            return label.replace(/\d{4}-\d{2}-\d{2}\s/, '')
-          } else if (/,/.test(label)) {
-            return label.replace(/,/g, '-')
-          } else {
-            return label
-          }
-        }
+        return dateHandle(label)
       }
     },
     /**
@@ -117,9 +120,10 @@ export default {
         let xLabel = ''
         const rows = []
         if (!xLabel) {
-          xLabel = params.name
+          xLabel = dateHandle(params.name)
           rows.push(xLabel)
         }
+        // `${params.seriesName}(${util.getWeekNum(params.seriesName)})`
         rows.push(`${params.marker} ${util.getTooltipLabel(params.seriesName)}`)
         if (params.seriesType === 'boxplot') {
           const labels = ['最大值', '上四分位', '中位数', '下四分位', '最小值']

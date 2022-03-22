@@ -289,6 +289,12 @@ let util = {
   },
   getTooltipLabel(label) {
     return `<span style="opacity: 0.8;">${label}</span>`
+  },
+  getWeekNum(date) {
+    let now = new Date(date)
+    let day = now.getDay()
+    let weeks = ['日', '一', '二', '三', '四', '五', '六']
+    return weeks[day]
   }
 }
 
