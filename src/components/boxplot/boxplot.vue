@@ -13,9 +13,9 @@ let dateHandle = (label) => {
     // 周、月日期
     let dates = label.match(/\d{4}-\d{2}-\d{2}/g)
     return (
-      `${dates[0]}(${util.getWeekNum(dates[0])})` +
+      `${dates[0].replace(/\d{4}-/, '')}` +
       '～' +
-      `${dates[1]}(${util.getWeekNum(dates[1])})`
+      `${dates[1].replace(/\d{4}-/, '')}`
     )
   } else {
     label = util.strMiddleSplit(label)
@@ -32,6 +32,20 @@ import {util} from '../../utils'
 export default {
   name: 'cBoxplot',
   props: {
+    /**
+     * [
+     *  {
+     *    names: [],
+     *    values: [[min,  Q1,  median (or Q2),  Q3,  max]],
+     *    perValue: []
+     *  }
+     * ]
+     */
+    store: {
+      default: () => {
+        return []
+      }
+    },
     optionWrapper: {
       type: Function
     },
@@ -78,18 +92,25 @@ export default {
       }
     },
     /**
-     * [
-     *  {
-     *    names: [],
-     *    values: [[min,  Q1,  median (or Q2),  Q3,  max]],
-     *    perValue: []
-     *  }
-     * ]
+     * @description 当X轴坐标label需要旋转时的旋转角度，-90 到 90
      */
-    store: {
-      default: () => {
-        return []
-      }
+    xAxisRotate: {
+      type: Number,
+      default: 30
+    },
+    /**
+     * 超出 最大数，x轴文案倾斜
+     */
+    moduleMaxLength: {
+      type: Number,
+      default: 5
+    },
+    /**
+     * 底部边距
+     */
+    gridBottom: {
+      type: Number,
+      default: 60
     }
   },
   watch: {
@@ -103,7 +124,8 @@ export default {
   },
   data () {
     return {
-      colors: util.colors
+      colors: util.colors,
+      xAxisTextRotate: 0
     }
   },
   computed: {
@@ -149,10 +171,10 @@ export default {
         grid: {
           containLabel: false,
           show: false,
-          left: 50,
-          right: 50,
+          left: 60,
+          right: 40,
           top: 50,
-          bottom: 30
+          bottom: this.store.x_axis.length > this.moduleMaxLength ? this.gridBottom : 30
         },
         legend: {
           width: '60%',
@@ -185,7 +207,9 @@ export default {
             textStyle: {
               color: '#404245'
             },
-            formatter: this.xAxisFormatter
+            formatter: this.xAxisFormatter,
+            rotate: this.xAxisTextRotate,
+            interval: 0
           },
           splitArea: {
             show: true,
@@ -240,6 +264,7 @@ export default {
   },
   methods: {
     chartSetOption() {
+      this.xAxisTextRotate = this.store.x_axis.length > this.moduleMaxLength ? this.xAxisRotate : 0
       const chart = window.echarts.init(this.$refs.container)
       chart.setOption(this.option, true)
     },
