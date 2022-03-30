@@ -1,7 +1,8 @@
 <template>
   <div>
-    <chosen-cells></chosen-cells>
+    <expandable-grid></expandable-grid>
     <normal-grid></normal-grid>
+    <chosen-cells></chosen-cells>
     <fix-left></fix-left>
     <cols-header></cols-header>
     <pagination-grid></pagination-grid>
@@ -20,6 +21,7 @@
   import gridColumnJson from './gridColumn.json'
   import PaginationGrid from './demo/paginationGrid.vue'
   import ChosenCells from './demo/chosenCells'
+  import expandableGrid from './demo/expandable.vue'
   export default {
     components: {
       ChosenCells,
@@ -27,7 +29,8 @@
       DocMarkdown,
       ColsHeader,
       FixLeft,
-      NormalGrid},
+      NormalGrid,
+      expandableGrid},
     name: 'index',
     data () {
       return {

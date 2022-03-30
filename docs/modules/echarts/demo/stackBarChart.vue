@@ -10,7 +10,7 @@
   import CCharts from '../../../../src/components/echarts/charts.vue'
   import json from './json/stackBar.json'
   import DemoPanel from '../../../components/demoPanel/index.vue'
-  import echarts from 'echarts'
+  import * as echarts from 'echarts'
 
   export default {
     components: {
@@ -57,7 +57,6 @@
           }
         ]
       }
-      console.log(JSON.parse(JSON.stringify(data)))
       return data
     },
     methods: {

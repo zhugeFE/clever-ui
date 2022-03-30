@@ -1,6 +1,5 @@
 <script type="text/jsx">
   import {emitter} from '../../mixins/main'
-  import {util} from '../../utils'
   export default {
     name: 'cGridColumn',
     mixins: [emitter],

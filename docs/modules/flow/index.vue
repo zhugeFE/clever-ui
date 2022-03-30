@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import echarts from 'echarts'
+import * as echarts from 'echarts'
 import DocMarkdown from '../../components/docMarkdown/index.vue'
 import docJson from './flow.json'
 export default {

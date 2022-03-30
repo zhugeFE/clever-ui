@@ -6,10 +6,11 @@
 </template>
 
 <script>
-import zrender from 'zrender'
+import * as zrender from 'zrender'
 import TreeNode from './treeNode'
 import TreeLine from './treeLine'
 import {util} from '../../utils'
+
 export default {
   name: 'cTree',
   props: {

@@ -28,6 +28,7 @@ import dropdown from './components/dropDown/index'
 import datePicker from './components/datePicker/index'
 import dateRangePicker from './components/dateRangePicker/index'
 import popover from './components/popover/index'
+import boxplot from './components/boxplot'
 import {util} from './utils'
 
 import msg from './components/message'
@@ -64,7 +65,8 @@ const components = [
   dateRangePicker,
   charts,
   pieChart,
-  popover
+  popover,
+  boxplot
 ]
 
 const install = function (Vue) {

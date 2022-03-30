@@ -70,6 +70,13 @@
           const themes = ['normal', 'noborder', 'tag']
           return themes.indexOf(value) > -1
         }
+      },
+      /**
+       * 样式 类型
+       */
+      styleType: {
+        type: String,
+        default: ''
       }
     },
     data () {
@@ -86,6 +93,7 @@
       return (
         <ul class="c-opt-group" v-show={this.show}>
           <c-group-header groupData={this.groupData}
+                           styleType={this.styleType}
                            labelField={this.groupField || this.labelField}
                            show={!this.hideHead}
                            scopedSlots={{default: this.$scopedSlots.header}}></c-group-header>
@@ -94,6 +102,7 @@
               return (
                 <c-option key={option[this.keyField]}
                            checked={this.checkedMap[option[this.keyField]]}
+                           styleType={this.styleType}
                            disable={this.disableOptions.indexOf(option[this.keyField]) > -1}
                            data={option}
                            labelField={this.labelField}
