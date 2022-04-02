@@ -398,6 +398,7 @@ export default {
   mounted() {
     this.chart = this.echarts.init(this.$refs.toChart)
     this.setOption(this.option)
+    window.__charts = [this.chart]
   },
   updated() {
     this.onResize()
@@ -409,6 +410,7 @@ export default {
     }
     this.chart.dispose()
     this.chart = null
+    delete window.__charts
   },
   methods: {
     getMaxLabelLength() {
