@@ -170,6 +170,7 @@ export default {
       }
       clazz[`c-theme-${this.theme}`] = true
       clazz['c-size-' + this.size] = true
+      if (this.active) clazz['c-select-active'] = true
       return clazz
     },
     handleStyle() {

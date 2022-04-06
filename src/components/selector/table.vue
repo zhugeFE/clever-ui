@@ -13,7 +13,7 @@
     :class="{'checked-table': checkedTable == item[groupField || labelField]}"
     @click="onclick(item)"
     v-for="item in store"
-    :key="item.id"
+    :key="item.label"
     >
     {{item[groupField || labelField]}}
   </c-button>

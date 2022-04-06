@@ -146,7 +146,7 @@ export default {
           rows.push(xLabel)
         }
         // `${params.seriesName}(${util.getWeekNum(params.seriesName)})`
-        rows.push(`${params.marker} ${util.getTooltipLabel(params.seriesName)}`)
+        rows.push(`<span class="tooltip-top">${params.marker} ${util.getTooltipLabel(params.seriesName)}</span>`)
         if (params.seriesType === 'boxplot') {
           const labels = ['最大值', '上四分位', '中位数', '下四分位', '最小值']
           let value = [...params.value]
@@ -156,7 +156,7 @@ export default {
           value.forEach((v, i) => {
             if (i === 0) return
             if (i <= labels.length) {
-              rows.push(`${util.getTooltipLabel(labels[i - 1])}: <span>
+              rows.push(`${util.getTooltipLabel(labels[i - 1])}: <span class="tooltip-top">
               ${util.timeFormat(parseInt(v + '000'))}${this.valueUnit}</span>`)
             }
           })
@@ -183,7 +183,7 @@ export default {
           icon: 'circle'
         },
         tooltip: {
-          backgroundColor: '#6b6b6b',
+          backgroundColor: 'rgba(53, 64, 82, .9)',
           trigger: 'item',
           padding: [8, 20, 8, 10],
           axisPointer: {
@@ -297,5 +297,9 @@ export default {
 <style lang="scss">
 .container {
   height: 240px;
+}
+.tooltip-top{
+  margin-top: 3px;
+  display: inline-block;
 }
 </style>
