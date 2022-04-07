@@ -1,6 +1,6 @@
 {
   "name": "clever-ui",
-  "version": "1.4.1-10",
+  "version": "1.4.2-3",
   "description": "VUE组件库",
   "scripts": {
     "start": "node build/dev-server.js",
@@ -49,7 +49,7 @@
     "cross-env": "^5.0.1",
     "css-loader": "^0.28.0",
     "cssnano": "^3.10.0",
-    "echarts": "^5.3.0",
+    "echarts": "5.3.2",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^6.2.1",
     "eslint-friendly-formatter": "^3.0.0",
