@@ -32,6 +32,9 @@ import {util} from '../../utils'
 export default {
   name: 'cBoxplot',
   props: {
+    echarts: {
+      required: true
+    },
     /**
      * [
      *  {
@@ -265,7 +268,7 @@ export default {
   methods: {
     chartSetOption() {
       this.xAxisTextRotate = this.store.x_axis.length > this.moduleMaxLength ? this.xAxisRotate : 0
-      const chart = window.echarts.init(this.$refs.container)
+      const chart = this.echarts.init(this.$refs.container)
       chart.setOption(this.option, true)
     },
     getXAxis() {
