@@ -175,7 +175,11 @@ export default {
   },
   mounted () {
     this.chart = this.echarts.init(this.$refs.toChart)
-    window.__charts = [this.chart]
+    if (util.isArray(window.__charts)) {
+      window.__charts.push(this.chart)
+    } else {
+      window.__charts = [this.chart]
+    }
     this.setOption(this.option)
   },
   updated () {

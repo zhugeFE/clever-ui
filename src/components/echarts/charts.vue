@@ -398,7 +398,11 @@ export default {
   mounted() {
     this.chart = this.echarts.init(this.$refs.toChart)
     this.setOption(this.option)
-    window.__charts = [this.chart]
+    if (util.isArray(window.__charts)) {
+      window.__charts.push(this.chart)
+    } else {
+      window.__charts = [this.chart]
+    }
   },
   updated() {
     this.onResize()
