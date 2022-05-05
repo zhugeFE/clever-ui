@@ -267,6 +267,7 @@ export default {
       this.xAxisTextRotate = this.store.x_axis.length > this.moduleMaxLength ? this.xAxisRotate : 0
       const chart = window.echarts.init(this.$refs.container)
       chart.setOption(this.option, true)
+      window.__charts = [chart]
     },
     getXAxis() {
       return this.store.x_axis

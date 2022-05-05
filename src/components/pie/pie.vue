@@ -175,6 +175,11 @@ export default {
   },
   mounted () {
     this.chart = this.echarts.init(this.$refs.toChart)
+    if (util.isArray(window.__charts)) {
+      window.__charts.push(this.chart)
+    } else {
+      window.__charts = [this.chart]
+    }
     this.setOption(this.option)
   },
   updated () {
@@ -184,6 +189,7 @@ export default {
     if (!this.chart) return
     this.chart.dispose()
     this.chart = null
+    delete window.__charts
   },
   methods: {
     getMaxLabelLength () {
