@@ -7,14 +7,14 @@
                    label-field="label"
                    children-field="children">
         <template slot-scope="scope">
-          <span>自定义展示{{scope.data.label}}</span>
+          <span>{{zlocal.customDisplay}}{{scope.data.label}}</span>
         </template>
 
         <template slot="header" slot-scope="scope">
-          自定义header: {{scope.data.label}}
+          {{zlocal.custom}}header: {{scope.data.label}}
         </template>
       </c-selector>
-      <span>选中值：</span>{{groupValue}}
+      <span>{{zlocal.selectedValue}}：</span>{{groupValue}}
     </demo-panel>
 
     <demo-panel subtitle="多选" jsFiddleName="77pqa1vk">
@@ -24,77 +24,82 @@
                    v-model="multipleValue"
                    multiple
                    label-field="label"></c-selector>
-      <span>选中值：</span>{{multipleValue.map(item => item.label)}}
+      <span>{{zlocal.selectedValue}}：</span>{{multipleValue.map(item => item.label)}}
     </demo-panel>
   </div>
 </template>
 
 <script>
-  import CSelector from '../../../../src/components/selector/selector.vue'
-  import DemoPanel from '../../../components/demoPanel/index.vue'
+import zlocal from '../../../../src/i18n'
+import CSelector from '../../../../src/components/selector/selector.vue'
+import DemoPanel from '../../../components/demoPanel/index.vue'
 
-  export default {
-    components: {
-      DemoPanel,
-      CSelector},
-    name: 'groupSelector',
-    data () {
-      return {
-        store: (() => {
-          let result = []
+export default {
+  components: {
+    DemoPanel,
+    CSelector},
+  name: 'groupSelector',
+  data () {
+    const {custom, customDisplay} = zlocal
+    return {
+      zlocal: {
+        custom, customDisplay
+      },
+      store: (() => {
+        let result = []
 
-          for (let i = 0; i < 50; i++) {
-            let item = {
-              label: 'group' + i,
-              id: i,
-              children: []
-            }
-
-            for (let j = 0; j < 5; j++) {
-              item.children.push({
-                label: `option${i}-${j}`,
-                id: `${i}-${j}`
-              })
-            }
-
-            result.push(item)
+        for (let i = 0; i < 50; i++) {
+          let item = {
+            label: 'group' + i,
+            id: i,
+            children: []
           }
 
-          return result
-        })(),
-        groupValue: {id: '2-4'},
-        multipleStore: (() => {
-          let result = []
-
-          for (let i = 0; i < 50; i++) {
-            let item = {
-              label: 'group' + i,
-              id: i,
-              children: []
-            }
-
-            for (let j = 0; j < 5; j++) {
-              item.children.push({
-                label: `option${i}-${j}`,
-                id: `${i}-${j}`
-              })
-            }
-
-            result.push(item)
+          for (let j = 0; j < 5; j++) {
+            item.children.push({
+              label: `option${i}-${j}`,
+              id: `${i}-${j}`
+            })
           }
 
-          return result
-        })(),
-        multipleValue: [{id: '2-4'}]
-      }
-    },
-    mounted () {
-      setTimeout(() => {
-        this.groupValue = {id: '1-3'}
-        this.multipleValue = [{id: '1-3'}]
-      }, 2000)
+          result.push(item)
+        }
+
+        return result
+      })(),
+      groupValue: {id: '2-4'},
+      multipleStore: (() => {
+        let result = []
+
+        for (let i = 0; i < 50; i++) {
+          let item = {
+            label: 'group' + i,
+            id: i,
+            children: []
+          }
+
+          for (let j = 0; j < 5; j++) {
+            item.children.push({
+              label: `option${i}-${j}`,
+              id: `${i}-${j}`
+            })
+          }
+
+          result.push(item)
+        }
+
+        return result
+      })(),
+      multipleValue: [{id: '2-4'}]
     }
+  },
+  mounted () {
+    setTimeout(() => {
+      this.groupValue = {id: '1-3'}
+      this.multipleValue = [{id: '1-3'}]
+    }, 2000)
   }
+}
 </script>
 
 <style lang="sass">

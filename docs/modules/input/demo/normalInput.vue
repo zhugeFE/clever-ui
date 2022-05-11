@@ -7,37 +7,46 @@
     >
       <c-input icon="cicon-list"
                 clear-able
-                placeholder="有清除有icon"
+                :width='160'
+                :placeholder="zlocal.cleared"
                 @blur="onBlur"
                 @focus="onFocus"
                 v-model="value">
       </c-input>
       <c-input type="password" clear-able></c-input>
-      <span>输入值：{{value}}</span>
+      <span>{{zlocal.inputValue}}：{{value}}</span>
     </demo-panel>
   </div>
 </template>
 
 <script>
-  import CInput from '../../../../src/components/input/input'
-
-  export default {
-    components: {CInput},
-    name: 'normalInput',
-    data () {
-      return {
-        value: '默认值'
-      }
-    },
-    methods: {
-      onBlur () {
-        console.log('on blur')
-      },
-      onFocus () {
-        console.log('on focus')
+import zlocal from '../../../../src/i18n'
+import CInput from '../../../../src/components/input/input'
+export default {
+  components: {CInput},
+  name: 'normalInput',
+  data () {
+    const {defaultValue, cleared, inputValue} = zlocal
+    return {
+        // value: '默认值'
+      value: defaultValue,
+      zlocal: {
+        cleared,
+        inputValue
       }
     }
+  },
+  created() {
+  },
+  methods: {
+    onBlur () {
+      console.log('on blur')
+    },
+    onFocus () {
+      console.log('on focus')
+    }
   }
+}
 </script>
 
 <style lang="sass">

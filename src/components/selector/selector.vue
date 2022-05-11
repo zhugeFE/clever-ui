@@ -1,4 +1,5 @@
 <script type="text/jsx">
+  import zlocal from '../../i18n'
   import COption from './option.vue'
   import CCheckbox from '../checkbox'
   import COptGroup from './optGroup.vue'
@@ -129,7 +130,7 @@ import CTable from './table.vue'
        */
       placeholder: {
         type: String,
-        default: '请选择'
+        default:zlocal.pleaseSelect
       },
       /**
        * @description 筛选无匹配数据的提示文本
@@ -137,14 +138,14 @@ import CTable from './table.vue'
        */
       noMatchText: {
         type: String,
-        default: '无匹配数据'
+        default: zlocal.noMatchData
       },
       /**
        * @description 无数据的提示文本
        */
       noDataText: {
         type: String,
-        default: '暂无数据'
+        default: zlocal.noData
       },
       /**
        * @description 可清空选中结果
@@ -827,10 +828,10 @@ import CTable from './table.vue'
                         multiple
                         onClick={this.chosenAll}
                         labelField="labelField"
-                        data={{labelField:'全选'}}
+                        data={{labelField:zlocal.selectAll}}
                       ></c-option>
                     }
-                    {this.showClearAbleBtn && <a class="c-clear" onClick={this.clean}>清空</a>}
+                    {this.showClearAbleBtn && <a class="c-clear" onClick={this.clean}>{zlocal.clear}</a>}
                   </li>
                 }
                 {this.$slots.optionsHeader}
@@ -918,6 +919,6 @@ import CTable from './table.vue'
 </script>
 
 <style lang="sass">
-  @import "styles/select"
-  @import "styles/table"
+@import "styles/select"
+@import "styles/table"
 </style>

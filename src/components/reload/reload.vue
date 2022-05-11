@@ -1,21 +1,22 @@
 <template>
   <div :class="reloadClass" ref="reload">
     <div class="c-reload-main">
-      <img v-if="size === 'bigger'" src="./images/warning-big.png" />
-      <img v-if="size === 'normal'" src="./images/warning-small.png" />
-      <span class="c-reload-msg">数据加载失败。</span>
+      <img style="width:40px;height:36px" v-if="size === 'bigger'" src="./images/warning-big.png" />
+      <img style="width:20px;height:18px"  v-if="size === 'normal'" src="./images/warning-small.png" />
+      <span class="c-reload-msg">{{zlocal.failedLoadData}}。</span>
       <c-button
         theme="border"
         type="primary"
         @click="onReload"
         icon="cicon-renovate"
-        >重新加载</c-button
+        >{{zlocal.reload}}</c-button
       >
     </div>
   </div>
 </template>
 
 <script>
+import zlocal from '../../i18n'
 import CButton from '../button'
 import { dom } from '../../utils/index'
 export default {
@@ -31,6 +32,14 @@ export default {
       default: 'normal',
       validator(value) {
         return ['normal', 'bigger'].includes(value)
+      }
+    }
+  },
+  data() {
+    const {failedLoadData, reload} = zlocal
+    return {
+      zlocal: {
+        failedLoadData, reload
       }
     }
   },

@@ -4,13 +4,13 @@
       <c-data-grid :store="store" showIndex>
         <c-grid-column
           field="label0"
-          title="首列"
-          :width="130"
+          :title="zlocal.beginColumn"
+          :width="160"
           fix="left"
           sortAble
         >
           <template slot-scope="scope">
-            自定义展示：{{ scope.data[scope.field] }}
+            {{zlocal.customDisplay}}：{{ scope.data[scope.field] }}
           </template>
         </c-grid-column>
         <c-grid-column field="label" title="aaa" :width="130" sortAble>
@@ -19,7 +19,7 @@
           </template>
         </c-grid-column>
 
-        <c-grid-column field="numbers" title="数据展示">
+        <c-grid-column field="numbers" :title="zlocal.dataPresentation">
           <c-grid-column field="label0" title="column1" sortAble>
             <template slot-scope="scope">
               column1：{{ scope.data[scope.field] }}
@@ -58,6 +58,7 @@
 </template>
 
 <script>
+import zlocal from '../../../../src/i18n'
 import DemoPanel from '../../../components/demoPanel/index.vue'
 import CDataGrid from '../../../../src/components/dataGrid/dataGrid.vue'
 import CGridColumn from '../../../../src/components/gridColumn/gridColumn.vue'
@@ -66,7 +67,13 @@ export default {
   components: { DemoPanel, CGridColumn, CDataGrid },
   name: 'colsHeader',
   data() {
+    const {beginColumn, dataPresentation, customDisplay} = zlocal
     return {
+      zlocal: {
+        beginColumn,
+        dataPresentation,
+        customDisplay
+      },
       columns: (() => {
         let columns = []
         for (let i = 1; i < 5; i++) {

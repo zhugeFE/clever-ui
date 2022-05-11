@@ -1,7 +1,7 @@
 <template>
   <div>
     <demo-panel subtitle="autoHide为false时，必须通过tooltip实例的show和hide方法控制显示隐藏" jsFiddleName="h1qcofxd">
-      <c-button @click="onClick">显示tooltip</c-button>
+      <c-button @click="onClick">{{zlocal.showTooltip}}</c-button>
       <c-tooltip
         content="出来了~，但是这段文本有点长啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊"
         ref="tooltip"
@@ -11,15 +11,16 @@
         @hide="onHide"
       >
         <template slot="tooltip">
-          <c-button>触发区</c-button>
+          <c-button>{{zlocal.triggerZones}}</c-button>
         </template>
-        <c-button>触发区</c-button>
+        <c-button>{{zlocal.triggerZones}}</c-button>
       </c-tooltip>
     </demo-panel>
   </div>
 </template>
 
 <script>
+import zlocal from '../../../../src/i18n'
 import DemoPanel from '../../../components/demoPanel/index.vue'
 import CTooltip from '../../../../src/components/tooltip/tooltip.vue'
 
@@ -30,9 +31,13 @@ export default {
   },
   name: 'clickTooltip',
   data () {
+    const {showTooltip, triggerZones} = zlocal
     return {
       msg: 'clickTooltip',
-      show: false
+      show: false,
+      zlocal: {
+        showTooltip, triggerZones
+      }
     }
   },
   methods: {
