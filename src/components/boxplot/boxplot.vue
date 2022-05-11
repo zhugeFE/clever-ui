@@ -29,6 +29,7 @@ let dateHandle = (label) => {
   }
 }
 import {util} from '../../utils'
+import zlocal from '../../i18n'
 export default {
   name: 'cBoxplot',
   props: {
@@ -77,11 +78,12 @@ export default {
     },
     yAxisFormatter: {
       type: Function,
+      offset: -100,
       default(value) {
         if (parseFloat(value) >= 60) {
-          return util.toTime(value)
+          return util.toTime(value, zlocal)
         } else {
-          return value + '秒'
+          return value + zlocal.sec
         }
       }
     },
@@ -148,7 +150,8 @@ export default {
         // `${params.seriesName}(${util.getWeekNum(params.seriesName)})`
         rows.push(`${params.marker} ${util.getTooltipLabel(params.seriesName)}`)
         if (params.seriesType === 'boxplot') {
-          const labels = ['最大值', '上四分位', '中位数', '下四分位', '最小值']
+          const {maximum, upperQuartile, median, lowerQuartile, minimum} = zlocal
+          var labels = [maximum, upperQuartile, median, lowerQuartile, minimum]
           let value = [...params.value]
           let temp = value[1]
           value[1] = value[5]

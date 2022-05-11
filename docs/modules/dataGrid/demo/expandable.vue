@@ -1,9 +1,9 @@
 <template>
   <div>
     <demo-panel title="dataGrid" subtitle="普通表格" jsFiddleName="0v4vs2je">
-      <c-data-grid :store="store" expandColumn="column0" @click-cell="onClickCell" show-index indexTitle="序列">
+      <c-data-grid :store="store" expandColumn="column0" @click-cell="onClickCell" show-index :indexTitle="zlocal.order">
         <c-grid-column field="column0"
-                        title="首列"
+                        :title="zlocal.beginColumn"
                         :width="130"
                         sort-able
                         @clickCell="onClickFirstColumn">
@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import zlocal from '../../../../src/i18n'
 import { util } from '../../../../src/utils'
 import DemoPanel from '../../../components/demoPanel/index.vue'
 
@@ -26,7 +27,12 @@ export default {
     DemoPanel},
   name: 'expandableGrid',
   data () {
+    const {order, beginColumn} = zlocal
     return {
+      zlocal: {
+        order,
+        beginColumn
+      },
       columns: (() => {
         let columns = []
         for (let i = 1; i < 5; i++) {

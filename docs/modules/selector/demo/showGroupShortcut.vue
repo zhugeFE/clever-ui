@@ -10,54 +10,59 @@
                    styleType="line"
                    :showGroupShortcut="true">
         <template slot-scope="scope">
-          <span>自定义展示{{scope.data.label}}</span>
+          <span>{{zlocal.customDisplay}}{{scope.data.label}}</span>
         </template>
         <template slot="header" slot-scope="scope">
-          自定义header: {{scope.data.label}}
+          {{zlocal.custom}}header: {{scope.data.label}}
         </template>
       </c-selector>
-      <span>选中值：</span>{{groupValue}}
+      <span>{{zlocal.selectedValue}}</span>{{groupValue}}
     </demo-panel>
   </div>
 </template>
 
 <script>
-  import CSelector from '../../../../src/components/selector/selector.vue'
-  import DemoPanel from '../../../components/demoPanel/index.vue'
+import zlocal from '../../../../src/i18n'
+import CSelector from '../../../../src/components/selector/selector.vue'
+import DemoPanel from '../../../components/demoPanel/index.vue'
 
-  export default {
-    components: {
-      DemoPanel,
-      CSelector},
-    name: 'groupSelector',
-    data () {
-      return {
-        store: (() => {
-          let result = []
+export default {
+  components: {
+    DemoPanel,
+    CSelector},
+  name: 'groupSelector',
+  data () {
+    const {selectedValue, customDisplay, custom} = zlocal
+    return {
+      zlocal: {
+        selectedValue, customDisplay, custom
+      },
+      store: (() => {
+        let result = []
 
-          for (let i = 0; i < 4; i++) {
-            let item = {
-              label: 'group' + i,
-              id: i,
-              children: []
-            }
-
-            for (let j = 0; j < 10; j++) {
-              item.children.push({
-                label: `option${i}-${j}`,
-                id: `${i}-${j}`
-              })
-            }
-
-            result.push(item)
+        for (let i = 0; i < 4; i++) {
+          let item = {
+            label: 'group' + i,
+            id: i,
+            children: []
           }
 
-          return result
-        })(),
-        groupValue: {id: '2-4'}
-      }
+          for (let j = 0; j < 10; j++) {
+            item.children.push({
+              label: `option${i}-${j}`,
+              id: `${i}-${j}`
+            })
+          }
+
+          result.push(item)
+        }
+
+        return result
+      })(),
+      groupValue: {id: '2-4'}
     }
   }
+}
 </script>
 
 <style lang="sass">

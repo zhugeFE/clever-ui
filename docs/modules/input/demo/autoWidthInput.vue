@@ -10,17 +10,19 @@
 </template>
 
 <script>
-  import CInput from '../../../../src/components/input/input'
+import zlocal from '../../../../src/i18n'
+import CInput from '../../../../src/components/input/input'
 
-  export default {
-    components: {CInput},
-    name: 'autoWidthInput',
-    data () {
-      return {
-        msg: '我需要一个很长很长很长很长很长很长的文案'
-      }
+export default {
+  components: {CInput},
+  name: 'autoWidthInput',
+  data () {
+    const {longCopy} = zlocal
+    return {
+      msg: longCopy
     }
   }
+}
 </script>
 
 <style lang="sass">

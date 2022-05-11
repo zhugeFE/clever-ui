@@ -2,16 +2,16 @@
   <div>
     <demo-panel title="tab" subtitle="them is normal" jsFiddleName="fnp7n0hd">
       {{ chosenIndex }}
-      <zg-checkbox v-model="showRightTab">显示tab-right</zg-checkbox>
+      <zg-checkbox v-model="showRightTab">{{zlocal.show}} tab-right</zg-checkbox>
       <c-tabs v-model="chosenIndex" @add="onAddTab" @remove="onRemove" showAdd>
         <c-tab-panel title="center" icon="cicon-add">
           <c-tabs placement="center">
             <c-tab-panel title="tab1">
               <span slot="title">
-                tab1的title
+                tab1 {{zlocal.of}} title
               </span>
               this is tab1
-              <c-button @click="num++">计算：{{ num }}+1</c-button> :::
+              <c-button @click="num++">{{zlocal.calculate}}：{{ num }}+1</c-button> :::
               {{ num }}
             </c-tab-panel>
             <c-tab-panel title="tab2">
@@ -58,6 +58,7 @@
 </template>
 
 <script>
+import zlocal from '../../../../src/i18n'
 import CTabs from '../../../../src/components/tab/tabs.vue'
 import CTabPanel from '../../../../src/components/tabPanel/tabPanel.vue'
 import DemoPanel from '../../../components/demoPanel/index.vue'
@@ -70,11 +71,15 @@ export default {
   },
   name: 'normalTab',
   data() {
+    const {show, of, calculate} = zlocal
     return {
       tabs: [],
       chosenIndex: 0,
       showRightTab: true,
-      num: 0
+      num: 0,
+      zlocal: {
+        show, of, calculate
+      }
     }
   },
   methods: {

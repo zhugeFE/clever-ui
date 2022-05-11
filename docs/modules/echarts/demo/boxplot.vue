@@ -7,33 +7,34 @@
 </template>
 
 <script>
-  import DemoPanel from '../../../components/demoPanel/index.vue'
-  import boxplot from '../../../../src/components/boxplot/boxplot.vue'
+import zlocal from '../../../../src/i18n'
+import DemoPanel from '../../../components/demoPanel/index.vue'
+import boxplot from '../../../../src/components/boxplot/boxplot.vue'
 
-  export default {
-    name: 'boxplotDemo',
-    components: {
-      DemoPanel,
-      boxplot
-    },
-    data () {
-      return {
-        store: {
-          x_axis: ['2022-02-14|2022-02-20', '2022-02-14|2022-02-20'],
-          series: [
-            {
-              names: ['应用宝'],
-              values: [[20, 30, 50, 90, 100, 100, 100], [20, 30, 50, 90, 100, 100, 100]]
-            },
-            {
-              names: ['华为应用商店'],
-              values: [[20, 30, 50, 90, 100, 100, 100], [20, 30, 50, 90, 100, 100, 100]]
-            }
-          ]
-        }
+export default {
+  name: 'boxplotDemo',
+  components: {
+    DemoPanel,
+    boxplot
+  },
+  data () {
+    return {
+      store: {
+        x_axis: ['2022-02-14|2022-02-20', '2022-02-14|2022-02-20'],
+        series: [
+          {
+            names: [zlocal.yybTitle],
+            values: [[20, 30, 50, 90, 100, 100, 100], [20, 30, 50, 90, 100, 100, 100]]
+          },
+          {
+            names: [zlocal.huaweiStore],
+            values: [[20, 30, 50, 90, 100, 100, 100], [20, 30, 50, 90, 100, 100, 100]]
+          }
+        ]
       }
     }
   }
+}
 </script>
 
 <style lang="sass">

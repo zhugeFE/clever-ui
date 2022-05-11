@@ -2,14 +2,14 @@
   <div class="c-pagination" :style="style">
     <slot name="left"></slot>
     <span class="c-pg-txt"
-      >共<span class="c-pg-num">{{ total }}</span
-      >条, <span class="c-pg-num">{{ pageNumList.length }}</span
-      >页</span
+      >{{zlocal.totals}}<span class="c-pg-num">{{ total }}</span
+      >{{zlocal.items}}, <span class="c-pg-num">{{ pageNumList.length }}</span
+      >{{zlocal.page}}</span
     >
     <c-selector
       :store="sizeOptions"
       v-model="pageSize"
-      :width="108"
+      :width="140"
       expand-arrow="up"
       key-field="v"
       label-field="label"
@@ -19,7 +19,7 @@
       v-model="pageNum"
       @change="onChange"
       expand-arrow="up"
-      :width="108"
+      :width="140"
       key-field="v"
       label-field="label"
     ></c-selector>
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import zlocal from '../../i18n'
 import CSelector from '../selector'
 import CButton from '../button'
 export default {
@@ -87,7 +88,11 @@ export default {
     }
   },
   data() {
+    const {totals, items, page, perPage, theFirst} = zlocal
     return {
+      zlocal: {
+        totals, items, page, perPage, theFirst
+      },
       pageSize: { v: this.defaultPageSize },
       pageNum: { v: this.defaultPageNum }
     }
@@ -97,7 +102,7 @@ export default {
       return this.pageSizeOptions.map(size => {
         return {
           v: size,
-          label: `每页${size}条`
+          label: this.zlocal.perPage + ' ' + `${size}` + ' ' + this.zlocal.items
         }
       })
     },
@@ -107,7 +112,7 @@ export default {
       for (let i = 0; i < totalPage; i++) {
         store.push({
           v: i + 1,
-          label: `第${i + 1}页`
+          label: this.zlocal.theFirst + ' ' + `${i + 1}` + ' ' + this.zlocal.page
         })
       }
       return store

@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import zlocal from '../../../src/i18n'
 import * as echarts from 'echarts'
 import DocMarkdown from '../../components/docMarkdown/index.vue'
 import docJson from './flow.json'
@@ -16,10 +17,11 @@ export default {
     DocMarkdown
   },
   data () {
+    const {official, applet} = zlocal
     return {
       docJson,
       dataObj: {},
-      title: ['公众号', '小程序'],
+      title: [official, applet],
       echarts
     }
   },

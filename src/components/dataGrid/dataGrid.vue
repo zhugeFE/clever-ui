@@ -1,4 +1,5 @@
 <script type="text/jsx">
+  import zlocal from '../../i18n'
   import {util, dom} from '../../utils/index'
   import {emitter} from '../../mixins/main'
 
@@ -315,7 +316,7 @@
               }
             })()}
           </div>
-          <div v-show={!this.gridStore.length} class="c-grid-empty">暂无数据</div>
+          <div v-show={!this.gridStore.length} class="c-grid-empty">{zlocal.noData}</div>
         </div>
       )
     },

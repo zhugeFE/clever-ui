@@ -13,28 +13,43 @@
 
 <script>
 import json from './json/eventList'
+import zlocal from '../../../../src/i18n'
 import CCharts from '../../../../src/components/echarts/charts'
 import * as echarts from 'echarts'
-
 export default {
   components: { CCharts },
   name: 'reverse',
   data() {
+    const {skypegmwcn, enter, homePage, signIn, page, dependsOnScene, Interface, register, board, enterModule} = zlocal
     return {
       echarts,
       showList: [
         'pv',
-        '官网-进入官网',
-        'web-进入首页',
+        skypegmwcn + '-' + enter + skypegmwcn,
+        'web-' + enter + homePage,
         'click',
-        '登录-进入登录页',
-        '官网-首页-依场景而设',
-        '登录',
-        '注册-进入注册界面',
-        'Demo-进入demo',
-        '看板-进入模块'
+        signIn + '-' + enter + signIn + page,
+        skypegmwcn + '-' + homePage + '-' + dependsOnScene,
+        signIn,
+        register + '-' + enter + register + Interface,
+        'Demo-' + enter + 'demo',
+        board + '-' + enterModule
       ],
-      store: json.app_data
+      store: {
+        ...json.app_data,
+        series: [
+          { names: ['pv'], values: [17265] },
+          { names: [skypegmwcn + '-' + enter + skypegmwcn], values: [11229] },
+          { names: ['web-' + enter + homePage], values: [5559] },
+          { names: ['click'], values: [5355] },
+          { names: [signIn + '-' + enter + signIn + page], values: [2565] },
+          { names: [skypegmwcn + '-' + homePage + '-' + dependsOnScene], values: [1718] },
+          { names: [signIn], values: [1565] },
+          { names: [register + '-' + enter + register + Interface], values: [1457] },
+          { names: ['Demo-' + enter + 'demo'], values: [1406] },
+          { names: [board + '-' + enterModule], values: [1057] }
+        ]
+      }
     }
   }
 }
