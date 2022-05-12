@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import zlocal from '../../../../src/i18n'
 export default {
   name: 'scrollLoadingSelector',
   data () {
@@ -44,13 +45,13 @@ export default {
       for (let i = 0; i < 3; i++) {
         let item = {
           key: i,
-          label: `第${i}个`,
+          label: zlocal.theFirst + ' ' + i + ' ' + zlocal.ge,
           children: []
         }
         for (let j = 0; j < 10; j++) {
           item.children.push({
             key: j,
-            label: `第${i}-${j}个`
+            label: `${zlocal.theFirst}${i}-${j}${zlocal.ge}`
           })
         }
         result.push(item)

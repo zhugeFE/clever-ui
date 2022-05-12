@@ -5,7 +5,7 @@
       <c-selector
         keyField="id"
         :store="store"
-        placeholder="单选"
+        :placeholder="zlocal.radio"
         labelField="label"
         filterOption
         icon-field="icon"
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import zlocal from '../../../../src/i18n'
 import { util } from '../../../../src/utils'
 import CSelector from '../../../../src/components/selector/selector.vue'
 export default {
@@ -28,7 +29,11 @@ export default {
     CSelector
   },
   data() {
+    const {radio} = zlocal
     return {
+      zlocal: {
+        radio
+      },
       store: (() => {
         let store = []
         for (let i = 0; i < 13; i++) {

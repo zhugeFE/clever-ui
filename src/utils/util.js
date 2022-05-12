@@ -181,16 +181,16 @@ let util = {
    * @param num
    * @returns {string}
    */
-  toTime (value) {
+  toTime (value, zlocal) {
     let m = parseInt(value / 60)
     let h = parseInt(value / 3600)
     let d = parseInt(value / (24 * 3600))
     if (h > 24) {
-      return d + '天'
+      return d + zlocal.day
     } else if (m > 60) {
-      return h + '小时'
+      return h + zlocal.shi
     } else {
-      return m + '分'
+      return m + zlocal.fen
     }
   },
   getRegExp (str) {

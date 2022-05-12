@@ -4,7 +4,7 @@
       <c-selector
         keyField="id"
         :store="store"
-        placeholder="单选"
+        :placeholder="zlocal.radio"
         labelField="label"
         :disableOptions="disableList"
         filterOption
@@ -13,11 +13,11 @@
         v-model="result"
       >
         <div slot="optionsHeader" style="font-size: 12px; margin-left: 5px;">
-          普通下拉框的内容
+          {{zlocal.normalDropdownBoxCon}}
         </div>
       </c-selector>
 
-      <span>选中值</span>{{ result }}<br />
+      <span>{{zlocal.selectedValue}}</span>{{ result }}<br />
     </demo-panel>
     <demo-panel subtitle="多选" jsFiddleName="s5rjhjwj">
       <c-selector
@@ -29,27 +29,27 @@
         placeholder="多选"
         multiple
       ></c-selector>
-      <span>选中值</span>{{ multipleResult }}<br />
+      <span>{{zlocal.selectedValue}}</span>{{ multipleResult }}<br />
     </demo-panel>
     <demo-panel subtitle="禁用">
       <c-selector
         keyField="id"
         :disable="true"
         :store="store"
-        placeholder="单选"
+        :placeholder="zlocal.radio"
         labelField="label"
         filterOption
         icon-field="icon"
         v-model="result"
       >
       </c-selector>
-      <span>选中值</span>{{ result }}<br />
+      <span>{{zlocal.selectedValue}}</span>{{ result }}<br />
     </demo-panel>
     <demo-panel subtitle="始终展开">
       <c-selector
         keyField="id"
         :store="alwaysExpandStore"
-        placeholder="单选"
+        :placeholder="zlocal.radio"
         labelField="label"
         filterOption
         icon-field="icon"
@@ -57,12 +57,13 @@
         v-model="alwaysExpandResult"
       >
       </c-selector>
-      <span>选中值</span>{{ alwaysExpandResult }}
+      <span>{{zlocal.selectedValue}}</span>{{ alwaysExpandResult }}
     </demo-panel>
   </div>
 </template>
 
 <script>
+import zlocal from '../../../../src/i18n'
 import CSelector from '../../../../src/components/selector/selector.vue'
 import DemoPanel from '../../../components/demoPanel/index.vue'
 import CButton from '../../../../src/components/button/button.vue'
@@ -75,7 +76,13 @@ export default {
   },
   name: 'normalSelector',
   data() {
+    const {radio, selectedValue, normalDropdownBoxCon} = zlocal
     return {
+      zlocal: {
+        radio,
+        selectedValue,
+        normalDropdownBoxCon
+      },
       store: (() => {
         let store = []
         for (let i = 0; i < 3; i++) {

@@ -6,19 +6,19 @@
     <div class="c-picker-panel">
       <div class="c-picker-top">
         <i class="cicon-arrow-left _c-icon" @click="changeMonth(-1)"></i>
-        <span class="c-center">{{util.dateFormat(currentDate, 'mm月yyyy年')}}</span>
+        <span class="c-center">{{util.dateFormat(currentDate, `mm${zlocal.month}yyyy${zlocal.year}`)}}</span>
         <i class="cicon-arrow-right1 c-icon_" @click="changeMonth(1)"></i>
       </div>
       <table class="c-cld">
         <thead class="c-cld-title">
         <tr>
-          <td class="c-cld-secondary">日</td>
-          <td>一</td>
-          <td>二</td>
-          <td>三</td>
-          <td>四</td>
-          <td>五</td>
-          <td class="c-cld-secondary">六</td>
+          <td class="c-cld-secondary">{{zlocal.Sun}}</td>
+          <td>{{zlocal.Mon}}</td>
+          <td>{{zlocal.Tue}}</td>
+          <td>{{zlocal.Wed}}</td>
+          <td>{{zlocal.Thu}}</td>
+          <td>{{zlocal.Fri}}</td>
+          <td class="c-cld-secondary">{{zlocal.Sat}}</td>
         </tr>
         </thead>
         <tbody class="c-cld-body">
@@ -36,12 +36,13 @@
         </tr>
         </tbody>
       </table>
-      <div class="c-to-today" v-if="showToday"><span @click="toToday">今天</span></div>
+      <div class="c-to-today" v-if="showToday"><span @click="toToday">{{zlocal.today}}</span></div>
     </div>
   </div>
 </template>
 
 <script>
+import zlocal from '../../i18n'
 import {util} from '../../utils'
 import CPickerDay from './day'
 export default {
@@ -86,12 +87,16 @@ export default {
     }
   },
   data () {
+    const {month, year, Mon, Tue, Wed, Thu, Fri, Sat, Sun, today} = zlocal
     let chosenDate = this.value || new Date()
     return {
       util,
       chosenDate,
       currentDate: chosenDate,
-      days: this.getDays(chosenDate)
+      days: this.getDays(chosenDate),
+      zlocal: {
+        month, year, Mon, Tue, Wed, Thu, Fri, Sat, Sun, today
+      }
     }
   },
   watch: {

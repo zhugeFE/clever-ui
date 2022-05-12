@@ -7,42 +7,77 @@
 </template>
 
 <script>
-  import json from './json/doubleLine.json'
-  import DemoPanel from '../../../components/demoPanel/index.vue'
-  import CCharts from '../../../../src/components/echarts/charts.vue'
-  import * as echarts from 'echarts'
-  export default {
-    components: {
-      CCharts,
-      DemoPanel},
-    name: 'doubleLine',
-    data () {
-      return {
-        echarts,
-        json: json.app_data,
-        yAxisRule: {
-          '付款成功价格': {
-            index: 0
+import zlocal from '../../../../src/i18n'
+import json from './json/doubleLine.json'
+import DemoPanel from '../../../components/demoPanel/index.vue'
+import CCharts from '../../../../src/components/echarts/charts.vue'
+import * as echarts from 'echarts'
+export default {
+  components: {
+    CCharts,
+    DemoPanel},
+  name: 'doubleLine',
+  data () {
+    return {
+      echarts,
+      json: {...json.app_data,
+        series: [
+          {
+            'names': [
+              zlocal.successfulPrice
+            ],
+            'original_names': [],
+            'values': [
+              3000.0,
+              0.0,
+              0.0,
+              2000.0,
+              0.0,
+              2000.0,
+              0.0,
+              0.0
+            ]
           },
-          '付款成功数量': {
-            index: 1,
-            type: 'bar'
+          {
+            'names': [
+              zlocal.successfulCounter
+            ],
+            'original_names': [],
+            'values': [
+              3.0,
+              0.0,
+              0.0,
+              2.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ]
           }
+        ] },
+      yAxisRule: {
+        [zlocal.successfulPrice]: {
+          index: 0
         },
-        markLine: [
-          "2019-06-25"
-        ]
-      }
-    },
-    mounted () {
-      setTimeout(() => {
+        [zlocal.successfulCounter]: {
+          index: 1,
+          type: 'bar'
+        }
+      },
+      markLine: [
+        '2019-06-25'
+      ]
+    }
+  },
+  mounted () {
+    setTimeout(() => {
         // this.json = {
         //   series: [],
         //   x_axis: []
         // }
-      }, 3000)
-    }
+    }, 3000)
   }
+}
 </script>
 
 <style lang="sass">

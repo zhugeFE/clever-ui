@@ -5,33 +5,38 @@
       <c-tooltip theme="light">
         <template slot="tooltip">
           <div>
-            这是自定义tooltip内容
-            <span style="color: lightskyblue">我都能高亮</span>
+            {{zlocal.customTooltipContent}}
+            <span style="color: lightskyblue">{{zlocal.canHighlight}}</span>
           </div>
         </template>
-        <c-button>触发区</c-button>
+        <c-button>{{zlocal.triggerZones}}</c-button>
       </c-tooltip>
     </demo-panel>
   </div>
 </template>
 
 <script>
-  import DemoPanel from '../../../components/demoPanel/index.vue'
-  import CTooltip from '../../../../src/components/tooltip/tooltip.vue'
-  import CButton from '../../../../src/components/button/button.vue'
+import zlocal from '../../../../src/i18n'
+import DemoPanel from '../../../components/demoPanel/index.vue'
+import CTooltip from '../../../../src/components/tooltip/tooltip.vue'
+import CButton from '../../../../src/components/button/button.vue'
 
-  export default {
-    components: {
-      CButton,
-      CTooltip,
-      DemoPanel},
-    name: 'slotTooltip',
-    data () {
-      return {
-        msg: 'slotTooltip'
+export default {
+  components: {
+    CButton,
+    CTooltip,
+    DemoPanel},
+  name: 'slotTooltip',
+  data () {
+    const {canHighlight, triggerZones, customTooltipContent} = zlocal
+    return {
+      msg: 'slotTooltip',
+      zlocal: {
+        canHighlight, triggerZones, customTooltipContent
       }
     }
   }
+}
 </script>
 
 <style lang="sass">

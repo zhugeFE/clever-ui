@@ -1,12 +1,13 @@
 <template>
   <div class="c-pie-chart" :style="style" v-resize="onResize">
     <div class="c-charts-main" ref="toChart"></div>
-    <div v-show="!store.length" :style="{'line-height': height + 'px'}" class="c-charts-empty">暂无数据</div>
+    <div v-show="!store.length" :style="{'line-height': height + 'px'}" class="c-charts-empty">{{zlocal.noData}}</div>
   </div>
 </template>
 
 <script>
 import {util} from '../../utils'
+import zlocal from '../../i18n'
 export default {
   name: 'cPieChart',
   props: {
@@ -55,8 +56,12 @@ export default {
     }
   },
   data () {
+    const {noData} = zlocal
     return {
-      chart: null
+      chart: null,
+      zlocal: {
+        noData
+      }
     }
   },
   computed: {
@@ -84,7 +89,7 @@ export default {
     seriesData () {
       let list = []
       let other = {
-        name: '其它',
+        name: zlocal.else,
         value: 0,
         itemStyle: {
           color: '#E1E3E6'
