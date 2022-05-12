@@ -8,11 +8,13 @@ import demoPanel from './components/demoPanel'
 import docMarkdown from './components/docMarkdown'
 import VueMarkdown from 'vue-markdown'
 import * as echarts from 'echarts'
+import local from './i18n'
 window.echarts = echarts
 
 Vue.config.productionTip = false
 Vue.config.devtools = true
 Vue.use(cleverUi)
+Vue.mixin(local)
 Vue.component('vue-markdown', VueMarkdown)
 Vue.component('doc-markdown', docMarkdown)
 Vue.component('demo-panel', demoPanel)

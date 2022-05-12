@@ -1,5 +1,4 @@
 <script type="text/jsx">
-  import zlocal from '../../i18n'
   import COption from './option.vue'
   import CCheckbox from '../checkbox'
   import COptGroup from './optGroup.vue'
@@ -130,7 +129,7 @@ import CTable from './table.vue'
        */
       placeholder: {
         type: String,
-        default:zlocal.pleaseSelect
+        default: '请选择'
       },
       /**
        * @description 筛选无匹配数据的提示文本
@@ -138,14 +137,14 @@ import CTable from './table.vue'
        */
       noMatchText: {
         type: String,
-        default: zlocal.noMatchData
+        default: '无匹配数据'
       },
       /**
        * @description 无数据的提示文本
        */
       noDataText: {
         type: String,
-        default: zlocal.noData
+        default: '暂无数据'
       },
       /**
        * @description 可清空选中结果
@@ -291,7 +290,13 @@ import CTable from './table.vue'
       }
     },
     data () {
+      const {
+        clear = '清空',
+        selectAll = '全选'
+      } = window.zlocal || {}
       let data = {
+        clear,
+        selectAll,
         showOptions: this.alwaysExpand,
         checkedMap: {}, // 选项选中状态map集合，为了便捷option的状态显示，选中的集合与chosenList相同
         chosenList: [], // 选中的选项集合
@@ -828,10 +833,10 @@ import CTable from './table.vue'
                         multiple
                         onClick={this.chosenAll}
                         labelField="labelField"
-                        data={{labelField:zlocal.selectAll}}
+                        data={{labelField:this.selectAll}}
                       ></c-option>
                     }
-                    {this.showClearAbleBtn && <a class="c-clear" onClick={this.clean}>{zlocal.clear}</a>}
+                    {this.showClearAbleBtn && <a class="c-clear" onClick={this.clean}>{this.clear}</a>}
                   </li>
                 }
                 {this.$slots.optionsHeader}

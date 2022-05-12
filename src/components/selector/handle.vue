@@ -46,7 +46,6 @@
 
 <script>
 import { util } from '../../utils/index'
-import zlocal from '../../i18n'
 import CTag from '../tag'
 
 export default {
@@ -78,7 +77,7 @@ export default {
      */
     placeholder: {
       type: String,
-      default: zlocal.pleaseSelect
+      default: '请选择'
     },
     /**
      * @description 用于展示的字段名称
