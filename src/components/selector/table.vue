@@ -6,7 +6,7 @@
     :class="{'checked-table': checkedTable == 'all'}"
     @click="onclick"
     >
-      {{zlocal.allProperties}}
+      {{allProperties}}
     </c-button><c-button
     type="normal"
     class="select-table"
@@ -20,7 +20,6 @@
   </div>
 </template>
 <script>
-import zlocal from '../../i18n'
 export default {
   props: {
     store: {
@@ -45,12 +44,10 @@ export default {
 
   },
   data () {
-    const {allProperties} = zlocal
+    const {allProperties = '全部属性'} = window.zlocal || {}
     return {
       checkedTable: 'all',
-      zlocal: {
-        allProperties
-      }
+      allProperties
     }
   },
   methods: {

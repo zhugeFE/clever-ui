@@ -42,7 +42,6 @@
 </template>
 
 <script>
-import zlocal from '../../i18n'
 import {util} from '../../utils'
 import CPickerDay from './day'
 export default {
@@ -87,7 +86,18 @@ export default {
     }
   },
   data () {
-    const {month, year, Mon, Tue, Wed, Thu, Fri, Sat, Sun, today} = zlocal
+    const {
+      month = '月',
+      year = '年',
+      monday = '一',
+      tuesday = '二',
+      wednesday = '三',
+      thursday = '四',
+      friday = '五',
+      saturday = '六',
+      sunday = '日',
+      today = '今天'
+    } = window.zlocal || {}
     let chosenDate = this.value || new Date()
     return {
       util,
@@ -95,7 +105,16 @@ export default {
       currentDate: chosenDate,
       days: this.getDays(chosenDate),
       zlocal: {
-        month, year, Mon, Tue, Wed, Thu, Fri, Sat, Sun, today
+        month,
+        year,
+        Mon: monday.slice(0, 3),
+        Tue: tuesday.slice(0, 3),
+        Wed: wednesday.slice(0, 3),
+        Thu: thursday.slice(0, 3),
+        Fri: friday.slice(0, 3),
+        Sat: saturday.slice(0, 3),
+        Sun: sunday.slice(0, 3),
+        today
       }
     }
   },

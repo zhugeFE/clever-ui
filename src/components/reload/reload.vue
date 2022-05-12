@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import zlocal from '../../i18n'
 import CButton from '../button'
 import { dom } from '../../utils/index'
 export default {
@@ -36,7 +35,10 @@ export default {
     }
   },
   data() {
-    const {failedLoadData, reload} = zlocal
+    const {
+      failedLoadData = '数据加载失败',
+      reload = '重新加载'
+    } = window.zlocal || {}
     return {
       zlocal: {
         failedLoadData, reload

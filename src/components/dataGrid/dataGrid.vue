@@ -1,5 +1,4 @@
 <script type="text/jsx">
-  import zlocal from '../../i18n'
   import {util, dom} from '../../utils/index'
   import {emitter} from '../../mixins/main'
 
@@ -95,7 +94,9 @@
       }
     },
     data () {
+      const { noData = '暂无数据' } = window.zlocal || {}
       return {
+        noData,
         gridStore: [],
         structure: {
           left: [],
@@ -316,7 +317,7 @@
               }
             })()}
           </div>
-          <div v-show={!this.gridStore.length} class="c-grid-empty">{zlocal.noData}</div>
+          <div v-show={!this.gridStore.length} class="c-grid-empty">{this.noData}</div>
         </div>
       )
     },

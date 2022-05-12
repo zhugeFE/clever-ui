@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import zlocal from '../../i18n'
 import { util } from '../../utils'
 export default {
   name: 'cCharts',
@@ -227,7 +226,7 @@ export default {
      */
     emptyLabel: {
       type: String,
-      default: zlocal.noData
+      default: '暂无数据'
     }
   },
   data() {

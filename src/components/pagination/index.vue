@@ -42,7 +42,6 @@
 </template>
 
 <script>
-import zlocal from '../../i18n'
 import CSelector from '../selector'
 import CButton from '../button'
 export default {
@@ -88,7 +87,13 @@ export default {
     }
   },
   data() {
-    const {totals, items, page, perPage, theFirst} = zlocal
+    const {
+      totals = '共',
+      items = '条',
+      page = '页',
+      perPage = '每页',
+      theFirst = '第'
+    } = window.zlocal || {}
     return {
       zlocal: {
         totals, items, page, perPage, theFirst

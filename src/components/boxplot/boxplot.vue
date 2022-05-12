@@ -150,7 +150,13 @@ export default {
         // `${params.seriesName}(${util.getWeekNum(params.seriesName)})`
         rows.push(`${params.marker} ${util.getTooltipLabel(params.seriesName)}`)
         if (params.seriesType === 'boxplot') {
-          const {maximum, upperQuartile, median, lowerQuartile, minimum} = zlocal
+          const {
+            maximum = '最大值',
+            upperQuartile = '上四分位',
+            median = '中位数',
+            lowerQuartile = '下四分位',
+            minimum = '最小值'
+          } = window.zlocal || {}
           var labels = [maximum, upperQuartile, median, lowerQuartile, minimum]
           let value = [...params.value]
           let temp = value[1]
