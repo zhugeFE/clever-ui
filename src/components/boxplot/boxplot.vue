@@ -4,11 +4,13 @@
   </div>
 </template>
 <script>
-let dateHandle = (label) => {
+import { util } from '../../utils'
+import zlocal from '../../i18n'
+let dateHandle = label => {
   if (/^\d{4}-\d{2}-\d{2}$/.test(label)) {
     // 处理日期
     // label.replace(/\d{4}-/, '')
-    return `${label}(${util.getWeekNum(label)})`
+    return `${label}(${util.getWeekNum(label, zlocal)})`
   } else if (/^\d{4}-\d{2}-\d{2}\|\d{4}-\d{2}-\d{2}$/.test(label)) {
     // 周、月日期
     let dates = label.match(/\d{4}-\d{2}-\d{2}/g)
@@ -20,16 +22,17 @@ let dateHandle = (label) => {
   } else {
     label = util.strMiddleSplit(label)
     if (/:/.test(label)) {
-      return label.replace(/\d{4}-\d{2}-\d{2}\s/, '') + `(${util.getWeekNum(label[0])})`
+      return (
+        label.replace(/\d{4}-\d{2}-\d{2}\s/, '') +
+        `(${util.getWeekNum(label[0], zlocal)})`
+      )
     } else if (/,/.test(label)) {
-      return label.replace(/,/g, '-') + `(${util.getWeekNum(label[0])})`
+      return label.replace(/,/g, '-') + `(${util.getWeekNum(label[0], zlocal)})`
     } else {
-      return label + `(${util.getWeekNum(label[0])})`
+      return label + `(${util.getWeekNum(label[0], zlocal)})`
     }
   }
 }
-import {util} from '../../utils'
-import zlocal from '../../i18n'
 export default {
   name: 'cBoxplot',
   props: {
@@ -124,7 +127,7 @@ export default {
       deep: true
     }
   },
-  data () {
+  data() {
     return {
       colors: util.colors,
       xAxisTextRotate: 0
@@ -183,7 +186,10 @@ export default {
           left: 60,
           right: 40,
           top: 50,
-          bottom: this.store.x_axis.length > this.moduleMaxLength ? this.gridBottom : 30
+          bottom:
+            this.store.x_axis.length > this.moduleMaxLength
+              ? this.gridBottom
+              : 30
         },
         legend: {
           width: '60%',
@@ -268,12 +274,13 @@ export default {
       return option
     }
   },
-  mounted () {
+  mounted() {
     this.chartSetOption()
   },
   methods: {
     chartSetOption() {
-      this.xAxisTextRotate = this.store.x_axis.length > this.moduleMaxLength ? this.xAxisRotate : 0
+      this.xAxisTextRotate =
+        this.store.x_axis.length > this.moduleMaxLength ? this.xAxisRotate : 0
       const chart = window.echarts.init(this.$refs.container)
       chart.setOption(this.option, true)
       window.__charts = [chart]
