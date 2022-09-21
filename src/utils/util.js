@@ -6,32 +6,32 @@ let util = {
     '#1ec0ff', '#f9a11b', '#8cd790', '#40ccca', '#aaabd3',
     '#2b90d9', '#ec7a4a', '#f29b76', '#ea68a2', '#ffdd38'
   ],
-  type (obj) {
+  type(obj) {
     return Object.prototype.toString.call(obj)
   },
-  isObject (obj) {
+  isObject(obj) {
     return this.type(obj) === '[object Object]'
   },
-  isArray (obj) {
+  isArray(obj) {
     return this.type(obj) === '[object Array]'
   },
-  isString (obj) {
+  isString(obj) {
     return this.type(obj) === '[object String]'
   },
-  isNumber (obj) {
+  isNumber(obj) {
     return this.type(obj) === '[object Number]'
   },
-  isDate (obj) {
+  isDate(obj) {
     return this.type(obj) === '[object Date]'
   },
-  isFunction (obj) {
+  isFunction(obj) {
     return this.type(obj) === '[object Function]'
   },
-  equal (a, b) {
+  equal(a, b) {
     return JSON.stringify(a) === JSON.stringify(b)
   },
-  guid () {
-    function s4 () {
+  guid() {
+    function s4() {
       return Math.floor((1 + Math.random()) * 0x10000)
         .toString(16)
         .substring(1)
@@ -43,7 +43,7 @@ let util = {
    * @param num
    * @returns {string}
    */
-  toDoubleNumber (num) {
+  toDoubleNumber(num) {
     num += ''
     return num > 9 ? num : ('0' + num)
   },
@@ -53,7 +53,7 @@ let util = {
    * @param formatter
    * @returns {string}
    */
-  dateFormat (date = new Date(), formatter = 'yyyy-mm-dd') {
+  dateFormat(date = new Date(), formatter = 'yyyy-mm-dd') {
     return formatter.replace('yyyy', date.getFullYear())
       .replace('mm', this.toDoubleNumber(date.getMonth() + 1))
       .replace('dd', this.toDoubleNumber(date.getDate()))
@@ -64,7 +64,7 @@ let util = {
    * @param formatter
    * @returns {string}
    */
-  timeFormat (date = new Date(), formatter = 'hh:mm:ss', autoShort) {
+  timeFormat(date = new Date(), formatter = 'hh:mm:ss', autoShort) {
     if (this.isDate(date)) {
       return formatter.replace('hh', this.toDoubleNumber(date.getHours()))
         .replace('mm', this.toDoubleNumber(date.getMinutes()))
@@ -94,7 +94,7 @@ let util = {
    * @param day2
    * @returns {boolean}
    */
-  isOneDay (day1, day2) {
+  isOneDay(day1, day2) {
     return this.dateFormat(day1) === this.dateFormat(day2)
   },
   /**
@@ -103,7 +103,7 @@ let util = {
    * @param day2
    * @returns {number}
    */
-  compareDays (day1, day2) {
+  compareDays(day1, day2) {
     let a = new Date(day1.getFullYear(), day1.getMonth(), day1.getDate())
     let b = new Date(day2.getFullYear(), day2.getMonth(), day2.getDate())
     let res = (a.getTime() - b.getTime()) / this.dayTime
@@ -115,7 +115,7 @@ let util = {
    * @param max
    * @returns {*}
    */
-  random (min, max) {
+  random(min, max) {
     return Math.round(Math.random() * (max - min)) + min
   },
   /**
@@ -123,7 +123,7 @@ let util = {
    * @param obj
    * @returns {*}
    */
-  clone (obj) {
+  clone(obj) {
     if (this.isObject(obj)) {
       let result = {}
       for (let key in obj) {
@@ -142,7 +142,7 @@ let util = {
       return obj
     }
   },
-  mergeObject (defaults, option) {
+  mergeObject(defaults, option) {
     defaults = defaults || {}
     option = option || {}
     for (let prop in defaults) {
@@ -171,7 +171,7 @@ let util = {
    * @param num
    * @returns {string}
    */
-  toThousands (num) {
+  toThousands(num) {
     let source = String(num).split('.') // 按小数点分成2部分
     source[0] = source[0].replace(new RegExp('(\\d)(?=(\\d{3})+$)', 'ig'), '$1,') // 只将整数部分进行都好分割
     return source.join('.') // 再将小数部分合并进来
@@ -181,19 +181,24 @@ let util = {
    * @param num
    * @returns {string}
    */
-  toTime (value, zlocal) {
+  toTime(value, zlocal) {
     let m = parseInt(value / 60)
     let h = parseInt(value / 3600)
     let d = parseInt(value / (24 * 3600))
+    const {
+      day = '天',
+      shi = '时',
+      fen = '分'
+    } = window.zlocal || {}
     if (h > 24) {
-      return d + zlocal.day
+      return d + day
     } else if (m > 60) {
-      return h + zlocal.shi
+      return h + shi
     } else {
-      return m + zlocal.fen
+      return m + fen
     }
   },
-  getRegExp (str) {
+  getRegExp(str) {
     let keyWords = /\\|\^|\$|\*|\+|\?|\{|\}|\[|\]|\.|:|=|\||-|\/|<|!|\(|\)/
     let words = []
     str.split(/\s{0}/).forEach(code => {
@@ -211,7 +216,7 @@ let util = {
    * @param config
    * @returns {string}
    */
-  strMiddleSplit (str, config = {
+  strMiddleSplit(str, config = {
     maxLength: 20,
     beginLength: 8,
     endLength: 8,
@@ -253,14 +258,14 @@ let util = {
 
     return str
   },
-/**
-* 计算百分比值
-* @param {number} numerator 分子
-* @param {number} denominator 分母
-* @param {number} precision 小数精度
-* @returns {string}
-*/
-  percentCalculate (numerator, denominator, precision = 2) {
+  /**
+   * 计算百分比值
+   * @param {number} numerator 分子
+   * @param {number} denominator 分母
+   * @param {number} precision 小数精度
+   * @returns {string}
+   */
+  percentCalculate(numerator, denominator, precision = 2) {
     let data = 0
     if (numerator && denominator) {
       precision = Math.pow(10, precision)
@@ -277,7 +282,7 @@ let util = {
    */
   throttle(fn, wait) {
     let pre = Date.now()
-    return function() {
+    return function () {
       const context = this
       const args = arguments
       const now = Date.now()
@@ -290,17 +295,26 @@ let util = {
   getTooltipLabel(label) {
     return `<span style="opacity: 0.8;">${label}</span>`
   },
-  getWeekNum(date, zlocal) {
+  getWeekNum(date) {
     let now = new Date(date)
     let day = now.getDay()
+    const {
+      monday = '一',
+        tuesday = '二',
+        wednesday = '三',
+        thursday = '四',
+        friday = '五',
+        saturday = '六',
+        sunday = '日'
+    } = window.zlocal || {}
     let weeks = [
-      zlocal.Sun || '日',
-      zlocal.Mon || '一',
-      zlocal.Tue || '二',
-      zlocal.Wed || '三',
-      zlocal.Thu || '四',
-      zlocal.Fri || '五',
-      zlocal.Sat || '六'
+      sunday.slice(0, 3),
+      monday.slice(0, 3),
+      tuesday.slice(0, 3),
+      wednesday.slice(0, 3),
+      thursday.slice(0, 3),
+      friday.slice(0, 3),
+      saturday.slice(0, 3)
     ]
     return weeks[day]
   }

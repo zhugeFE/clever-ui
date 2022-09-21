@@ -34,7 +34,6 @@
 </template>
 
 <script>
-import zlocal from '../../i18n'
 import CButton from '../button'
 
 export default {
@@ -54,11 +53,11 @@ export default {
     },
     cancelLabel: {
       type: String,
-      default: zlocal.cancel
+      default: (window.zlocal && window.zlocal.cancel) || '取消'
     },
     confirmLabel: {
       type: String,
-      default: zlocal.confirm
+      default: (window.zlocal && window.zlocal.determine) || '确定'
     },
     showCancel: {
       type: Boolean,

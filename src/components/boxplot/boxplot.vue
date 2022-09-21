@@ -5,12 +5,11 @@
 </template>
 <script>
 import { util } from '../../utils'
-import zlocal from '../../i18n'
 let dateHandle = label => {
   if (/^\d{4}-\d{2}-\d{2}$/.test(label)) {
     // 处理日期
     // label.replace(/\d{4}-/, '')
-    return `${label}(${util.getWeekNum(label, zlocal)})`
+    return `${label}(${util.getWeekNum(label)})`
   } else if (/^\d{4}-\d{2}-\d{2}\|\d{4}-\d{2}-\d{2}$/.test(label)) {
     // 周、月日期
     let dates = label.match(/\d{4}-\d{2}-\d{2}/g)
@@ -24,12 +23,12 @@ let dateHandle = label => {
     if (/:/.test(label)) {
       return (
         label.replace(/\d{4}-\d{2}-\d{2}\s/, '') +
-        `(${util.getWeekNum(label[0], zlocal)})`
+        `(${util.getWeekNum(label[0])})`
       )
     } else if (/,/.test(label)) {
-      return label.replace(/,/g, '-') + `(${util.getWeekNum(label[0], zlocal)})`
+      return label.replace(/,/g, '-') + `(${util.getWeekNum(label[0])})`
     } else {
-      return label + `(${util.getWeekNum(label[0], zlocal)})`
+      return label + `(${util.getWeekNum(label[0])})`
     }
   }
 }
@@ -84,9 +83,9 @@ export default {
       offset: -100,
       default(value) {
         if (parseFloat(value) >= 60) {
-          return util.toTime(value, zlocal)
+          return util.toTime(value)
         } else {
-          return value + zlocal.sec
+          return value + (window.zlocal && window.zlocal.miao) || '秒'
         }
       }
     },

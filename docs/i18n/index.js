@@ -45,7 +45,7 @@ export default {
     }
   },
   beforeCreate () {
-    getLocal(process.env.LANG)
+    getLocal('en-US')
   },
   methods: {
     updateLocal (language) {
