@@ -182,7 +182,7 @@ export default {
         grid: {
           containLabel: false,
           show: false,
-          left: 60,
+          left: 80,
           right: 40,
           top: 50,
           bottom:
