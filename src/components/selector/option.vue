@@ -2,19 +2,27 @@
   <li class="c-option" :class="className" v-show="theme !== 'tag' || !active">
     <span
       class="c-option-item"
-      :class="{'c-option-line': styleType == 'line'}"
+      :class="{ 'c-option-line': styleType == 'line' }"
       @click="onClick"
       v-if="!multiple || theme == 'tag'"
     >
       <slot :data="data" :active="active" :disable="disable">
         <i v-if="iconField" :class="iconClass"></i
-        ><span class="c-option-item-txt" :title=" data[aliasField] || data[labelField]">{{ data[aliasField] || data[labelField] }}</span>
+        ><span
+          class="c-option-item-txt"
+          :title="data[aliasField] || data[labelField]"
+          >{{ data[aliasField] || data[labelField] }}</span
+        >
       </slot>
     </span>
     <c-checkbox v-else @change="onClick" v-model="active" :disable="disable">
       <slot :data="data" :active="active" :disable="disable">
         <i v-if="iconField" :class="iconClass"></i
-        ><span class="c-option-item-txt" :title=" data[aliasField] || data[labelField]">{{ data[aliasField] || data[labelField] }}</span>
+        ><span
+          class="c-option-item-txt"
+          :title="data[aliasField] || data[labelField]"
+          >{{ data[aliasField] || data[labelField] }}</span
+        >
       </slot>
     </c-checkbox>
   </li>
