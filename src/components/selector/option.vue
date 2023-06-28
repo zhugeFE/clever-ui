@@ -144,4 +144,9 @@ export default {
 
 <style lang="sass">
 @import "styles/option"
+.c-option-item-txt
+  display: inline-block
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
 </style>

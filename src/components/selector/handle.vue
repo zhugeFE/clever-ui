@@ -4,7 +4,7 @@
       <span v-show="!value.length" class="c-select-label c-placeholder">{{
         placeholder
       }}</span>
-      <span v-show="value.length" class="c-select-label">{{
+      <span v-show="value.length" class="c-select-label" :title="resultLabel">{{
         resultLabel
       }}</span>
       <span v-if="showCount" class="c-count" v-show="value.length > 1"
