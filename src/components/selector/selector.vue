@@ -99,6 +99,13 @@ import CTable from './table.vue'
         default: 250
       },
       /**
+       * @description  下拉框区域最大宽度
+       */
+      dropdownMaxWidth: {
+        type: Number,
+        default: 250
+      },
+      /**
        * @description 用于展示的字段名称
        */
       labelField: {
@@ -403,6 +410,11 @@ import CTable from './table.vue'
         this.totalCount = totalCount
         this.noMatch = filter && totalCount === 0
         return map
+      },
+      dropdownStyle() {
+        return {
+          'max-width': this.dropdownMaxWidth + 'px'
+        }
       }
     },
     watch: {
@@ -804,7 +816,7 @@ import CTable from './table.vue'
           </c-selector-handle>
 
           <transition enter-active-class="animated slideInDown">
-            <div v-show={this.showOptions} class="c-drop-panel" ref="dropPanel">
+            <div v-show={this.showOptions} class="c-drop-panel" ref="dropPanel" style={this.dropdownStyle}>
               <div class="c-fixed" v-show={this.theme !== 'tag'}>
                 {(() => {
                   if (this.filterOption) {
@@ -918,6 +930,6 @@ import CTable from './table.vue'
 </script>
 
 <style lang="sass">
-  @import "styles/select"
-  @import "styles/table"
+@import "styles/select"
+@import "styles/table"
 </style>

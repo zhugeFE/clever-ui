@@ -8,13 +8,13 @@
     >
       <slot :data="data" :active="active" :disable="disable">
         <i v-if="iconField" :class="iconClass"></i
-        ><span>{{ data[aliasField] || data[labelField] }}</span>
+        ><span :title=" data[aliasField] || data[labelField]">{{ data[aliasField] || data[labelField] }}</span>
       </slot>
     </span>
     <c-checkbox v-else @change="onClick" v-model="active" :disable="disable">
       <slot :data="data" :active="active" :disable="disable">
         <i v-if="iconField" :class="iconClass"></i
-        ><span>{{ data[aliasField] || data[labelField] }}</span>
+        ><span :title=" data[aliasField] || data[labelField]">{{ data[aliasField] || data[labelField] }}</span>
       </slot>
     </c-checkbox>
   </li>

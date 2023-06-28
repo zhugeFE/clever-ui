@@ -17,7 +17,11 @@
     align-items: center
     padding: 0 10px
   .c-option-item
-    display: block
+    span
+      display: inline-block
+      overflow: hidden
+      text-overflow: ellipsis
+      white-space: nowrap
   &.disable
     color: $color-action-disabled-default
     cursor: not-allowed
