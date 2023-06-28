@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-let dateHandle = (label) => {
+let dateHandle = label => {
   if (/^\d{4}-\d{2}-\d{2}$/.test(label)) {
     // 处理日期
     // label.replace(/\d{4}-/, '')
@@ -20,7 +20,10 @@ let dateHandle = (label) => {
   } else {
     label = util.strMiddleSplit(label)
     if (/:/.test(label)) {
-      return label.replace(/\d{4}-\d{2}-\d{2}\s/, '') + `(${util.getWeekNum(label[0])})`
+      return (
+        label.replace(/\d{4}-\d{2}-\d{2}\s/, '') +
+        `(${util.getWeekNum(label[0])})`
+      )
     } else if (/,/.test(label)) {
       return label.replace(/,/g, '-') + `(${util.getWeekNum(label[0])})`
     } else {
@@ -28,7 +31,7 @@ let dateHandle = (label) => {
     }
   }
 }
-import {util} from '../../utils'
+import { util } from '../../utils'
 export default {
   name: 'cBoxplot',
   props: {
@@ -98,6 +101,9 @@ export default {
       type: Number,
       default: 30
     },
+    legendFormatter: {
+      type: Function
+    },
     /**
      * 超出 最大数，x轴文案倾斜
      */
@@ -122,7 +128,7 @@ export default {
       deep: true
     }
   },
-  data () {
+  data() {
     return {
       colors: util.colors,
       xAxisTextRotate: 0
@@ -174,13 +180,30 @@ export default {
           left: 60,
           right: 40,
           top: 50,
-          bottom: this.store.x_axis.length > this.moduleMaxLength ? this.gridBottom : 30
+          bottom:
+            this.store.x_axis.length > this.moduleMaxLength
+              ? this.gridBottom
+              : 30
         },
         legend: {
           width: '60%',
           top: 0,
           type: 'scroll',
-          icon: 'circle'
+          icon: 'circle',
+          formatter:
+            this.legendFormatter ||
+            function(label) {
+              return util.strMiddleSplit(label)
+            },
+          tooltip: {
+            show: true,
+            formatter(param) {
+              const maxLength = 50
+              return param.name
+                .match(new RegExp(`\\S{1,${maxLength}}`, 'g'))
+                .join('<br/>')
+            }
+          }
         },
         tooltip: {
           backgroundColor: '#6b6b6b',
@@ -259,12 +282,13 @@ export default {
       return option
     }
   },
-  mounted () {
+  mounted() {
     this.chartSetOption()
   },
   methods: {
     chartSetOption() {
-      this.xAxisTextRotate = this.store.x_axis.length > this.moduleMaxLength ? this.xAxisRotate : 0
+      this.xAxisTextRotate =
+        this.store.x_axis.length > this.moduleMaxLength ? this.xAxisRotate : 0
       const chart = window.echarts.init(this.$refs.container)
       chart.setOption(this.option, true)
       window.__charts = [chart]
