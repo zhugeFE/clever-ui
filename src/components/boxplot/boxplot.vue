@@ -149,10 +149,15 @@ export default {
         const rows = []
         if (!xLabel) {
           xLabel = dateHandle(params.name)
-          rows.push(xLabel)
+          rows.push(`<div>${xLabel}</div>`)
         }
         // `${params.seriesName}(${util.getWeekNum(params.seriesName)})`
-        rows.push(`${params.marker} ${util.getTooltipLabel(params.seriesName)}`)
+        rows.push(
+          `<div class="tooltip-title">${params.marker} <div class="tooltip-name">${
+            params.seriesName
+          }</div></div>`
+        )
+        let seriesData = []
         if (params.seriesType === 'boxplot') {
           const labels = ['最大值', '上四分位', '中位数', '下四分位', '最小值']
           let value = [...params.value]
@@ -162,12 +167,12 @@ export default {
           value.forEach((v, i) => {
             if (i === 0) return
             if (i <= labels.length) {
-              rows.push(`${util.getTooltipLabel(labels[i - 1])}: <span>
+              seriesData.push(`${util.getTooltipLabel(labels[i - 1])}: <span>
               ${util.timeFormat(parseInt(v + '000'))}${this.valueUnit}</span>`)
             }
           })
         }
-        return rows.join('<br/>')
+        return rows.join('') + seriesData.join('<br/>')
       }
     },
     option() {
@@ -322,5 +327,17 @@ export default {
 <style lang="scss">
 .container {
   height: 240px;
+}
+.tooltip-title {
+  display: flex;
+  align-items: center;
+}
+.tooltip-name {
+  opacity: 0.8;
+  display: inline-block;
+  max-width: 300px;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
 }
 </style>
