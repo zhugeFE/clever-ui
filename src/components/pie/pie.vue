@@ -52,6 +52,9 @@ export default {
       default (option) {
         return option
       }
+    },
+    colors: {
+      type: Array
     }
   },
   data () {
@@ -113,7 +116,7 @@ export default {
     option () {
       let context = this
       return {
-        color: util.colors,
+        color: this.colors && this.colors.length ? this.colors : util.colors,
         backgroundColor: 'white',
         tooltip: {
           trigger: 'item',
